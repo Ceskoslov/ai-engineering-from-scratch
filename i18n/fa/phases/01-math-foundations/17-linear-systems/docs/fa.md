@@ -560,6 +560,18 @@ print(f"Ridge weights (sklearn): {ridge_sk.coef_}")
 
 5. زمان حل کننده Cholesky رو با حل کننده LU رو با`np.linalg.solve`در ماتریس های مثبت متقابل با اندازه 10، 50، 200، 500، نتایج را نشان دهید.
 
+### اشاره ها
+
+**Exercise 1.**تماس بگیرید`gaussian_elimination(A, b)`، پس`lu_decompose(A)`بعدش`lu_solve(P, L, U, b)`، پس`np.linalg.solve(A, b)`هر جواب رو با`np.allclose(A @ x, b)`و سه تا جواب رو با `np.allclose`. .
+
+**Exercise 2.**استفاده کنید`least_squares_normal`برای معادلات طبیعی و سه تابع NumPy برای روش های دیگر.`w_true`. مقایسه کنید`condition_number(X.T @ X)`با`condition_number(X)`: اول مربع دوم است، بنابراین معادلات عادی بیشترین دقت را از دست می دهند.
+
+**Exercise 3.**انتظار شماره شرط بالا رو داشته باش$10^{9}$. با حلش`np.linalg.solve`و با`ridge_regression(A, b, 0.01)`، بعد مقایسه کنید`np.linalg.norm(x)`هر دو باقی مانده می توانند کوچک باشند، اما محلول بدون تنظیم معمولاً ورودی های بسیار بزرگ دارد.
+
+**Exercise 4.**با استفاده از  یک ماتریس مثبت مشخص همتقارن بسازید`B @ B.T + n * np.eye(n)`، تا هر ارزش خونی مثبت باشد. به حلقه در نسخه ی `conjugate_gradient`، پس از آن بررسی کنید که حداقل نورم باقی مانده کمتر از 1e-8 است و تعداد حداکثر 100 است.
+
+**Exercise 5.**از همون استفاده کن`B @ B.T + n * np.eye(n)`ماتریس ها برای هر سه حل کننده و زمان هر حل کننده با `time.perf_counter`چولسکی به نصف حساب LU نیاز دارد، بنابراین نسبت در اندازه های بزرگتر واضح تر است.
+
 ## اصطلاحات کلیدی
 
 | Term | What people say | What it actually means |
