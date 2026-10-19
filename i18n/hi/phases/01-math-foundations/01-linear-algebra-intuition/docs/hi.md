@@ -449,6 +449,20 @@ x के संबंध में बिंदु उत्पाद का ग
 5. रैंक 2 के साथ एक 3x3 मैट्रिक्स बनाएं।  का उपयोग करके सत्यापित करें`rank()`फिर बताओ कि स्तंभों का किनारे का ज्यामितीय वस्तु क्या है।
 6. वेक्टर [1, 2, 3] को [1, 1, 1] पर प्रक्षेपित करें। परिणाम ज्यामितीय रूप से क्या दर्शाता है?
 
+### संकेत
+
+**Exercise 1.** से शुरू करें`cosine_similarity`, -1 और 1 के बीच मूल्य रखें, फिर आर्क cosine ले और डिग्री में रेडियंस परिवर्तित करें. यह जाँचें कि`Vector([1, 0])`और `Vector([0, 1])`90 और एक वेक्टर स्वयं 0 देता है।
+
+**Exercise 2.**2x2 मैट्रिक्स के विकर्ण पर दो पैमाने के कारक डालें और अन्य दो कोशिकाओं में 0 डालें। [1, 1] के लिए परिणाम [2, 3] होना चाहिए।
+
+**Exercise 3.**5 वेक्टरों (10 जोड़े) के प्रत्येक जोड़े के लिए कॉसिनस समानता की गणना करें और सबसे बड़ा मूल्य रखें। अपने लूप को पहले अपने आप के खिलाफ एक वेक्टर के साथ जांचें, जो 1 देना चाहिए।
+
+**Exercise 4.**उपयोग करें`gram_schmidt`तीन स्वतंत्र वेक्टरों पर, फिर गणना `dot`प्रत्येक जोड़ी के लिए और `magnitude`प्रत्येक वेक्टर के लिए. एक सहिष्णुता के साथ तुलना करें जैसे `1e-9`, क्योंकि फ्लोटिंग प्वाइंट सटीक शून्य नहीं देता है।
+
+**Exercise 5.**तीसरी पंक्ति या स्तंभ को पहले दो का योग बनाएं, ताकि एक दिशा दोहराए। `rank()`2 लौटा देना चाहिए, और स्तंभों फिर मूल के माध्यम से एक विमान को कवर।
+
+**Exercise 6.**पैमाने की गणना करें $\frac{a \cdot b}{b \cdot b}$और गुणा करें$b$या बुलाओ`project_onto`. . . बाकी की जाँच करें .$a$- प्रोजेक्शन में [1, 1, 1] के साथ 0 का डॉट गुणक है।
+
 ## प्रमुख शर्तें
 
 | Term | What people say | What it actually means |
@@ -462,3 +476,17 @@ x के संबंध में बिंदु उत्पाद का ग
 | Projection | "The shadow" | The component of one vector in the direction of another |
 | Basis | "The coordinate axes" | A minimal set of independent vectors that span the space |
 | Orthonormal | "Perpendicular unit vectors" | Vectors that are mutually perpendicular and each have length 1 |
+
+## संक्षेप
+
+| Formula | Meaning |
+|---------|---------|
+| $a \cdot b = \sum_i a_i b_i$ | Dot product. It measures alignment and is the core of attention scores and cosine similarity |
+| $\cos\theta = \frac{a \cdot b}{\lvert a\rvert \lvert b\rvert}$ | Angle between vectors. 1 is the same direction, 0 is orthogonal |
+| $\lvert a\rvert = \sqrt{a \cdot a}$ | Vector magnitude (length) |
+| $y = Ax, y_i = \sum_j A_{ij} x_j$ | Matrix-vector product. A neural-network layer applies it to every input |
+| $\text{proj}_b a = \frac{a \cdot b}{b \cdot b} b$ | Projection of $a$ onto $b$, the part of $a$ along $b$ |
+| $b^\perp = a - \text{proj}_b a$ | Component of $a$ perpendicular to $b$, used in Gram-Schmidt |
+| $\text{rank}(A) \leq \min(m,n)$ | Rank, the number of independent columns. It decides if $Ax = b$ has a solution |
+| $\Delta W = BA$, $B$ is 4096×16, $A$ is 16×4096 | Low-rank update. LoRA replaces a 4096×4096 update (16M parameters) with two rank-16 factors (131K parameters) |
+| Orthonormal basis: $\lvert v_i\rvert = 1, v_i \cdot v_j = 0$ | Stable, reversible transformations such as whitening and QR decomposition |

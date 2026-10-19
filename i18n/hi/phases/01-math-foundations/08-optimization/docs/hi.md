@@ -357,6 +357,16 @@ scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(adam, T_max=100)
 
 4. **Implement learning rate decay.**GradientDescent वर्ग में एक घातीय क्षय अनुसूची जोड़ेंः `lr = lr_0 * 0.999^step`. रोसेनब्रोक फ़ंक्शन पर गिरावट के साथ और बिना गिरावट के अभिसरण की तुलना करें.
 
+### संकेत
+
+**Exercise 1.**सीखने की दरों पर लूप, एक `GradientDescent(lr=...)`प्रत्येक के लिए, और इसे पारित करने के लिए `optimize`के साथ`rosenbrock`और `rosenbrock_gradient`. एक दौड़ जो विचलित होती है वह एक नुकसान को दर्शाता है जो बढ़ता है या बन जाता है`nan`; न्यूनतम $(1, 1)$0 के साथ हानि
+
+**Exercise 2.**सृजन`SGDMomentum(momentum=m)`प्रत्येक मूल्य के लिए और प्रत्येक चरण के बाद हानि दर्ज करें। उपयोग `find_convergence_step`गति की तुलना करने के लिए, और खोने के लिए देख जो ऊपर और नीचे जाने के लिए ओवरसोच खोजने के लिए.
+
+**Exercise 3.**ग्रेडिएंट लिखें $(2x, -2y)$और (0.01, 0.01) से तीन अनुकूलक चलाएं।$y$हर 100 कदम: अनुकूलक जो बच जाता है वह है जहां $\lvert y \rvert$बड़ा हो जाता है।
+
+**Exercise 4.**स्टोर `lr_0`और एक कदम काउंटर में `GradientDescent`, और गणना `lr = lr_0 * 0.999 ** step`अंदर`step`. सीखने की दर को चरण 0 और चरण 1000 पर प्रिंट करें; यह `lr_0`के बारे में $0.37 \times \text{lr}_0$. .
+
 ## प्रमुख शर्तें
 
 | Term | What people say | What it actually means |
