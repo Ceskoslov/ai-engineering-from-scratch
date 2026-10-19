@@ -357,6 +357,16 @@ scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(adam, T_max=100)
 
 4. **Implement learning rate decay.**إضافة جدول للتحلل المتعرض للفئة GradientDescent: `lr = lr_0 * 0.999^step`مقارنة التقارب مع ودون التدهور على وظيفة روزنبروك.
 
+### إشارات
+
+**Exercise 1.**إزالة معدلات التعلم، إنشاء`GradientDescent(lr=...)`لكل واحد، ونقلها إلى`optimize`مع`rosenbrock`و`rosenbrock_gradient`. إدارة التي تختلف تظهر خسارة التي تنمو أو تصبح`nan`الحد الأدنى هو $(1, 1)$مع خسارة 0.
+
+**Exercise 2.**إخلق`SGDMomentum(momentum=m)`لكل قيمة و سجل الخسارة بعد كل خطوة.`find_convergence_step`لمقارنة السرعة، والبحث عن الخسائر التي تذهب صعودا وهبوطا للعثور على تجاوز.
+
+**Exercise 3.**اكتب التراجع$(2x, -2y)$و تشغيل المحفزات الثلاثة من (0.01, 0.01). طبع $y$كل 100 خطوة: المحسن الذي يفر هو واحد حيث $\lvert y \rvert$يزداد حجمها
+
+**Exercise 4.**التخزين`lr_0`ومركز العداد`GradientDescent`و الحساب`lr = lr_0 * 0.999 ** step`داخل`step`. طبع معدل التعلم في الخطوة 0 و الخطوة 1000؛ يجب أن ينخفض من `lr_0`إلى حوالي$0.37 \times \text{lr}_0$. . .
+
 ## الشروط الرئيسية
 
 | Term | What people say | What it actually means |

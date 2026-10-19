@@ -449,6 +449,20 @@ print(f"d(dot)/dx = {x.grad}")
 5. قم بإنشاء ماتريك 3x3 مع رتبة 2. التحقق باستخدام `rank()`ثم شرح أي كائن هندسي تتجاوز الأعمدة.
 6. ارضوا الناقل [١، ٢، ٣] إلى [١، ١، ١] ما الذي يمثل النتيجة الهندسية؟
 
+### إشارات
+
+**Exercise 1.**ابدأ من`cosine_similarity`، الحفاظ على القيمة بين -1 و 1, ثم أخذ القوسين القوس و تحويل الرياديانات إلى درجات. تحقق من ذلك`Vector([1, 0])`و`Vector([0, 1])`أعطينا 90 و أن المتجه نفسه يعطي 0.
+
+**Exercise 2.**ضع عاملين مقياس على خط المصفوفة 2x2 ووضع 0 في الخلايا الأخرى. يجب أن تكون النتيجة ل [1, 1] [2, 3].
+
+**Exercise 3.**احسب تشابه الكوسينوس لكل زوج من 5 متجهات (10 زوجات) واحفظ أكبر قيمة. تحقق من حلقةك أولاً مع متجه ضد نفسه، الذي يجب أن يعطي 1.
+
+**Exercise 4.**استخدام`gram_schmidt`على ثلاثة متجهات مستقلة، ثم الحساب`dot`لكل زوج و`magnitude`مقارنة مع تسامح مثل `1e-9`، لأن نقطة العبور لا تعطى الصفر الدقيقة.
+
+**Exercise 5.**اجعل الصف الثالث أو العمود مجموع الاثنين الأولين، حتى يتكرر الاتجاه واحد. `rank()`يجب أن يعود 2، والعمود ثم تتجاوز طائرة من خلال المنشأ.
+
+**Exercise 6.**احسب النطاق$\frac{a \cdot b}{b \cdot b}$و تكرار$b$أو اتصل بها`project_onto`تحقق من البقية$a$- التنبؤ لديه نسبة نقطة من 0 مع [1, 1, 1].
+
 ## الشروط الرئيسية
 
 | Term | What people say | What it actually means |
@@ -462,3 +476,17 @@ print(f"d(dot)/dx = {x.grad}")
 | Projection | "The shadow" | The component of one vector in the direction of another |
 | Basis | "The coordinate axes" | A minimal set of independent vectors that span the space |
 | Orthonormal | "Perpendicular unit vectors" | Vectors that are mutually perpendicular and each have length 1 |
+
+## الموجة
+
+| Formula | Meaning |
+|---------|---------|
+| $a \cdot b = \sum_i a_i b_i$ | Dot product. It measures alignment and is the core of attention scores and cosine similarity |
+| $\cos\theta = \frac{a \cdot b}{\lvert a\rvert \lvert b\rvert}$ | Angle between vectors. 1 is the same direction, 0 is orthogonal |
+| $\lvert a\rvert = \sqrt{a \cdot a}$ | Vector magnitude (length) |
+| $y = Ax, y_i = \sum_j A_{ij} x_j$ | Matrix-vector product. A neural-network layer applies it to every input |
+| $\text{proj}_b a = \frac{a \cdot b}{b \cdot b} b$ | Projection of $a$ onto $b$, the part of $a$ along $b$ |
+| $b^\perp = a - \text{proj}_b a$ | Component of $a$ perpendicular to $b$, used in Gram-Schmidt |
+| $\text{rank}(A) \leq \min(m,n)$ | Rank, the number of independent columns. It decides if $Ax = b$ has a solution |
+| $\Delta W = BA$, $B$ is 4096×16, $A$ is 16×4096 | Low-rank update. LoRA replaces a 4096×4096 update (16M parameters) with two rank-16 factors (131K parameters) |
+| Orthonormal basis: $\lvert v_i\rvert = 1, v_i \cdot v_j = 0$ | Stable, reversible transformations such as whitening and QR decomposition |
