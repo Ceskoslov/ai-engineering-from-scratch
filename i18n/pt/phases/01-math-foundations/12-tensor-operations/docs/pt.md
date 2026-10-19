@@ -320,6 +320,16 @@ Esta lição produz duas instruções reutilizáveis:
 
 4. **Hard -- Attention shape tracker.**Escreva uma função que leva `batch_size`- Não .`seq_len`- Não .`embed_dim`, e `num_heads`As informações são fornecidas por meio de uma análise de dados e de uma análise de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados e de dados, de dados, de dados e de dados, de dados e de dados, de dados, de dados, de dados e de dados, de dados, de dados, de dados, de dados e de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de dados, de, de dados,`demo_attention_einsum()`- A saída.
 
+### Indicios
+
+**Exercise 1.**Construir o tensor a partir de `list(range(24))`Assim, cada elemento mostra a sua posição.`reshape`- Chamem, imprimem.`flatten().to_list()`e verifique se ainda está 0 a 23 em ordem.
+
+**Exercise 2.**Uma dimensão só pode ser transmitida quando os dois tamanhos são iguais ou um deles é 1, então verifique essa regra primeiro e levante um erro quando falha.`(3, 1)`E ...`(1, 4)`, verifique essa entrada .`[i][j]`do resultado é igual `a[i][0] + b[0][j]`, e comparar o resultado completo com NumPy.
+
+**Exercise 3.**Divide os subscritores em `->`Uma letra que está nas entradas mas não na saída é um índice sumado, então, enrolem todos os valores de cada letra e adicione na posição de saída. Teste cada um dos quatro casos em pequenas matrizes aleatórias com `np.allclose(mine, np.einsum(...))`- Não .
+
+**Exercise 4.**Comece com o tamanho da cabeça .`embed_dim // num_heads`E afirmam isso.`embed_dim % num_heads == 0`As pontuações de atenção têm forma .`(batch_size, num_heads, seq_len, seq_len)`, por isso verifique a sua impressão contra essa forma e contra as formas que`demo_attention_einsum()`- Impressões.
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

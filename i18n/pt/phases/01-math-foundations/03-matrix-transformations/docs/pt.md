@@ -437,6 +437,14 @@ Esta lição constrói a base geométrica para PCA (Fase 2) e análise de peso d
 
 3. Crie uma composição de três transformações (rotação de 30 graus, escala por [1,5, 0,8], corte com kx=0,3) e aplique-a a 8 pontos dispostos em um círculo. Imprima antes e depois das coordenadas.
 
+### Indicios
+
+**Exercise 1.**Aplicar`rotation_2d`- Não .`scaling_2d`, e `shearing_2d`para cada canto com `mat_vec_mul`Para a rotação, calcule os 4 comprimentos laterais e os 2 diagonais antes e depois; cada um deve permanecer igual.
+
+**Exercise 2.**Escreva a equação característica $\lambda^2 - (\text{trace})\lambda + \det = 0$Verifique se os seus dois valores somam-se ao rastro (7) e multiplicam-se ao determinante (10), então compare com `eigenvalues_2x2`E ...`np.linalg.eigvals`- Não .
+
+**Exercise 3.**Construir as três matrizes, com `shearing_2d(0.3, 0)`Para o corte, multiplica-os por `mat_mul`na ordem de aplicação, e aplicar o resultado a 8 pontos $(\cos\theta, \sin\theta)$A rotação tem um determinante de 1 e o corte tem um determinante de 1, então `det_2x2`de composição deve ser igual $1.5 \times 0.8 = 1.2$- Não .
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

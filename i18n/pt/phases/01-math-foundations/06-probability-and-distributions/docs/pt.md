@@ -448,6 +448,16 @@ Construíste isto do zero, agora sabes o que fazem as chamadas da biblioteca.
 
 4. Escreva uma função que tome uma lista de probabilidades de registro e retorna a sequência mais provável, a probabilidade total de registro e a probabilidade bruta equivalente. Teste com uma frase de 50 palavras onde cada palavra tem probabilidade de 0,01.
 
+### Indicios
+
+**Exercise 1.**Desenhar`u`de uma distribuição e retorno uniformes $-\ln(1 - u) / \lambda$Verifique se a média da amostra está próxima de$1/\lambda$e que os canhões de histograma seguem $\lambda e^{-\lambda x}$- Não .
+
+**Exercise 2.**Preencha uma tabela de 6x6 onde cada célula é uma probabilidade e a soma de todas as células é 1, então ligue `joint_to_marginals`- Usar .`check_independence`A probabilidade de um dado ser independente é de que cada célula seja igual ao produto de suas duas margens.
+
+**Exercise 3.**Aplicar`softmax`Para as logites e levar $-\ln$O resultado deve ser próximo de 0,421, que é o valor `nn.CrossEntropyLoss`dá para os mesmos logits e alvo.
+
+**Exercise 4.**Adicione as probabilidades de registro; não multiplica probabilidades brutas. Para 50 palavras com probabilidade 0.01, o total deve ser $50 \ln(0.01) \approx -230.26$, e a probabilidade bruta é $10^{-100}$- Não .
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

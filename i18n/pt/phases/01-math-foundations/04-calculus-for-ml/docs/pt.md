@@ -612,6 +612,14 @@ A PyTorch automatiza o cálculo do gradiente, mas o ciclo de atualização é id
 2. Use descida de gradiente para encontrar o mínimo de $f(x, y) = (x - 3)^2 + (y + 1)^2$Começa com:$(0, 0)$A resposta deve convergir para $(3, -1)$- Não .
 3. Adicionar impulso ao loop de descida de gradiente: manter um vetor de velocidade que acumula gradientes passados. Compare a velocidade de convergência com e sem impulso em$f(x) = x^4 - 3x^2$- Não .
 
+### Indicios
+
+**Exercise 1.**Defina um ajudante que volte .`numerical_derivative(f, x)`E passar esse ajudante para `numerical_derivative`Se o resultado for ruidoso, use um passo maior, como `h=1e-4`para ambas as chamadas; o valor em $x=2$Deve estar perto de 12.
+
+**Exercise 2.**Escreva o gradiente $(2(x - 3), 2(y + 1))$ou utilização `numerical_gradient`, e ligar`gradient_descent_nd`de$(0, 0)$Imprima o ponto a cada 10 passos; ele deve avançar para o$(3, -1)$e a perda deve cair para perto de 0.
+
+**Exercise 3.**Mantém uma velocidade .`v`, actualize-o como `v = momentum * v - lr * grad`, depois adicionar `v`- Não .`x`. Conte os passos que cada método precisa para atingir um gradiente próximo a 0; o mínimo é $x = \pm\sqrt{1.5} \approx \pm 1.225$- Não .
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

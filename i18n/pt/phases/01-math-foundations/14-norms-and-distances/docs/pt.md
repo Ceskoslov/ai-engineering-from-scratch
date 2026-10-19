@@ -484,6 +484,18 @@ Quando ligares .`model.encode(text)`O modelo de incorporação mapeia o texto pa
 
 5. Implemente MinHash para a semelhança aproximada com Jaccard. Gerencie 100 conjuntos aleatórios, compute o Jaccard exato para todos os pares e compare com a aproximação MinHash usando funções de hash 50, 100 e 200.
 
+### Indicios
+
+**Exercise 1.**O vector de diferença é (-3, 2, -3), então, calcular as três normas desse vector com `l1_norm`- Não .`l2_norm`, e `linf_norm`Para a prova, compare o maior.$\lvert d_i \rvert$Com a soma dos quadrados, e comparar a soma dos quadrados com o quadrado da soma dos valores absolutos.
+
+**Exercise 2.**A semelhança cosínica ignora a comprimento, então comece com dois vetores que apontam quase na mesma direção e faça um deles muito mais longo. Para o segundo caso, use dois vetores curtos perto da origem que apontam em direções diferentes, depois verifique ambas as condições com `cosine_similarity`E ...`l2_distance`- Não .
+
+**Exercise 3.**Liga-me .`find_nearest_neighbor(query, dataset, distance_fn)`Uma vez por cada um .`l1_distance`- Não .`l2_distance`- Não .`cosine_distance`, e `mahalanobis_distance`- Não .`demo_different_neighbors`mostra um conjunto de dados onde as métricas discordam, então leia primeiro e depois mude os pontos até que as quatro respostas diferam.
+
+**Exercise 4.**Escreva a soma cumulativa de cada distribuição, adicione as diferenças absolutas das duas somas cumulativas.`wasserstein_1d(p, q)`, então explicar o valor maior por quão longe a massa de probabilidade deve mover.
+
+**Exercise 5.**Para cada função hash, a assinatura MinHash de um conjunto é o valor hash mínimo sobre seus elementos, e a fração de funções hash onde dois conjuntos obtêm as mesmas estimativas mínimas de sua semelhança com Jaccard.`jaccard_similarity`O erro deve ser aproximadamente $1/\sqrt{k}$Para$k$funções hash.
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

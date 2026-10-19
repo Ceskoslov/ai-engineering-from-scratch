@@ -437,6 +437,18 @@ A principal ideia sobre todas estas conexões: os processos estocásticos não s
 
 5. **Implement the forward diffusion process.**Comece com um sinal 1D (por exemplo, uma onda sinusal). Adicione ruído progressivamente em mais de 100 passos com um cronograma de ruído linear. Mostre como o sinal se degrada para ruído puro. Em seguida, implemente um denoizador simples que inverte o processo (mesmo um ingênuo que apenas subtrai o ruído estimado).
 
+### Indicios
+
+**Exercise 1.**Liga-me .`random_walk_1d(10000, seed=i)`Verifique se a média está perto de 0, o desvio padrão está perto de 100, e cerca de 68% das posições finais estão entre -100 e 100.
+
+**Exercise 2.**Conte cada par de palavras, depois divida cada linha pelo total para que cada linha somar até 1. Passe a matriz para `MarkovChain(transition_matrix, state_names)`e ligar .`simulate`Verifique se cada par de palavras na sua saída também aparece no corpus.
+
+**Exercise 3.**Aceita um ponto pior com probabilidade .$\exp(-\Delta / T)$e multiplicam .$T$Teste em uma função cujo mínimo você sabe, e verifique sua resposta contra uma busca de rede fina.
+
+**Exercise 4.**O gradiente é $4x(x^2 - 1)$, então passa isso para `langevin_dynamics(grad_U, x0, dt, temperature, n_steps)`A barreira no$x = 0$Tem altura 1, então conta com que frequência o sinal de$x$As alterações de temperatura de 0,05 a 1 e procurar a temperatura em que a contagem começa a aumentar rapidamente.
+
+**Exercise 5.**Liga-me .`diffusion_forward(signal, 100)`e computação .$\bar{\alpha}$O resultado da análise é o resultado da análise de dados.$(1 - \beta_t)$Se ...$\bar{\alpha}$Está longe de 0, o sinal ainda não é ruído puro, então eleve `beta_end`Teste o teu denoiser primeiro com o ruído verdadeiro .$(x_t - \sqrt{1 - \bar{\alpha}_t} \epsilon)/\sqrt{\bar{\alpha}_t}$Deve devolver o sinal original exactamente.
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |
