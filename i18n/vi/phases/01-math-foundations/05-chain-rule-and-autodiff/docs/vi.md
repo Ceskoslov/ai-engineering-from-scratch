@@ -499,6 +499,16 @@ Các lớp giá trị được xây dựng ở đây là nền tảng cho vòng 
 
 4. Thực hiện tự động định dạng hướng trước sử dụng hai số.`Dual`lớp và xác minh nó cung cấp các phái sinh tương tự như động cơ chế ngược của bạn.
 
+### Những gợi ý
+
+**Exercise 1.** `Value`đã xác định `__pow__`- Đọc nó.`_backward`và xác nhận nó áp dụng $n x^{n-1}$đến độ nghiêng tiếp cận.`x = Value(2.0)`- `y = x ** 3`- `y.backward()``x.grad`phải là 12,0.
+
+**Exercise 2.**Sử dụng $\tanh'(x) = 1 - \tanh(x)^2$trong `_backward`Hãy kiểm tra với sự khác biệt hữu hạn của chính mình:$\frac{\tanh(x + h) - \tanh(x - h)}{2h}$phải đồng ý với $x = 0$và $x = 2$- Tôi không biết.
+
+**Exercise 3.**- Cây lên`w1*x1 + w2*x2 + b`từ `Value`các đối tượng, áp dụng `relu`, và gọi `backward`Trước khi so sánh với PyTorch, kiểm tra bằng tay: nếu đầu vào đến `relu`là tích cực, gradient cho `w1`=`x1`; nếu nó là âm, tất cả năm gradient là 0.
+
+**Exercise 4.**Đặt một giá trị và một phái sinh trong mỗi `Dual`, và sử dụng quy tắc sản phẩm $(a, a')(b, b') = (ab, a'b + ab')$Để nhân. Thấy đầu vào với phái sinh 1 và so sánh kết quả với `x.grad`từ động cơ chế ngược cho cùng một chức năng.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

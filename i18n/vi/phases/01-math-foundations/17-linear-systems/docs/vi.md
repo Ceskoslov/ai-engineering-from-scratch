@@ -560,6 +560,18 @@ Bài học này mang lại:
 
 5. Thời gian của bạn cho cholesky giải quyết vs LU giải quyết vs `np.linalg.solve`trên các số liệu xác định tích cực đối xứng với kích thước 10, 50, 200, 500.
 
+### Những gợi ý
+
+**Exercise 1.**Gọi`gaussian_elimination(A, b)`, sau đó `lu_decompose(A)`tiếp theo là `lu_solve(P, L, U, b)`, sau đó `np.linalg.solve(A, b)`Hãy kiểm tra từng câu trả lời với `np.allclose(A @ x, b)`và so sánh ba câu trả lời với `np.allclose`- Tôi không biết.
+
+**Exercise 2.**Sử dụng `least_squares_normal`cho các phương trình bình thường và ba hàm NumPy cho các phương pháp khác.`w_true`- So sánh`condition_number(X.T @ X)`với `condition_number(X)`: thứ nhất là hình vuông của thứ hai, vì vậy các phương trình bình thường mất độ chính xác nhất.
+
+**Exercise 3.**Hãy mong đợi một số điều kiện ở trên $10^{9}$- Giải quyết với `np.linalg.solve`và với `ridge_regression(A, b, 0.01)`, sau đó so sánh`np.linalg.norm(x)`Cả hai chất còn lại có thể nhỏ, nhưng dung dịch không có quy định thường có các mục rất lớn.
+
+**Exercise 4.**Làm một matrix xác định tích cực đối xứng với `B @ B.T + n * np.eye(n)`, để mỗi giá trị bản chất là tích cực. Thêm một đếm vào vòng lặp trong bản sao của bạn của `conjugate_gradient`, sau đó kiểm tra rằng chuẩn dư cuối cùng là dưới 1e-8 và rằng con số là tối đa 100.
+
+**Exercise 5.**Sử dụng cùng một `B @ B.T + n * np.eye(n)`các matrices cho cả ba giải pháp và thời gian mỗi giải quyết với `time.perf_counter`Cholesky cần khoảng một nửa số toán của LU, vì vậy tỷ lệ rõ ràng nhất ở các kích thước lớn hơn.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

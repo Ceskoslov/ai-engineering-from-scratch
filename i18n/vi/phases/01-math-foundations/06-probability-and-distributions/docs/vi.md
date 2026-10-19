@@ -448,6 +448,16 @@ Anh đã xây dựng những cái này từ đầu rồi, giờ anh biết nhữ
 
 4. Viết một hàm lấy danh sách xác suất log và trả lại chuỗi có khả năng nhất, tổng xác suất log và xác suất nguyên thô tương đương.
 
+### Những gợi ý
+
+**Exercise 1.**Chụp`u`từ phân phối và trả lại đồng nhất $-\ln(1 - u) / \lambda$Kiểm tra xem trung bình mẫu gần như là $1/\lambda$và các hộp histogram theo dõi $\lambda e^{-\lambda x}$- Tôi không biết.
+
+**Exercise 2.**Thấp đầy một bảng 6x6 nơi mỗi tế bào là một xác suất và tổng của tất cả các tế bào là 1, sau đó gọi `joint_to_marginals`- Sử dụng`check_independence`: các xúc xắc chỉ độc lập nếu mỗi tế bào bằng với sản phẩm của hai bên cạnh của nó.
+
+**Exercise 3.**Đơn `softmax`đến các logits và lấy $-\ln$của xác suất tại chỉ số 3. Kết quả phải gần 0,421, đó là giá trị `nn.CrossEntropyLoss`cho cùng một mục tiêu và mục tiêu.
+
+**Exercise 4.**Thêm các xác suất log; không nhân xác suất nguyên thô. Đối với 50 từ với xác suất 0.01, tổng số phải là $50 \ln(0.01) \approx -230.26$, và xác suất thô là $10^{-100}$- Tôi không biết.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

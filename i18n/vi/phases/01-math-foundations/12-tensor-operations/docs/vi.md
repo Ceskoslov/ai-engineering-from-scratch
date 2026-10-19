@@ -320,6 +320,16 @@ Bài học này tạo ra hai lời nhắc lặp lại:
 
 4. **Hard -- Attention shape tracker.**Viết một hàm có tính`batch_size`- `seq_len`- `embed_dim`, và`num_heads`như đầu vào và in ấn hình dạng chính xác tại mỗi bước của nhiều đầu chú ý: đầu vào, Q / K / V dự đoán, đầu chia, điểm chú ý, trọng lượng mềmmax, tổng cân, đầu hợp, đầu ra.`demo_attention_einsum()`đầu ra.
 
+### Những gợi ý
+
+**Exercise 1.**Xây dựng tensor từ `list(range(24))`Vì vậy, mỗi yếu tố cho thấy vị trí của riêng nó.`reshape`gọi, in `flatten().to_list()`và kiểm tra xem nó vẫn là 0 đến 23 theo thứ tự.
+
+**Exercise 2.**Một chiều chỉ có thể phát sóng khi hai kích thước bằng nhau hoặc một trong số chúng là 1, vì vậy kiểm tra quy tắc đó trước tiên và đưa ra một lỗi khi nó thất bại.`(3, 1)`và `(1, 4)`, kiểm tra mục đó `[i][j]`của kết quả bằng nhau `a[i][0] + b[0][j]`, và so sánh kết quả đầy đủ với NumPy.
+
+**Exercise 3.**Chia các thuê bao trên `->`. Một chữ cái trong các đầu vào nhưng không trong đầu ra là một chỉ số tổng cộng, vì vậy vòng qua tất cả các giá trị của mỗi chữ cái và thêm vào vị trí đầu ra.`np.allclose(mine, np.einsum(...))`- Tôi không biết.
+
+**Exercise 4.**Bắt đầu với kích thước đầu `embed_dim // num_heads`và khẳng định điều đó.`embed_dim % num_heads == 0`Điểm chú ý có hình dạng`(batch_size, num_heads, seq_len, seq_len)`, nên kiểm tra bản in của bạn với hình dạng đó và với các hình dạng mà `demo_attention_einsum()`- Nhìn vân tay.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

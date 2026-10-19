@@ -520,6 +520,18 @@ Bài học này mang lại:
 
 5. Tạo một số liệu thấp (tầng 3, kích thước 50x40) và thêm tiếng ồn Gaussian ở các cấp độ khác nhau ($\sigma$= 0,1, 0,5, 1,0, 2.0). Đối với mỗi mức tiếng ồn, tìm ra mức cắt giảm tối ưu bằng cách lau $k$từ 1 đến 40 và đo lỗi tái tạo với matrix sạch.$k$thay đổi với mức độ tiếng ồn.
 
+### Những gợi ý
+
+**Exercise 1.**Lưu ý$A^T A$, lấy các giá trị riêng và các vector riêng của nó với `np.linalg.eigh`, và sắp xếp chúng theo thứ tự giảm. các giá trị đơn vị là các gốc vuông của các giá trị riêng; kiểm tra rằng$U \Sigma V^T$xây dựng lại $A$và so sánh lỗi với `svd_from_scratch`và `np.linalg.svd`- Tôi không biết.
+
+**Exercise 2.**Gọi`truncated_svd`cho mỗi cấp bậc, xây dựng lại hình ảnh với `reconstruct`, và sử dụng `compression_ratio(m, n, k)`lỗi tương đối phải giảm khi xếp hạng tăng lên, và thứ hạng đầu tiên mà bạn không thấy các khối rõ ràng là câu trả lời.
+
+**Exercise 3.**Đánh dấu các tế bào thiếu, lấp đầy chúng với đường trung bình hàng, sau đó xây dựng lại một mức độ 3 gần với `truncated_svd`và `reconstruct`Sau đó đo kết quả: đếm các dự đoán bên ngoài phạm vi xếp hạng, và in thay đổi lớn nhất trong một tế bào được biết.
+
+**Exercise 4.**Cho mỗi chủ đề một khối 5 từ với số lượng cao cho tài liệu của nó, sau đó thêm tiếng ồn nhỏ. Bác các giá trị đơn lẻ: 3 đầu tiên phải lớn hơn nhiều so với 4th. Sau đó màu các điều phối 3D theo chủ đề và kiểm tra rằng mỗi chủ đề tạo thành một nhóm.
+
+**Exercise 5.**Làm cho các matrix sạch như là sản phẩm của một 50x3 và một 3x40 matrix ngẫu nhiên, sau đó thêm tiếng ồn cho mỗi $\sigma$. cho mỗi người$k$, so sánh cấp độ $k$tái tạo với matrix sạch; mong đợi tốt nhất $k$gần 3 đối với tiếng ồn thấp và nhỏ hơn đối với tiếng ồn cao.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

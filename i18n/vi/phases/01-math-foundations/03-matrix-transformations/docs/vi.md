@@ -437,6 +437,14 @@ Bài học này xây dựng nền tảng hình học cho PCA (Phase 2) và phân
 
 3. Tạo một cấu trúc gồm ba biến đổi (đối tròn 30 độ, đo bằng [1,5, 0,8], cắt bằng kx=0,3) và áp dụng nó cho 8 điểm được sắp xếp trong một vòng tròn. Bác trước và sau các phối hợp. Xét định số của các matrix được tạo thành và xác minh nó bằng với sản phẩm của các định số riêng lẻ.
 
+### Những gợi ý
+
+**Exercise 1.**Đơn `rotation_2d`- `scaling_2d`, và`shearing_2d`đến mỗi góc với `mat_vec_mul`. Đối với sự xoay quanh, tính toán 4 chiều dài bên và 2 đường chọc trước và sau; mỗi phải giữ nguyên.
+
+**Exercise 2.**Viết phương trình đặc trưng $\lambda^2 - (\text{trace})\lambda + \det = 0$Hãy kiểm tra hai giá trị của bạn cộng với dấu vết (7) và nhân lên số xác định (10), sau đó so sánh với `eigenvalues_2x2`và `np.linalg.eigvals`- Tôi không biết.
+
+**Exercise 3.**Xây dựng ba bộ tử, với `shearing_2d(0.3, 0)`cho việc cắt, nhân chúng với `mat_mul`theo thứ tự ứng dụng, và áp dụng kết quả cho 8 điểm $(\cos\theta, \sin\theta)$. Chuyển quay có một định đo của 1 và cắt có một định đo của 1, vì vậy `det_2x2`của thành phần phải bằng $1.5 \times 0.8 = 1.2$- Tôi không biết.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

@@ -440,6 +440,18 @@ freqs = np.fft.fftfreq(128, d=1/128)
 
 5. **Rotation matrix equivalence.**Đối với 10 góc ngẫu nhiên và 10 điểm ngẫu nhiên, xác minh rằng nhân phức hợp mang lại kết quả tương tự như nhân tử-vector với các 2x2 quay tử liệu.
 
+### Những gợi ý
+
+**Exercise 1.**Tăng sản phẩm với $i^2 = -1$, sau đó chia bằng cách nhân phần trên và dưới bằng conyugat $1 + 3i$Kiểm tra sản phẩm với `Complex(2, 3) * Complex(4, -1)`: của nó `magnitude()`phải bằng với nhân của hai cường độ, và nó `phase()`phải bằng với tổng của hai giai đoạn.
+
+**Exercise 2.**Hãy bước đi với `euler(math.pi / 6)`và nhân 12 lần. Ở mỗi bước, kiểm tra rằng độ lớn vẫn là 1 và góc tăng thêm 30 độ. Điểm cuối cùng phải là trong khoảng 1e-12 của (1, 0).
+
+**Exercise 3.**Hãy ghi thời gian với $t = n/32$và gọi`dft`Chỉ nhìn vào các thùng 0 đến 15, bởi vì nửa trên là hình ảnh gương.$k$cho một âm âm của độ lớn $A$là $AN/2$, nên mong đợi khoảng 16 ở Bin 3 và khoảng 8 ở Bin 7.
+
+**Exercise 4.**Gọi`roots_of_unity(8)`và thêm các gốc: quy mô của tổng số phải gần 0. Chia mỗi gốc bằng gốc trước và kiểm tra rằng mọi kết quả đều bằng `euler(2 * math.pi / 8)`- Tôi không biết.
+
+**Exercise 5.**Các mô hình quay là [[cos t, -sin t], [sin t, cos t]]. Đối với mỗi góc và điểm, tính toán `euler(t) * Complex(x, y)`và các sản phẩm tử liệu, sau đó ghi lại sự khác biệt tuyệt đối lớn nhất.$10^{-15}$- Tôi không biết.
+
 ## Các điều khoản chính
 
 | Term | What it means |

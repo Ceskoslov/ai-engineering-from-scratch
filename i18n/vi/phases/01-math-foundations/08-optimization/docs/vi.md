@@ -357,6 +357,16 @@ Các lớp tối ưu hóa được xây dựng ở đây xuất hiện lại tro
 
 4. **Implement learning rate decay.**Thêm một lịch trình phân rã theo hàm số cao vào lớp GradientDescent: `lr = lr_0 * 0.999^step`So sánh sự hội tụ với và không phân rã trên hàm Rosenbrock.
 
+### Những gợi ý
+
+**Exercise 1.**Lòng qua các tỷ lệ học tập, tạo ra một `GradientDescent(lr=...)`cho mỗi người, và chuyển nó cho `optimize`với `rosenbrock`và `rosenbrock_gradient`Một lần chạy khác nhau cho thấy một khoản thua lỗ tăng lên hoặc trở thành`nan`; tối thiểu là $(1, 1)$với lỗ 0.
+
+**Exercise 2.**Tạo ra`SGDMomentum(momentum=m)`cho mỗi giá trị và ghi lại tổn thất sau mỗi bước. Sử dụng `find_convergence_step`để so sánh tốc độ, và tìm kiếm lỗ tăng và giảm để tìm quá tải.
+
+**Exercise 3.**Viết gradient $(2x, -2y)$và chạy ba tối ưu hóa từ (0.01, 0.01).$y$mỗi 100 bước: tối ưu hóa thoát ra là một nơi $\lvert y \rvert$lớn lên.
+
+**Exercise 4.**Cửa hàng `lr_0`và một máy tính bước trong `GradientDescent`, và tính toán`lr = lr_0 * 0.999 ** step`bên trong`step`. Bác ấn tốc độ học tập ở bước 0 và bước 1000; nó phải rơi từ `lr_0`đến khoảng $0.37 \times \text{lr}_0$- Tôi không biết.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

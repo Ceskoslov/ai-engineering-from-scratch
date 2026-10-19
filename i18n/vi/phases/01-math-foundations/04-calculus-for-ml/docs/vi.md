@@ -612,6 +612,14 @@ PyTorch tự động hóa tính toán gradient, nhưng vòng lặp cập nhật 
 2. Sử dụng độ giảm gradient để tìm được tối thiểu của $f(x, y) = (x - 3)^2 + (y + 1)^2$Bắt đầu từ$(0, 0)$Câu trả lời nên hội tụ với $(3, -1)$- Tôi không biết.
 3. Thêm động lực vào vòng tròn giảm gradient: duy trì một vector tốc độ tích lũy gradient trước. So sánh tốc độ hội tụ với và không động lực trên $f(x) = x^4 - 3x^2$- Tôi không biết.
 
+### Những gợi ý
+
+**Exercise 1.**Định nghĩa một người giúp đỡ trở lại `numerical_derivative(f, x)`và đưa người giúp đỡ đó đến `numerical_derivative`Nếu kết quả là tiếng ồn, sử dụng một bước lớn hơn như `h=1e-4`cho cả hai cuộc gọi; giá trị tại $x=2$Phải gần 12 rồi.
+
+**Exercise 2.**Viết gradient $(2(x - 3), 2(y + 1))$hoặc sử dụng `numerical_gradient`, và gọi `gradient_descent_nd`từ $(0, 0)$Bác in điểm mỗi 10 bước; nó phải di chuyển về phía $(3, -1)$và thua lỗ phải giảm xuống gần 0.
+
+**Exercise 3.**Giữ tốc độ `v`, cập nhật nó như `v = momentum * v - lr * grad`, sau đó thêm `v`đến`x`. Đếm các bước mà mỗi phương pháp cần để đạt đến một gradient gần 0; tối thiểu là ở $x = \pm\sqrt{1.5} \approx \pm 1.225$- Tôi không biết.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

@@ -535,6 +535,18 @@ print(f"Support vectors: {svm.n_support_}")
 
 5. **Hessian eigenvalue analysis.**Xét Hessian của hàm Rosenbrock ở (1,1) và ở (-1,1). Xét các giá trị riêng ở cả hai điểm.
 
+### Những gợi ý
+
+**Exercise 1.**Hãy dự đoán từng kết quả trước khi chạy `check_convexity`: trong một chiều, nhìn vào dấu hiệu của$f''(x)$; trong hai chiều, hãy xem các giá trị riêng của Hessian.$f(x,y) = xy$, Hessian có giá trị riêng 1 và -1, vì vậy kiểm tra phải báo cáo rằng nó không phải là ngọc.
+
+**Exercise 2.**Gọi`optimize_gd`và `newtons_method`với độ nghiêng và Hessian của $f$Phương pháp Newton giải quyết một phương pháp hình vuông trong một bước.$2/100$vì $50x^2$thuật ngữ, do đó $y$hướng di chuyển chậm.$100x^2$và đếm lại các bước.
+
+**Exercise 3.**Sử dụng `lagrange_solve`với $g(x,y) = x + 2y - 4$- Đáp lại, hãy kiểm tra.$x + 2y = 4$Và đó là$\nabla f = (2(x-3), 2(y-3))$là một nhân của $\nabla g = (1, 2)$- Tôi không biết.
+
+**Exercise 4.**Điểm tối thiểu không bị hạn chế (3, 2) nằm bên ngoài kim cương, vì vậy câu trả lời nằm ở biên giới của nó. Sử dụng hạ độ nghiêng dự đoán: thực hiện một bước nghiêng, sau đó chiếu trở lại trên $\lvert x \rvert + \lvert y \rvert \le 1$Kiểm tra kết quả đáp ứng hạn chế bằng bình đẳng và so sánh nó với`demo_regularization_geometry`- Tôi không biết.
+
+**Exercise 5.**Gọi`rosenbrock_hessian`ở mỗi điểm và chuyển kết quả cho `hessian_eigenvalues_2d`Ở (1, 1), cả hai giá trị tự đều tích cực và tỷ lệ của chúng rất lớn, vì vậy thung lũng là hẹp ở một hướng và phẳng ở hướng khác. So sánh tỷ lệ đó với tỷ lệ ở (-1, 1).
+
 ## Các điều khoản chính
 
 | Term | What it means |

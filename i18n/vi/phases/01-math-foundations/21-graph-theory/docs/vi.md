@@ -481,6 +481,18 @@ nơi $\hat{A} = A + I$(đối diện cộng với tự vòng) và $\hat{D}$là c
 
 5. **Analyze a real-world graph.**Sử dụng biểu đồ Câu lạc bộ Karate (34 nút, 78 cạnh). Xét phân phối mức độ, giá trị riêng của Laplacian và nhóm quang phổ. So sánh kết quả nhóm quang phổ với phân chia thực tại mặt đất được biết đến.
 
+### Những gợi ý
+
+**Exercise 1.**Sử dụng công thức từ bài tập. Một nút không có cạnh ra ngoài phải chia sẻ điểm số của nó bằng nhau với tất cả các nút, hoặc tổng số giảm xuống dưới 1. Kiểm tra xem điểm số cộng lên đến 1 sau mỗi bước và so sánh kết quả của bạn với `pagerank(graph)`- Tôi không biết.
+
+**Exercise 2.**Hãy tạo ra hai nhóm với `add_edge`, kết nối chúng với một cạnh, và gọi `spectral_clustering(graph, k=2)`Hãy kiểm tra rằng mỗi click có được một nhãn. Khi bạn thêm các cạnh chéo, in giá trị bản nhỏ thứ hai của `laplacian()`, phát triển khi hai nhóm kết hợp.
+
+**Exercise 3.**Giữ hàng ưu tiên với `heapq`và luôn mở rộng nút với khoảng cách nhỏ nhất được biết đến. Hãy làm cho mỗi trọng lượng 1 và kiểm tra rằng mỗi khoảng cách Dijkstra bằng với lớp BFS của nút đó từ `bfs(graph, start)`- Tôi không biết.
+
+**Exercise 4.**Sử dụng mã số danh tính như `features`, để mỗi cột đánh dấu một nút, và áp dụng `message_passing`sau đó các mục không bằng 0 trong hàng cho nút$v$cho thấy các nút nào đã đạt được $v$So sánh bộ đó với các nút trong khoảng cách 2 từ chiều rộng tìm kiếm đầu tiên.
+
+**Exercise 5.** `networkx.karate_club_graph()`cho danh sách cạnh và sự thật của mặt đất trong thuộc tính nút `club`. Tải các cạnh vào một`Graph`và kiểm tra xem nó có 34 nút và 78 cạnh. So sánh các nhãn từ`spectral_clustering`với `club`giá trị, và cho phép hai tên nhãn được trao đổi.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

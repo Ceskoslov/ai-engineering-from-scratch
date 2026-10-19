@@ -451,6 +451,16 @@ Lợi ích so với thử nghiệm A/B thường xuyên:
 
 4. **MAP by hand.**Với dữ liệu quan sát (7 đầu trong 10 cú đánh đồng), tính toán ước tính MAP của sự thiên vị bằng cách sử dụng một $\text{Beta}(2,2)$so sánh với ước tính MLE ($7/10$().
 
+### Những gợi ý
+
+**Exercise 1.**Gọi`bayes`một lần để lấy phía sau sau xét nghiệm 1, sau đó gọi lại với phía sau như trước. `sequential_bayes(prior, likelihood, false_positive_rate, 2)`phải có cùng giá trị, gần 0,5.
+
+**Exercise 2.**Tạo ra một cái `NaiveBayes(smoothing=s)`cho mỗi giá trị, đào tạo nó trên cùng các dữ liệu, và in `top_words`Với thanh toán 0, một từ không bao giờ xuất hiện trong spam có xác suất 0, vì vậy nhật ký của nó không được xác định.
+
+**Exercise 3.**Đếm số lượng thư spam và ham ngắn, chia bằng số lượng thư trong mỗi lớp, và thêm nhật ký của tỷ lệ đó vào điểm trong `predict`Kiểm tra xem hai xác suất cho mỗi lớp cộng lên đến 1.
+
+**Exercise 4.**Với một $\text{Beta}(\alpha, \beta)$trước đó, ước tính MAP là $\frac{h + \alpha - 1}{n + \alpha + \beta - 2}$Đặt vào.$h = 7$- $n = 10$; kết quả phải nằm giữa MLE (0.7) và chế độ trước (0,5).
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

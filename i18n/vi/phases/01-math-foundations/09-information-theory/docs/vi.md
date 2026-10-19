@@ -461,6 +461,16 @@ Anh đã xây dựng từ đầu cái gì?`torch.nn.CrossEntropyLoss()`Bây gi�
 
 4. Xây dựng một hàm tính toán sự phức tạp cho một chuỗi dự đoán token. Với danh sách các cặp (true_token_index, predicted_logits), trả lại sự phức tạp của chuỗi.
 
+### Những gợi ý
+
+**Exercise 1.**Gọi`entropy`với 26 xác suất bằng nhau; kết quả phải là $\log_2 26 \approx 4.70$Biến. tần số chữ cái thực không đồng nhất, vì vậy entropy với chúng phải thấp hơn.
+
+**Exercise 2.**Lưu ý`softmax`của các logits, sau đó $-\ln$của xác suất tại chỉ số 1, và so sánh với `cross_entropy_loss(1, logits)`; cả hai phải gần 3.06. Khối thua chỉ tiếp cận 0 khi logit cho lớp 1 lớn hơn nhiều so với hai loại khác.
+
+**Exercise 3.**Sử dụng hai phân phối nhỏ với hình dạng khác nhau, ví dụ $P = [0.9, 0.1]$và $Q = [0.5, 0.5]$, và gọi `kl_divergence`Hai giá trị phải khác nhau, bởi vì mỗi hướng cân nặng tỷ lệ log bằng phân bố khác nhau.
+
+**Exercise 4.**Đối với mỗi cặp, tính toán `cross_entropy_loss(true_token_index, predicted_logits)`, lấy trung bình, và chuyển nó cho `perplexity`Hãy kiểm tra với các nhân viên đồng phục.$V$token: sự phức tạp phải là $V$- Tôi không biết.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

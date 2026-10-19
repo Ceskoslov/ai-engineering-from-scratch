@@ -437,6 +437,18 @@ SGLD (Stochastic Gradient Langevin Dynamics) kết hợp giảm gradient mini-ba
 
 5. **Implement the forward diffusion process.**Bắt đầu với một tín hiệu 1D (ví dụ, một sóng âm đạo). Thêm tiếng ồn dần dần hơn 100 bước với một lịch trình tiếng ồn tuyến tính. Hãy cho thấy tín hiệu suy giảm xuống là tiếng ồn tinh khiết. Sau đó thực hiện một biểu tượng đơn giản đảo ngược quá trình (ngay cả một sự ngây thơ mà chỉ trừ được tiếng ồn ước tính).
 
+### Những gợi ý
+
+**Exercise 1.**Gọi`random_walk_1d(10000, seed=i)`cho 1000 hạt và giữ từng vị trí cuối cùng. kiểm tra rằng trung bình gần 0, lệch chuẩn gần 100, và khoảng 68% vị trí cuối cùng là giữa -100 và 100.
+
+**Exercise 2.**Đếm từng cặp từ, sau đó chia từng hàng bằng tổng số của nó để mỗi hàng cộng lên đến 1.`MarkovChain(transition_matrix, state_names)`và gọi`simulate`Hãy kiểm tra xem mỗi cặp từ trong đầu ra của bạn cũng xuất hiện trong corpus.
+
+**Exercise 3.**Hãy chấp nhận điểm tồi tệ hơn với khả năng$\exp(-\Delta / T)$và nhân lên$T$bằng một nhân tố như 0,99 sau mỗi bước. kiểm tra trên một hàm mà bạn biết tối thiểu, và kiểm tra câu trả lời của bạn với một tìm kiếm lưới tinh tế.
+
+**Exercise 4.**Tốc độ là $4x(x^2 - 1)$, nên hãy chuyển nó cho `langevin_dynamics(grad_U, x0, dt, temperature, n_steps)`- Chân rào ở$x = 0$có chiều cao 1, vì vậy đếm bao nhiêu lần dấu hiệu của $x$thay đổi nhiệt độ từ 0,05 đến 1 và tìm nhiệt độ nơi số lượng bắt đầu tăng nhanh chóng.
+
+**Exercise 5.**Gọi`diffusion_forward(signal, 100)`và tính toán$\bar{\alpha}$bước cuối cùng như là sản phẩm của $(1 - \beta_t)$Nếu$\bar{\alpha}$là xa 0, tín hiệu vẫn chưa là tiếng ồn tinh khiết, vì vậy hãy nâng `beta_end`Hãy thử thử máy báo trước với tiếng ồn thật: sau đó$(x_t - \sqrt{1 - \bar{\alpha}_t} \epsilon)/\sqrt{\bar{\alpha}_t}$phải trả lại tín hiệu ban đầu chính xác.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |

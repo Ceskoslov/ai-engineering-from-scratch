@@ -449,6 +449,20 @@ LoRA xứng đáng được nhắc đến đặc biệt. Nó tinh chỉnh các m
 5. Tạo một số liệu 3x3 với cấp 2.`rank()`sau đó giải thích các vật lý hình học mà các cột trải dài.
 6. Đặt đường dẫn [1, 2, 3] lên [1, 1, 1].
 
+### Những gợi ý
+
+**Exercise 1.**Bắt đầu từ `cosine_similarity`, giữ giá trị giữa -1 và 1, sau đó lấy vòng cung cosine và chuyển đổi radian thành độ.`Vector([1, 0])`và `Vector([0, 1])`cho 90 và một vector tự nó sẽ cho 0.
+
+**Exercise 2.**Đặt hai nhân thang trên đường vạch của một số liệu 2x2 và đặt 0 trong hai tế bào khác. Kết quả cho [1, 1] phải là [2, 3].
+
+**Exercise 3.**Xét tính sự tương đồng cosine cho mỗi cặp 5 vector (10 cặp) và giữ giá trị lớn nhất.
+
+**Exercise 4.**Sử dụng `gram_schmidt`trên ba vector độc lập, sau đó tính toán `dot`cho mỗi cặp và `magnitude`so sánh với một dung nạp như `1e-9`, bởi vì điểm nổi không cung cấp số 0 chính xác.
+
+**Exercise 5.**Làm cho hàng thứ ba hoặc cột tổng của hai đầu tiên, do đó một hướng lặp lại. `rank()`phải trả lại 2, và các cột sau đó trải qua một máy bay qua nguồn gốc.
+
+**Exercise 6.**Xét quy mô $\frac{a \cdot b}{b \cdot b}$và nhân lên$b$- Không, không, không.`project_onto`Hãy kiểm tra phần còn lại.$a$trừ dự đoán có một điểm nhân của 0 với [1, 1, 1].
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |
@@ -462,3 +476,17 @@ LoRA xứng đáng được nhắc đến đặc biệt. Nó tinh chỉnh các m
 | Projection | "The shadow" | The component of one vector in the direction of another |
 | Basis | "The coordinate axes" | A minimal set of independent vectors that span the space |
 | Orthonormal | "Perpendicular unit vectors" | Vectors that are mutually perpendicular and each have length 1 |
+
+## Tổng kết
+
+| Formula | Meaning |
+|---------|---------|
+| $a \cdot b = \sum_i a_i b_i$ | Dot product. It measures alignment and is the core of attention scores and cosine similarity |
+| $\cos\theta = \frac{a \cdot b}{\lvert a\rvert \lvert b\rvert}$ | Angle between vectors. 1 is the same direction, 0 is orthogonal |
+| $\lvert a\rvert = \sqrt{a \cdot a}$ | Vector magnitude (length) |
+| $y = Ax, y_i = \sum_j A_{ij} x_j$ | Matrix-vector product. A neural-network layer applies it to every input |
+| $\text{proj}_b a = \frac{a \cdot b}{b \cdot b} b$ | Projection of $a$ onto $b$, the part of $a$ along $b$ |
+| $b^\perp = a - \text{proj}_b a$ | Component of $a$ perpendicular to $b$, used in Gram-Schmidt |
+| $\text{rank}(A) \leq \min(m,n)$ | Rank, the number of independent columns. It decides if $Ax = b$ has a solution |
+| $\Delta W = BA$, $B$ is 4096×16, $A$ is 16×4096 | Low-rank update. LoRA replaces a 4096×4096 update (16M parameters) with two rank-16 factors (131K parameters) |
+| Orthonormal basis: $\lvert v_i\rvert = 1, v_i \cdot v_j = 0$ | Stable, reversible transformations such as whitening and QR decomposition |

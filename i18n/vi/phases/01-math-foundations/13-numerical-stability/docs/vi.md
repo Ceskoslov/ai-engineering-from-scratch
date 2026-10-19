@@ -580,6 +580,18 @@ Những thực hiện ổn định này xuất hiện lại trong giai đoạn 3
 
 5. **Loss scaling experiment.**Mô phỏng đào tạo với float16: tạo gradient ngẫu nhiên trong phạm vi [1e-9, 1e-3), chuyển đổi sang float16, và đo phân số nào trở thành không. Sau đó áp dụng quy mô mất mát (lập số bằng 1024), chuyển đổi sang float16, quy mô lại, và đo phân số không một lần nữa.
 
+### Những gợi ý
+
+**Exercise 1.**Chuyển đổi ba giá trị bằng `np.float32`trước khi bạn bình quân chúng, sau đó gọi `variance_naive`và `welford_variance`Giá trị gần$10^{12}$trong float32 có khoảng cách lớn hơn nhiều so với 1, vì vậy mong đợi kết quả ngây thơ sẽ xa từ 0.6667 và kết quả Welford sẽ gần.
+
+**Exercise 2.**Bắt đầu với `x = np.float32(1.0)`và giảm một nửa trong khi `np.float32(1.0) + x != np.float32(1.0)`. Giữ mọi giá trị trong float32, sau đó so sánh giá trị cuối cùng mà vẫn thay đổi số tiền với `numpy.finfo(numpy.float32).eps`, đó là $2^{-23}$- Tôi không biết.
+
+**Exercise 3.**Hãy dự đoán trước mỗi câu trả lời.$n$giá trị bình đẳng $c$, kết quả là $c + \ln n$Đối với một giá trị lớn, kết quả gần với giá trị đó. Đối với giá trị gần -1000, kết quả gần $-1000 + \ln n$, trong khi `logsumexp_naive`trả lại `-inf`vì mỗi hàm số biểu diễn chảy xuống 0.
+
+**Exercise 4.**Vì $y = Wx + b$với một tổn thất $L$, độ nghiêng của $W$là sản phẩm bên ngoài của độ lệch lên dòng và $x$. Bỏ mất tích như một chức năng của phẳng $W$, gọi `numerical_gradient`, và chuyển cả hai kết quả cho `check_gradient`- Tôi không biết.
+
+**Exercise 5.**Mô tả các quy mô trên thang log với `10 ** np.random.uniform(-9, -3, n)`và chuyển đổi với `np.float16`. Float16 không thể giữ các giá trị dưới khoảng $6 \times 10^{-8}$, nên mong đợi khoảng một phần tư các giá trị sẽ trở thành 0 trước khi mở rộng và gần như không có khi bạn nhân bằng 1024.
+
 ## Các điều khoản chính
 
 | Term | What people say | What it actually means |
