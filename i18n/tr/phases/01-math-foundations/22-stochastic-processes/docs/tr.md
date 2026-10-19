@@ -437,6 +437,18 @@ Tüm bu bağlantıların anahtar anlayışı: Stochastic süreçler sadece teori
 
 5. **Implement the forward diffusion process.**1 boyutlu bir sinyalle başlayın (örneğin sinüs dalgası). Sıcak bir gürültü programı ile 100 adımdan fazla gürültü ekleyin. Sinyalın saf gürültüye nasıl düştüğünü gösterin. Sonra süreci tersine çeviren basit bir denoizer uygulayın (hətta tahmin edilen gürültüyü sadece çıkarırsa dahi saf bir şey).
 
+### İpuçlar
+
+**Exercise 1.**Arama .`random_walk_1d(10000, seed=i)`1000 tohum için ve her son pozisyonunu tutun. ortalamanın 0'ya yakın olup olmadığını kontrol edin, standart sapma 100'e yakın olup olmadığını ve son pozisyonların yaklaşık% 68'inin -100 ile 100 arasında olduğunu kontrol edin.
+
+**Exercise 2.**Her kelime çiftini sayın, sonra her satırı toplamına bölün, böylece her satır 1'e kadar eklenir. Matrisi `MarkovChain(transition_matrix, state_names)`Ve aramak .`simulate`Çıkışınızdaki her kelime çiftinin de korpusda oluştuğunu kontrol edin.
+
+**Exercise 3.**Daha kötü bir noktayı olasılık ile kabul et .$\exp(-\Delta / T)$ve kat kat .$T$Her adımda 0.99 gibi bir faktörle. En az bildiğiniz bir fonksiyon üzerinde test edin ve cevaplarınızı ince bir şebekede arama ile kontrol edin.
+
+**Exercise 4.**- Değişiklik .$4x(x^2 - 1)$, o yüzden bunu `langevin_dynamics(grad_U, x0, dt, temperature, n_steps)`- Sınırın altında .$x = 0$1 yüksekliği var, bu yüzden işaretini sayın.$x$Temperatürlerin değişmesi için 0,05'den 1'e kadar ve sayının hızla yükselmeye başladığı sıcaklık için bak.
+
+**Exercise 5.**Arama .`diffusion_forward(signal, 100)`ve hesaplama.$\bar{\alpha}$Son aşamada $(1 - \beta_t)$- Eğer ...$\bar{\alpha}$0'dan uzakta, sinyal henüz saf gürültü değil, bu yüzden yükselt.`beta_end`Önce denoiserinizi gerçek gürültü ile test edin .$(x_t - \sqrt{1 - \bar{\alpha}_t} \epsilon)/\sqrt{\bar{\alpha}_t}$Orijinal sinyalini tam olarak geri vermeli.
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

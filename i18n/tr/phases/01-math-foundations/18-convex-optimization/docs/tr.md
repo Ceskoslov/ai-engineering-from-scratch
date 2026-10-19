@@ -535,6 +535,18 @@ print(f"Support vectors: {svm.n_support_}")
 
 5. **Hessian eigenvalue analysis.**Rosenbrock fonksiyonunun Hessian'ı (1,1) ve (-1,1) ile hesaplayın.
 
+### İpuçlar
+
+**Exercise 1.**Koşmadan önce her sonucu tahmin et .`check_convexity`Bir boyutta, $f''(x)$Hessian'ın öz değerlerine iki boyutta bakın.$f(x,y) = xy$, Hessian'ın öz değerleri 1 ve -1'dir, bu yüzden kontrolcü, konveks olmadığını bildirmelidir.
+
+**Exercise 2.**Arama .`optimize_gd`ve `newtons_method`                        $f$Newton'un yöntemi bir adımla bir kare çözür.$2/100$Çünkü $50x^2$term, yani $y$Yön yavaş hareket eder.$100x^2$Ve adımları tekrar sayın.
+
+**Exercise 3.**Kullanım`lagrange_solve`- Evet .$g(x,y) = x + 2y - 4$Cevabı verip kontrol et.$x + 2y = 4$Ve bu da ...$\nabla f = (2(x-3), 2(y-3))$$\nabla g = (1, 2)$- Evet .
+
+**Exercise 4.**Sınırsız minimum (3, 2) elmasın dışında, bu nedenle cevap onun sınırında.$\lvert x \rvert + \lvert y \rvert \le 1$Sonuç eşitlik ile kısıtlama karşılıyor mu kontrol edin ve karşılaştırın `demo_regularization_geometry`- Evet .
+
+**Exercise 5.**Arama .`rosenbrock_hessian`Her noktada sonuçları `hessian_eigenvalues_2d`. (1, 1)'de her iki öz değer de pozitif ve oranları çok büyüktür, bu nedenle vadisi bir yönde dar ve diğerinde düz.
+
 ## Anahtar Terimler
 
 | Term | What it means |

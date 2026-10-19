@@ -357,6 +357,16 @@ Burada inşa edilen optimizer sınıfları, nöral ağı sıfırdan eğittikten 
 
 4. **Implement learning rate decay.**GradientDescent sınıfına bir eksponensel çöküş programı ekleyin: `lr = lr_0 * 0.999^step`Rosenbrock fonksiyonunda çürümeden ve çürümeden bir yakınlık karşılaştırın.
 
+### İpuçlar
+
+**Exercise 1.**Öğrenme oranlarını aşın, bir `GradientDescent(lr=...)`Her biri için, ve onu `optimize`- Evet .`rosenbrock`ve `rosenbrock_gradient`- Ayrılığa düşen bir koşuk , kaybı arttırır veya dönüşür .`nan`En az $(1, 1)$Kayıp 0.
+
+**Exercise 2.**Yaratmak`SGDMomentum(momentum=m)`Her adımdan sonra kaybı kaydet.`find_convergence_step`Hızı karşılaştırmak ve aşırılık bulmak için yukarı ve aşağı giden kayıpları araştırmak.
+
+**Exercise 3.**Köklemeyi yaz $(2x, -2y)$ve üç optimizörü (0.01, 0.01) ' den çalıştırın.$y$Her 100 adımda: kaçan optimizer, kaçan optimizer.$\lvert y \rvert$büyür.
+
+**Exercise 4.**Depolama`lr_0`Ve bir adım sayıcı .`GradientDescent`, ve hesaplama .`lr = lr_0 * 0.999 ** step`İçeride .`step`. Öğrenme oranını adım 0 ve adım 1000'de basın;`lr_0`- Yaklaşık .$0.37 \times \text{lr}_0$- Evet .
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

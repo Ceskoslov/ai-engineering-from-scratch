@@ -612,6 +612,14 @@ PyTorch gradient hesaplamasını otomatikleştirir ama güncelleme döngüsü ay
 2.  En azı bulmak için gradient düşüşü kullanın$f(x, y) = (x - 3)^2 + (y + 1)^2$- Başlayın .$(0, 0)$Cevap şu yönde olmalıdır:$(3, -1)$- Evet .
 3. Gradyent düşüş döngüsüne momentum ekleyin: Geçmişte gradientler biriktiren bir hız vektörünü koruyun.$f(x) = x^4 - 3x^2$- Evet .
 
+### İpuçlar
+
+**Exercise 1.**Geri dönen bir yardımcı tanımla .`numerical_derivative(f, x)`Ve yardımcını `numerical_derivative`Eğer sonuç gürültülü ise, daha büyük bir adım kullanın.`h=1e-4`İki çağrı için de değer$x=2$12'ye yakın olmalı.
+
+**Exercise 2.**Köklemeyi yaz $(2(x - 3), 2(y + 1))$veya kullanmak `numerical_gradient`, ve aramak`gradient_descent_nd`-$(0, 0)$. Noktayı her 10 adımda bir basın; doğru hareket etmesi gerekir .$(3, -1)$ve kaybı neredeyse 0'ya düşmelidir.
+
+**Exercise 3.**Hızlı ol .`v`, güncelleme olarak `v = momentum * v - lr * grad`, sonra ekle `v`- ...`x`. Her yöntemin 0 yakınında bir gradiyenti ulaşması için gereken adımları sayın; en az $x = \pm\sqrt{1.5} \approx \pm 1.225$- Evet .
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

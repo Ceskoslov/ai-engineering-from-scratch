@@ -461,6 +461,16 @@ Neyi sıfırdan inşa ettin ?`torch.nn.CrossEntropyLoss()`Şimdi eğitim sıras�
 
 4. Bir dizi belirti tahmininin karmaşıklığını hesaplayan bir işlev oluşturun. (true_token_index, predicted_logits) çiftlerinin bir listesini vererek, sıradanın karmaşıklığını geri gönderin.
 
+### İpuçlar
+
+**Exercise 1.**Arama .`entropy`26 eşit olasılık ile sonuçlandırılmalıdır.$\log_2 26 \approx 4.70$Gerçek harf frekansları birer gerektirmez, bu yüzden entropi daha düşük olmalı.
+
+**Exercise 2.**Hesaplama`softmax`O zaman $-\ln$1'de olasılık oranı ile karşılaştırın.`cross_entropy_loss(1, logits)`; her ikisi de 3.06'ya yakın olmalıdır. Kayıp sadece 1. sınıf için logit diğer iki sınıftan çok daha büyük olduğunda 0'ya yaklaşır.
+
+**Exercise 3.**Örneğin farklı şekillerde iki küçük dağılım kullanın $P = [0.9, 0.1]$ve $Q = [0.5, 0.5]$, ve aramak`kl_divergence`İki değer farklı olmalıdır, çünkü her yön log oranını farklı bir dağılımla ağırlaştırır.
+
+**Exercise 4.**Her çift için hesaplayın.`cross_entropy_loss(true_token_index, predicted_logits)`, ortalamayı al ve onu `perplexity`- Üniforma kayıtlarına bak .$V$Token: karmaşıklık $V$- Evet .
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

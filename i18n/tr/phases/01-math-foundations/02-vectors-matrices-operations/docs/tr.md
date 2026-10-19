@@ -322,6 +322,14 @@ Burada inşa edilen Matrix sınıfı, 3. aşamada oluşturduğumuz mini sinir a�
 
 3. **Build a two-layer network.**Sadece Matrix sınıfınızı kullanarak (NumPy yok), iki katlı bir nöron ağı oluşturun: giriş (3) -> gizli (4) -> çıkış (2). Kasıtlı ağırlıkları başlatın, ileri geçiş çalıştırın ve tüm şekillerin doğru olduğunu doğrulayın.
 
+### İpuçlar
+
+**Exercise 1.**Çoklu `A @ A.inverse_2x2()`Üç matris için ve her hücreyi içindeki kimliğe karşılaştırın `1e-9`. 0'lu bir belirleyici olan bir matris için, örneğin [[1, 2], [2, 4]], `inverse_2x2`bir `ValueError`Bu beklenen sonuç.
+
+**Exercise 2.**3x3 kofaktor matrisi hesaplayın, adjugayet elde etmek için transpose edin, sonra her hücreyi bölün `determinant()`- Şuna bak .`A @ A_inv`kimliği verir ve her hücre eşleşir `np.linalg.inv(A)`İçinde`1e-9`- Evet .
+
+**Exercise 3.**Karşılaştırmadan önce her matrisin şeklini yazın: `W1`4x3 ve `W2`2x4'e eşit.`demo_neural_network_layer`3x1 giriş 4x1 gizli vektörü ve 2x1 çıkış vermeli.
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

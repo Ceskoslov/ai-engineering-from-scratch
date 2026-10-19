@@ -437,6 +437,14 @@ Bu ders PCA (Fase 2) ve nöral ağ ağırlık analizi için geometrik temel olu�
 
 3. Üç dönüşümden oluşan bir kompozisyon oluşturun (30 derece döndürün, [1.5, 0.8 ile ölçeklendirin], kx=0.3 ile kesin ve bir döngü içinde düzenlenen 8 noktaya uygulayın. Koordinatların önünü ve arkasını yazdırın.
 
+### İpuçlar
+
+**Exercise 1.**Uygula`rotation_2d`- Evet .`scaling_2d`ve`shearing_2d`Her köşede `mat_vec_mul`. Dönüş için, 4 yan uzunluğu ve 2 diyagonal ön ve sonrasını hesaplayın; her biri aynı kalmalıdır.
+
+**Exercise 2.**Karakteristik denklemi yaz $\lambda^2 - (\text{trace})\lambda + \det = 0$İki değerinizin iz (7) ile birlikte belirleyici (10) ile çarpıldığını kontrol edin ve sonra `eigenvalues_2x2`ve `np.linalg.eigvals`- Evet .
+
+**Exercise 3.**Üç matris oluşturun.`shearing_2d(0.3, 0)`Çekmek için, onları çarpın `mat_mul`Bu sayede, 8 puan için sonuçları uygulayabilirsiniz.$(\cos\theta, \sin\theta)$Dönüşün bir belirleyicisi var 1 ve kesmenin bir belirleyicisi var 1 bu yüzden `det_2x2`Yapılandırma eşit olmalıdır $1.5 \times 0.8 = 1.2$- Evet .
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

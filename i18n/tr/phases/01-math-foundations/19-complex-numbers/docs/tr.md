@@ -440,6 +440,18 @@ freqs = np.fft.fftfreq(128, d=1/128)
 
 5. **Rotation matrix equivalence.**10 rastgele açı ve 10 rastgele nokta için, karmaşık çarpımın 2x2 döngü matrisinde matris-vektor çarpımı ile aynı sonucu verdiğini kontrol edin.
 
+### İpuçlar
+
+**Exercise 1.**Ürünü genişletmek için $i^2 = -1$, sonra üst ve altını eşleşik ile çarparak bölünür .$1 + 3i$Ürünü kontrol edin .`Complex(2, 3) * Complex(4, -1)`: onun `magnitude()`İki büyüklüğün ürünü olmalıdır ve onun `phase()`iki aşamanın toplamına eşit olmalıdır.
+
+**Exercise 2.**İşe devam et .`euler(math.pi / 6)`Bu sayede, bu değerin en yüksek seviyesinin 1'de kalıp en yüksek seviyesinin 30 derece büyüdüğünü kontrol etmeniz gerekir.
+
+**Exercise 3.**Zaman noktalarını  ile yazın .$t = n/32$Ve aramak .`dft`Sadece 0 ila 15 arası kutulara bak, çünkü üst yarısı aynalı bir görüntü.$k$Amplitude sinüs için$A$- Evet .$AN/2$Bin 3'de 16'nin ve Bin 7'de 8'in olacağını bekle.
+
+**Exercise 4.**Arama .`roots_of_unity(8)`Ve kökleri ekleyin: toplamın büyüklüğü 0'ya yakın olmalıdır. Her kökü önceki kökle bölün ve her sonuç eşit olup olmadığını kontrol edin.`euler(2 * math.pi / 8)`- Evet .
+
+**Exercise 5.**Dönüş matrisi [[cos t, -sin t], [sin t, cos t]]. Her açı ve nokta için hesaplayın `euler(t) * Complex(x, y)`ve matris ürünü, sonra en büyük mutlak farkı kaydet.$10^{-15}$- Evet .
+
 ## Anahtar Terimler
 
 | Term | What it means |

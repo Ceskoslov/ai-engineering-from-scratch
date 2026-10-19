@@ -484,6 +484,18 @@ Aradığın zaman .`model.encode(text)`Vectör veritabanı, sorgu vektörünüzl
 
 5. Yaklaşık Jaccard benzerliği için MinHash uygulayın. 100 rastgele set oluşturun, tüm çiftler için tam Jaccard hesaplayın ve 50, 100 ve 200 hash fonksiyonlarını kullanarak MinHash yaklaşımıyla karşılaştırın. Yaklaşım hatasını çizin.
 
+### İpuçlar
+
+**Exercise 1.**Fark vektörü (-3, 2, -3), bu yüzden o vektörün üç normunu hesapla `l1_norm`- Evet .`l2_norm`ve`linf_norm`Kanıt için en büyüklerini karşılaştırın.$\lvert d_i \rvert$ve toplamı mutlak değerlerin toplamının karesine karşılaştırın.
+
+**Exercise 2.**Kosin benzerliği uzunluğu görmezden gelir, bu nedenle neredeyse aynı yönde işaret eden iki vektörle başlayın ve onlardan birini çok daha uzun yapın. İkinci durumda, farklı yönlerde işaret eden köken yakınında iki kısa vektör kullanın, sonra her iki koşulı kontrol edin `cosine_similarity`ve `l2_distance`- Evet .
+
+**Exercise 3.**Arama .`find_nearest_neighbor(query, dataset, distance_fn)`Her biri için bir kez .`l1_distance`- Evet .`l2_distance`- Evet .`cosine_distance`ve`mahalanobis_distance`- Evet .`demo_different_neighbors`Metriklerin anlaşılmadığı bir veri kümesi gösterir, önce okuyun ve dört yanıtın da farklılaşana kadar noktaları değiştirin.
+
+**Exercise 4.**Her dağılımın toplam toplamını yazın, sonra iki toplam toplamın mutlak farklarını ekleyin.`wasserstein_1d(p, q)`, sonra büyük değerin olasılık kütlesi ne kadar uzakta hareket etmesi gerektiğini açıklayın.
+
+**Exercise 5.**Her bir hash fonksiyonu için, bir setin MinHash imzası, elementlerinin üzerindeki en az hash değeri ve iki setin aynı en az tahminleri aldığı hash fonksiyonlarının bölümü olarak Jaccard benzerliklerini tahmin eder.`jaccard_similarity`Bu hata yaklaşık olarak $1/\sqrt{k}$için$k$hash fonksiyonları.
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

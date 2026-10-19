@@ -560,6 +560,18 @@ Bu ders şunları ortaya çıkarır:
 
 5. Cholesky çözücü ile LU çözücü ile zaman ayır .`np.linalg.solve`10'ın, 50'nin, 200'nin, 500'ün ölçüsündeki simetrik pozitif belirlenmiş matrisler üzerinde.
 
+### İpuçlar
+
+**Exercise 1.**Arama .`gaussian_elimination(A, b)`O zaman ...`lu_decompose(A)`Ardından `lu_solve(P, L, U, b)`O zaman ...`np.linalg.solve(A, b)`Her cevabı kontrol et .`np.allclose(A @ x, b)`ve üç cevabı karşılaştır `np.allclose`- Evet .
+
+**Exercise 2.**Kullanım`least_squares_normal`Normal denklemler için ve diğer yöntemler için üç NumPy işlevi için.`w_true`- Ben de .`condition_number(X.T @ X)`- Evet .`condition_number(X)`: ilk ikinci kare, normal denklemler en çok hassaslığı kaybeder.
+
+**Exercise 3.**Yukarıdaki bir durum numarasını bekleyin .$10^{9}$- Çözmek için `np.linalg.solve`ve ile`ridge_regression(A, b, 0.01)`, sonra karşılaştır `np.linalg.norm(x)`Her iki kalıntı da küçük olabilir, ancak düzenlenmeden çözünürlük genellikle çok büyük girişlere sahiptir.
+
+**Exercise 4.**Simetrik pozitif kesin matris yapın `B @ B.T + n * np.eye(n)`, böylece her öz değeri pozitif.`conjugate_gradient`, sonra son kalan normunun 1e-8'den aşağı olup olmadığını ve sayının en fazla 100 olduğunu kontrol et.
+
+**Exercise 5.**Aynı şeyi kullan `B @ B.T + n * np.eye(n)`Üç çözücü için matrisler ve zaman her çözücü ile `time.perf_counter`Cholesky'nin LU'nun yaklaşık yarısını kullanması gerekiyor, bu yüzden oran daha büyük boyutlarda en net olur.
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

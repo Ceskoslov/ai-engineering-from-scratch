@@ -652,6 +652,18 @@ MCMC'nin ölçekli olması için özel kütüphaneler kullanın:
 
 5. Tam bir metin oluşturma demo oluşturun: logitlerle 10 kelimelik bir sözlük verildiğinde, (a) açgözlülük, (b) sıcaklık = 0,7, (c) üst-k = 3, (d) üst-p = 0,9 kullanarak 20 jetonlu bir dizi oluşturun.
 
+### İpuçlar
+
+**Exercise 1.**Çözüm$u = F(x)$için$x$, yani $x = \tan(\pi(u - 0.5))$. Örnek ortalaması 0' a yakın olup olmadığını ve örneklerin yaklaşık % 6 ' un $\lvert x \rvert > 10$, yani $1 - (2/\pi)\arctan(10)$- Evet .
+
+**Exercise 2.**Beta ((2, 5) yoğunluğu $30x(1-x)^4$. En büyük değerini modda bul .$x = 1/5$ve bu değerleri kullan $M$İçeride`rejection_sample`- Teorik kabul oranı $1/M$, bu yüzden kabul ettiğiniz tekliflerin küçük bir kısmıyla karşılaştırın.
+
+**Exercise 3.**Tam değeri 2 . Arama.`monte_carlo_integral(math.sin, 0, math.pi, n)`Her biri için$n$Ve her koşuyu birkaç tane tohumla tekrarlayın.$n$10 kat artırsa ortalama hata yaklaşık olarak düşmelidir.$\sqrt{10} \approx 3.2$- Evet .
+
+**Exercise 4.**Hedef logunu yaz, ki bu $-(x^2 y^2 + x^2 + y^2 - 8x - 8y)/2$, ve onu `metropolis_hastings_2d`. Her öneride standart sapma için kabul oranını kaydet: çok küçük bir değer neredeyse her adımı kabul eder, ancak yavaş hareket eder ve çok büyük bir değer neredeyse her adımı reddeder.
+
+**Exercise 5.**Açgözlü kodlama her adımda en büyük logit indeksi alır.`temperature_sample`- Evet .`top_k_sample`ve`top_p_sample`Açgözlülük, her beş koşuda aynı sırayı vermeli, bu yüzden çeşitliliği ölçmek için her yöntem için farklı sırayı sayın.
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

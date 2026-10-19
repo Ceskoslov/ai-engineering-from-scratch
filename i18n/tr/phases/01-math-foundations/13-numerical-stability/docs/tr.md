@@ -580,6 +580,18 @@ Bu istikrarlı uygulamalar eğitim döngüsünün oluşturulmasında 3. aşamada
 
 5. **Loss scaling experiment.**float16 ile eğitim simülasyonu: [1e-9, 1e-3 aralığında rastgele gradientler oluşturun, float16'a dönüştürün ve hangi fraksiyon sıfır haline geldiğini ölçün.
 
+### İpuçlar
+
+**Exercise 1.**Üç değerini  ile dönüştür`np.float32`Onları düzeltmeden önce, sonra aramak.`variance_naive`ve `welford_variance`- Yaklaşık bir değer .$10^{12}$float32'de 1'den çok daha büyük bir mesafe var, bu yüzden saf sonuç 0.6667'den uzak ve Welford sonucu yakın olmasını bekleyin.
+
+**Exercise 2.**Başlayın .`x = np.float32(1.0)`Ve yarıya kadar kes .`np.float32(1.0) + x != np.float32(1.0)`. Her değerini float32'de tut ve son değerini karşılaştır.`numpy.finfo(numpy.float32).eps`, yani $2^{-23}$- Evet .
+
+**Exercise 3.**Önce her cevabı tahmin et.$n$eşit değerler $c$Sonuç şu:$c + \ln n$Bir büyük değer için, sonuç bu değerle yakın. -1000 yakın değerler için, sonuç yakın $-1000 + \ln n$,`logsumexp_naive`Devamı`-inf`Çünkü her eksponensal 0'a düşüyor.
+
+**Exercise 4.**- Evet .$y = Wx + b$Kayıplarla.$L$,  için eğrilik$W$                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             $x$- Kayıpları düzeltme fonksiyonu olarak sarın .$W$- Arayın .`numerical_gradient`, ve her iki sonucu da `check_gradient`- Evet .
+
+**Exercise 5.**Büyüklükleri bir log ölçeğinde örnekleyin .`10 ** np.random.uniform(-9, -3, n)`ve dönüştürmek için `np.float16`. Float16 değerleri yaklaşık olarak aşağıda tutamaz .$6 \times 10^{-8}$Bu nedenle, değerlerin yaklaşık dörtte biri ölçeklendirmeden önce sıfır olur ve 1024 ile çarpıldıktan sonra neredeyse hiç olmaz.
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

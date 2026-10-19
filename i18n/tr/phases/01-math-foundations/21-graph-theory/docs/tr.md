@@ -481,6 +481,18 @@ nerede$\hat{A} = A + I$(kısıtlılık ve kendi kendini döngüler) ve $\hat{D}$
 
 5. **Analyze a real-world graph.**Karate Kulübü grafikini kullanın (34 düğüm, 78 kenar). Derece dağılımını, Laplakya öz değerlerini ve spektral kümeler oluşturmayı hesaplayın.
 
+### İpuçlar
+
+**Exercise 1.**Egzersizden alınan formülü kullanın. Dışarı çıkış kenarları olmayan bir düğüm puanını tüm düğümlerle eşit olarak paylaşmalıdır veya toplam 1'den aşağı düşmelidir.`pagerank(graph)`- Evet .
+
+**Exercise 2.**İki klise oluşturun .`add_edge`Bir kenarla bağla ve aramaya.`spectral_clustering(graph, k=2)`Her klik bir etiket aldığını kontrol edin.`laplacian()`, iki grup birleştikçe büyüyen.
+
+**Exercise 3.**Öncelik sırasını `heapq`Her ağırlığı 1 yapın ve her Dijkstra mesafesinin bu düğümün BFS katmanına eşit olduğunu kontrol edin`bfs(graph, start)`- Evet .
+
+**Exercise 4.**Kimlik matrisini  olarak kullanın .`features`, böylece her sütun bir düğüm işaretler ve uygulayın `message_passing`Sonra düğümler için sıradaki sıfır dışı girişler$v$Hangi düğümlerin ulaştığını göster $v$Bu seti, ilk arama genişliğinden 2 mesafede olan düğümlerle karşılaştırın.
+
+**Exercise 5.** `networkx.karate_club_graph()`Kısayol listesi ve düğüm özelliğinde yerin doğruluğunu verir `club`Kütülerin kopyasını bir `Graph`Ve 34 düğüm ve 78 kenarın olup olmadığını kontrol et.`spectral_clustering`- ... ...`club`değerleri değiştirilmesine izin verin.
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

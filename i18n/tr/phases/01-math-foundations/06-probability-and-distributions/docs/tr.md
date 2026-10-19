@@ -448,6 +448,16 @@ print(f"Log-softmax: {log_probs}")
 
 4. Log olasılıklarının bir listesini alıp en olası sırayı, toplam log olasılığını ve eşdeğer çiğ olasılığı geri veren bir işlev yazın.
 
+### İpuçlar
+
+**Exercise 1.**Çekim .`u`Bir tek dağıtım ve dönüşten$-\ln(1 - u) / \lambda$Örnek ortalamasının yakın olduğunu kontrol edin .$1/\lambda$ve histogram kutularının takip etmesi.$\lambda e^{-\lambda x}$- Evet .
+
+**Exercise 2.**Her hücre bir olasılık olduğu ve tüm hücrelerin toplamı 1 olduğu 6×6 tabloyu doldurun, sonra arın `joint_to_marginals`Kullan .`check_independence`: zarlar yalnızca her hücre iki kenarının ürünüdürse bağımsız olur.
+
+**Exercise 3.**Uygula`softmax`- Çekilme ve al .$-\ln$3. indeksdeki olasılıktan 0.421'e yakın olması gerekir.`nn.CrossEntropyLoss`Aynı hedef ve logit için verildi.
+
+**Exercise 4.**Log olasılıklarını ekleyin; çiğ olasılıkları çarpmayın.$50 \ln(0.01) \approx -230.26$, ve çürü olasılık $10^{-100}$- Evet .
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |

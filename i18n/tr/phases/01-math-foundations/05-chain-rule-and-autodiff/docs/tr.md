@@ -499,6 +499,16 @@ Burada oluşturulan Değer sınıfı 3. aşamada sinir ağı eğitim döngüsün
 
 4. Önceki modda ikili numaralar kullanarak otomatik olarak kullanın.`Dual`sınıflandırıp, ters mod motorunuzla aynı türevleri verdiyse doğrulayın.
 
+### İpuçlar
+
+**Exercise 1.** `Value`zaten tanımlar `__pow__`- Oku .`_backward`ve uygulanmasını onaylayın.$n x^{n-1}$- Gelen bir eğrime doğru.`x = Value(2.0)`- Evet .`y = x ** 3`- Evet .`y.backward()`- ...`x.grad`12.0 olmalı.
+
+**Exercise 2.**Kullanım$\tanh'(x) = 1 - \tanh(x)^2$İçeride`_backward`Kendi sınırlı farkına karşı kontrol et .$\frac{\tanh(x + h) - \tanh(x - h)}{2h}$$x = 0$ve $x = 2$- Evet .
+
+**Exercise 3.**Yapım`w1*x1 + w2*x2 + b`-`Value`nesneler, uygulanır `relu`, ve aramak`backward`PyTorch ile karşılaştırmadan önce, girişlerin `relu` için gradient olumlu`w1`eşit `x1`Eğer negatif ise, tüm beş gradient de 0'dur.
+
+**Exercise 4.**Her birinde bir değer ve bir türev saklayın `Dual`, ve ürün kuralını kullan $(a, a')(b, b') = (ab, a'b + ab')$Girişi 1 türevle tohumla karşılaştırın ve sonucu `x.grad`Aynı işlevi için ters mod motorundan.
+
 ## Anahtar Terimler
 
 | Term | What people say | What it actually means |
