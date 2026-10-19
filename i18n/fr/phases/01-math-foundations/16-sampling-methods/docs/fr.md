@@ -652,6 +652,18 @@ Vous avez construit ça à partir de zéro, maintenant vous savez ce que font le
 
 5. Construisez une démo de génération de texte complète: compte tenu d'un vocabulaire de 10 mots avec logits, générez des séquences de 20 jetons en utilisant (a) avide, (b) température = 0,7, (c) top-k = 3, (d) top-p = 0,9.
 
+### Des indices
+
+**Exercise 1.**Résous $u = F(x)$pour $x$, ce qui donne$x = \tan(\pi(u - 0.5))$Vérifiez que la médiane de l'échantillon est proche de 0 et que 6% environ des échantillons ont$\lvert x \rvert > 10$, qui est $1 - (2/\pi)\arctan(10)$- Je suis désolé .
+
+**Exercise 2.**La densité de la bêta (2, 5) est $30x(1-x)^4$Trouvez sa valeur la plus élevée en mode $x = 1/5$et utiliser cette valeur comme $M$dans `rejection_sample`Le taux d' acceptation théorique est $1/M$, alors comparez-le avec la fraction de propositions que vous acceptez.
+
+**Exercise 3.**La valeur exacte est 2. Appelez `monte_carlo_integral(math.sin, 0, math.pi, n)`pour chacun $n$et répétez chaque course avec plusieurs graines.$n$s'il augmente de 10 fois, l'erreur moyenne devrait diminuer d'environ $\sqrt{10} \approx 3.2$- Je suis désolé .
+
+**Exercise 4.**Écrivez le journal de la cible, qui est $-(x^2 y^2 + x^2 + y^2 - 8x - 8y)/2$, et le transmettre à `metropolis_hastings_2d`- enregistrer le taux d'acceptation pour chaque proposition d'écart standard: une valeur très petite accepte presque chaque étape mais se déplace lentement, et une valeur très grande rejette presque chaque étape.
+
+**Exercise 5.**Le décoding avide prend l'indice de la plus grande logite à chaque étape.`temperature_sample`- Je suis là .`top_k_sample`, et `top_p_sample`La suite doit être la même dans les 5 tours, alors comptez les séquences distinctes pour chaque méthode pour mesurer la diversité.
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

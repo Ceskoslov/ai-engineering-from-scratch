@@ -612,6 +612,14 @@ PyTorch automatique le calcul des gradients, mais la boucle de mise à jour est 
 2. Utilisez la descente de gradient pour trouver le minimum de $f(x, y) = (x - 3)^2 + (y + 1)^2$- Commencez par$(0, 0)$La réponse devrait converger à $(3, -1)$- Je suis désolé .
 3. Ajouter de l'élan à la boucle de descente des gradients: maintenir un vecteur de vitesse qui accumule des gradients passés.$f(x) = x^4 - 3x^2$- Je suis désolé .
 
+### Des indices
+
+**Exercise 1.**Définissez un aide qui revient `numerical_derivative(f, x)`et passez cet aide à `numerical_derivative`Si le résultat est bruyant, utilisez un pas plus grand tel que `h=1e-4`pour les deux appels; la valeur à $x=2$Il doit être proche de 12.
+
+**Exercise 2.**Écrivez le gradient $(2(x - 3), 2(y + 1))$ou utilisation `numerical_gradient`, et appeler`gradient_descent_nd`de $(0, 0)$Imprimez le point tous les 10 pas , il doit se déplacer vers $(3, -1)$et la perte doit tomber à près de 0.
+
+**Exercise 3.**Gardez une vitesse .`v`, le mettre à jour comme `v = momentum * v - lr * grad`, puis ajouter `v`à `x`. Comptez les étapes dont chaque méthode a besoin pour atteindre un gradient proche de 0; le minimum est à $x = \pm\sqrt{1.5} \approx \pm 1.225$- Je suis désolé .
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

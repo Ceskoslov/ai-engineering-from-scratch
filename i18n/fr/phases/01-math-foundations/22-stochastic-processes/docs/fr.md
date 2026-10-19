@@ -437,6 +437,18 @@ L'idée clé de toutes ces connexions: les processus stochastiques ne sont pas s
 
 5. **Implement the forward diffusion process.**Commencez par un signal 1D (par exemple, une onde sinusoïde). Ajoutez progressivement le bruit sur 100 étapes avec un calendrier sonore linéaire. Montrez comment le signal se dégrade en bruit pur.
 
+### Des indices
+
+**Exercise 1.**Appel`random_walk_1d(10000, seed=i)`Pour 1000 graines, et conservez chaque position finale. Vérifiez que la moyenne est proche de 0, que l'écart standard est proche de 100, et que 68% des positions finales sont entre -100 et 100.
+
+**Exercise 2.**Comptez chaque paire de mots, puis divisez chaque rangée par son total de sorte que chaque rangée s'ajoute à 1. Passez la matrice à `MarkovChain(transition_matrix, state_names)`et appeler`simulate`Vérifiez que chaque paire de mots dans votre sortie se trouve également dans le corpus.
+
+**Exercise 3.**Acceptez un pire point avec la probabilité .$\exp(-\Delta / T)$et multiplier $T$Test sur une fonction dont vous connaissez le minimum, et vérifiez votre réponse contre une recherche fine grille.
+
+**Exercise 4.**Le gradient est $4x(x^2 - 1)$, alors passez ça à `langevin_dynamics(grad_U, x0, dt, temperature, n_steps)`La barrière à$x = 0$a une hauteur de 1, alors comptez la fréquence de la marque de$x$les changements de température de 0,05 à 1 et recherchez la température où le nombre commence à augmenter rapidement.
+
+**Exercise 5.**Appel`diffusion_forward(signal, 100)`et calculer $\bar{\alpha}$à la dernière étape comme produit de $(1 - \beta_t)$Si vous ...$\bar{\alpha}$est loin de 0, le signal n'est pas encore bruit pur, alors élève `beta_end`Testez votre dénoiseur d' abord avec le bruit réel:$(x_t - \sqrt{1 - \bar{\alpha}_t} \epsilon)/\sqrt{\bar{\alpha}_t}$doit rendre le signal original exactement.
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

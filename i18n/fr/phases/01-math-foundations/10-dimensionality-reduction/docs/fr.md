@@ -355,6 +355,14 @@ Cette leçon donne:
 
 3. Prenez un ensemble de données de 50 caractéristiques dont seulement 5 sont informatives (générez une avec `sklearn.datasets.make_classification`) Appliquer le PCA et vérifier si la courbe de variance expliquée identifie correctement que les données sont effectivement cinq dimensions.
 
+### Des indices
+
+**Exercise 1.**Lire `inverse_transform`dans le `PCA`classe et correspondant à un modèle pour chaque nombre de composants.`reconstruction_error`pour les composants 10, 50 et 200; l'erreur doit diminuer à mesure que le nombre de composants augmente.
+
+**Exercise 2.**Bien adapté .`sklearn.manifold.TSNE`3 fois sur le même sous-ensemble, en changeant seulement `perplexity`, et utiliser la même `random_state`. La faible perplexité regarde peu de voisins, alors attendez-vous à de petits groupes étroits; la grande perplexité regarde plus de voisins, alors attendez-vous à des groupes plus grands et plus lisses.
+
+**Exercise 3.**Appel`make_classification(n_features=50, n_informative=5, n_redundant=45)`, adapté`PCA`Les caractéristiques redondantes sont des combinaisons linéaires des caractéristiques informatives, de sorte que la courbe atteint presque 1,0 à 5 composants.`n_redundant=0`: les 45 autres caractéristiques sont des bruits indépendants, et la courbe ne s'applique pas.
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

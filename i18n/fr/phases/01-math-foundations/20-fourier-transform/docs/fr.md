@@ -440,6 +440,18 @@ On court .`code/fourier.py`pour générer `outputs/prompt-spectral-analyzer.md`-
 
 5. **Positional encoding analysis.**Générer les codage positionnaires sinusoïdes pour d_modèle = 128 et max_pos = 512. Pour chaque paire de positions $(p_1, p_2)$, calculer le produit des points de leurs codages.$\lvert p_1 - p_2 \rvert$Qu'arrive-t-il au produit des points à mesure que la distance augmente ?
 
+### Des indices
+
+**Exercise 1.**Avec 128 échantillons sur 1 seconde, bin $k$est $k$Hz, donc pour une fréquence entière l'indice de la plus grande valeur dans les poubelles 1 à 63 est la fréquence. Choisissez un nombre entier de hertz. Une fréquence entre deux poubelles se propage dans ses voisins, et le pic donne seulement la poubelle la plus proche. Utilisez `generate_signal`et `magnitude_spectrum`Après avoir ajouté du bruit, vérifiez que le pic est toujours au même coffre pendant que les autres coffres montent.
+
+**Exercise 2.**Utilisez une puissance de deux longues, parce que `fft`- Il divise le signal en deux.`max(abs(a - b))`Le ratio de temps devrait augmenter à peu près en fonction de la valeur de l'indice de coefficient.$N / \log_2 N$- Je suis désolé .
+
+**Exercise 3.**Pour la convolutions circulaires, calculer $y[n] = \sum_k h[k] x[(n-k) \bmod 8]$à la main pour $n$= 0, 1 et 2, et comparer les trois premières valeurs de `convolve_direct`et `convolve_fft`La convolutions linéaires ont une longueur de 4 + 3 - 1 = 6, alors vérifiez d'abord si la longueur 8 est déjà assez longue.
+
+**Exercise 4.**Utilisation `hann_window`- Je suis là .`hamming_window`- Je suis là .`apply_window`, et `power_spectrum`, et compter les pics séparés entre 9 et 13 Hz. Les 10 Hz et 12 Hz complètent des cycles entiers en 1 seconde, de sorte qu'aucune fenêtre ne peut avoir l'air la meilleure. Répétez avec 10,5 Hz et 12,5 Hz pour voir la fuite que les fenêtres réduisent.
+
+**Exercise 5.**Compute chaque codage avec `positional_encoding(pos, 128)`. Comparer le produit des points pour les positions (0, 10) avec le produit des points pour (100, 110): les deux valeurs doivent correspondre à environ 1e-10.$\lvert p_1 - p_2 \rvert$pour une seule fixation $p_1$- Je suis désolé .
+
 ## Les termes clés
 
 | Term | What it means |

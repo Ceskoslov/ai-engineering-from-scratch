@@ -448,6 +448,16 @@ Vous avez construit ça à partir de zéro, maintenant vous savez ce que font le
 
 4. Écrivez une fonction qui prend une liste de probabilités de log et renvoie la séquence la plus probable, la probabilité totale de log et la probabilité brute équivalente. Testez-la avec une phrase de 50 mots où chaque mot a une probabilité de 0,01.
 
+### Des indices
+
+**Exercise 1.**Tirer`u`de la distribution et du retour uniformes $-\ln(1 - u) / \lambda$Vérifiez que la moyenne de l' échantillon est proche de$1/\lambda$et que les poubelles d' histogrammes suivent $\lambda e^{-\lambda x}$- Je suis désolé .
+
+**Exercise 2.**Remplissez une table de 6x6 où chaque cellule est une probabilité et la somme de toutes les cellules est 1, puis appelez `joint_to_marginals`- Utilisez`check_independence`: les dés ne sont indépendants que si chaque cellule est égale au produit de ses deux marges.
+
+**Exercise 3.**Appliquer `softmax`à la logite et prendre $-\ln$Le résultat doit être proche de 0,421, ce qui est la valeur `nn.CrossEntropyLoss`Il donne pour les mêmes logits et cible.
+
+**Exercise 4.**Ajouter les probabilités de log; ne multipliez pas les probabilités brutes. Pour 50 mots avec probabilité 0.01, le total doit être $50 \ln(0.01) \approx -230.26$, et la probabilité brute est $10^{-100}$- Je suis désolé .
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

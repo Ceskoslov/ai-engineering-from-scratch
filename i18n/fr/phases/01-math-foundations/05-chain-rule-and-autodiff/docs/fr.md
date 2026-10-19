@@ -499,6 +499,16 @@ La classe de valeur construite ici est la base pour la boucle d'entraînement du
 
 4. Implémenter l'autodiff en mode avant en utilisant des numéros doubles.`Dual`classe et vérifier qu'il donne les mêmes dérivés que votre moteur en mode inverse.
 
+### Des indices
+
+**Exercise 1.** `Value`Définit déjà `__pow__`- Lisez son .`_backward`et confirmer qu' il s' applique $n x^{n-1}$- À la descente.`x = Value(2.0)`- Je suis là .`y = x ** 3`- Je suis là .`y.backward()`- le président .`x.grad`doit être de 12,0.
+
+**Exercise 2.**Utilisation $\tanh'(x) = 1 - \tanh(x)^2$dans `_backward`- Vérifiez votre différence finie:$\frac{\tanh(x + h) - \tanh(x - h)}{2h}$Il faut être d' accord à$x = 0$et $x = 2$- Je suis désolé .
+
+**Exercise 3.**Construire`w1*x1 + w2*x2 + b`de `Value`les objets, appliquer `relu`, et appeler`backward`Avant de comparer avec PyTorch, vérifiez à la main si l'entrée de `relu`est positif, le gradient pour `w1`égale `x1`; si elle est négative, les cinq gradients sont 0.
+
+**Exercise 4.**Conserver une valeur et un dérivé dans chacun `Dual`, et utiliser la règle du produit $(a, a')(b, b') = (ab, a'b + ab')$Pour la multiplication, séparez l'entrée avec la dérivé 1 et comparez le résultat avec `x.grad`du moteur en mode inverse pour la même fonction.
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

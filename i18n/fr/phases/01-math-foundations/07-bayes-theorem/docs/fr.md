@@ -451,6 +451,16 @@ Les avantages par rapport aux tests A/B fréquentistes:
 
 4. **MAP by hand.**Compte tenu des données observées (7 têtes sur 10 lancements de pièces), calculer l' estimation du MAP du biais en utilisant un $\text{Beta}(2,2)$Comparer avec l'estimation de l'AML ($7/10$)
 
+### Des indices
+
+**Exercise 1.**Appel`bayes`une fois pour obtenir le posterior après le test 1, puis appeler à nouveau avec ce posterior comme le prior. `sequential_bayes(prior, likelihood, false_positive_rate, 2)`doit donner la même valeur, proche de 0,5.
+
+**Exercise 2.**Créez un .`NaiveBayes(smoothing=s)`pour chaque valeur, entraînez-le sur les mêmes données, et imprimez `top_words`Avec l'allégement 0, un mot qui ne apparaît jamais dans le spam obtient la probabilité 0, donc son journal n'est pas défini.
+
+**Exercise 3.**Comptez combien de messages de spam et de jambon sont courts, divisez-les par le nombre de messages dans chaque classe, et ajoutez le journal de ce rapport au score en `predict`Vérifiez que les deux probabilités pour chaque classe s'ajoutent à 1.
+
+**Exercise 4.**Avec un$\text{Beta}(\alpha, \beta)$Avant, l'estimation du PAM est $\frac{h + \alpha - 1}{n + \alpha + \beta - 2}$- Mettez-le .$h = 7$- Je suis là .$n = 10$; le résultat doit être entre le MLE (0,7) et le mode précédent (0,5).
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

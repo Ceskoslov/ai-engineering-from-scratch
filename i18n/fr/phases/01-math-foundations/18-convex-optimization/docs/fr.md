@@ -535,6 +535,18 @@ print(f"Support vectors: {svm.n_support_}")
 
 5. **Hessian eigenvalue analysis.**Computez le Hessian de la fonction Rosenbrock à (1,1) et à (-1,1). Computez les valeurs propres à ces deux points.
 
+### Des indices
+
+**Exercise 1.**Prédire chaque résultat avant de courir .`check_convexity`: dans une dimension, regardez le signe de $f''(x)$; dans deux dimensions, regardez les valeurs propres de l'hessien.$f(x,y) = xy$, le Hessian a des valeurs propres 1 et -1, donc le vérificateur doit signaler qu'il n'est pas convexe.
+
+**Exercise 2.**Appel`optimize_gd`et `newtons_method`avec le gradient et le Hessian de $f$La méthode de Newton résout un quadratique en une seule étape.$2/100$à cause de la$50x^2$le terme, donc le $y$La direction se déplace lentement.$100x^2$et compte les pas encore.
+
+**Exercise 3.**Utilisation `lagrange_solve`avec $g(x,y) = x + 2y - 4$- À la réponse, vérifiez ça.$x + 2y = 4$et que$\nabla f = (2(x-3), 2(y-3))$est un multiple de $\nabla g = (1, 2)$- Je suis désolé .
+
+**Exercise 4.**Le minimum non restreint (3, 2) est en dehors du diamant, donc la réponse est à sa limite.$\lvert x \rvert + \lvert y \rvert \le 1$. Vérifiez que le résultat satisfait à la contrainte par égalité et comparez-le avec `demo_regularization_geometry`- Je suis désolé .
+
+**Exercise 5.**Appel`rosenbrock_hessian`à chaque point et transmettre le résultat à `hessian_eigenvalues_2d`. À (1, 1), les deux valeurs propres sont positives et leur rapport est très grand, de sorte que la vallée est étroite dans une direction et plate dans l'autre.
+
 ## Les termes clés
 
 | Term | What it means |

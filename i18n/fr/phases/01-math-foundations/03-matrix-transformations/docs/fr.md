@@ -437,6 +437,14 @@ Cette leçon construit les bases géométriques de l'analyse de la PCA (phase 2)
 
 3. Créer une composition de trois transformations (rotation de 30 degrés, échelle par [1,5, 0,8], coupe avec kx=0,3) et appliquer à 8 points disposés dans un cercle. Imprimer avant et après les coordonnées. Compute le déterminant de la matrice composée et vérifier qu'il est égal au produit des déterminants individuels.
 
+### Des indices
+
+**Exercise 1.**Appliquer `rotation_2d`- Je suis là .`scaling_2d`, et `shearing_2d`à chaque coin avec `mat_vec_mul`Pour la rotation, calculer les 4 longueurs latérales et les 2 diagonales avant et après; chacune doit rester la même.
+
+**Exercise 2.**Écrivez l' équation caractéristique $\lambda^2 - (\text{trace})\lambda + \det = 0$Vérifiez que vos deux valeurs s'ajoutent à la trace (7) et se multiplient par le déterminant (10), puis comparez avec `eigenvalues_2x2`et `np.linalg.eigvals`- Je suis désolé .
+
+**Exercise 3.**Construisez les trois matrices, avec `shearing_2d(0.3, 0)`pour la découpe, multipliez-les par `mat_mul`dans l'ordre de la demande, et appliquer le résultat à 8 points $(\cos\theta, \sin\theta)$La rotation a un déterminant de 1 et la découpe a un déterminant de 1, donc `det_2x2`de la composition doit être égale $1.5 \times 0.8 = 1.2$- Je suis désolé .
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

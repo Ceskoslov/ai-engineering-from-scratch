@@ -560,6 +560,18 @@ Cette leçon donne:
 
 5. Temps de votre solveur Cholesky vs votre solveur LU vs `np.linalg.solve`Sur des matrices positives symétriques de taille 10, 50, 200, 500, tracez les résultats.
 
+### Des indices
+
+**Exercise 1.**Appel`gaussian_elimination(A, b)`Alors ...`lu_decompose(A)`suivie de `lu_solve(P, L, U, b)`Alors ...`np.linalg.solve(A, b)`Vérifiez chaque réponse avec `np.allclose(A @ x, b)`et comparer les trois réponses avec `np.allclose`- Je suis désolé .
+
+**Exercise 2.**Utilisation `least_squares_normal`Pour les équations normales et les trois fonctions NumPy pour les autres méthodes, les quatre réponses doivent être proches de `w_true`- Comparer`condition_number(X.T @ X)`avec `condition_number(X)`: le premier est le carré du second, donc les équations normales perdent la plus grande précision.
+
+**Exercise 3.**Attendez-vous à un numéro de condition ci-dessus $10^{9}$- Résolvez avec `np.linalg.solve`et avec `ridge_regression(A, b, 0.01)`, puis comparer `np.linalg.norm(x)`Les deux résidus peuvent être petits, mais la solution sans régularisation a généralement de très grandes entrées.
+
+**Exercise 4.**Faites une matrice définie positive symétrique avec `B @ B.T + n * np.eye(n)`, de sorte que chaque valeur propre est positive. Ajoutez un compteur à la boucle dans votre copie de `conjugate_gradient`, puis vérifiez que la norme résiduelle finale est inférieure à 1e-8 et que le nombre est au maximum de 100.
+
+**Exercise 5.**Utilisez la même .`B @ B.T + n * np.eye(n)`matrices pour les trois résolveurs et le temps chaque résoudre avec `time.perf_counter`Cholesky a besoin d'environ la moitié de l'arithmétique de LU, donc le rapport est le plus clair sur les tailles plus grandes.
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

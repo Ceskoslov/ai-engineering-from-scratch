@@ -440,6 +440,18 @@ On court .`code/complex_numbers.py`pour générer `outputs/skill-complex-arithme
 
 5. **Rotation matrix equivalence.**Pour 10 angles aléatoires et 10 points aléatoires, vérifiez que la multiplication complexe donne le même résultat que la multiplication par matrice-vecteur avec la matrice de rotation 2x2.
 
+### Des indices
+
+**Exercise 1.**Élargir le produit avec $i^2 = -1$, puis partager en multipliant le haut et le bas par le conjugué $1 + 3i$Vérifiez le produit avec `Complex(2, 3) * Complex(4, -1)`: son `magnitude()`doit être égal au produit des deux magnitudes, et son`phase()`doit être égale à la somme des deux phases.
+
+**Exercise 2.**Faites le pas avec `euler(math.pi / 6)`et multiplier 12 fois. À chaque étape, vérifiez que la magnitude reste 1 et que l'angle augmente de 30 degrés.
+
+**Exercise 3.**Faites les points horaires avec $t = n/32$et appeler`dft`Regardez seulement les poubelles de 0 à 15, car la moitié supérieure est une image miroir.$k$pour un sinus d'amplitude $A$est $AN/2$, alors attendez-vous à environ 16 au bac 3 et environ 8 au bac 7.
+
+**Exercise 4.**Appel`roots_of_unity(8)`et ajouter les racines: la magnitude de la somme doit être proche de 0. Divisez chaque racine par la racine précédente et vérifiez que chaque résultat est égal `euler(2 * math.pi / 8)`- Je suis désolé .
+
+**Exercise 5.**La matrice de rotation est [cos t, -sin t], [sin t, cos t]. Pour chaque angle et point, calculer `euler(t) * Complex(x, y)`et le produit de la matrice, puis enregistrer la plus grande différence absolue.$10^{-15}$- Je suis désolé .
+
 ## Les termes clés
 
 | Term | What it means |

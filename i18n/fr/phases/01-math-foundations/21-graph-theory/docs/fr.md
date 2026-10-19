@@ -481,6 +481,18 @@ où $\hat{A} = A + I$(adjacence plus auto-loops) et $\hat{D}$est la matrice de d
 
 5. **Analyze a real-world graph.**Utilisez le graphique du Karate Club (34 nœuds, 78 bords). Comptez la répartition des degrés, les valeurs propres de Laplace et le regroupement spectrique. Comparer le résultat du regroupement spectrique avec la fraction de vérité de la terre connue.
 
+### Des indices
+
+**Exercise 1.**Utilisez la formule de l'exercice. Un nœud sans bordes sortantes doit partager son score de manière égale avec tous les nœuds, ou le total tombe en dessous de 1. Vérifiez que les scores s'ajoutent à 1 après chaque étape et comparez votre résultat avec `pagerank(graph)`- Je suis désolé .
+
+**Exercise 2.**Construisez deux cliques avec `add_edge`, les connecter avec un bord, et appeler `spectral_clustering(graph, k=2)`Vérifiez que chaque clique obtient une étiquette. Lorsque vous ajoutez des bordures croisées, imprimez la deuxième plus petite valeur propre de `laplacian()`, qui grandit à mesure que les deux groupes se rejoignent.
+
+**Exercise 3.**Gardez une file d'attente prioritaire avec `heapq`et toujours étendre le nœud avec la plus petite distance connue.`bfs(graph, start)`- Je suis désolé .
+
+**Exercise 4.**Utilisez la matrice d' identité comme `features`, de sorte que chaque colonne marque un nœud, et appliquer `message_passing`Ensuite, les entrées non zéro dans la rangée pour le nœud $v$montrer quels nœuds ont atteint $v$Comparer cet ensemble avec les nœuds à distance 2 d'une première recherche de largeur.
+
+**Exercise 5.** `networkx.karate_club_graph()`donne la liste de bord et la vérité de base dans l' attribut noeud `club`- Copiez les bords dans un`Graph`et vérifier qu'il a 34 nœuds et 78 bords.`spectral_clustering`avec le `club`Les deux étiquettes doivent être échangées.
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

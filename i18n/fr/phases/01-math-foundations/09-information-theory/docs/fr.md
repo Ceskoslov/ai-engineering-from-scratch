@@ -461,6 +461,16 @@ Tu as construit de rien .`torch.nn.CrossEntropyLoss()`Vous savez maintenant pour
 
 4. Construisez une fonction qui calcule la perplexité d'une séquence de prédictions de jetons.
 
+### Des indices
+
+**Exercise 1.**Appel`entropy`avec 26 probabilités égales; le résultat doit être $\log_2 26 \approx 4.70$Les fréquences réelles des lettres ne sont pas uniformes, donc l'entropie avec elles doit être inférieure.
+
+**Exercise 2.**Compte `softmax`de la logite, alors $-\ln$de la probabilité à l'indice 1, et comparer avec `cross_entropy_loss(1, logits)`La perte approche de 0 seulement lorsque la logite de la classe 1 est beaucoup plus grande que les deux autres.
+
+**Exercise 3.**Utilisez deux petites distributions de formes différentes, par exemple $P = [0.9, 0.1]$et $Q = [0.5, 0.5]$, et appeler`kl_divergence`Les deux valeurs doivent être différentes, car chaque direction pèse le rapport log par une distribution différente.
+
+**Exercise 4.**Pour chaque paire, calculer `cross_entropy_loss(true_token_index, predicted_logits)`, prendre la moyenne, et passer à `perplexity`Vérifiez avec les logs uniformes .$V$Les jetons: la perplexité doit être $V$- Je suis désolé .
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

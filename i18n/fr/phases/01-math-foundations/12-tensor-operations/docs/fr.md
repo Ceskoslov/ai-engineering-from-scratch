@@ -320,6 +320,16 @@ Cette leçon produit deux instructions réutilisables:
 
 4. **Hard -- Attention shape tracker.**Écrivez une fonction qui prend `batch_size`- Je suis là .`seq_len`- Je suis là .`embed_dim`, et `num_heads`Les données de l'interface de l'interface sont fournies par l'intermédiaire de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface de l'interface.`demo_attention_einsum()`la sortie.
 
+### Des indices
+
+**Exercise 1.**Construisez le tensor à partir de `list(range(24))`Ainsi chaque élément montre sa propre position.`reshape`Appel, imprimé`flatten().to_list()`et vérifier que c'est toujours 0 à 23 dans l'ordre.
+
+**Exercise 2.**Une dimension ne peut être diffusée que lorsque les deux tailles sont égales ou si l'une d'entre elles est 1, alors vérifiez cette règle d'abord et émettez une erreur lorsqu'elle échoue.`(3, 1)`et `(1, 4)`, vérifiez cette entrée `[i][j]`du résultat est égal `a[i][0] + b[0][j]`, et comparer le résultat complet avec NumPy.
+
+**Exercise 3.**Divisez les abonnements en `->`Une lettre qui est dans les entrées mais pas dans la sortie est un indice sumé, alors faites boucle sur toutes les valeurs de chaque lettre et ajoutez à la position de sortie.`np.allclose(mine, np.einsum(...))`- Je suis désolé .
+
+**Exercise 4.**Commencez par la taille de la tête `embed_dim // num_heads`et affirmer que `embed_dim % num_heads == 0`Les scores d' attention ont une forme .`(batch_size, num_heads, seq_len, seq_len)`, alors vérifiez votre impression contre cette forme et contre les formes qui`demo_attention_einsum()`Des empreintes.
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

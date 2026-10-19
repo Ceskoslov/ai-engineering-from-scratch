@@ -322,6 +322,14 @@ La classe Matrix construite ici est la base du framework de réseau mini-néural
 
 3. **Build a two-layer network.**En utilisant uniquement votre classe Matrix (pas de NumPy), créez un réseau neural à deux couches: entrée (3) -> cachée (4) -> sortie (2). Initialize des poids aléatoires, exécutez un passage vers l'avant et vérifiez que toutes les formes sont correctes.
 
+### Des indices
+
+**Exercise 1.**Multipliez`A @ A.inverse_2x2()`pour trois matrices et comparer chaque cellule avec l'identité à l'intérieur `1e-9`. Pour une matrice avec un déterminant de 0, comme [1, 2], [2, 4], `inverse_2x2`- Il y a un`ValueError`, et c'est le résultat attendu.
+
+**Exercise 2.**Compute la matrice de cofacteurs 3x3, transposez-la pour obtenir l'adjugé, puis divisez chaque cellule par `determinant()`Regarde ça .`A @ A_inv`donne l' identité et que chaque cellule correspond `np.linalg.inv(A)`dans le cadre de la`1e-9`- Je suis désolé .
+
+**Exercise 3.**Écrivez la forme de chaque matrice avant de multiplier: `W1`est 4x3 et `W2`est 2x4, comme dans `demo_neural_network_layer`Une entrée 3x1 doit donner un vecteur caché 4x1 et une sortie 2x1.
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |

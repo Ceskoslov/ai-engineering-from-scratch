@@ -520,6 +520,18 @@ Cette leçon donne:
 
 5. Générer une matrice de bas rang propre (rang 3, taille 50x40) et ajouter le bruit gaussien à différents niveaux ($\sigma$Pour chaque niveau de bruit, trouvez le rang de troncation optimal en balayant $k$Les résultats de la recherche ont été obtenus en 1 à 40 et ont été mesurés en fonction de l'erreur de reconstruction par rapport à la matrice propre.$k$les changements avec le niveau de bruit.
 
+### Des indices
+
+**Exercise 1.**Compte $A^T A$, obtenir ses valeurs propres et des propres vecteurs avec `np.linalg.eigh`Les valeurs singulières sont les racines carrées des valeurs propres; vérifiez que$U \Sigma V^T$reconstruction $A$et comparer l'erreur avec `svd_from_scratch`et `np.linalg.svd`- Je suis désolé .
+
+**Exercise 2.**Appel`truncated_svd`Pour chaque rang, reconstruisez l'image avec `reconstruct`, et utiliser `compression_ratio(m, n, k)`L'erreur relative doit diminuer à mesure que le rang augmente, et le premier rang où vous ne voyez pas de blocs clairs est la réponse.
+
+**Exercise 3.**Marquez les cellules manquantes, remplissez-les de la moyenne de rang, puis reconstruisez une approximation de rang 3 avec `truncated_svd`et `reconstruct`. Ensuite, mesurer le résultat: compter les prédictions en dehors de la plage de notation, et imprimer le plus grand changement dans une cellule connue. Une approximation de rang 3 ne garantit aucune des propriétés, donc cliquer les prédictions à la plage si vous avez besoin de notations valides.
+
+**Exercise 4.**Donnez à chaque sujet un bloc de 5 termes avec un nombre élevé pour ses documents, puis ajoutez un petit bruit. Imprimez les valeurs singulières: les 3 premières doivent être beaucoup plus grandes que la 4ème.
+
+**Exercise 5.**Faites la matrice propre comme le produit d'une matrice aléatoire 50x3 et 3x40, puis ajoutez du bruit pour chacune $\sigma$Pour chacun .$k$, comparer le rang $k$reconstruction avec la matrice propre; attendez-vous au meilleur $k$près de 3 pour le faible bruit et plus petit pour le bruit élevé.
+
 ## Les termes clés
 
 | Term | What people say | What it actually means |
