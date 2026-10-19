@@ -440,6 +440,18 @@ Corra .`code/complex_numbers.py`para gerar `outputs/skill-complex-arithmetic.md`
 
 5. **Rotation matrix equivalence.**Para 10 ângulos aleatórios e 10 pontos aleatórios, verifique se a multiplicação complexa dá o mesmo resultado que a multiplicação de matriz-vector com a matriz de rotação 2x2.
 
+### Indicios
+
+**Exercise 1.**Expandir o produto com $i^2 = -1$, então divide multiplicando o topo e o fundo pelo conjugado $1 + 3i$Verifique o produto com`Complex(2, 3) * Complex(4, -1)`O seu`magnitude()`Deve ser igual ao produto das duas magnitudes, e o seu`phase()`deve ser igual à soma das duas fases.
+
+**Exercise 2.**Faça o passo com `euler(math.pi / 6)`Em cada etapa, verifique se a magnitude permanece 1 e que o ângulo cresce em 30 graus.
+
+**Exercise 3.**Faça os pontos de tempo com $t = n/32$e ligar .`dft`Olhe apenas para os canhões 0 a 15, porque a metade superior é uma imagem espelhada.$k$para um seno de amplitude $A$É o que é$AN/2$, então espere cerca de 16 no bin 3 e cerca de 8 no bin 7.
+
+**Exercise 4.**Liga-me .`roots_of_unity(8)`E adicionar as raízes: a magnitude da soma deve ser próxima de 0. Divida cada raiz pela raiz anterior e verifique se cada resultado é igual `euler(2 * math.pi / 8)`- Não .
+
+**Exercise 5.**A matriz de rotação é [[cos t, -sin t], [sin t, cos t]]. Para cada ângulo e ponto, calcular `euler(t) * Complex(x, y)`e o produto da matriz, então registar a maior diferença absoluta.$10^{-15}$- Não .
+
 ## Termos-chave
 
 | Term | What it means |

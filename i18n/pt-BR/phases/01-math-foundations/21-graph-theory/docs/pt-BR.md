@@ -481,6 +481,18 @@ onde$\hat{A} = A + I$(adjacência mais auto-loops) e $\hat{D}$é a matriz de gra
 
 5. **Analyze a real-world graph.**Use o gráfico do Clube de Karate (34 nós, 78 bordas). Compute distribuição de graus, valores próprios laplacianos e agrupamento espectral. Compare o resultado do agrupamento espectral com a divisão de verdade do solo conhecida.
 
+### Indicios
+
+**Exercise 1.**Use a fórmula do exercício. Um nó sem bordas saindo deve compartilhar sua pontuação igualmente com todos os nós, ou o total cai abaixo de 1. Verifique se as pontuações somam até 1 após cada passo e compare seu resultado com `pagerank(graph)`- Não .
+
+**Exercise 2.**Construir duas camaradas com `add_edge`Conecte-os com uma borda e ligue.`spectral_clustering(graph, k=2)`Verifique se cada clique recebe um rótulo. Quando você adicionar bordas cruzadas, imprimir o segundo menor valor próprio de `laplacian()`, que cresce à medida que os dois grupos se juntam.
+
+**Exercise 3.**Mantenha uma fila de prioridade com `heapq`E sempre expandir o nó com a menor distância conhecida. Faça cada peso 1 e verifique se cada distância Dijkstra é igual à camada BFS do nó de `bfs(graph, start)`- Não .
+
+**Exercise 4.**Use a matriz de identidade como `features`, para que cada coluna marque um nó, e aplicar `message_passing`Depois as entradas não-zero na linha para nós $v$Mostre quais nós chegaram $v$Compare esse conjunto com os nós a distância 2 de uma primeira busca de largura.
+
+**Exercise 5.** `networkx.karate_club_graph()`dá a lista de bordas e a verdade do solo no atributo do nó `club`- Copie as bordas num`Graph`e verifique se tem 34 nós e 78 bordas.`spectral_clustering`com o `club`Os valores são alterados e os dois nomes de rótulos são trocados.
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

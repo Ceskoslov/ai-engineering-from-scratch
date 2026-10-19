@@ -357,6 +357,16 @@ As classes de optimizadores construídas aqui reaparecem na Fase 3 quando treina
 
 4. **Implement learning rate decay.**Adicionar um cronograma de decomposição exponencial para a classe GradientDescent: `lr = lr_0 * 0.999^step`Comparar a convergência com e sem decadência na função Rosenbrock.
 
+### Indicios
+
+**Exercise 1.**O ciclo sobre as taxas de aprendizagem, criar um`GradientDescent(lr=...)`para cada um, e passar para `optimize`com`rosenbrock`E ...`rosenbrock_gradient`Uma corrida que diverge mostra uma perda que cresce ou se torna`nan`O mínimo é $(1, 1)$com perda de 0.
+
+**Exercise 2.**Criar`SGDMomentum(momentum=m)`Para cada valor e registar a perda após cada passo.`find_convergence_step`Para comparar velocidade, e procurar perdas que vão para cima e para baixo para encontrar sobrepasso.
+
+**Exercise 3.**Escreva o gradiente $(2x, -2y)$e executar os três optimizadores a partir de (0.01, 0.01).$y$a cada 100 passos: o optimizador que escapa é aquele onde $\lvert y \rvert$cresce em grande.
+
+**Exercise 4.**Loja`lr_0`E um contador de passos .`GradientDescent`, e computação .`lr = lr_0 * 0.999 ** step`- Por dentro .`step`. Imprimir a taxa de aprendizagem no passo 0 e no passo 1000; deve cair de `lr_0`- Para cerca de .$0.37 \times \text{lr}_0$- Não .
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

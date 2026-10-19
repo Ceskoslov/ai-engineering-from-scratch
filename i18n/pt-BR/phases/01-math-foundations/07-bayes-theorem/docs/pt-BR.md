@@ -451,6 +451,16 @@ Vantagens em relação aos testes A/B frequentistas:
 
 4. **MAP by hand.**Dados os dados observados (7 cabeças em 10 lançamentos de moeda), calcule a estimativa do MAP do viés usando um $\text{Beta}(2,2)$A Comissão deve apresentar um relatório sobre a evolução da situação dos países em desenvolvimento.$7/10$)).
 
+### Indicios
+
+**Exercise 1.**Liga-me .`bayes`uma vez para obter o posterior após o teste 1, então chamá-lo novamente com o posterior como o anterior. `sequential_bayes(prior, likelihood, false_positive_rate, 2)`deve dar o mesmo valor, próximo de 0,5.
+
+**Exercise 2.**Crie um .`NaiveBayes(smoothing=s)`para cada valor, treinar-o nos mesmos dados e imprimir `top_words`Com o smoothing 0, uma palavra que nunca aparece no spam recebe probabilidade 0, então seu log não é definido.
+
+**Exercise 3.**Conte quantas mensagens de spam e ham são curtas, divida pelo número de mensagens em cada classe e adicione o log dessa relação ao resultado em `predict`Verifique se as duas probabilidades para cada classe somam a 1.
+
+**Exercise 4.**Com um$\text{Beta}(\alpha, \beta)$Antes de ser concluída, a estimativa do MAP é $\frac{h + \alpha - 1}{n + \alpha + \beta - 2}$- Coloque-o .$h = 7$- Não .$n = 10$O resultado deve ser entre o MLE (0,7) e o modo anterior (0,5).
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

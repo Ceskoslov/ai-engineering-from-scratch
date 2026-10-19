@@ -520,6 +520,18 @@ Esta lição produz:
 
 5. Gerar uma matriz limpa de baixo nível (rango 3, tamanho 50x40) e adicionar ruído gaussiano em diferentes níveis ($\sigma$Para cada nível de ruído, encontrar a classificação de truncamento ideal$k$A partir de 1 a 40 e a medição de erro de reconstrução contra a matriz limpa.$k$alterações com o nível de ruído.
 
+### Indicios
+
+**Exercise 1.**Computação$A^T A$, obter os seus próprios valores e próprios vetores com `np.linalg.eigh`Os valores singulares são as raízes quadradas dos valores próprios; verifique que$U \Sigma V^T$reconstruções $A$e comparar o erro com `svd_from_scratch`E ...`np.linalg.svd`- Não .
+
+**Exercise 2.**Liga-me .`truncated_svd`Para cada grau, reconstruir a imagem com `reconstruct`, e usar `compression_ratio(m, n, k)`O erro relativo deve cair à medida que a classificação cresce, e a primeira classificação onde não se vê blocos claros é a resposta.
+
+**Exercise 3.**Marque as células faltantes, preencha-as com a média de fila, e reconstruir uma aproximação de nível 3 com `truncated_svd`E ...`reconstruct`. Depois, medir o resultado: contar as previsões fora da faixa de classificação e imprimir a maior mudança em uma célula conhecida. Uma aproximação de nível 3 não garante nenhuma das propriedades, então clipe as previsões para a faixa se você precisar de classificações válidas.
+
+**Exercise 4.**Dê a cada tópico um bloco de 5 termos com grandes contagens para seus documentos, adicione pequeno ruído. Imprima os valores singulares: os primeiros 3 devem ser muito maiores que o 4. Coloque as coordenadas 3D por tópico e verifique se cada tópico forma um grupo.
+
+**Exercise 5.**Faça a matriz limpa como o produto de uma matriz aleatória 50x3 e 3x40, e adicione ruído para cada $\sigma$- Para cada um .$k$, comparar a classificação .$k$Reconstrução com a matriz limpa; esperar o melhor $k$cerca de 3 para baixo ruído e menor para alto ruído.
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

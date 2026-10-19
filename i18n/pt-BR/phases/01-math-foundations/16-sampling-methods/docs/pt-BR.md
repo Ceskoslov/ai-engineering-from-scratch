@@ -652,6 +652,18 @@ Construíste isto do zero, agora sabes o que fazem as chamadas da biblioteca.
 
 5. Construir uma demonstração completa de geração de texto: dado um vocabulário de 10 palavras com logits, gerar sequências de 20 tokens usando (a) ganancioso, (b) temperatura = 0,7, (c) top-k = 3, (d) top-p = 0,9. Compare a diversidade de saídas em 5 corridas.
 
+### Indicios
+
+**Exercise 1.**Resolver$u = F(x)$Para$x$, o que dá $x = \tan(\pi(u - 0.5))$Verifique se a mediana da amostra está próxima a 0 e se cerca de 6% das amostras têm$\lvert x \rvert > 10$, que é $1 - (2/\pi)\arctan(10)$- Não .
+
+**Exercise 2.**A densidade Beta ((2, 5) é $30x(1-x)^4$. Encontre o seu maior valor no modo $x = 1/5$e usar esse valor como $M$em `rejection_sample`A taxa de aceitação teórica é de$1/M$, então compare-o com a fração de propostas que aceita.
+
+**Exercise 3.**O valor exacto é 2.`monte_carlo_integral(math.sin, 0, math.pi, n)`para cada um $n$e repita cada corrida com várias sementes.$n$A taxa de erro média deve diminuir em cerca de $\sqrt{10} \approx 3.2$- Não .
+
+**Exercise 4.**Escreva o registro do alvo, que é $-(x^2 y^2 + x^2 + y^2 - 8x - 8y)/2$, e passar para `metropolis_hastings_2d`- registar a taxa de aceitação de cada proposta de desvio padrão: um valor muito pequeno aceita quase todos os passos, mas se move lentamente, e um valor muito grande rejeita quase todos os passos.
+
+**Exercise 5.**A codificação gananciosa leva o índice da maior logit em cada passo.`temperature_sample`- Não .`top_k_sample`, e `top_p_sample`A ganância deve dar a mesma sequência em todas as 5 corridas, então conte as sequências distintas para cada método para medir a diversidade.
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

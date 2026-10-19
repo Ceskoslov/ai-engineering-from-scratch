@@ -580,6 +580,18 @@ Estas implementações estáveis reaparecem na fase 3 na construção do ciclo d
 
 5. **Loss scaling experiment.**Simulação de treinamento com float16: criar gradientes aleatórios na faixa [1e-9, 1e-3], converter em float16, e medir qual fração se torna zero.
 
+### Indicios
+
+**Exercise 1.**Converter os três valores com `np.float32`Antes de os quadrar, depois liga.`variance_naive`E ...`welford_variance`Um valor próximo de$10^{12}$no float32 tem um espaçamento muito maior que 1, então espere que o resultado ingênuo seja longe de 0,6667 e o resultado Welford seja próximo.
+
+**Exercise 2.**Começa com `x = np.float32(1.0)`E meia-lo enquanto `np.float32(1.0) + x != np.float32(1.0)`. Mantenha todos os valores em float32, e depois compare o último valor que ainda mudou a soma com `numpy.finfo(numpy.float32).eps`, que é $2^{-23}$- Não .
+
+**Exercise 3.**Previnha primeiro cada resposta.$n$valores iguais $c$, o resultado é $c + \ln n$Para um valor grande, o resultado é próximo a esse valor.$-1000 + \ln n$, enquanto `logsumexp_naive`Retorno `-inf`Porque cada exponencial desce para 0.
+
+**Exercise 4.**Para o$y = Wx + b$com uma perda.$L$, o gradiente para $W$é o produto externo do gradiente ascendente e $x$- Envolver a perda como função do aplanado$W$- Não , não .`numerical_gradient`, e passar ambos os resultados para `check_gradient`- Não .
+
+**Exercise 5.**Amostra das magnitudes em uma escala de log com `10 ** np.random.uniform(-9, -3, n)`e converter com `np.float16`. Float16 não pode manter valores abaixo de aproximadamente $6 \times 10^{-8}$, então espere que cerca de um quarto dos valores se tornem zero antes de escalar e quase nenhum depois de você multiplicar por 1024.
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

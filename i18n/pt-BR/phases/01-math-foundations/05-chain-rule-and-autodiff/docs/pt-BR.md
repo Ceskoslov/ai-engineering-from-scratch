@@ -499,6 +499,16 @@ A classe de valor construída aqui é a base para o ciclo de treinamento da rede
 
 4. Implementar o auto-difuso em modo avançado usando números duplos.`Dual`A classe e verificar que dá as mesmas derivadas que o motor de modo inverso.
 
+### Indicios
+
+**Exercise 1.** `Value`já define `__pow__`- Leia o seu .`_backward`e confirmar que se aplica.$n x^{n-1}$- Para o gradiente de entrada.`x = Value(2.0)`- Não .`y = x ** 3`- Não .`y.backward()`- O que é ?`x.grad`Deve ser 12,0.
+
+**Exercise 2.**Utilização$\tanh'(x) = 1 - \tanh(x)^2$em `_backward`Verifique contra a sua própria diferença finita:$\frac{\tanh(x + h) - \tanh(x - h)}{2h}$Deve concordar em$x = 0$E ...$x = 2$- Não .
+
+**Exercise 3.**Construir`w1*x1 + w2*x2 + b`de`Value`objetos, aplicar `relu`, e ligar`backward`Antes de comparar com PyTorch, verifique manualmente: se a entrada para `relu`é positivo, o gradiente para `w1`- É igual .`x1`Se for negativo, os cinco gradientes são 0.
+
+**Exercise 4.**Armazenar um valor e um derivado em cada `Dual`, e usar a regra do produto $(a, a')(b, b') = (ab, a'b + ab')$Para multiplicação. semente a entrada com a derivada 1 e compare o resultado com `x.grad`do motor de modo inverso para a mesma função.
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |

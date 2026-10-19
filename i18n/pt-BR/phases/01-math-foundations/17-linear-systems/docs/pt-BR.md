@@ -560,6 +560,18 @@ Esta lição produz:
 
 5. Tempo do seu solvente Cholesky vs. seu solvente LU vs.`np.linalg.solve`Em matrizes definidas positivas simétricas de tamanho 10, 50, 200, 500.
 
+### Indicios
+
+**Exercise 1.**Liga-me .`gaussian_elimination(A, b)`, então`lu_decompose(A)`seguida por `lu_solve(P, L, U, b)`, então`np.linalg.solve(A, b)`Verifique cada resposta com`np.allclose(A @ x, b)`e comparar as três respostas com `np.allclose`- Não .
+
+**Exercise 2.**Utilização`least_squares_normal`Para as equações normais e as três funções NumPy para os outros métodos.`w_true`- Comparar .`condition_number(X.T @ X)`com`condition_number(X)`A primeira é o quadrado da segunda, por isso as equações normais perdem a maior precisão.
+
+**Exercise 3.**Espera um número de condição acima .$10^{9}$Resolva com`np.linalg.solve`E com`ridge_regression(A, b, 0.01)`, então compare `np.linalg.norm(x)`Os dois resíduos podem ser pequenos, mas a solução sem regularização geralmente tem entradas muito grandes.
+
+**Exercise 4.**Faça uma matriz definida positiva simétrica com `B @ B.T + n * np.eye(n)`, para que cada valor próprio seja positivo. Adicione um contador ao loop em sua cópia de `conjugate_gradient`, verificem que a norma residual final seja inferior a 1e-8 e que a contagem seja no máximo 100.
+
+**Exercise 5.**Use o mesmo .`B @ B.T + n * np.eye(n)`matrizes para os três solventes e tempo cada resolver com `time.perf_counter`Cholesky precisa de cerca de metade da aritmética de LU, então a relação é mais clara nos tamanhos maiores.
+
 ## Termos-chave
 
 | Term | What people say | What it actually means |
