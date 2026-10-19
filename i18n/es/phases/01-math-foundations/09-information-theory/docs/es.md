@@ -461,6 +461,16 @@ print(f"KL div:     {np_kl_divergence(true, pred):.4f} nats")
 
 4. Construir una función que compute la perplejidad de una secuencia de predicciones de tokens. Dado una lista de pares (true_token_index, predicted_logits), devuelva la perplejidad de la secuencia.
 
+### Indicios
+
+**Exercise 1.**Llamé`entropy`con 26 probabilidades iguales; el resultado debe ser $\log_2 26 \approx 4.70$Las frecuencias reales de las letras no son uniformes, por lo que la entropía con ellas debe ser menor.
+
+**Exercise 2.**Computación`softmax`de las logitas, entonces $-\ln$de la probabilidad en el índice 1, y comparar con `cross_entropy_loss(1, logits)`La pérdida se acerca a 0 sólo cuando la logit de la clase 1 es mucho mayor que las otras dos.
+
+**Exercise 3.**Utilice dos pequeñas distribuciones con diferentes formas, por ejemplo $P = [0.9, 0.1]$y $Q = [0.5, 0.5]$, y llamar`kl_divergence`Los dos valores deben ser diferentes, porque cada dirección pesa la relación de registro por una distribución diferente.
+
+**Exercise 4.**Para cada par, calcular `cross_entropy_loss(true_token_index, predicted_logits)`, tomar la media, y pasar a `perplexity`- Compruebe con los uniformes .$V$Los tokens: la perplejidad debe ser $V$¿ Qué ?
+
 ## Términos clave
 
 | Term | What people say | What it actually means |

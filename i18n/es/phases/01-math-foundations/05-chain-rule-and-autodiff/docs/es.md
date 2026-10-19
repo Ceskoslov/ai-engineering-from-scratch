@@ -499,6 +499,16 @@ La clase de valor construida aquí es la base para el ciclo de entrenamiento de 
 
 4. Implementar la autoproducción en modo avanzado utilizando números dobles.`Dual`clase y comprobar que da las mismas derivadas que su motor de modo inverso.
 
+### Indicios
+
+**Exercise 1.** `Value`ya define `__pow__`. Lea su .`_backward`y confirmar que se aplica.$n x^{n-1}$- ¿Qué es lo que está pasando?`x = Value(2.0)`¿ Qué ?`y = x ** 3`¿ Qué ?`y.backward()`¿ Qué es ?`x.grad`Debe ser de 12,0.
+
+**Exercise 2.**Usar$\tanh'(x) = 1 - \tanh(x)^2$En el`_backward`- Controla contra tu propia diferencia finita:$\frac{\tanh(x + h) - \tanh(x - h)}{2h}$Deben estar de acuerdo en $x = 0$y $x = 2$¿ Qué ?
+
+**Exercise 3.**Construir`w1*x1 + w2*x2 + b`de la`Value`objetos, se aplican `relu`, y llamar`backward`Antes de comparar con PyTorch, compruebe a mano si la entrada de`relu`es positivo, el gradiente para `w1`igual `x1`Si es negativo, los cinco gradientes son 0.
+
+**Exercise 4.**Almacenar un valor y un derivado en cada uno `Dual`, y utilizar la regla del producto $(a, a')(b, b') = (ab, a'b + ab')$Sear la entrada con la derivada 1 y comparar el resultado con `x.grad`del motor de modo inverso para la misma función.
+
 ## Términos clave
 
 | Term | What people say | What it actually means |

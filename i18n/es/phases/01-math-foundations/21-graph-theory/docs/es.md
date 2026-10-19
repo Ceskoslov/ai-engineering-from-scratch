@@ -481,6 +481,18 @@ donde$\hat{A} = A + I$(adyacencia más auto-bucles) y $\hat{D}$es la matriz de g
 
 5. **Analyze a real-world graph.**Utilice el gráfico del Club de Karate (34 nodos, 78 bordes). Computa la distribución de grados, los valores propios de Laplacia y el agrupamiento espectral. Compara el resultado del agrupamiento espectral con la división de verdad de tierra conocida.
 
+### Indicios
+
+**Exercise 1.**Utilice la fórmula del ejercicio. Un nodo sin bordes salientes debe compartir su puntaje por igual con todos los nodos, o el total cae por debajo de 1.`pagerank(graph)`¿ Qué ?
+
+**Exercise 2.**Construye dos camaradas con `add_edge`, conectarlos con un borde, y llamar `spectral_clustering(graph, k=2)`. Compruebe si cada clic obtiene una etiqueta. Cuando agregue bordes cruzados, imprime el segundo menor valor propio de `laplacian()`, que crece a medida que los dos grupos se unen.
+
+**Exercise 3.**Mantenga una cola de prioridad con `heapq`y siempre expandir el nodo con la distancia conocida más pequeña. Hacer cada peso 1 y comprobar que cada distancia Dijkstra es igual a la capa BFS de ese nodo de`bfs(graph, start)`¿ Qué ?
+
+**Exercise 4.**Utilice la matriz de identidad como `features`, para que cada columna marque un nodo, y aplicar `message_passing`Luego las entradas no cero en la fila para nodo $v$muestra qué nodos alcanzaron $v$Comparar ese conjunto con los nodos a distancia de 2 de una primera búsqueda de anchura.
+
+**Exercise 5.** `networkx.karate_club_graph()`da la lista de bordes y la verdad de fondo en el atributo nodo `club`Copie los bordes en un`Graph`y comprobar que tiene 34 nodos y 78 bordes.`spectral_clustering`con el `club`Los valores de la etiqueta se pueden intercambiar entre los dos nombres.
+
 ## Términos clave
 
 | Term | What people say | What it actually means |

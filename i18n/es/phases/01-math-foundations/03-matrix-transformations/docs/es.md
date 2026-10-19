@@ -437,6 +437,14 @@ Esta lección construye las bases geométricas para el análisis de peso de PCA 
 
 3. Crea una composición de tres transformaciones (rota 30 grados, escala por [1,5, 0,8], corte con kx=0,3) y apliquela a 8 puntos dispuestos en un círculo. Imprima antes y después de las coordenadas. Computa el determinante de la matriz compuesta y verifica que es igual al producto de los determinantes individuales.
 
+### Indicios
+
+**Exercise 1.**Aplicar`rotation_2d`¿ Qué ?`scaling_2d`, y `shearing_2d`a cada esquina con `mat_vec_mul`Para la rotación, calcular las 4 longitudes laterales y las 2 diagonales antes y después; cada una debe permanecer igual.
+
+**Exercise 2.**Escriba la ecuación característica $\lambda^2 - (\text{trace})\lambda + \det = 0$Verifique si sus dos valores suman a la pista (7) y multiplican al determinante (10), luego comparan con `eigenvalues_2x2`y `np.linalg.eigvals`¿ Qué ?
+
+**Exercise 3.**Construye las tres matrices, con `shearing_2d(0.3, 0)`para el corte, multiplicarlos con `mat_mul`En el orden de aplicación, y aplicar el resultado a 8 puntos $(\cos\theta, \sin\theta)$La rotación tiene un determinante de 1 y el corte tiene un determinante de 1, así que `det_2x2`de la composición debe ser igual $1.5 \times 0.8 = 1.2$¿ Qué ?
+
 ## Términos clave
 
 | Term | What people say | What it actually means |

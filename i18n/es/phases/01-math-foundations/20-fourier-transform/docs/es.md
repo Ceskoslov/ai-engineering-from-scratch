@@ -440,6 +440,18 @@ La matriz de espectrograma tiene forma (n_frecuencias, n_time_frames). Cada colu
 
 5. **Positional encoding analysis.**Generar las codificaciones sinusoidales de posición para d_modelo = 128 y max_pos = 512. Para cada par de posiciones $(p_1, p_2)$, calcular el producto de puntos de sus codificaciones. Muestre que el producto de puntos depende sólo de$\lvert p_1 - p_2 \rvert$¿Qué pasa con el producto de puntos a medida que la distancia aumenta?
 
+### Indicios
+
+**Exercise 1.**Con 128 muestras en 1 segundo, bin $k$¿ Es verdad ?$k$Hz, por lo que para una frecuencia de un número entero el índice del valor más grande en los contenedores 1 a 63 es la frecuencia.`generate_signal`y `magnitude_spectrum`Después de añadir ruido, comprueba que el pico está todavía en la misma basura mientras las otras basura suben.
+
+**Exercise 2.**Utilice una potencia de dos longitudes, porque `fft`Se divide la señal en dos.`max(abs(a - b))`El ratio de tiempo debe crecer aproximadamente en la medida en que el tiempo de la$N / \log_2 N$¿ Qué ?
+
+**Exercise 3.**Para la convolución circular, calcular $y[n] = \sum_k h[k] x[(n-k) \bmod 8]$por mano para $n$= 0, 1 y 2, y comparar los tres primeros valores de `convolve_direct`y `convolve_fft`La convolución lineal tiene longitud 4 + 3 - 1 = 6, así que comprueba primero si la longitud 8 ya es lo suficientemente larga.
+
+**Exercise 4.**Usar`hann_window`¿ Qué ?`hamming_window`¿ Qué ?`apply_window`, y `power_spectrum`, y contar los picos separados entre 9 y 13 Hz. Tanto 10 Hz como 12 Hz completan ciclos enteros en 1 segundo, por lo que ninguna ventana puede verse mejor. Repita con 10,5 Hz y 12,5 Hz para ver la fuga que las ventanas reducen.
+
+**Exercise 5.**Computa cada codificación con `positional_encoding(pos, 128)`. Comparar el producto de puntos para posiciones (0, 10) con el producto de puntos para (100, 110): los dos valores deben coincidir con aproximadamente 1e-10.$\lvert p_1 - p_2 \rvert$para una fija$p_1$¿ Qué ?
+
 ## Términos clave
 
 | Term | What it means |

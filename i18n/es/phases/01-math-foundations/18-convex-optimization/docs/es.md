@@ -535,6 +535,18 @@ print(f"Support vectors: {svm.n_support_}")
 
 5. **Hessian eigenvalue analysis.**Compute el Hessian de la función Rosenbrock en (1,1) y en (-1,1). Compute los valores propios en ambos puntos. ¿Qué le dicen los valores propios sobre la curvatura en el mínimo versus lejos de él?
 
+### Indicios
+
+**Exercise 1.**Prevé cada resultado antes de correr .`check_convexity`En una dimensión, mira el signo de$f''(x)$En dos dimensiones, observe los valores propios del Hessian.$f(x,y) = xy$, el Hessian tiene valores propios 1 y -1, por lo que el comprobador debe informar que no es convexa.
+
+**Exercise 2.**Llamé`optimize_gd`y `newtons_method`con el gradiente y el hessiano de $f$El método de Newton resuelve un cuadrático en un paso. para la descesión de gradientes, la tasa de aprendizaje debe ser menor que$2/100$por el $50x^2$término, por lo que el $y$La dirección se mueve lentamente. Repita con $100x^2$y contar los pasos de nuevo.
+
+**Exercise 3.**Usar`lagrange_solve`con$g(x,y) = x + 2y - 4$En la respuesta, comprueba eso.$x + 2y = 4$Y eso .$\nabla f = (2(x-3), 2(y-3))$es un múltiplo de $\nabla g = (1, 2)$¿ Qué ?
+
+**Exercise 4.**El mínimo sin restricciones (3, 2) está fuera del diamante, por lo que la respuesta está en su límite.$\lvert x \rvert + \lvert y \rvert \le 1$. Compruebe si el resultado satisface la limitación con igualdad y compare con `demo_regularization_geometry`¿ Qué ?
+
+**Exercise 5.**Llamé`rosenbrock_hessian`en cada punto y pasar el resultado a `hessian_eigenvalues_2d`En (1, 1), ambos valores propios son positivos y su relación es muy grande, por lo que el valle es estrecho en una dirección y plano en la otra.
+
 ## Términos clave
 
 | Term | What it means |

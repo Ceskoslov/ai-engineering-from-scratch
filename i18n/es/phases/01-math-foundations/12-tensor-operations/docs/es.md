@@ -320,6 +320,16 @@ Esta lección produce dos instrucciones reutilizables:
 
 4. **Hard -- Attention shape tracker.**Escriba una función que toma `batch_size`¿ Qué ?`seq_len`¿ Qué ?`embed_dim`, y `num_heads`como entradas e imprime la forma exacta en cada paso de la atención multi-cabeza: entrada, proyección Q/K/V, división de cabeza, puntuaciones de atención, pesos de softmax, suma ponderada, cabeza fusionada, proyección de salida.`demo_attention_einsum()`de salida.
 
+### Indicios
+
+**Exercise 1.**Construye el tensor desde `list(range(24))`Así que cada elemento muestra su propia posición.`reshape`Llamado, impresión`flatten().to_list()`y comprobar que todavía es de 0 a 23 en orden.
+
+**Exercise 2.**Una dimensión sólo puede transmitirse cuando los dos tamaños son iguales o uno de ellos es 1, así que compruebe primero esa regla y eleva un error cuando falla.`(3, 1)`y `(1, 4)`, revisa esa entrada .`[i][j]`de los resultados es igual `a[i][0] + b[0][j]`, y comparar el resultado completo con NumPy.
+
+**Exercise 3.**Divide los suscriptores en `->`Una letra que está en las entradas pero no en la salida es un índice sumado, así que bucle sobre todos los valores de cada letra y agregar en la posición de salida. Prueba cada uno de los cuatro casos en pequeñas matrices aleatorias con `np.allclose(mine, np.einsum(...))`¿ Qué ?
+
+**Exercise 4.**Comienza con el tamaño de la cabeza `embed_dim // num_heads`y afirman que`embed_dim % num_heads == 0`Los resultados de atención tienen forma .`(batch_size, num_heads, seq_len, seq_len)`, así que revisa tu impresión contra esa forma y contra las formas que`demo_attention_einsum()`Las huellas.
+
 ## Términos clave
 
 | Term | What people say | What it actually means |

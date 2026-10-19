@@ -449,6 +449,20 @@ LoRA merece una mención especial. Al ajustar los modelos de lenguaje grandes de
 5. Crear una matriz 3x3 con rango 2. Verificar usando el `rank()`Luego explica qué objeto geométrico las columnas abarcan.
 6. Proyectad el vector [1, 2, 3] hacia [1, 1, 1]. ¿Qué representa el resultado geométricamente?
 
+### Indicios
+
+**Exercise 1.**Comienza con `cosine_similarity`, mantener el valor entre -1 y 1, luego tomar el cosino del arco y convertir radianos en grados.`Vector([1, 0])`y `Vector([0, 1])`dar 90 y que un vector en sí mismo da 0.
+
+**Exercise 2.**Coloque los dos factores de escala en la diagonal de una matriz 2x2 y coloque 0 en las otras dos celdas. El resultado para [1, 1] debe ser [2, 3].
+
+**Exercise 3.**Calcule la similitud cosínica para cada par de los 5 vectores (10 pares) y mantenga el valor más grande.
+
+**Exercise 4.**Usar`gram_schmidt`en tres vectores independientes, luego calcular `dot`para cada par y `magnitude`Comparar con una tolerancia como `1e-9`, porque el punto flotante no da ceros exactos.
+
+**Exercise 5.**Haga que la tercera fila o columna sea la suma de las dos primeras, de modo que una dirección se repite. `rank()`debe devolver 2, y las columnas luego abarcan un plano a través del origen.
+
+**Exercise 6.**Calcule la escala $\frac{a \cdot b}{b \cdot b}$y multiplicarse.$b$por ella, o llamar`project_onto`- Compruebe el resto .$a$menos la proyección tiene un producto de punto de 0 con [1, 1, 1].
+
 ## Términos clave
 
 | Term | What people say | What it actually means |
@@ -462,3 +476,17 @@ LoRA merece una mención especial. Al ajustar los modelos de lenguaje grandes de
 | Projection | "The shadow" | The component of one vector in the direction of another |
 | Basis | "The coordinate axes" | A minimal set of independent vectors that span the space |
 | Orthonormal | "Perpendicular unit vectors" | Vectors that are mutually perpendicular and each have length 1 |
+
+## Resumen
+
+| Formula | Meaning |
+|---------|---------|
+| $a \cdot b = \sum_i a_i b_i$ | Dot product. It measures alignment and is the core of attention scores and cosine similarity |
+| $\cos\theta = \frac{a \cdot b}{\lvert a\rvert \lvert b\rvert}$ | Angle between vectors. 1 is the same direction, 0 is orthogonal |
+| $\lvert a\rvert = \sqrt{a \cdot a}$ | Vector magnitude (length) |
+| $y = Ax, y_i = \sum_j A_{ij} x_j$ | Matrix-vector product. A neural-network layer applies it to every input |
+| $\text{proj}_b a = \frac{a \cdot b}{b \cdot b} b$ | Projection of $a$ onto $b$, the part of $a$ along $b$ |
+| $b^\perp = a - \text{proj}_b a$ | Component of $a$ perpendicular to $b$, used in Gram-Schmidt |
+| $\text{rank}(A) \leq \min(m,n)$ | Rank, the number of independent columns. It decides if $Ax = b$ has a solution |
+| $\Delta W = BA$, $B$ is 4096×16, $A$ is 16×4096 | Low-rank update. LoRA replaces a 4096×4096 update (16M parameters) with two rank-16 factors (131K parameters) |
+| Orthonormal basis: $\lvert v_i\rvert = 1, v_i \cdot v_j = 0$ | Stable, reversible transformations such as whitening and QR decomposition |

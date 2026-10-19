@@ -520,6 +520,18 @@ Esta lección produce:
 
 5. Generar una matriz limpia de bajo rango (rango 3, tamaño 50x40) y agregar el ruido gaussiano en diferentes niveles ($\sigma$Para cada nivel de ruido, encuentre el rango óptimo de truncamiento barriendo $k$de 1 a 40 y medir el error de reconstrucción con la matriz limpia.$k$cambios con el nivel de ruido.
 
+### Indicios
+
+**Exercise 1.**Computación$A^T A$, obtener sus valores propios y vectores propios con `np.linalg.eigh`Los valores singulares son las raíces cuadradas de los valores propios; compruebe que$U \Sigma V^T$reconstrucciones $A$y comparar el error con `svd_from_scratch`y `np.linalg.svd`¿ Qué ?
+
+**Exercise 2.**Llamé`truncated_svd`Para cada rango, reconstruye la imagen con `reconstruct`, y usar`compression_ratio(m, n, k)`El error relativo debe caer a medida que crece la fila, y la primera fila donde no se ven bloques claros es la respuesta.
+
+**Exercise 3.**Marque las células faltantes, llénalos con la media de fila, y luego reconstruya una aproximación de rango 3 con `truncated_svd`y `reconstruct`. Luego mide el resultado: cuenta las predicciones fuera del rango de calificación, e imprime el cambio más grande en una célula conocida. Una aproximación de rango 3 no garantiza ninguna de las propiedades, por lo que corta las predicciones al rango si necesitas calificaciones válidas.
+
+**Exercise 4.**Dar a cada tema un bloque de 5 términos con altos números para sus documentos, luego agregar un pequeño ruido. Imprimir los valores singulares: los primeros 3 deben ser mucho más grandes que el 4. Luego colorear las coordenadas 3D por tema y comprobar que cada tema forma un grupo.
+
+**Exercise 5.**Haga que la matriz limpia sea el producto de una matriz aleatoria de 50x3 y 3x40, y luego añada ruido para cada una $\sigma$- Por cada uno .$k$, comparar el rango .$k$reconstrucción con la matriz limpia; esperar lo mejor $k$cerca de 3 para el ruido bajo y más pequeño para el ruido alto.
+
 ## Términos clave
 
 | Term | What people say | What it actually means |

@@ -652,6 +652,18 @@ Construiste esto desde cero, ahora sabes lo que hacen las llamadas de la bibliot
 
 5. Construir una demostración completa de generación de texto: dado un vocabulario de 10 palabras con logits, generar secuencias de 20 tokens utilizando (a) codicioso, (b) temperatura = 0,7, (c) top-k = 3, (d) top-p = 0,9. Comparar la diversidad de las salidas en 5 carreras.
 
+### Indicios
+
+**Exercise 1.**Resolver$u = F(x)$por$x$, que da$x = \tan(\pi(u - 0.5))$. Compruebe que la mediana de la muestra está cerca de 0 y que alrededor del 6% de las muestras tienen$\lvert x \rvert > 10$, que es $1 - (2/\pi)\arctan(10)$¿ Qué ?
+
+**Exercise 2.**La densidad Beta ((2, 5) es $30x(1-x)^4$. Encuentra su valor más grande en el modo $x = 1/5$y utilizar ese valor como $M$En el`rejection_sample`. La tasa de aceptación teórica es $1/M$, así que compártala con la fracción de propuestas que aceptas.
+
+**Exercise 3.**El valor exacto es 2. Llame.`monte_carlo_integral(math.sin, 0, math.pi, n)`por cada uno $n$y repite cada carrera con varias semillas.$n$crece en un factor de 10, el error promedio debe caer en aproximadamente $\sqrt{10} \approx 3.2$¿ Qué ?
+
+**Exercise 4.**Escriba el registro del objetivo, que es $-(x^2 y^2 + x^2 + y^2 - 8x - 8y)/2$, y pasarlo a `metropolis_hastings_2d`. Registrar la tasa de aceptación de cada propuesta de desviación estándar: un valor muy pequeño acepta casi todos los pasos pero se mueve lentamente, y un valor muy grande rechaza casi todos los pasos.
+
+**Exercise 5.**La codificación codificada toma el índice de la logit más grande en cada paso.`temperature_sample`¿ Qué ?`top_k_sample`, y `top_p_sample`El codicioso debe dar la misma secuencia en las 5 carreras, así que cuenta las secuencias distintas para cada método para medir la diversidad.
+
 ## Términos clave
 
 | Term | What people say | What it actually means |

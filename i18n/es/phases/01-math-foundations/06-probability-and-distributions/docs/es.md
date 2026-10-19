@@ -448,6 +448,16 @@ Construiste esto desde cero, ahora sabes lo que hacen las llamadas de la bibliot
 
 4. Escriba una función que tome una lista de probabilidades de registro y devuelve la secuencia más probable, la probabilidad total de registro y la probabilidad bruta equivalente. Pruébalo con una oración de 50 palabras donde cada palabra tiene probabilidad 0.01.
 
+### Indicios
+
+**Exercise 1.**Describa`u`de una distribución y retorno uniformes $-\ln(1 - u) / \lambda$Compruebe si la media de la muestra está cerca de$1/\lambda$y que los contenedores de histogramas sigan $\lambda e^{-\lambda x}$¿ Qué ?
+
+**Exercise 2.**Llena una tabla de 6x6 donde cada célula es una probabilidad y la suma de todas las células es 1, luego llama `joint_to_marginals`- Usar .`check_independence`: los dados son independientes sólo si cada célula es igual al producto de sus dos margenas.
+
+**Exercise 3.**Aplicar`softmax`a las logitas y tomar $-\ln$El resultado debe estar cerca de 0.421, que es el valor `nn.CrossEntropyLoss`da para los mismos logits y objetivo.
+
+**Exercise 4.**Añadir las probabilidades de registro; no multiplicar las probabilidades crudas. Para 50 palabras con probabilidad 0.01, el total debe ser $50 \ln(0.01) \approx -230.26$, y la probabilidad bruta es $10^{-100}$¿ Qué ?
+
 ## Términos clave
 
 | Term | What people say | What it actually means |

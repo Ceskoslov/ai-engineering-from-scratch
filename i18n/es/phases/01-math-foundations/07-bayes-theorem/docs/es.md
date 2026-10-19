@@ -451,6 +451,16 @@ Ventajas sobre las pruebas A/B frecuentes:
 
 4. **MAP by hand.**Dados los datos observados (7 cabezas en 10 lanzamientos de monedas), calcular la estimación de la MAP del sesgo utilizando un $\text{Beta}(2,2)$El informe de la Comisión sobre la evaluación de la situación de los Estados miembros en el sector de la energía ($7/10$¿Qué es lo que se hace?
 
+### Indicios
+
+**Exercise 1.**Llamé`bayes`una vez para obtener la posterior después de la prueba 1, luego vuelva a llamarla con la posterior como la anterior. `sequential_bayes(prior, likelihood, false_positive_rate, 2)`debe dar el mismo valor, cerca de 0,5.
+
+**Exercise 2.**Crear uno `NaiveBayes(smoothing=s)`para cada valor, entrenarlo en los mismos datos, e imprimir `top_words`Con la suavizamiento 0, una palabra que nunca aparece en el spam obtiene probabilidad 0, por lo que su registro no se define.
+
+**Exercise 3.**Cuente cuántos mensajes de spam y jamón son cortos, divida por el número de mensajes en cada clase, y añada el registro de esa relación al puntaje en `predict`Compruebe si las dos probabilidades para cada clase suman hasta 1.
+
+**Exercise 4.**Con un$\text{Beta}(\alpha, \beta)$La evaluación de la MAP es anterior a la$\frac{h + \alpha - 1}{n + \alpha + \beta - 2}$- Ponlo en .$h = 7$¿ Qué ?$n = 10$El resultado debe situarse entre el MLE (0,7) y el modo anterior (0,5).
+
 ## Términos clave
 
 | Term | What people say | What it actually means |

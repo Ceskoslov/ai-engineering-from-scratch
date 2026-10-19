@@ -322,6 +322,14 @@ La clase Matrix construida aquí es la base para el marco de la red neuronal min
 
 3. **Build a two-layer network.**Utilizando sólo su clase Matrix (sin NumPy), cree una red neuronal de dos capas: entrada (3) -> oculta (4) -> salida (2). Inicializa pesos aleatorios, ejecuta un pase hacia adelante y verifique que todas las formas son correctas.
 
+### Indicios
+
+**Exercise 1.**Multiplicado `A @ A.inverse_2x2()`para tres matrices y comparar cada célula con la identidad dentro `1e-9`. Para una matriz con un determinante de 0, como [1, 2], [2, 4], `inverse_2x2`se eleva un `ValueError`, y este es el resultado esperado.
+
+**Exercise 2.**Computa la matriz de cofactores 3x3, transpóndola para obtener el adjugado, luego divide cada célula por `determinant()`- Mira eso .`A @ A_inv`da la identidad y que cada célula coincide `np.linalg.inv(A)`dentro de la`1e-9`¿ Qué ?
+
+**Exercise 3.**Escriba la forma de cada matriz antes de multiplicar: `W1`es 4x3 y `W2`es 2x4, como en `demo_neural_network_layer`Una entrada 3x1 debe dar un vector oculto 4x1 y una salida 2x1.
+
 ## Términos clave
 
 | Term | What people say | What it actually means |
