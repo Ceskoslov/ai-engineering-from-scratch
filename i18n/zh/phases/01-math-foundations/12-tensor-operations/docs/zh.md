@@ -320,6 +320,16 @@ torch.einsum("ik,kj->ij", A, B)
 
 4. **Hard -- Attention shape tracker.**写一个函数,需要`batch_size`现在`seq_len`现在`embed_dim`其他`num_heads`检查对输入,Q/K/V投影,头分,注意力分数,软最大重量,权重总和,头合并,输出投影.`demo_attention_einsum()`输出
 
+### 暗示
+
+**Exercise 1.**构建子从`list(range(24))`它们的位置是不同的.`reshape`打电话,打印`flatten().to_list()`检查是否仍然是0到23的顺序.
+
+**Exercise 2.**只有两个尺寸等于一个,或者一个是1,才能播放一个维度,所以首先检查该规则,然后在失败时,提升错误.`(3, 1)`其他`(1, 4)`查看这个报名`[i][j]`结果的等式`a[i][0] + b[0][j]`并且将全部结果与NumPy进行比较.
+
+**Exercise 3.**按下列列表.`->`输入中但不是输出中的字母是总数指数,所以循环在每个字母的所有值上,并加入输出位置.`np.allclose(mine, np.einsum(...))`现在,我们要去.
+
+**Exercise 4.**首先要考虑头部的尺寸.`embed_dim // num_heads`并且说`embed_dim % num_heads == 0`关注度有形状`(batch_size, num_heads, seq_len, seq_len)`检查你的打印图像与那个形状和相反的形状`demo_attention_einsum()`他们的指纹.
+
 ## 关键词
 
 | Term | What people say | What it actually means |

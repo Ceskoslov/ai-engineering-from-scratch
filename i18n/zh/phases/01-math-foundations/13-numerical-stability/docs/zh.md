@@ -580,6 +580,18 @@ check_tensor("ugly", [1.0, float('inf'), 3.0])
 
 5. **Loss scaling experiment.**模拟训练使用 float16:在范围 [1e-9, 1e-3] 中创建随机梯度,转换为 float16,并测量什么分数变为零.然后应用损失规模 (乘以1024),转换为 float16,重新扩展,再次测量零分数.
 
+### 暗示
+
+**Exercise 1.**转换三个值为`np.float32`在你把它们平衡之前,然后打电话`variance_naive`其他`welford_variance`接近一个值$10^{12}$在 float32 中,距离大于 1,所以预计天真结果远离0.6667和Welford结果接近.
+
+**Exercise 2.**开始`x = np.float32(1.0)`减半一半,`np.float32(1.0) + x != np.float32(1.0)`按 float32 存储每个值,然后比较最后一个值,`numpy.finfo(numpy.float32).eps`现在,$2^{-23}$现在,我们要去.
+
+**Exercise 3.**预测每一个答案.$n$平等的价值$c$结果是$c + \ln n$对于一个大值,结果接近于这个值.对于接近 -1000的值,结果接近$-1000 + \ln n$在`logsumexp_naive`收益`-inf`因为每个指数向下流到0.
+
+**Exercise 4.**为了$y = Wx + b$没有人能得到$L$向的梯度$W$是上游梯度的外部产物,$x$缩损失的函数$W$打电话`numerical_gradient`通过两个结果`check_gradient`现在,我们要去.
+
+**Exercise 5.**通过日志尺度进行测量`10 ** np.random.uniform(-9, -3, n)`转化为`np.float16`. Float16不能保持值在大约以下$6 \times 10^{-8}$预计在扩展之前,大约四分之一的值将变为零,
+
 ## 关键词
 
 | Term | What people say | What it actually means |

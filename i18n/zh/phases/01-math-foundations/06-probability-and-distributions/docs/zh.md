@@ -448,6 +448,16 @@ print(f"Log-softmax: {log_probs}")
 
 4. 写一个函数,以记录概率列表,返回最有可能的序列,总记录概率和相当的原始概率. 用50字的句子测试,每个字的概率为0.01.
 
+### 暗示
+
+**Exercise 1.**画`u`均的分配和回报$-\ln(1 - u) / \lambda$检查样本平均值是否接近$1/\lambda$并且后续的历史图片$\lambda e^{-\lambda x}$现在,我们要去.
+
+**Exercise 2.**填写一个6x6表,每个细胞是概率,所有的细胞的总和是1,然后调用`joint_to_marginals`使用`check_independence`只有当每个细胞等于其两个边缘的乘法时, dice才是独立的.
+
+**Exercise 3.**申请`softmax`子和子$-\ln$结果必须接近0.421,这是值`nn.CrossEntropyLoss`给出相同的标志和目标.
+
+**Exercise 4.**对于50个字的概率是0.01,总数必须是$50 \ln(0.01) \approx -230.26$并且原始概率是$10^{-100}$现在,我们要去.
+
 ## 关键词
 
 | Term | What people say | What it actually means |

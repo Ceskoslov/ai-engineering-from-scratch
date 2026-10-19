@@ -535,6 +535,18 @@ print(f"Support vectors: {svm.n_support_}")
 
 5. **Hessian eigenvalue analysis.**计算Rosenbrock函数的Hessian在 (1,1) 和 (-1,1).计算两个点的自值.自值告诉你关于最小与远离的曲线?
 
+### 暗示
+
+**Exercise 1.**在跑步之前,预测每一个结果.`check_convexity`,在一个维度,看看标志$f''(x)$两个维度,看看赫西亚的本值.$f(x,y) = xy$检查器必须报告它不是曲的.
+
+**Exercise 2.**电话`optimize_gd`其他`newtons_method`向和向的向$f$对于梯度下降,学习率必须低于$2/100$由于$50x^2$它们的含量$y$方向移动缓慢. 重复$100x^2$然后再数几步.
+
+**Exercise 3.**使用`lagrange_solve`随着$g(x,y) = x + 2y - 4$在答案上,查看.$x + 2y = 4$现在,$\nabla f = (2(x-3), 2(y-3))$是一个乘法$\nabla g = (1, 2)$现在,我们要去.
+
+**Exercise 4.**没有限制的最小值 (3, 2) 在钻石之外,所以答案在钻石的边界上. 使用预测梯度下降:采取梯度步骤,然后投射回$\lvert x \rvert + \lvert y \rvert \le 1$检查结果是否满足平等的限制,并将其与`demo_regularization_geometry`现在,我们要去.
+
+**Exercise 5.**电话`rosenbrock_hessian`在每一个点,然后将结果传递给`hessian_eigenvalues_2d`在 (1, 1) 时,两个自值值都是正值的,它们的比率非常大,所以谷口在一方向窄而另一方向平坦.
+
 ## 关键词
 
 | Term | What it means |

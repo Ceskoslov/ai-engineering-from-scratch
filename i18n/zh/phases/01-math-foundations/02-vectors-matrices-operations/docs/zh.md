@@ -322,6 +322,14 @@ print(matrix + bias)
 
 3. **Build a two-layer network.**通过使用您的矩阵类 (没有NumPy),创建一个两个层神经网络:输入 (3) ->隐藏 (4) ->输出 (2). 启动随机权重,运行前进传递,并验证所有形状是正确的.
 
+### 暗示
+
+**Exercise 1.**乘以`A @ A.inverse_2x2()`对于三个矩阵,并将每个细胞与内部的身份进行比较.`1e-9`. 对 0 的确定量为数的矩阵,例如 [[1, 2], [2, 4]], `inverse_2x2`增加一个`ValueError`结果是这样的.
+
+**Exercise 2.**计算3x3配因子矩阵,将其转换为获得相应,然后将每个细胞分为`determinant()`查看看吧`A @ A_inv`给出了身份,每个细胞都匹配.`np.linalg.inv(A)`在`1e-9`现在,我们要去.
+
+**Exercise 3.**在乘以之前,写出每个矩阵的形状: `W1`是4x3和`W2`像在`demo_neural_network_layer`输入3x1必须提供4x1隐藏向量和2x1输出.
+
 ## 关键词
 
 | Term | What people say | What it actually means |

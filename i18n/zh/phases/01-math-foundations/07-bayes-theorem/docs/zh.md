@@ -451,6 +451,16 @@ graph LR
 
 4. **MAP by hand.**根据观察到的数据 (7个头在10个币中),使用一个$\text{Beta}(2,2)$之前.与MLE估计相比 ($7/10$)
 
+### 暗示
+
+**Exercise 1.**电话`bayes`检测1后,再用后方作为前方. `sequential_bayes(prior, likelihood, false_positive_rate, 2)`必须提供相同的值,接近0.5.
+
+**Exercise 2.**创建一个`NaiveBayes(smoothing=s)`对于每个值,将其训练在相同的数据上,`top_words`通过平滑0,一个从来没有出现在垃圾邮件中的字得到了0的概率,所以它的日志没有定义.
+
+**Exercise 3.**计算多少短短的垃圾邮件和便,按每个类的消息数量进行分数,并将该比例的日志添加到分数中`predict`检查每个类的两个概率的总数为1.
+
+**Exercise 4.**通过一个$\text{Beta}(\alpha, \beta)$之前,MAP估计是$\frac{h + \alpha - 1}{n + \alpha + \beta - 2}$放进去$h = 7$现在$n = 10$;结果必须在MLE (0.7) 和之前模式 (0.5) 之间.
+
 ## 关键词
 
 | Term | What people say | What it actually means |

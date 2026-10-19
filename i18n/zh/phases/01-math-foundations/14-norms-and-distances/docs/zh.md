@@ -484,6 +484,18 @@ print(f"Similarities: {similarities[top_k]}")
 
 5. 实现 MinHash 实现近似Jaccard相似性.生成100个随机集合,计算所有对的精确Jaccard,并使用 50,100和200个哈希函数与 MinHash近似相比较.绘制近似错误.
 
+### 暗示
+
+**Exercise 1.**变量向量为 (-3, 2, -3),所以计算该向量的三个规范`l1_norm`现在`l2_norm`其他`linf_norm`为了证明,比较最大的$\lvert d_i \rvert$并且将总数与绝对值的总数的正方形进行比较.
+
+**Exercise 2.**对于第二个案例,使用两个短的向量,在不同方向指向的来源附近,然后检查两个条件.`cosine_similarity`其他`l2_distance`现在,我们要去.
+
+**Exercise 3.**电话`find_nearest_neighbor(query, dataset, distance_fn)`每个人的一次`l1_distance`现在`l2_distance`现在`cosine_distance`其他`mahalanobis_distance`现在,我们要去.`demo_different_neighbors`显示数据集,其中的数据表不同,所以先读一下,然后改变点,直到四个答案都不同.
+
+**Exercise 4.**写出每个分布的累计总和,然后加上两个累计总量的绝对差异.`wasserstein_1d(p, q)`并且解释了更大的值,
+
+**Exercise 5.**对于每个哈希函数,集合的 MinHash签名是其元素的最小哈希值,并且两个集合得到相同的最小值值的哈希函数的比例估计其Jaccard相似性.`jaccard_similarity`错误应该大致是$1/\sqrt{k}$为了$k$值函数
+
 ## 关键词
 
 | Term | What people say | What it actually means |

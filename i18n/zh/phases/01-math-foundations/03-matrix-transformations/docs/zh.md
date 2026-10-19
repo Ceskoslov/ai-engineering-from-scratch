@@ -437,6 +437,14 @@ print(f"Rotate 90 around x: {np.round(rotated_x, 4)}")
 
 3. 创建一个三变的组合 (旋转30度,以 [1.5,0.8] 缩小,切割 kx=0.3) 并将其应用于圆形排列的8个点. 打印前后坐标.计算复合矩阵的确定量,并验证它等于单个确定量的产量.
 
+### 暗示
+
+**Exercise 1.**申请`rotation_2d`现在`scaling_2d`其他`shearing_2d`在每一个角落里`mat_vec_mul`为了旋转,计算前后四边长和两边 diagonal;每个必须保持相同.
+
+**Exercise 2.**写出特征方程$\lambda^2 - (\text{trace})\lambda + \det = 0$检查两个值是否加到痕迹 (7) 和乘以定数 (10),然后比较`eigenvalues_2x2`其他`np.linalg.eigvals`现在,我们要去.
+
+**Exercise 3.**构建三个矩阵,`shearing_2d(0.3, 0)`为了切割,乘以`mat_mul`在申请顺序中,并将结果应用到8个点.$(\cos\theta, \sin\theta)$旋转的定量为1,切割的定量为1,所以`det_2x2`必须等于$1.5 \times 0.8 = 1.2$现在,我们要去.
+
 ## 关键词
 
 | Term | What people say | What it actually means |

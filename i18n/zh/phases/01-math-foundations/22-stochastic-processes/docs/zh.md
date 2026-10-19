@@ -437,6 +437,18 @@ p_\theta(x_{t-1} \mid x_t) = \mathcal{N}\left(x_{t-1}; \mu_\theta(x_t, t), \sigm
 
 5. **Implement the forward diffusion process.**开始使用1维信号 (例如,鼻波).通过线性噪音时间表逐步增加噪音100步以上. 显示信号如何降低到纯噪音. 然后实施一个简单的指标,扭转这个过程 (即使是简单的,只会减去估计的噪音).
 
+### 暗示
+
+**Exercise 1.**电话`random_walk_1d(10000, seed=i)`检查平均值接近0;标准偏差接近100;最后位置约有68%在 -100到100之间.
+
+**Exercise 2.**计算每个单词对,然后把每个行分为其总数,使每个行加起来为1. 传输矩阵到`MarkovChain(transition_matrix, state_names)`打电话`simulate`检查你输出中的每一对单词都在体内出现.
+
+**Exercise 3.**接受一个更糟糕的点,有可能性.$\exp(-\Delta / T)$并且乘以$T$测试一个你知道的最小值的函数,然后检查你的答案与一个细节的网格搜索.
+
+**Exercise 4.**梯度是$4x(x^2 - 1)$所以把它传给`langevin_dynamics(grad_U, x0, dt, temperature, n_steps)`门在$x = 0$号的高度为1,所以计算出标志的频率.$x$温度从0.05到1的变化,并寻找温度,
+
+**Exercise 5.**电话`diffusion_forward(signal, 100)`计算$\bar{\alpha}$作为产品的最后一步$(1 - \beta_t)$如果$\bar{\alpha}$信号还不是纯噪音,所以提高`beta_end`首先用真实的噪音测试你的标机.$(x_t - \sqrt{1 - \bar{\alpha}_t} \epsilon)/\sqrt{\bar{\alpha}_t}$必须回复原始信号.
+
 ## 关键词
 
 | Term | What people say | What it actually means |

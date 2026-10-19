@@ -449,6 +449,20 @@ print(f"d(dot)/dx = {x.grad}")
 5. 创建一个3x3矩阵,排名 2. 通过 验证`rank()`然后解释列的几何对象.
 6. 投向向量 [1,2,3] 到 [1,1,1].结果的几何表现是什么?
 
+### 暗示
+
+**Exercise 1.**开始从`cosine_similarity`现在,我们可以把这个值保持在 -1 到 1 之间,然后把弧线的正方体,然后将射线数转换为度.`Vector([1, 0])`其他`Vector([0, 1])`给出90和一个向量本身给出0.
+
+**Exercise 2.**放两个尺度因子在2x2矩阵的角角上,把0放到其他两个细胞中. [1, 1]的结果必须是 [2, 3].
+
+**Exercise 3.**计算5个向量 (10对) 的每对的共数相似性,并保持最大值.首先用向量对抗自己来检查循环,该循环必须给出1.
+
+**Exercise 4.**使用`gram_schmidt`在三个独立的向量上,然后计算`dot`对于每对和`magnitude`对于每个向量.`1e-9`由于浮点没有准确的零.
+
+**Exercise 5.**让第三行或列是前两行的总和,这样一个方向重复. `rank()`必须返回2,然后列跨越一个平面通过原始.
+
+**Exercise 6.**计算规模$\frac{a \cdot b}{b \cdot b}$并且乘以$b$通过它,或呼叫`project_onto`检查剩下的东西$a$减小投影具有点乘法为0 与 [1,1, 1].
+
 ## 关键词
 
 | Term | What people say | What it actually means |
@@ -462,3 +476,17 @@ print(f"d(dot)/dx = {x.grad}")
 | Projection | "The shadow" | The component of one vector in the direction of another |
 | Basis | "The coordinate axes" | A minimal set of independent vectors that span the space |
 | Orthonormal | "Perpendicular unit vectors" | Vectors that are mutually perpendicular and each have length 1 |
+
+## 总结
+
+| Formula | Meaning |
+|---------|---------|
+| $a \cdot b = \sum_i a_i b_i$ | Dot product. It measures alignment and is the core of attention scores and cosine similarity |
+| $\cos\theta = \frac{a \cdot b}{\lvert a\rvert \lvert b\rvert}$ | Angle between vectors. 1 is the same direction, 0 is orthogonal |
+| $\lvert a\rvert = \sqrt{a \cdot a}$ | Vector magnitude (length) |
+| $y = Ax, y_i = \sum_j A_{ij} x_j$ | Matrix-vector product. A neural-network layer applies it to every input |
+| $\text{proj}_b a = \frac{a \cdot b}{b \cdot b} b$ | Projection of $a$ onto $b$, the part of $a$ along $b$ |
+| $b^\perp = a - \text{proj}_b a$ | Component of $a$ perpendicular to $b$, used in Gram-Schmidt |
+| $\text{rank}(A) \leq \min(m,n)$ | Rank, the number of independent columns. It decides if $Ax = b$ has a solution |
+| $\Delta W = BA$, $B$ is 4096×16, $A$ is 16×4096 | Low-rank update. LoRA replaces a 4096×4096 update (16M parameters) with two rank-16 factors (131K parameters) |
+| Orthonormal basis: $\lvert v_i\rvert = 1, v_i \cdot v_j = 0$ | Stable, reversible transformations such as whitening and QR decomposition |

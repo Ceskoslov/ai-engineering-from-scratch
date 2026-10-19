@@ -440,6 +440,18 @@ freqs = np.fft.fftfreq(128, d=1/128)
 
 5. **Rotation matrix equivalence.**对于10个随机角度和10个随机点,验证复杂乘法与2x2旋转矩阵的矩阵向量乘法相同的结果.打印最大数值差异.
 
+### 暗示
+
+**Exercise 1.**扩大产品$i^2 = -1$通过乘以合并的$1 + 3i$检查产品`Complex(2, 3) * Complex(4, -1)`其他:`magnitude()`必须等于两个大小的乘法,`phase()`必须等于两个阶段的总和.
+
+**Exercise 2.**让你走进`euler(math.pi / 6)`并且乘以12次.在每一步,检查大小保持在1和角增加30度.最后点必须在1e-12的 (1,0) 范围内.
+
+**Exercise 3.**按时间点$t = n/32$打电话`dft`只有看0到15的桶,因为上半是镜像.$k$对于一个宽度的阴影$A$是$AN/2$预计在bin3上约16个,在bin7上约8个.
+
+**Exercise 4.**电话`roots_of_unity(8)`然后加根:总数的大小必须接近0. 分开每个根与前一个根,检查每个结果都等于`euler(2 * math.pi / 8)`现在,我们要去.
+
+**Exercise 5.**转矩阵是 [[cos t, -sin t], [sin t, cos t]].对于每个角度和点,计算`euler(t) * Complex(x, y)`预计一个值接近 $10^{-15}$现在,我们要去.
+
 ## 关键词
 
 | Term | What it means |

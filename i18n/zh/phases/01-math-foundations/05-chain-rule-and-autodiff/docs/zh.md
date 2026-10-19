@@ -499,6 +499,16 @@ print(f"df/dc = {c.grad}")  #  1.0
 
 4. 实现前进模式自动调用使用双号码.`Dual`检查它与反向模式发动机相同的衍生品.
 
+### 暗示
+
+**Exercise 1.** `Value`已经定义了`__pow__`阅读它`_backward`确认它适用$n x^{n-1}$运行 运行 运行`x = Value(2.0)`现在`y = x ** 3`现在`y.backward()`其他`x.grad`必须是12.0.
+
+**Exercise 2.**使用$\tanh'(x) = 1 - \tanh(x)^2$在`_backward`检查自己的有限差异:$\frac{\tanh(x + h) - \tanh(x - h)}{2h}$必须同意$x = 0$其他$x = 2$现在,我们要去.
+
+**Exercise 3.**建设`w1*x1 + w2*x2 + b`其他`Value`应用物体`relu`打电话`backward`在与 PyTorch 进行比较之前,请手动检查:`relu`向的向是正的`w1`相当于`x1`如果是负,则所有五个梯度都是0.
+
+**Exercise 4.**存储一个值和一个衍生值在每个值中`Dual`使用产品规则$(a, a')(b, b') = (ab, a'b + ab')$输入的结果与分数1进行比较.`x.grad`转向模式的发动机,用于相同的功能.
+
 ## 关键词
 
 | Term | What people say | What it actually means |

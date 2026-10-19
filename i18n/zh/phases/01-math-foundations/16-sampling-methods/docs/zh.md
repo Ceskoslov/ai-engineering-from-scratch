@@ -652,6 +652,18 @@ print(f"Sampled token index: {token}")
 
 5. 构建一个完整的文本生成演示:给出一个10个词汇和logits,使用 (a) 贪, (b) 温度=0.7, (c) 顶-k=3, (d) 顶-p=0.9生成20个代币的序列.
 
+### 暗示
+
+**Exercise 1.**解决问题$u = F(x)$为了$x$通过$x = \tan(\pi(u - 0.5))$检查样本中位数接近0并且约6%的样本有$\lvert x \rvert > 10$现在,$1 - (2/\pi)\arctan(10)$现在,我们要去.
+
+**Exercise 2.**的密度是$30x(1-x)^4$在模式下找到最大值$x = 1/5$并且使用该值为$M$在`rejection_sample`理论上接受率是$1/M$现在,我们需要做一个比较,
+
+**Exercise 3.**确切值为2.`monte_carlo_integral(math.sin, 0, math.pi, n)`每个$n$并且用几种种子重复每次运行.$n$平均误差应该下降约10倍$\sqrt{10} \approx 3.2$现在,我们要去.
+
+**Exercise 4.**写目标日志,这是$-(x^2 y^2 + x^2 + y^2 - 8x - 8y)/2$通过给`metropolis_hastings_2d`记录每项提案的接受率标准偏差:一个非常小的值接受几乎每一步,但慢慢移动,而一个非常大的值拒绝几乎每一步.
+
+**Exercise 5.**利解码每一步都会使用最大的索引.`temperature_sample`现在`top_k_sample`其他`top_p_sample`对于其他三种方法,贪必须在所有五个运行中都给出相同的序列,所以计算每个方法的不同的序列来测量多样性.
+
 ## 关键词
 
 | Term | What people say | What it actually means |

@@ -357,6 +357,16 @@ scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(adam, T_max=100)
 
 4. **Implement learning rate decay.**添加一个指数式衰变时间表到 GradientDescent 类:`lr = lr_0 * 0.999^step`根据罗森布洛克函数的与不衰变相似性.
 
+### 暗示
+
+**Exercise 1.**绕学习率,创造一个`GradientDescent(lr=...)`给每一个人,然后把它传递给`optimize`随着`rosenbrock`其他`rosenbrock_gradient`走向的走向显示了增长或变得损失`nan`最低限度为$(1, 1)$损失为0.
+
+**Exercise 2.**创建`SGDMomentum(momentum=m)`根据每一步的值,并记录损失.`find_convergence_step`为了比较速度, 寻找上下的损失,
+
+**Exercise 3.**写下梯度$(2x, -2y)$然后从 (0.01,0.01) 运行三个优化器.$y$每100步,逃离的优化器就是一个$\lvert y \rvert$长大了.
+
+**Exercise 4.**存储`lr_0`子里有一个步骤计数器.`GradientDescent`计算`lr = lr_0 * 0.999 ** step`在里面`step`打印学习率在步骤0和步骤1000;`lr_0`现在,$0.37 \times \text{lr}_0$现在,我们要去.
+
 ## 关键词
 
 | Term | What people say | What it actually means |

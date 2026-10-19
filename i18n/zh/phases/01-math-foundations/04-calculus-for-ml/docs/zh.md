@@ -612,6 +612,14 @@ print(f"Learned: y = {w:.2f}x + {b:.2f}")
 2. 使用梯度下降来找到最小值$f(x, y) = (x - 3)^2 + (y + 1)^2$开始从$(0, 0)$答案应该与$(3, -1)$现在,我们要去.
 3. 增加动力在梯度下降循环:保持一个速度向量,积累过去梯度.$f(x) = x^4 - 3x^2$现在,我们要去.
 
+### 暗示
+
+**Exercise 1.**定义一个回来的助手`numerical_derivative(f, x)`让那个助手去`numerical_derivative`如果结果很,请使用更大的步骤,如`h=1e-4`对于两个调用;$x=2$必须接近12个.
+
+**Exercise 2.**写下梯度$(2(x - 3), 2(y + 1))$或使用`numerical_gradient`打电话`gradient_descent_nd`其他$(0, 0)$每10步印出一个点,必须向前移动.$(3, -1)$损失必须降到接近0.
+
+**Exercise 3.**保持速度`v`更新如下`v = momentum * v - lr * grad`然后添加`v`为了`x`计算每个方法需要达到接近0的梯度的步骤;最低值为 $x = \pm\sqrt{1.5} \approx \pm 1.225$现在,我们要去.
+
 ## 关键词
 
 | Term | What people say | What it actually means |

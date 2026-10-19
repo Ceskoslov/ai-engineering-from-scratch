@@ -560,6 +560,18 @@ print(f"Ridge weights (sklearn): {ridge_sk.coef_}")
 
 5. 时间你的Cholesky解决器与你的LU解决器`np.linalg.solve`通过对称正确的定数矩阵进行测试,大小为 10, 50, 200, 500. 绘制结果.
 
+### 暗示
+
+**Exercise 1.**电话`gaussian_elimination(A, b)`现在`lu_decompose(A)`接着是`lu_solve(P, L, U, b)`现在`np.linalg.solve(A, b)`检查每一个答案`np.allclose(A @ x, b)`现在,我们可以将这三个答案与`np.allclose`现在,我们要去.
+
+**Exercise 2.**使用`least_squares_normal`对于正常方程和其他方法的三个NumPy函数.`w_true`比较`condition_number(X.T @ X)`随着`condition_number(X)`首先是二次的方体,所以正常方程失去了最精确的.
+
+**Exercise 3.**预计上面的条件号码$10^{9}$解决问题`np.linalg.solve`子`ridge_regression(A, b, 0.01)`然后比较`np.linalg.norm(x)`两种残留物都可能很小,但没有规律化的溶液通常具有非常大的输入.
+
+**Exercise 4.**通过 `B @ B.T + n * np.eye(n)`并且每个自值都是正值的.`conjugate_gradient`检查最终残留标准是否低于1e-8,并且数量最高为100.
+
+**Exercise 5.**使用相同的方法`B @ B.T + n * np.eye(n)`对于三个解决器和时间的矩阵,每个解决器都用`time.perf_counter`乔莱斯基需要大约一半的算法,所以比率在更大的尺寸上最清楚.
+
 ## 关键词
 
 | Term | What people say | What it actually means |
