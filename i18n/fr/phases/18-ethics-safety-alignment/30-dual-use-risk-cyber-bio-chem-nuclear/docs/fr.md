@@ -48,6 +48,8 @@ Les conséquences:
 - Les 4 à 6 étapes humaines sont le goulot d'étranglement; les gains de capacité futurs réduiraient ce nombre.
 - Deuxième utilisation défensive: le pilote d'accès fiable d'OpenAI fournit aux organisations de sécurité vérifiées (entreprises de réaction aux incidents établies, gouvernement) un accès aux capacités de défense.
 
+Le côté défensif de ce travail commence par la lecture du code compilé que vous êtes autorisé à analyser.[Lesson 13.32](../../../13-tools-and-protocols/32-program-anatomy-elf-from-scratch/docs/en.md), démantèlement en [Lesson 13.33](../../../13-tools-and-protocols/33-disassembly-and-control-flow/docs/en.md), en lelevant à un pseudocode en [Lesson 13.34](../../../13-tools-and-protocols/34-lifting-to-pseudocode/docs/en.md), et un registre de preuves qui garde les faits observés séparés de ceux déduits dans[Lesson 13.35](../../../13-tools-and-protocols/35-evidence-confidence-and-unknowns/docs/en.md)- Le .[Inside a Decompiler](https://aiengineeringfromscratch.com/inside-a-decompiler)Une machine montre le pipeline complet sur une fonction. un agent qui fait ce travail a besoin du même registre, parce qu'une décompilation confiante peut encore reposer sur une devinette.
+
 ### Le nucléaire
 
 Le modèle de menace est différent: l'acquisition de matériaux fissiles domine la difficulté, pas l'information. L'élévation de l'IA sur la couche d'information offre une élévation limitée des débutants dans la pratique.
