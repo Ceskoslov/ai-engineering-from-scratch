@@ -48,6 +48,8 @@ Những tác động:
 - Dấu hiệu là 4-6 bước của con người; tăng khả năng trong tương lai sẽ làm giảm số lượng đó.
 - Sử dụng hai lần phòng thủ: Phi công "luồng truy cập đáng tin cậy" của OpenAI cung cấp cho các tổ chức an ninh được kiểm tra (các công ty phản ứng tình huống đã thành lập, chính phủ) quyền truy cập khả năng cho phòng thủ.
 
+Mặt phòng thủ của công việc này bắt đầu bằng việc đọc mã biên soạn mà bạn được phép phân tích.[Lesson 13.32](../../../13-tools-and-protocols/32-program-anatomy-elf-from-scratch/docs/en.md), phá vỡ trong [Lesson 13.33](../../../13-tools-and-protocols/33-disassembly-and-control-flow/docs/en.md), nâng lên mã giả trong [Lesson 13.34](../../../13-tools-and-protocols/34-lifting-to-pseudocode/docs/en.md), và một sổ cái bằng chứng giữ các sự kiện quan sát được tách biệt với những người suy luận trong[Lesson 13.35](../../../13-tools-and-protocols/35-evidence-confidence-and-unknowns/docs/en.md)- [Inside a Decompiler](https://aiengineeringfromscratch.com/inside-a-decompiler)máy cho thấy toàn bộ đường ống trên một chức năng. một đại lý làm công việc này cần cùng một sổ cái, bởi vì một phân tích tự tin vẫn có thể dựa trên một đoán.
+
 ### Tiêu vũ hạt nhân
 
 Các lĩnh vực CBRN được phân tích ít nhất trong bốn tài liệu công khai. Mô hình đe dọa khác nhau: thu thập vật liệu phân hạch chiếm ưu thế về sự khó khăn, chứ không phải thông tin. nâng cao AI trên lớp thông tin cung cấp nâng cao người mới bắt đầu hạn chế trong thực tế. Báo cáo 2024-2025 của phòng thí nghiệm lớn xác định một vượt ngưỡng cụ thể về hạt nhân.
