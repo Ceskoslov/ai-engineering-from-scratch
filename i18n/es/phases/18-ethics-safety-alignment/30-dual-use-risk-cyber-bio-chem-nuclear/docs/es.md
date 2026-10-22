@@ -48,6 +48,8 @@ Las implicaciones:
 - Los 4-6 pasos humanos son el cuello de botella; los futuros avances de capacidad reducirían esa cantidad.
 - Uso dual defensivo: el piloto de "acceso confiable" de OpenAI proporciona a las organizaciones de seguridad verificadas (empresas de respuesta a incidentes establecidas, gobierno) acceso a la capacidad para la defensa.
 
+El lado defensivo de este trabajo comienza con la lectura del código compilado que se le permite analizar. La pista de ingeniería inversa en la Fase 13 lo enseña en programas que se construyen usted mismo, con solo análisis estático: un lector ELF en [Lesson 13.32](../../../13-tools-and-protocols/32-program-anatomy-elf-from-scratch/docs/en.md), desmontaje en[Lesson 13.33](../../../13-tools-and-protocols/33-disassembly-and-control-flow/docs/en.md), se eleva a pseudocodo en [Lesson 13.34](../../../13-tools-and-protocols/34-lifting-to-pseudocode/docs/en.md), y un libro de pruebas que mantiene los hechos observados aparte de los deducidos en[Lesson 13.35](../../../13-tools-and-protocols/35-evidence-confidence-and-unknowns/docs/en.md)- El .[Inside a Decompiler](https://aiengineeringfromscratch.com/inside-a-decompiler)Una máquina muestra la línea completa de una función. un agente que hace este trabajo necesita el mismo libro mayor, porque una descomposición segura todavía puede apoyarse en una suposición.
+
 ### El sistema nuclear
 
 El modelo de amenaza es diferente: la adquisición de materiales fisibles domina la dificultad, no la información. La elevación de la IA en la capa de información proporciona una elevación limitada para los principiantes en la práctica.
