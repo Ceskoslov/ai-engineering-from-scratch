@@ -124,6 +124,10 @@ flash-attention-memory
 
 ## 建立它
 
+```figure
+iso-machine {"machine":"kv-cache"}
+```
+
 看到`code/main.py`我们实施:
 
 1. 一个天真的人.$O(N^2)$增量解码器.
