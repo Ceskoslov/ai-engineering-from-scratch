@@ -48,6 +48,8 @@ Etkileri:
 - 4-6 insan adımları boğazın boğazıdır; gelecekteki kapasite kazanımları bu sayıyı azaltacaktır.
 - Savunma ikili kullanımı: OpenAI'nin "güvenilir erişim" pilot sistemi, kontrol edilmiş güvenlik kuruluşlarına (tasarımlı olay tepkisi firmaları, hükümet) savunma için kapasite erişimi sağlar.
 
+Bu çalışmanın savunma tarafı, oluşturulan kodun okunması ile başlar. 13'inci aşamada geri mühendislik yolu, sadece statik analizle kendi yapmanızı sağlayan programlarda öğretir:[Lesson 13.32](../../../13-tools-and-protocols/32-program-anatomy-elf-from-scratch/docs/en.md), [Lesson 13.33](../../../13-tools-and-protocols/33-disassembly-and-control-flow/docs/en.md), pseudokod olarak kaldırıldı [Lesson 13.34](../../../13-tools-and-protocols/34-lifting-to-pseudocode/docs/en.md), ve gözlemlenen gerçekleri , bir delil defterinde ,[Lesson 13.35](../../../13-tools-and-protocols/35-evidence-confidence-and-unknowns/docs/en.md)- Ne ?[Inside a Decompiler](https://aiengineeringfromscratch.com/inside-a-decompiler)Bu işi yapan bir ajan aynı başlıklara ihtiyaç duyar çünkü güvenli bir parçalanma hala bir tahmin üzerine dayanır.
+
 ### Nükleer
 
 CBRN'in dört alanından en az analiz edilen kamu belgesinde. Tehdit modeli farklıdır: parçalanma malzemelerinin edinilmesi zorluğu, bilgi üzerinde değil. Bilgi katmanındaki AI yükseltmesi pratikte sınırlı yeni başlayanları yükseltir. 2024-2025 büyük laboratuvar raporunda nükleer özel bir eşiğin geçtiği belirlenir.
