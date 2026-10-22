@@ -124,6 +124,10 @@ flash-attention-memory
 
 ## آن را بسازید
 
+```figure
+iso-machine {"machine":"kv-cache"}
+```
+
 ببین`code/main.py`ما اجرا میکنیم:
 
 1. یه آدم ساده$O(N^2)$دیکودر افزایشی
