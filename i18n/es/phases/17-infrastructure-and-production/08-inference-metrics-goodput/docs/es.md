@@ -108,6 +108,8 @@ throughput-latency
 
 `code/main.py`Es una calculadora de buen rendimiento de juguete. Generar una distribución de latencia sintética, aplicar un SLO, y calcular el buen rendimiento. También muestra la diferencia de TPOT GenAI-Perf vs LLMPerf en el mismo rastro.
 
+El [Inside an LLM Serving GPU](https://aiengineeringfromscratch.com/inside-an-llm-serving-gpu?users=1)La máquina muestra de dónde proviene el tiempo por token de salida en una NVIDIA L4. Un paso de decodificación lee 16.41 GB de pesos, lo que toma al menos 54.7 ms a 300 GB/s, y el paso medido tomó 60.16 ms.
+
 ## Envío
 
 Esta lección produce`outputs/skill-slo-goodput-gate.md`. Dada la carga de trabajo y la SLO, produce una receta de referencia de CI/CD que se utiliza en las puertas de buen rendimiento en lugar de en el rendimiento.
