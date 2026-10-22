@@ -124,6 +124,10 @@ flash-attention-memory
 
 ## इसे बनाओ
 
+```figure
+iso-machine {"machine":"kv-cache"}
+```
+
 देखो`code/main.py`हम लागू करते हैंः
 
 1. एक भोले आदमी$O(N^2)$वृद्धिशील डिकोडर।
