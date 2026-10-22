@@ -124,6 +124,10 @@ flash-attention-memory
 
 ## بناءها
 
+```figure
+iso-machine {"machine":"kv-cache"}
+```
+
 انظر`code/main.py`نطبق:
 
 1. سذاجة$O(N^2)$مُشفّر إضافي
