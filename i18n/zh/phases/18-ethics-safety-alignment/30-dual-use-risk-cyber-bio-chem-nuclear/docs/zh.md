@@ -48,6 +48,8 @@
 - 未来的能力增长将减少这一数量.
 - 防卫双重用途:OpenAI的"可靠访问"试点提供了检查的安全组织 (建立的事件响应公司,政府) 防卫能力访问.如果试点扩展,访问不对称性有利于防卫者.
 
+通过分析编译的代码,你可以开始进行防御. 第13阶段的反向工程轨道教你自己构建的程序,只有静态分析:[Lesson 13.32](../../../13-tools-and-protocols/32-program-anatomy-elf-from-scratch/docs/en.md)拆除[Lesson 13.33](../../../13-tools-and-protocols/33-disassembly-and-control-flow/docs/en.md)转换为伪代码[Lesson 13.34](../../../13-tools-and-protocols/34-lifting-to-pseudocode/docs/en.md)根据" 证据"的数据,[Lesson 13.35](../../../13-tools-and-protocols/35-evidence-confidence-and-unknowns/docs/en.md)现在,我们要去.[Inside a Decompiler](https://aiengineeringfromscratch.com/inside-a-decompiler)机器显示一个函数的全部管道. 执行这个工作的代理需要同一个账本,因为一个自信的解译仍然可以依赖于猜测.
+
 ### 核电
 
 公共文档中最少分析的四个CBRN域.威胁模型不同:裂变材料的采购占据了困难,而不是信息.信息层上的人工智能升级在实践中提供了有限的初学者升级.2024-2025年主要实验室报告确定了核特征门.
