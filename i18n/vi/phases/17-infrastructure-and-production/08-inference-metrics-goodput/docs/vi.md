@@ -108,6 +108,8 @@ throughput-latency
 
 `code/main.py`là một máy tính tính hiệu suất đồ chơi. tạo ra phân phối độ trễ tổng hợp, áp dụng SLO, và tính hiệu suất tốt.
 
+- [Inside an LLM Serving GPU](https://aiengineeringfromscratch.com/inside-an-llm-serving-gpu?users=1)máy cho thấy thời gian mỗi token đầu ra xuất phát từ đâu trên một NVIDIA L4. Một bước giải mã đọc 16,41 GB trọng lượng, mất ít nhất 54,7 ms ở 300 GB / s, và bước đo là 60,16 ms.
+
 ## Chuyển nó
 
 Bài học này sẽ mang lại kết quả `outputs/skill-slo-goodput-gate.md`Với khối lượng công việc và SLO, nó tạo ra một công thức chuẩn chuẩn CI/CD sẵn sàng mà các cổng triển khai trên goodput thay vì thông qua.
