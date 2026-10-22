@@ -124,6 +124,10 @@ flash-attention-memory
 
 ## Construí-lo
 
+```figure
+iso-machine {"machine":"kv-cache"}
+```
+
 Veja .`code/main.py`Implementamos:
 
 1. Um ingênuo .$O(N^2)$Decodificador incremental.
