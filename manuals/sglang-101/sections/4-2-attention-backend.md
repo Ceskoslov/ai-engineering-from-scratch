@@ -69,7 +69,30 @@ The attention backend page in the docs at v0.5.22 still lists Cutlass MLA and Du
 
 Read the resolved backend in the startup log before you benchmark anything. Then change one flag, rerun the same benchmark at your real concurrency, and compare inter-token latency at p50 and p99. Attention is one part of a decode step, so a faster kernel can move end-to-end numbers less than its own benchmark suggests.
 
-On our Mac capture, SGLang ran through the MLX runtime. MLX has its own attention path, so none of these backends ran there.
+On our Mac capture, SGLang ran through the MLX runtime. The server arguments resolve to `torch_native`, but MLX runs its own attention path, so none of these backends ran there.
+
+## What we measured on an L4
+
+We ran the load sweep of [section 5.1](#s-sglang-benchmark-serving) on one L4 with `Qwen/Qwen3-8B`, three seeds per point. The default server resolved its backend to `flashinfer` and ran on 2026-10-16. The second server set `--attention-backend triton` and ran on 2026-10-18. Both had the same pool of 24,094 tokens and replayed decode graphs up to 48 running requests. Every run had a median SM clock of 1,000 MHz or more.
+
+```listing
+title: the Triton server under load
+source: capture/gpu/out-l4/server-load-triton.log
+lang: text
+note: The pool at startup, and one decode line at 33 running requests.
+---
+[2026-10-18 14:28:40] KV Cache is allocated. dtype: torch.bfloat16, #tokens: 24094, K size: 1.65 GB, V size: 1.65 GB
+[2026-10-18 16:11:42] Decode batch, #running-req: 33, #token: 20422, token usage: 0.85, cuda graph: True, gen throughput (token/s): 311.50, #queue-req: 0
+```
+
+| Concurrency | Output tok/s, flashinfer / triton | Median TPOT, flashinfer / triton | Median TTFT, flashinfer / triton |
+|---|---|---|---|
+| 1 | 13.42 / 13.94 | 60.16 / 59.98 ms | 189 / 183 ms |
+| 8 | 112.62 / 112.90 | 66.01 / 65.83 ms | 170 / 187 ms |
+| 32 | 270.11 / 270.91 | 96.18 / 96.99 ms | 2,970 / 2,833 ms |
+| 64 | 250.85 / 257.29 | 107.42 / 107.76 ms | 18,349 / 18,260 ms |
+
+**We measured** a tie on throughput and time per token. Throughput was within 4 percent and the median time per token within 1 ms at every concurrency. The median TTFT differed by up to 9 percent, in both directions, outside the seed spread at 2, 16, and 32 users. The two servers ran two days apart. Our reading: on a dense 8B model with contexts under 1,000 tokens, the attention kernel is a small part of each step. The weight reads set the pace.
 
 ## Our position
 
@@ -90,4 +113,4 @@ Prefer the backend that supports every feature you need over the one that wins a
 - Pin your kernel library versions and rerun latency tests after every upgrade.
 ```
 
-Sources: python/sglang/srt/arg_groups/model_override_base.py (get_default_attn_backend), arg_groups/choices.py (ATTENTION_BACKEND_CHOICES), layers/attention/base_attn_backend.py, layers/attention/attention_registry.py, model_executor/model_runner_components/attention_backend_setup.py, arg_groups/fields/spec.py, and docs/docs/advanced_features/attention_backend.mdx at v0.5.22; PR #32114; issue #17411; field report by Varad More (2026-04-22).
+Sources: python/sglang/srt/arg_groups/model_override_base.py (get_default_attn_backend), arg_groups/choices.py (ATTENTION_BACKEND_CHOICES), layers/attention/base_attn_backend.py, layers/attention/attention_registry.py, model_executor/model_runner_components/attention_backend_setup.py, arg_groups/fields/spec.py, and docs/docs/advanced_features/attention_backend.mdx at v0.5.22; PR #32114; issue #17411; field report by Varad More (2026-04-22); capture/gpu/out-l4/server-load-triton.log, capture/gpu/summary/l4.json (load.default, load.triton).

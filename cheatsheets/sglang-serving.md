@@ -1,187 +1,150 @@
 ---
 id: sglang-serving
 title: LLM Serving with SGLang
-subtitle: Start, query, size, measure and fix an SGLang server. Pinned to SGLang 0.5.22.
+code: LS
+subtitle: Start, size, measure and fix an SGLang server. SGLang 0.5.22.
 hue: 200
 sources: manuals/sglang-101
+source_hash: d7a954f07c2cb645
 ---
 
-## Tasks
-type: task-table
-from: manuals/sglang-101/capture/out/server-default.command.txt, manuals/sglang-101/capture/one_request.py, manuals/sglang-101/capture/run.py, manuals/sglang-101/sections/5-1-sglang-benchmark-serving.md, manuals/sglang-101/sections/5-2-the-metrics-endpoint.md, manuals/sglang-101/sections/7-1-operating-sglang.md
-
-| Task | Code |
-|---|---|
-| Start a server | `sglang serve --model-path <model> --port 30000` |
-| Native request | `POST /generate {"text": "<prompt>"}` |
-| OpenAI-style request | `POST /v1/chat/completions` |
-| Readiness probe | `GET /ready` |
-| Read metrics | `GET /metrics` |
-| Benchmark at a fixed concurrency cap | `--max-concurrency 8` |
-| Benchmark at a fixed request rate | `--request-rate <rps>` |
-| Stop with a drain | `docker stop <container>` |
-
-## Start the server (terminal 1)
+## Start a server
 type: annotated-code
 lang: bash
-from: manuals/sglang-101/capture/out/server-default.command.txt, manuals/sglang-101/sections/r-1-flags-and-defaults.md, manuals/sglang-101/sections/2-1-sglang-serve-and-the-three-processes.md, manuals/sglang-101/sections/3-2-mem-fraction-static-and-startup-sizing.md
+from: manuals/sglang-101/capture/gpu/out-l4/server-default.command.txt, manuals/sglang-101/capture/README.md, manuals/sglang-101/sections/1-1-install-sglang-and-serve-your-first-model.md
 
 ```bash
-sglang serve --model-path <model> \  # weights to load
-  --port 30000 \  # HTTP port
-  --enable-cache-report \  # cached_tokens in usage
-  --enable-metrics \  # turns on /metrics
-  --mem-fraction-static 0.4  # weights plus KV pool share
+export HF_HUB_OFFLINE=1   # no Hub contact once the models are cached
+sglang serve --model-path <model> --host 127.0.0.1 --port 30000 --enable-cache-report --enable-metrics --mem-fraction-static 0.85   # the L4 flags
+curl http://127.0.0.1:30000/ready   # 200 when the server accepts requests
 ```
-
-## Benchmark it (terminal 2)
-type: annotated-code
-lang: bash
-from: manuals/sglang-101/capture/run.py, manuals/sglang-101/sections/5-1-sglang-benchmark-serving.md, manuals/sglang-101/sections/r-1-flags-and-defaults.md, manuals/sglang-101/capture/out/bench-random-c8.txt, manuals/sglang-101/capture/out/bench-random-c32.txt
-
-```bash
-# Concurrency cap of 8. The server in terminal 1 must be up.
-python -m sglang.benchmark.serving --backend sglang \
-  --port 30000 --dataset-name random \
-  --random-input-len 512 --random-output-len 128 \
-  --random-range-ratio 1.0 \  # default 0.0 halves prompts
-  --num-prompts 32 --max-concurrency 8  # 255.63 tok/s on the capture
-```
-
-## Key flags
-type: command-table
-from: manuals/sglang-101/sections/r-1-flags-and-defaults.md, manuals/sglang-101/sections/2-2-the-scheduler-loop-and-schedule-policy.md, manuals/sglang-101/sections/2-3-admission-and-retraction.md, manuals/sglang-101/sections/3-2-mem-fraction-static-and-startup-sizing.md, manuals/sglang-101/sections/6-1-tp-size-dp-size-and-attn-dp-size.md, manuals/sglang-101/sections/5-1-sglang-benchmark-serving.md
-
-| Command | What it does |
-|---|---|
-| `--mem-fraction-static <f>` | Memory share for weights plus KV pool |
-| `--max-total-tokens <n>` | Fixes the KV pool size in tokens |
-| `--max-running-requests <n>` | Caps decoding requests. Set it at the knee |
-| `--chunked-prefill-size <n>` | Largest prompt piece in one step |
-| `--schedule-policy lpm` | Longest prefix match order |
-| `--schedule-conservativeness 1.3` | Higher forecast, fewer retractions |
-| `--disable-radix-cache` | No prefix reuse. Only to measure |
-| `--tp-size <n>` | Splits each layer over n GPUs |
 
 ## Three processes
 type: architecture
-from: manuals/sglang-101/sections/2-1-sglang-serve-and-the-three-processes.md, manuals/sglang-101/sections/3-1-kv-bytes-per-token-and-the-kv-pool.md, manuals/sglang-101/sections/3-3-radixcache.md
+from: manuals/sglang-101/sections/2-1-sglang-serve-and-the-three-processes.md, manuals/sglang-101/sections/3-1-kv-bytes-per-token-and-the-kv-pool.md
 
 ```arch
-node | client | 1,1 | Client | HTTP :30000 | client
-node | tok | 2,1 | TokenizerManager | main process, tokenize | process
-node | sched | 3,1 | Scheduler | owns the GPU | gpu
-node | detok | 2,2 | DetokenizerManager | ids to text | process
-node | radix | 3,2 | UnifiedRadixCache | prefix tree | store
-node | pool | 3,3 | KV pool | one slot per token | store
+node | client | 1,1 | Client | POST /generate | client
+node | tok | 2,1 | TokenizerManager | text to token ids | process
+node | sched | 3,1 | Scheduler | batches and KV pool | process
+node | detok | 4,1 | Detokenizer | ids to text | process
+node | gpu | 3,2 | Model on GPU | forward pass | model
+node | kv | 3,3 | KV pool | slots per token | store
 edge | client | tok | HTTP
 edge | tok | sched | ZMQ
-edge | sched | detok | ZMQ
-edge | detok | tok | ZMQ
-edge | sched | radix | match
-edge | radix | pool | slots
+edge | sched | gpu | batch
+edge | sched | kv | slots
+edge | sched | detok | ids
+edge | detok | client | text
 ```
 
-## One request, end to end
-type: flow
-from: manuals/sglang-101/sections/2-1-sglang-serve-and-the-three-processes.md, manuals/sglang-101/sections/2-2-the-scheduler-loop-and-schedule-policy.md, manuals/sglang-101/sections/2-3-admission-and-retraction.md, manuals/sglang-101/sections/3-3-radixcache.md
+## Requests and checks
+type: task-table
+from: manuals/sglang-101/sections/1-1-install-sglang-and-serve-your-first-model.md, manuals/sglang-101/sections/2-5-streaming-stop-strings-and-the-openai-api.md, manuals/sglang-101/sections/5-1-sglang-benchmark-serving.md, manuals/sglang-101/sections/4-6-deterministic-inference-and-logprobs.md, manuals/sglang-101/sections/7-1-operating-sglang.md
 
-1. **TokenizerManager**: applies the chat template, tokenizes, sends it over ZMQ.
-2. **Scheduler**: adds it to the waiting queue in policy order.
-3. **RadixCache**: `match_prefix` finds the cached prefix, shown as `#cached-token`.
-4. **Scheduler**: admits it if prompt plus `max_new_tokens` fits the pool.
-5. **Scheduler**: prefills `#new-token` in chunks and samples the first token.
-6. **Scheduler**: decodes one token per step until a stop condition.
-7. **DetokenizerManager**: turns ids into text for the TokenizerManager to stream.
+| Task | Code |
+|---|---|
+| Send one native request | `POST /generate` |
+| Ask in the OpenAI chat format | `POST /v1/chat/completions` |
+| Read the cache hits of one request | `meta_info` field `cached_tokens` |
+| Probe readiness | `/ready` |
+| Fix the length spread of a benchmark | `--random-range-ratio 1.0` |
+| Sweep one concurrency cap | `--max-concurrency 8` |
+| Send a fixed arrival rate | `--request-rate <rate>` |
+| Test output stability | `python3 -m sglang.test.test_deterministic --n-trials 50 --test-mode single` |
 
-## Defaults in the code
-type: defaults
-from: manuals/sglang-101/sections/r-1-flags-and-defaults.md
-
-| Setting | Default | Note |
-|---|---|---|
-| `--mem-fraction-static` | `None` | Derived at startup. Kit sets 0.4 |
-| `--max-running-requests` | `None` | Derived from pool and context |
-| `--chunked-prefill-size` | `None` | Derived from GPU memory |
-| `--schedule-conservativeness` | 1.0 | Raise it on retractions |
-| `--schedule-policy` | `fcfs` | Try `lpm` for long shared prefixes |
-| `--enable-cache-report` | `False` | Set it always |
-| `--enable-metrics` | `None` | Resolves to off |
-| `--watchdog-timeout` | 300 s | Long forward passes |
-
-## Key metrics
-type: concepts
-from: manuals/sglang-101/sections/r-2-metrics.md, manuals/sglang-101/sections/5-2-the-metrics-endpoint.md
-
-- **sglang:time_to_first_token_seconds**: histogram. Alert on p99 over 5 min.
-- **sglang:inter_token_latency_seconds**: histogram. Shows stream stutter.
-- **sglang:queue_time_seconds**: histogram. Wait before first prefill.
-- **sglang:num_queue_reqs**: gauge. Above 0 for minutes means past the knee.
-- **sglang:token_usage**: gauge. Near 1.0 means the pool is full.
-- **sglang:num_retracted_reqs**: gauge. Alert above 0.
-- **sglang:prefill_effective_tokens_total**: counter. Windowed hit rate from its modes.
-- **sglang:cache_hit_rate**: gauge. Last log interval only.
-
-## Log lines to read
+## Kit and audit commands
 type: command-table
-from: manuals/sglang-101/capture/out/server-default.log, manuals/sglang-101/capture/out/server-small-pool.log, manuals/sglang-101/capture/out/oom-exploratory.log, manuals/sglang-101/sections/2-1-sglang-serve-and-the-three-processes.md, manuals/sglang-101/sections/2-3-admission-and-retraction.md
+from: manuals/sglang-101/README.md, manuals/sglang-101/capture/README.md
 
 | Command | What it does |
 |---|---|
-| `bytes_per_slot=114688, pool_size=181574` | KV bytes per token, pool slots |
-| `max_total_num_tokens=181574` | Pool size SGLang computed |
-| `max_running_requests=4096` | Computed request cap |
-| `#new-token: 3, #cached-token: 2` | New plus cached is the prompt |
-| `#running-req: 5, ... #queue-req: 11` | Admission holds requests back |
-| `KV cache pool is full. Retract requests.` | Retraction. A performance alarm |
-| `crashed with exit code -15` | Our SIGTERM, not a fault |
-| `Insufficient Memory` | Out of memory outside the pool |
+| `python3 capture/run.py --check` | Records the servers again and compares the stable facts. Prints `skipped` without SGLang 0.5.22 and MLX. |
+| `python3 capture/run.py --only small-pool` | Records one server configuration. |
+| `SGLANG_KIT_PROFILE=gb10 python3 capture/gpu/run.py` | Records the eight GPU servers of one profile. |
+| `node scripts/audit_manuals.js --manual sglang-101` | Audits the manual. It must report `TOTAL 0`. |
 
-## Troubleshooting
+## Defaults that matter
+type: defaults
+from: manuals/sglang-101/sections/r-1-flags-and-defaults.md, manuals/sglang-101/sections/2-2-the-scheduler-loop-and-schedule-policy.md, manuals/sglang-101/sections/2-3-admission-and-retraction.md, manuals/sglang-101/sections/3-5-eviction-policies-and-hicache.md, manuals/sglang-101/sections/6-4-sgl-model-gateway.md
+
+| Setting | Default | Note |
+|---|---|---|
+| `--schedule-policy` | `fcfs` | `lpm` is the paper's order, not the default |
+| `--schedule-conservativeness` | 1.0 | Raise it when the log shows retractions |
+| `--radix-eviction-policy` | `lru` | Change only after a measured hit rate |
+| `--kv-cache-dtype` | `auto` | Keeps the model data type |
+| `--stream-interval` | 1 | Streams after every step |
+| `--tp-size` | 1 | One GPU unless the weights need more |
+| `--cache-threshold` | 0.3 | Gateway match rate for prefix affinity |
+
+## Fix these errors
 type: troubleshooting
-from: manuals/sglang-101/sections/r-3-incident-index.md, manuals/sglang-101/sections/2-3-admission-and-retraction.md, manuals/sglang-101/sections/1-2-one-request-end-to-end.md, manuals/sglang-101/sections/3-4-prefix-friendly-prompts.md, manuals/sglang-101/sections/5-1-sglang-benchmark-serving.md
+from: manuals/sglang-101/sections/3-2-mem-fraction-static-and-startup-sizing.md, manuals/sglang-101/sections/2-3-admission-and-retraction.md, manuals/sglang-101/sections/6-1-tp-size-dp-size-and-attn-dp-size.md, manuals/sglang-101/sections/4-1-forwardmode-and-cuda-graphs.md, manuals/sglang-101/sections/3-4-prefix-friendly-prompts.md
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| Metal `Insufficient Memory` | Pool took 87 percent of free memory | `--mem-fraction-static 0.4` |
-| `RuntimeError` on first batch, MLX | `--disable-overlap-schedule` | Keep overlap on |
-| Retractions again and again | Admission forecast too bold | Raise `--schedule-conservativeness` |
-| High TTFT, fast TPOT | Past the knee, requests queue | Cap concurrency at the knee |
-| No `cached_tokens` in usage | No `--enable-cache-report` | Add the flag |
-| `#cached-token` near 0 | Changing id at prompt start | Put shared text first |
-| "health check failed" under load | No detokenizer output for 20 s | Use `/ready` for readiness |
-| Crash line at shutdown | SIGTERM to the process group | SIGTERM to the main process |
+| `RuntimeError: [METAL] Command buffer execution failed` at 32 requests | Pool sized at 87 percent of free memory | Pass `--mem-fraction-static 0.4` and restart |
+| Median TTFT near 28 s with free GPU memory | Admission queues requests for a full pool | Raise `--schedule-conservativeness` or lower `--max-running-requests` |
+| `KV cache pool is full. Retract requests.` in a loop | The forecast is too bold | Raise `--schedule-conservativeness` and send realistic `max_new_tokens` |
+| `RuntimeError: The memory capacity is unbalanced` | One TP card shares memory with other pods | Free the other card and restart. No flag disables the check |
+| `cuda graph: False` on decode lines under load | Decode batch above the graph limit | Set `--cuda-graph-max-bs-decode` to peak concurrency |
+| `ambiguous option: --cuda-graph-max-bs` | The flag was split at v0.5.22 | Use `--cuda-graph-max-bs-decode` or `--cuda-graph-max-bs-prefill` |
+| `#cached-token: 0` on every repeat | Random ID at the start of the system prompt | Move the ID to the end or remove it |
+
+## Tune in this order
+type: flow
+from: manuals/sglang-101/sections/7-1-operating-sglang.md, manuals/sglang-101/sections/5-1-sglang-benchmark-serving.md, manuals/sglang-101/sections/6-1-tp-size-dp-size-and-attn-dp-size.md
+
+1. **Measure**: run `sglang.benchmark.serving` at three caps with `--random-range-ratio 1.0`.
+2. **Memory**: set `--mem-fraction-static` on any shared machine.
+3. **Prompts**: put shared text first and keep request IDs out of the start.
+4. **Cap**: set `--max-running-requests` at the knee you measured.
+5. **Kernels**: change graph and attention settings one at a time.
+6. **Parallelism**: add `--tp-size` or `--dp-size` only when one replica saturates.
+
+## Numbers to watch
+type: concepts
+from: manuals/sglang-101/sections/5-2-the-metrics-endpoint.md, manuals/sglang-101/sections/1-3-what-the-server-does-with-your-request.md, manuals/sglang-101/sections/2-5-streaming-stop-strings-and-the-openai-api.md
+
+- **sglang:token_usage**: near 1.0 means the KV pool is full.
+- **sglang:num_queue_reqs**: above 0 for minutes means the server is past its knee.
+- **sglang:cache_hit_rate**: a gauge over one interval. Compute the rate from `sglang:prefill_effective_tokens_total`.
+- **cached_tokens**: the count of prompt tokens reused from the cache.
+- **Goodput**: requests per second that meet the TTFT and TPOT targets together.
+
+## Incidents on record
+type: concepts
+from: manuals/sglang-101/sections/2-2-the-scheduler-loop-and-schedule-policy.md, manuals/sglang-101/sections/4-2-attention-backend.md, manuals/sglang-101/sections/4-4-speculative-decoding.md, manuals/sglang-101/sections/3-4-prefix-friendly-prompts.md
+
+- **Issue #36889**: a Mamba cap set the request limit to 2, and only an info line said so.
+- **Issue #17411**: a FlashInfer upgrade made Hopper decode seven times slower.
+- **Issue #5274**: EAGLE-3 doubled batch-1 speed and cut concurrency 20 by a quarter.
+- **Issue #35129**: removing a per-session hash raised the hit rate from 66.8 to 94.4 percent.
 
 ## Glossary
 type: glossary
-from: manuals/sglang-101/sections/r-4-glossary.md, manuals/sglang-101/sections/3-3-radixcache.md, manuals/sglang-101/capture/out/bench-shared-prefix.txt
+from: manuals/sglang-101/sections/1-3-what-the-server-does-with-your-request.md, manuals/sglang-101/sections/3-1-kv-bytes-per-token-and-the-kv-pool.md, manuals/sglang-101/sections/6-2-moe-serving-deepep-and-eplb.md, manuals/sglang-101/sections/6-3-prefill-decode-disaggregation.md
 
-- **TTFT**: time to first token. Send to first streamed chunk.
-- **TPOT**: time per output token, after the first token.
-- **ITL**: inter-token latency. Gap between two streamed chunks.
-- **KV cache**: stored keys and values of earlier tokens.
-- **TP**: tensor parallelism. Layer weights cut into slices per GPU.
-- **DP**: data parallelism. Full model copies with own KV cache.
-- **EP**: expert parallelism. MoE experts divided among GPUs.
-- **PD**: prefill-decode disaggregation. Separate prefill and decode servers.
+- **ITL**: inter-token latency, the gap between tokens.
+- **MLA**: multi-head latent attention, a compact KV layout used by DeepSeek.
+- **MoE**: mixture of experts, where each token uses a few experts.
+- **EPLB**: expert placement load balancing across GPUs.
+- **PD**: prefill-decode disaggregation, with prefill and decode on separate servers.
 
-## Q&A
+## Questions
 type: qa
-from: manuals/sglang-101/sections/2-1-sglang-serve-and-the-three-processes.md, manuals/sglang-101/sections/2-3-admission-and-retraction.md, manuals/sglang-101/sections/3-3-radixcache.md, manuals/sglang-101/sections/5-2-the-metrics-endpoint.md, manuals/sglang-101/sections/5-1-sglang-benchmark-serving.md
+from: manuals/sglang-101/sections/2-1-sglang-serve-and-the-three-processes.md, manuals/sglang-101/sections/3-2-mem-fraction-static-and-startup-sizing.md, manuals/sglang-101/sections/7-1-operating-sglang.md
 
-- **Why three processes?** The GIL. Text work must not delay GPU steps.
-- **How many 256 in, 512 out requests fit 4,096 tokens?** Five. Each reserves 768.
-- **Why 2,998 cached of 2,999?** The last prompt token always prefills.
-- **Gauge 0.942, counters 0.636?** Gauge is the last interval. Trust the counters.
-- **What is the knee?** The cap where throughput stops rising. Here at or below 8.
+- **Where do I look when time to first token is high and the GPU is idle?** Check the tokenizer process before the kernels.
+- **Why does a bigger pool add no throughput?** The pool was never full at 64 users in our runs.
+- **Should I deploy `latest`?** No. Pin a tag such as `v0.5.22`.
 
 ## Tips
 type: tips
-from: manuals/sglang-101/sections/5-1-sglang-benchmark-serving.md, manuals/sglang-101/sections/3-2-mem-fraction-static-and-startup-sizing.md, manuals/sglang-101/sections/3-3-radixcache.md, manuals/sglang-101/sections/7-1-operating-sglang.md
+from: manuals/sglang-101/sections/2-5-streaming-stop-strings-and-the-openai-api.md, manuals/sglang-101/sections/2-1-sglang-serve-and-the-three-processes.md, manuals/sglang-101/sections/5-2-the-metrics-endpoint.md, manuals/sglang-101/sections/7-1-operating-sglang.md
 
-- Pass `--random-range-ratio 1.0` in every benchmark.
-- Report throughput with p50 and p99 TTFT and TPOT.
-- Raise `--mem-fraction-static` in steps of 0.02 only.
-- Keep the radix cache on. Measure hit rate per feature.
-- Pin `lmsysorg/sglang:v0.5.22`, never `latest`.
-- Mount `~/.cache/sglang` on a persistent volume.
+- Start servers with `--enable-cache-report` and `--enable-metrics`.
+- Read the pool size in the startup log before you size clients.
+- Send SIGTERM to the main process only.
+- Set `SGLANG_ENABLE_HEALTH_ENDPOINT_GENERATION=false` for liveness probes.
