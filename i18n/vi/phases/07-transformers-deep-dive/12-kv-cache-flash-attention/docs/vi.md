@@ -124,6 +124,10 @@ flash-attention-memory
 
 ## Hãy xây dựng nó
 
+```figure
+iso-machine {"machine":"kv-cache"}
+```
+
 Nhìn xem`code/main.py`Chúng tôi thực hiện:
 
 1. Một kẻ ngây thơ .$O(N^2)$decoder tăng trưởng.
