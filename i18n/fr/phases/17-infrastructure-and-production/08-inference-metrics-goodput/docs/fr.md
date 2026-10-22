@@ -108,6 +108,8 @@ throughput-latency
 
 `code/main.py`Il est également possible de générer une distribution de latence synthétique, d'appliquer un SLO et de calculer le goodput.
 
+Le [Inside an LLM Serving GPU](https://aiengineeringfromscratch.com/inside-an-llm-serving-gpu?users=1)La machine montre d'où vient le temps par jeton de sortie sur un NVIDIA L4. Une étape de décode est de 16,41 Go de poids, ce qui prend au moins 54,7 ms à 300 GB/s, et la étape mesurée a pris 60,16 ms.
+
 ## La faire partir
 
 Cette leçon produit `outputs/skill-slo-goodput-gate.md`. Compte tenu de la charge de travail et de la SLO, il produit une recette de référence prête à l'IC/CD qui déploie les portes sur une bonne puissance plutôt que sur une capacité de débit.
