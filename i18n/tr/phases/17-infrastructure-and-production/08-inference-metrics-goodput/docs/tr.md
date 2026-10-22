@@ -108,6 +108,8 @@ throughput-latency
 
 `code/main.py`Bu, bir oyuncak iyilik hesaplayıcıdır. Sintez bir gecikme dağılımını oluşturun, SLO uygulayın ve iyilik hesaplayın. Aynı iz üzerinde GenAI-Perf vs LLMPerf TPOT farkını da gösterir.
 
+- Evet .[Inside an LLM Serving GPU](https://aiengineeringfromscratch.com/inside-an-llm-serving-gpu?users=1)bir decode adımı, en az 54,7 ms'i 300 GB/s'de alırken ölçülen adımı 60,16 ms'i alır.
+
 ## Gönder
 
 Bu ders bize çok yararlı .`outputs/skill-slo-goodput-gate.md`. İş yükü ve SLO'yu göz önüne alarak, kapıların geçiş yerine iyi verim üzerinde kullanıldığı bir CI/CD hazır bir referans tarifi üretir.
