@@ -48,6 +48,8 @@ Implicações:
 - Os 4-6 passos humanos são o gargalo; ganhos futuros de capacidade reduziriam essa contagem.
 - Uso duplo defensivo: O piloto de "accesso confiável" da OpenAI fornece às organizações de segurança verificadas (empresas de resposta a incidentes estabelecidas, governo) acesso a capacidades para a defesa.
 
+O lado defensivo deste trabalho começa com a leitura do código compilado que você pode analisar.[Lesson 13.32](../../../13-tools-and-protocols/32-program-anatomy-elf-from-scratch/docs/en.md), desmontagem em [Lesson 13.33](../../../13-tools-and-protocols/33-disassembly-and-control-flow/docs/en.md), elevação para pseudocódulo em [Lesson 13.34](../../../13-tools-and-protocols/34-lifting-to-pseudocode/docs/en.md), e um livro de evidências que mantém os fatos observados separados dos inferidos em[Lesson 13.35](../../../13-tools-and-protocols/35-evidence-confidence-and-unknowns/docs/en.md)- O .[Inside a Decompiler](https://aiengineeringfromscratch.com/inside-a-decompiler)Uma máquina mostra o pipeline completo em uma função. um agente que faz este trabalho precisa do mesmo livro, porque uma decompilhação confiante ainda pode descansar em uma suposição.
+
 ### Nuclear
 
 O menos analisado dos quatro domínios CBRN na documentação pública. O modelo de ameaça é diferente: a aquisição de materiais fisíveis domina a dificuldade, não a informação. A elevação da IA na camada de informação fornece uma elevação limitada para novatos na prática.
