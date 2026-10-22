@@ -124,6 +124,10 @@ flash-attention-memory
 
 ## Yapın
 
+```figure
+iso-machine {"machine":"kv-cache"}
+```
+
 Bakın .`code/main.py`Bu uygulamayı uyguluyoruz:
 
 1. Saf bir adam .$O(N^2)$Gelişmiş dekodör.
