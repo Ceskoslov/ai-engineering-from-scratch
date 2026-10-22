@@ -124,6 +124,10 @@ flash-attention-memory
 
 ## Faites-le
 
+```figure
+iso-machine {"machine":"kv-cache"}
+```
+
 Regardez !`code/main.py`Nous mettons en œuvre:
 
 1. Une naïve .$O(N^2)$décodeur incrémentiel.
