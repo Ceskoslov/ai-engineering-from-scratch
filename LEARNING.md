@@ -16,20 +16,20 @@ Build goal: As many as possible, everything
 ## Path
 | Phase | Name | Status | Est. hours |
 |-------|------|--------|------------|
-| 0 | Setup & Tooling | Skip | -- |
-| 1 | Math Foundations | Skip | -- |
-| 2 | ML Fundamentals | Skip | -- |
-| 3 | Deep Learning Core | Skip | -- |
-| 4 | Computer Vision | Skip | -- |
-| 5 | NLP — Foundations to Advanced | Skip | -- |
-| 6 | Speech & Audio | Skip | -- |
-| 7 | Transformers Deep Dive | Skip | -- |
-| 8 | Generative AI | Skip | -- |
-| 9 | Reinforcement Learning | Skip | -- |
-| 10 | LLMs from Scratch | Skip | -- |
-| 11 | LLM Engineering | Skip | -- |
-| 12 | Multimodal AI | Skip | -- |
-| 13 | Tools & Protocols | Skip | -- |
+| 0 | Setup & Tooling | Done | -- |
+| 1 | Math Foundations | Review | -- |
+| 2 | ML Fundamentals | Review | -- |
+| 3 | Deep Learning Core | Review | -- |
+| 4 | Computer Vision | Review | -- |
+| 5 | NLP — Foundations to Advanced | Review | -- |
+| 6 | Speech & Audio | Review | -- |
+| 7 | Transformers Deep Dive | Review | -- |
+| 8 | Generative AI | Review | -- |
+| 9 | Reinforcement Learning | Review | -- |
+| 10 | LLMs from Scratch | Review | -- |
+| 11 | LLM Engineering | Review | -- |
+| 12 | Multimodal AI | Review | -- |
+| 13 | Tools & Protocols | Review | -- |
 | 14 | Agent Engineering | Done | 55 |
 | 15 | Autonomous Systems | Do | 20 |
 | 16 | Multi-Agent & Swarms | Do | 28 |
@@ -37,7 +37,18 @@ Build goal: As many as possible, everything
 | 18 | Ethics, Safety & Alignment | Do | 31 |
 | 19 | Capstone Projects | Do | 620 |
 
-Total estimated hours (Review + Do): 786 across 6 phases.
+Original forward-study estimate: 786 hours across Phases 14–19. Phase 00–13 mastery assessments are additional; their time is not yet estimated.
+
+## Skipped-phase mastery assessment
+
+- Requested: 2026-10-23. Scope: Phases 00–13 inclusive (14 phases, 297 lessons).
+- Active mode: comprehensive phase quizzes with questions and answer options in English, starting with Phase 00. Resume this assessment before choosing the next ordinary lesson unless the learner requests otherwise.
+- Each lesson has three scored questions: concept, application, and code tracing/debugging. Ground each question in that lesson's docs; read the full lesson before asking its questions. Ask one question at a time and reveal its answer only after the learner responds.
+- Pass a phase with at least 85% overall and at least 2/3 for every lesson. Remediate weaker lessons with fresh three-question sets; preserve initial results and record retake results separately. Re-evaluate both conditions using the latest complete set per lesson.
+- Before passing a phase, all its lessons remain todo in the assessment ledger, even if an individual lesson's questions are finished. Never mark an unanswered or unpassed phase Done.
+- On phase pass: mark its Path status Done and every lesson done; append one normal Progress log row per lesson with its score and a note identifying quiz-based mastery credit (not a completed implementation lab). Record phase totals, attempts, and any residual review topics. Keep all existing progress and review notes.
+- Lesson checklist, attempts, and resume cursor: [Phase quiz progress](learning-artifacts/phase-quizzes/progress.md).
+- Current checkpoint: Phase 00 passed 2026-10-23: 34/39 (87.18%) using latest complete lesson attempts; initial 31/39 preserved. All 13 lessons done by quiz-based mastery, with normal Progress log entries. Next: Phase 01, Lesson 01, question 1/3 (phase question 1/66), awaiting answer. Residual review topics remain in Review queue.
 
 ## Progress log
 | Date | Lesson | Quiz | Note |
@@ -146,4 +157,31 @@ Total estimated hours (Review + Do): 786 across 6 phases.
 
 | 2026-10-22 | 14-agent-engineering/54-build-the-feedback-ratchet | 2/2 | Warm-up 2/2; routed unauthorized writes to permission boundary, traced evaluation-first keyword precedence for mixed policy/regression signal, computed frequency-weighted priority 8 over severe incident 5 without treating it as sufficient urgency policy, and required protection evidence before retirement. Drafted simulated refund action with support engineers, read-only permissions, write-denial verification, and continued protection retirement condition; tutor refined single accountable lead, authoritative audit/allowed-read tests, and replacement-boundary verification. Demo exited 0 in temporary copy and all six tests passed; probes confirmed timeout routes runtime, mixed signal evaluation, and blank owner/negative expiry pass promotion. Code emits proposed artifact paths and verification instructions without implementing controls, running proof, validating owners/expiry, or scheduling retirement. Reviewed stdlib asdict/JSON serialization; no separate production-library integration supplied. Simulated action saved in temporary practice JSON; named owner, review date, actual approval, stakeholder challenge, baseline/follow-up costs, experiment, and retirement review remain pending/not observed. No real incident, pilot, or permission change; reference artifacts unchanged. |
 
+
+| 2026-10-23 | 00-setup-and-tooling/01-dev-environment | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-23 | 00-setup-and-tooling/02-git-and-collaboration | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-23 | 00-setup-and-tooling/03-gpu-setup-and-cloud | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-23 | 00-setup-and-tooling/04-apis-and-keys | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial missing-key indexing error; fresh retake 3/3 confirmed indexing versus get and local versus server failures. |
+| 2026-10-23 | 00-setup-and-tooling/05-jupyter-notebooks | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-23 | 00-setup-and-tooling/06-python-environments | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-23 | 00-setup-and-tooling/07-docker-for-ai | 2/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Review Compose peer service names and container ports versus container-local localhost. |
+| 2026-10-23 | 00-setup-and-tooling/08-editor-setup | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-23 | 00-setup-and-tooling/09-data-management | 2/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Review second split fractions applied to remaining rows and validation/test assignments. |
+| 2026-10-23 | 00-setup-and-tooling/10-terminal-and-shell | 2/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial 1/3; retake 2/3. Review left-to-right redirection; nohup versus tmux and stream filtering improved. |
+| 2026-10-23 | 00-setup-and-tooling/11-linux-for-ai | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-23 | 00-setup-and-tooling/12-debugging-and-profiling | 2/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Review cProfile execution timing versus tracemalloc allocation tracking. |
+| 2026-10-23 | 00-setup-and-tooling/13-python-for-ai-engineering | 2/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial 1/3; retake 2/3. Review shared references and assignment versus copying; generator reuse and mutable defaults improved. |
+
 ## Review queue
+
+- Phase 00 / Lesson 13 (initial 1/3; retake 2/3, lesson minimum met): Generators are single-use iterators; consumption exhausts them regardless of epoch number. `iter()` does not reset an exhausted generator. Recreate the generator from a reusable source for each epoch. Nested-list repetition shares inner list references; use a comprehension to create independent rows. Retake also missed plain assignment aliasing: `backup = weights` shares the list; `weights.copy()` copies only the outer list. Retake attempt 2 completed 2/3; generator reuse and mutable defaults answered correctly, while assignment aliasing still needs review.
+
+- Phase 00 / Lesson 12 (quiz-based assessment, 2/3): `cProfile` measures function execution time (including cumulative time); `tracemalloc` tracks Python memory allocations. Choose the profiler to match the observed problem.
+
+- Phase 00 / Lesson 10 (initial 1/3; retake 2/3, lesson minimum met): `nohup` can preserve a process after hangup, but does not provide terminal reattachment; `fg` cannot recover another shell's job from a new SSH session. Use a persistent tmux session for detach/reattach. Also review left-to-right redirection: `2>&1 > train.log` leaves stderr on the terminal; `> train.log 2>&1` sends both streams to the file. Retake attempt 2 completed 2/3; append-both-streams question was still missed. Trace each redirection left to right: `>> train.log` first, then `2>&1`.
+
+- Phase 00 / Lesson 09 (quiz-based assessment, 2/3): Calculate nested split fractions against the remaining subset: 20% of 1000 gives 200 test rows; 12.5% of remaining 800 gives 100 validation rows; 700 training rows remain. Trace final validation/test variable assignments.
+
+- Phase 00 / Lesson 07 (quiz-based assessment, 2/3): Inside a container, `localhost` addresses that same container. Reach a Compose peer using its service name and container port (`qdrant:6333`); host-published port `7333` serves host access.
+
+- Phase 00 / Lesson 04 (initial 2/3; fresh retake 3/3, resolved in retake; keep for spaced recall): Missing `os.environ["KEY"]` raises `KeyError` before any HTTP request; distinguish indexing from `.get()` defaults and local setup errors from server authentication errors.
