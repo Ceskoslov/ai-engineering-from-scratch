@@ -20,7 +20,7 @@ Build goal: As many as possible, everything
 | 1 | Math Foundations | Done | -- |
 | 2 | ML Fundamentals | Done | -- |
 | 3 | Deep Learning Core | Done | -- |
-| 4 | Computer Vision | Review | -- |
+| 4 | Computer Vision | Done | -- |
 | 5 | NLP — Foundations to Advanced | Review | -- |
 | 6 | Speech & Audio | Review | -- |
 | 7 | Transformers Deep Dive | Review | -- |
@@ -49,7 +49,7 @@ Original forward-study estimate: 786 hours across Phases 14–19. Phase 00–13 
 - Before passing a phase, all its lessons remain todo in the assessment ledger, even if an individual lesson's questions are finished. Never mark an unanswered or unpassed phase Done.
 - On phase pass: mark its Path status Done and every lesson done; append one normal Progress log row per lesson with its score and a note identifying quiz-based mastery credit (not a completed implementation lab). Record phase totals, attempts, and any residual review topics. Keep all existing progress and review notes.
 - Lesson checklist, attempts, and resume cursor: [Phase quiz progress](learning-artifacts/phase-quizzes/progress.md).
-- Current checkpoint: Phase03 Done, latest complete sets34/39 (87.18%); initial31/39 and all retakes preserved. All13 lessons marked done and logged by quiz-based mastery. Phases00–03 Done. Next: Phase04 Computer Vision, Lesson01 Image Fundamentals — Pixels, Channels, Color Spaces, question1/84, not yet presented. No pending answer; residual review preserved.
+- Current checkpoint: Phase04 Computer Vision passed80/84 (95.24%) on2026-10-24; all28 lessons done and logged by quiz-based mastery. Initial77/84 preserved; Lesson12 retake3/3 and Lesson20 retake2/3. Phases00–04 Done. Next: Phase05 NLP — Foundations to Advanced, Lesson01 Text Processing, question1/87, not yet presented; no pending answer.
 
 ## Progress log
 | Date | Lesson | Quiz | Note |
@@ -233,7 +233,54 @@ Original forward-study estimate: 786 hours across Phases 14–19. Phase 00–13 
 | 2026-10-24 | 03-deep-learning-core/12-intro-to-jax | 2/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Review explicit parameters, optimizer state, and returned gradients in JAX. |
 | 2026-10-24 | 03-deep-learning-core/13-debugging-neural-networks | 3/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
 
+| 2026-10-24 | 04-computer-vision/01-image-fundamentals | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/02-convolutions-from-scratch | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/03-cnns-lenet-to-resnet | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/04-image-classification | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/05-transfer-learning | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/06-object-detection-yolo | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/07-semantic-segmentation-unet | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/08-instance-segmentation-mask-rcnn | 2/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Review replacing both box and mask predictors and including the background class. |
+| 2026-10-24 | 04-computer-vision/09-image-generation-gans | 2/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Review detach blocking generator gradients while allowing discriminator gradients. |
+| 2026-10-24 | 04-computer-vision/10-image-generation-diffusion | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/11-stable-diffusion | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/12-video-understanding | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial1/3 preserved; fresh retake3/3 remediated temporal order, dense sampling, and temporal kernels. |
+| 2026-10-24 | 04-computer-vision/13-3d-vision-nerf | 2/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Review PointNet shared MLP and symmetric pooling for permutation invariance. |
+| 2026-10-24 | 04-computer-vision/14-vision-transformers | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/15-real-time-edge | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/16-vision-pipeline-capstone | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/17-self-supervised-vision | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/18-open-vocab-clip | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/19-ocr-document-understanding | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/20-image-retrieval-metric | 2/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial1/3 preserved; fresh retake2/3 remediated normalized cosine/L2 equivalence and semi-hard negatives. Review recall@K as a fraction of queries with a hit. |
+| 2026-10-24 | 04-computer-vision/21-keypoint-pose | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/22-3d-gaussian-splatting | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/23-diffusion-transformers-rectified-flow | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/24-sam3-open-vocab-segmentation | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/25-vision-language-models | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/26-monocular-depth | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/27-multi-object-tracking | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+| 2026-10-24 | 04-computer-vision/28-world-models-video-diffusion | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
+
 ## Review queue
+
+- Phase04 Lesson20 retake Q3: recall@K under this lesson protocol divides queries with at least one correct top-K match by total queries. Three successful queries out of four give0.75;3/8 counts retrieved items instead. Chose A; correct B. Retake2/3 meets the lesson minimum; cosine/L2 equivalence and semi-hard negatives remediated.
+
+- Phase04 Lesson12 retake: scored3/3 on temporal kernels, ordered dense sampling, and an order-sensitive convolution trace. Prior Q34–35 misses remediated by this complete set; retain for later spaced recall.
+
+- Phase04 Lesson20: semi-hard negatives satisfy d_ap < d_an < d_ap + margin; negatives closer than the positive are hard. At distances0.4 and0.5 with margin0.2, loss=0.1 and the negative is semi-hard. Q60 chose D; correct B. Initial1/3 preserved; fresh retake2/3 complete; these topics remediated, with query hit-rate denominator remaining for review.
+
+- Phase04 Lesson20: for L2-normalized embeddings, squared Euclidean distance = 2 - 2*cosine similarity. Highest cosine and smallest distance give the same retrieval ranking, not opposite rankings. Q58 chose B; correct C.
+
+- Phase04 Lesson13: PointNet uses a shared per-point MLP and symmetric coordinate-wise max pooling for permutation invariance. Sequence-position embeddings and concatenation in input order introduce order dependence. Q37 chose C; correct B.
+
+- Phase04 Lesson12: motion direction requires ordered frames; dense consecutive sampling with a temporal model preserves direction, whereas random frame shuffling destroys consistent temporal structure. Q35 chose C; correct A. Initial1/3 preserved; fresh retake3/3 complete; temporal-order topic remediated.
+
+- Phase04 Lesson12: a 2D CNN extracts spatial frame features, but averaging independent frame embeddings discards temporal order; reversing the same frames preserves the pooled representation. Q34 chose D; correct C.
+
+- Phase04 Lesson09: D(fake.detach()) permits gradients into D but blocks this loss’s path into G; detach does not freeze D or disable autograd globally. Q27 chose B; correct D.
+
+- Phase04 Lesson08: replace both box and mask predictors for a custom vocabulary; four foreground classes require five output classes including background0. The mask predictor does not adapt automatically. Q23 chose A; correct B.
 
 - Phase03 Lesson12: JAX training passes parameters and optimizer state explicitly and returns updated values; grad/value_and_grad return gradients rather than accumulating array .grad attributes. Q34 chose C; correct B.
 
@@ -313,4 +360,4 @@ Original forward-study estimate: 786 hours across Phases 14–19. Phase 00–13 
 
 ## Resume checkpoint
 
-Phase03 completed with latest sets34/39 (87.18%); initial31/39 and all retakes preserved. All13 lessons done by quiz-based mastery. Next: Phase04 — Computer Vision, Lesson01 — Image Fundamentals — Pixels, Channels, Color Spaces (01-image-fundamentals), question1/84, not yet presented. No pending answer at this phase boundary. Prior attempts and residual review notes remain in the phase quiz ledger.
+Phase04 — Computer Vision passed80/84 (95.24%) on2026-10-24; all28 lessons done and logged. Initial77/84 and both retakes preserved. Next: Phase05 — NLP — Foundations to Advanced, Lesson01 — Text Processing — Tokenization, Stemming, Lemmatization, question1/87, not yet presented. No pending answer. Phases00–04 remain done.
