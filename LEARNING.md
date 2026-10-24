@@ -21,7 +21,7 @@ Build goal: As many as possible, everything
 | 2 | ML Fundamentals | Done | -- |
 | 3 | Deep Learning Core | Done | -- |
 | 4 | Computer Vision | Done | -- |
-| 5 | NLP — Foundations to Advanced | Review | -- |
+| 5 | NLP — Foundations to Advanced | Done | -- |
 | 6 | Speech & Audio | Review | -- |
 | 7 | Transformers Deep Dive | Review | -- |
 | 8 | Generative AI | Review | -- |
@@ -47,11 +47,23 @@ Original forward-study estimate: 786 hours across Phases 14–19. Phase 00–13 
 - Each lesson has three scored questions: concept, application, and code tracing/debugging. Ground each question in that lesson's docs; read the full lesson before asking its questions. Ask one question at a time and reveal its answer only after the learner responds.
 - Pass a phase with at least 85% overall and at least 2/3 for every lesson. Remediate weaker lessons with fresh three-question sets; preserve initial results and record retake results separately. Re-evaluate both conditions using the latest complete set per lesson.
 - Before passing a phase, all its lessons remain todo in the assessment ledger, even if an individual lesson's questions are finished. Never mark an unanswered or unpassed phase Done.
-- On phase pass: mark its Path status Done and every lesson done; append one normal Progress log row per lesson with its score and a note identifying quiz-based mastery credit (not a completed implementation lab). Record phase totals, attempts, and any residual review topics. Keep all existing progress and review notes.
-- Lesson checklist, attempts, and resume cursor: [Phase quiz progress](learning-artifacts/phase-quizzes/progress.md).
-- Current checkpoint: Phase04 Computer Vision passed80/84 (95.24%) on2026-10-24; all28 lessons done and logged by quiz-based mastery. Initial77/84 preserved; Lesson12 retake3/3 and Lesson20 retake2/3. Phases00–04 Done. Next: Phase05 NLP — Foundations to Advanced, Lesson01 Text Processing, question1/87, not yet presented; no pending answer.
+- On phase pass: mark its Path status Done and every lesson done; append one normal dated Progress log row per lesson in its phase progress.md (linked from this Progress log), with its score and a note identifying quiz-based mastery credit (not a completed implementation lab). Record phase totals, attempts, and any residual review topics. Keep all existing progress and review notes.
+- Minimal quiz resume: read [active.json](learning-artifacts/phase-quizzes/active.json) and follow the [recording protocol](learning-artifacts/phase-quizzes/README.md). Phase checklists, dated lesson logs, attempts, and review notes are linked from the [phase index](learning-artifacts/phase-quizzes/progress.md).
+- Current checkpoint: Phase05 NLP — Foundations to Advanced passed83/87 (95.40%) on2026-10-25; all29 lessons done and logged by quiz-based mastery. All lesson minima met; no retakes. Phases00–05 Done. Next: Phase06 Speech & Audio, Lesson01 — Audio Fundamentals — Waveforms, Sampling, Fourier Transform, question1/51, not yet presented; no pending answer.
 
 ## Progress log
+
+Mastery-assessment lesson records are organized by phase (original rows preserved):
+
+- [Phase 00 progress log](learning-artifacts/phase-quizzes/phase-00/progress.md) — 13 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-00/review.md).
+- [Phase 01 progress log](learning-artifacts/phase-quizzes/phase-01/progress.md) — 22 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-01/review.md).
+- [Phase 02 progress log](learning-artifacts/phase-quizzes/phase-02/progress.md) — 21 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-02/review.md).
+- [Phase 03 progress log](learning-artifacts/phase-quizzes/phase-03/progress.md) — 13 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-03/review.md).
+- [Phase 04 progress log](learning-artifacts/phase-quizzes/phase-04/progress.md) — 28 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-04/review.md).
+- [Phase 05 progress log](learning-artifacts/phase-quizzes/phase-05/progress.md) — 29 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-05/review.md).
+
+Ordinary lesson records follow.
+
 | Date | Lesson | Quiz | Note |
 |------|--------|------|------|
 | 2026-09-17 | 14-agent-engineering/01-the-agent-loop | 2/2 | Explained observation feedback and hard execution limits; correctly predicted the five-turn budget cutoff. Practiced exception formatting with help on isinstance, str, and returning dictionaries; revisit these and framework budget configuration during recall. |
@@ -159,205 +171,11 @@ Original forward-study estimate: 786 hours across Phases 14–19. Phase 00–13 
 | 2026-10-22 | 14-agent-engineering/54-build-the-feedback-ratchet | 2/2 | Warm-up 2/2; routed unauthorized writes to permission boundary, traced evaluation-first keyword precedence for mixed policy/regression signal, computed frequency-weighted priority 8 over severe incident 5 without treating it as sufficient urgency policy, and required protection evidence before retirement. Drafted simulated refund action with support engineers, read-only permissions, write-denial verification, and continued protection retirement condition; tutor refined single accountable lead, authoritative audit/allowed-read tests, and replacement-boundary verification. Demo exited 0 in temporary copy and all six tests passed; probes confirmed timeout routes runtime, mixed signal evaluation, and blank owner/negative expiry pass promotion. Code emits proposed artifact paths and verification instructions without implementing controls, running proof, validating owners/expiry, or scheduling retirement. Reviewed stdlib asdict/JSON serialization; no separate production-library integration supplied. Simulated action saved in temporary practice JSON; named owner, review date, actual approval, stakeholder challenge, baseline/follow-up costs, experiment, and retirement review remain pending/not observed. No real incident, pilot, or permission change; reference artifacts unchanged. |
 
 
-| 2026-10-23 | 00-setup-and-tooling/01-dev-environment | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 00-setup-and-tooling/02-git-and-collaboration | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 00-setup-and-tooling/03-gpu-setup-and-cloud | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 00-setup-and-tooling/04-apis-and-keys | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial missing-key indexing error; fresh retake 3/3 confirmed indexing versus get and local versus server failures. |
-| 2026-10-23 | 00-setup-and-tooling/05-jupyter-notebooks | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 00-setup-and-tooling/06-python-environments | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 00-setup-and-tooling/07-docker-for-ai | 2/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Review Compose peer service names and container ports versus container-local localhost. |
-| 2026-10-23 | 00-setup-and-tooling/08-editor-setup | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 00-setup-and-tooling/09-data-management | 2/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Review second split fractions applied to remaining rows and validation/test assignments. |
-| 2026-10-23 | 00-setup-and-tooling/10-terminal-and-shell | 2/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial 1/3; retake 2/3. Review left-to-right redirection; nohup versus tmux and stream filtering improved. |
-| 2026-10-23 | 00-setup-and-tooling/11-linux-for-ai | 3/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 00-setup-and-tooling/12-debugging-and-profiling | 2/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Review cProfile execution timing versus tracemalloc allocation tracking. |
-| 2026-10-23 | 00-setup-and-tooling/13-python-for-ai-engineering | 2/3 | Quiz-based mastery credit after Phase 00 passed 34/39 (87.18%); implementation lab not performed in this assessment. Initial 1/3; retake 2/3. Review shared references and assignment versus copying; generator reuse and mutable defaults improved. |
-
-
-| 2026-10-23 | 01-math-foundations/01-linear-algebra-intuition | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial0/3; retake2/3; targeted projection correction reached3/3. |
-| 2026-10-23 | 01-math-foundations/02-vectors-matrices-operations | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial three-question set answered correctly. |
-| 2026-10-23 | 01-math-foundations/03-matrix-transformations | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial2/3; targeted transformation-composition correction reached3/3. |
-| 2026-10-23 | 01-math-foundations/04-calculus-for-ml | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial1/3; fresh retake3/3. |
-| 2026-10-23 | 01-math-foundations/05-chain-rule-and-autodiff | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial three-question set answered correctly. |
-| 2026-10-23 | 01-math-foundations/06-probability-and-distributions | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial1/3; attempt2=0/3; guided review excluded from score; fresh attempt3=3/3. |
-| 2026-10-23 | 01-math-foundations/07-bayes-theorem | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial2/3; targeted conditional-independence correction reached3/3. |
-| 2026-10-23 | 01-math-foundations/08-optimization | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial three-question set answered correctly. |
-| 2026-10-23 | 01-math-foundations/09-information-theory | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial1/3; attempt2=1/3; guided review excluded from score; fresh attempt3=3/3. |
-| 2026-10-23 | 01-math-foundations/10-dimensionality-reduction | 2/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial1/3; retake2/3; recall PCA keeps maximum variance first. |
-| 2026-10-23 | 01-math-foundations/11-singular-value-decomposition | 2/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Recall Frobenius error combines discarded singular values via root sum of squares. |
-| 2026-10-23 | 01-math-foundations/12-tensor-operations | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial three-question set answered correctly. |
-| 2026-10-23 | 01-math-foundations/13-numerical-stability | 2/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Recall stable log-sum-exp adds the maximum back. |
-| 2026-10-23 | 01-math-foundations/14-norms-and-distances | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial three-question set answered correctly. |
-| 2026-10-23 | 01-math-foundations/15-statistics-for-ml | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial three-question set answered correctly. |
-| 2026-10-23 | 01-math-foundations/16-sampling-methods | 2/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Recall top-p prefix selection and renormalization. |
-| 2026-10-23 | 01-math-foundations/17-linear-systems | 2/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Recall Cholesky requires SPD; reuse pivoted LU for general square systems. |
-| 2026-10-23 | 01-math-foundations/18-convex-optimization | 2/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Recall convex Hessians may be semidefinite and minima need not be unique. |
-| 2026-10-23 | 01-math-foundations/19-complex-numbers | 2/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Recall complex rotation versus conjugation. |
-| 2026-10-23 | 01-math-foundations/20-fourier-transform | 3/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Initial three-question set answered correctly. |
-| 2026-10-23 | 01-math-foundations/21-graph-theory | 2/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Recall zero Laplacian eigenvalues count connected components. |
-| 2026-10-23 | 01-math-foundations/22-stochastic-processes | 2/3 | Quiz-based mastery credit after Phase01 passed57/66 (86.36%); implementation lab not performed in this assessment. Recall row-vector distribution updates use the corresponding transition row. |
-
-| 2026-10-23 | 02-ml-fundamentals/01-what-is-machine-learning | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/02-linear-regression | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/03-logistic-regression | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/04-decision-trees | 2/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Review random forest diversity and error correlation. |
-| 2026-10-23 | 02-ml-fundamentals/05-support-vector-machines | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/06-knn-and-distances | 2/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Review K and the bias–variance tradeoff. |
-| 2026-10-23 | 02-ml-fundamentals/07-unsupervised-learning | 2/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Review DBSCAN versus K-Means for curved clusters and noise. |
-| 2026-10-23 | 02-ml-fundamentals/08-feature-engineering | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/09-model-evaluation | 2/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Review training-only scaler fitting and unchanged validation transforms. |
-| 2026-10-23 | 02-ml-fundamentals/10-bias-variance | 2/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Review variance across datasets versus squared bias. |
-| 2026-10-23 | 02-ml-fundamentals/11-ensemble-methods | 2/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Review AdaBoost, gradient boosting, and stacking. |
-| 2026-10-23 | 02-ml-fundamentals/12-hyperparameter-tuning | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/13-ml-pipelines | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/14-naive-bayes | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/15-time-series | 2/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Review strictly historical walk-forward validation. |
-| 2026-10-23 | 02-ml-fundamentals/16-anomaly-detection | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/17-imbalanced-data | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/18-feature-selection | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/19-ml-system-design | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/20-model-monitoring-and-drift | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-23 | 02-ml-fundamentals/21-feature-stores-and-training-serving-skew | 3/3 | Quiz-based mastery credit after Phase02 passed56/63 (88.89%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-
-| 2026-10-24 | 03-deep-learning-core/01-the-perceptron | 3/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 03-deep-learning-core/02-multi-layer-networks | 3/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Initial2/3 preserved; fresh retake3/3. Retake topic resolved; keep for spaced recall. |
-| 2026-10-24 | 03-deep-learning-core/03-backpropagation | 3/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Initial2/3 preserved; fresh retake3/3. Retake topic resolved; keep for spaced recall. |
-| 2026-10-24 | 03-deep-learning-core/04-activation-functions | 3/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 03-deep-learning-core/05-loss-functions | 3/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Initial2/3 preserved; fresh retake3/3. Retake topic resolved; keep for spaced recall. |
-| 2026-10-24 | 03-deep-learning-core/06-optimizers | 3/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 03-deep-learning-core/07-regularization | 2/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Review evaluation mode: disable dropout and reuse BatchNorm running statistics. |
-| 2026-10-24 | 03-deep-learning-core/08-weight-initialization | 2/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Review variance versus standard deviation in initialization. |
-| 2026-10-24 | 03-deep-learning-core/09-learning-rate-schedules | 2/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Review warmup increases versus decay decreases in learning rate. |
-| 2026-10-24 | 03-deep-learning-core/10-mini-framework | 3/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 03-deep-learning-core/11-intro-to-pytorch | 2/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Review passing raw logits to CrossEntropyLoss. |
-| 2026-10-24 | 03-deep-learning-core/12-intro-to-jax | 2/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Review explicit parameters, optimizer state, and returned gradients in JAX. |
-| 2026-10-24 | 03-deep-learning-core/13-debugging-neural-networks | 3/3 | Quiz-based mastery credit after Phase03 passed34/39 (87.18%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-
-| 2026-10-24 | 04-computer-vision/01-image-fundamentals | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/02-convolutions-from-scratch | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/03-cnns-lenet-to-resnet | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/04-image-classification | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/05-transfer-learning | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/06-object-detection-yolo | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/07-semantic-segmentation-unet | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/08-instance-segmentation-mask-rcnn | 2/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Review replacing both box and mask predictors and including the background class. |
-| 2026-10-24 | 04-computer-vision/09-image-generation-gans | 2/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Review detach blocking generator gradients while allowing discriminator gradients. |
-| 2026-10-24 | 04-computer-vision/10-image-generation-diffusion | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/11-stable-diffusion | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/12-video-understanding | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial1/3 preserved; fresh retake3/3 remediated temporal order, dense sampling, and temporal kernels. |
-| 2026-10-24 | 04-computer-vision/13-3d-vision-nerf | 2/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Review PointNet shared MLP and symmetric pooling for permutation invariance. |
-| 2026-10-24 | 04-computer-vision/14-vision-transformers | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/15-real-time-edge | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/16-vision-pipeline-capstone | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/17-self-supervised-vision | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/18-open-vocab-clip | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/19-ocr-document-understanding | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/20-image-retrieval-metric | 2/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial1/3 preserved; fresh retake2/3 remediated normalized cosine/L2 equivalence and semi-hard negatives. Review recall@K as a fraction of queries with a hit. |
-| 2026-10-24 | 04-computer-vision/21-keypoint-pose | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/22-3d-gaussian-splatting | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/23-diffusion-transformers-rectified-flow | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/24-sam3-open-vocab-segmentation | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/25-vision-language-models | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/26-monocular-depth | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/27-multi-object-tracking | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-| 2026-10-24 | 04-computer-vision/28-world-models-video-diffusion | 3/3 | Quiz-based mastery credit after Phase04 passed80/84 (95.24%); implementation lab not performed in this assessment. Initial three-question lesson set answered correctly. |
-
 ## Review queue
 
-- Phase04 Lesson20 retake Q3: recall@K under this lesson protocol divides queries with at least one correct top-K match by total queries. Three successful queries out of four give0.75;3/8 counts retrieved items instead. Chose A; correct B. Retake2/3 meets the lesson minimum; cosine/L2 equivalence and semi-hard negatives remediated.
+Phase00–13 assessment notes are stored in each phase’s review.md, linked above and from the [phase index](learning-artifacts/phase-quizzes/progress.md). Ordinary lesson review notes remain here.
 
-- Phase04 Lesson12 retake: scored3/3 on temporal kernels, ordered dense sampling, and an order-sensitive convolution trace. Prior Q34–35 misses remediated by this complete set; retain for later spaced recall.
-
-- Phase04 Lesson20: semi-hard negatives satisfy d_ap < d_an < d_ap + margin; negatives closer than the positive are hard. At distances0.4 and0.5 with margin0.2, loss=0.1 and the negative is semi-hard. Q60 chose D; correct B. Initial1/3 preserved; fresh retake2/3 complete; these topics remediated, with query hit-rate denominator remaining for review.
-
-- Phase04 Lesson20: for L2-normalized embeddings, squared Euclidean distance = 2 - 2*cosine similarity. Highest cosine and smallest distance give the same retrieval ranking, not opposite rankings. Q58 chose B; correct C.
-
-- Phase04 Lesson13: PointNet uses a shared per-point MLP and symmetric coordinate-wise max pooling for permutation invariance. Sequence-position embeddings and concatenation in input order introduce order dependence. Q37 chose C; correct B.
-
-- Phase04 Lesson12: motion direction requires ordered frames; dense consecutive sampling with a temporal model preserves direction, whereas random frame shuffling destroys consistent temporal structure. Q35 chose C; correct A. Initial1/3 preserved; fresh retake3/3 complete; temporal-order topic remediated.
-
-- Phase04 Lesson12: a 2D CNN extracts spatial frame features, but averaging independent frame embeddings discards temporal order; reversing the same frames preserves the pooled representation. Q34 chose D; correct C.
-
-- Phase04 Lesson09: D(fake.detach()) permits gradients into D but blocks this loss’s path into G; detach does not freeze D or disable autograd globally. Q27 chose B; correct D.
-
-- Phase04 Lesson08: replace both box and mask predictors for a custom vocabulary; four foreground classes require five output classes including background0. The mask predictor does not adapt automatically. Q23 chose A; correct B.
-
-- Phase03 Lesson12: JAX training passes parameters and optimizer state explicitly and returns updated values; grad/value_and_grad return gradients rather than accumulating array .grad attributes. Q34 chose C; correct B.
-
-- Phase03 Lesson11: CrossEntropyLoss expects raw logits and internally computes log-softmax plus negative log-likelihood. Applying softmax twice does not add stability and gives the wrong objective. Q32 chose C; correct A.
-
-- Phase03 Lesson09: linear warmup increases the learning rate from small to peak; halving from a peak is decay. Q25 chose B; correct C.
-
-- Phase03 Lesson08: initialization standard deviation is the square root of variance. For fan_in8/fan_out24, Xavier variance0.0625 gives std0.25; He variance0.25 gives std0.5. Q24 chose A; correct B.
-
-- Phase03 Lesson07: ordinary inference uses evaluation mode to disable dropout and reuse BatchNorm running statistics; refitting per request and increasing dropout do not stabilize predictions. Q20 chose C; correct A.
-
-- Phase03 Lesson05 (resolved in retake, keep for spaced recall): label smoothing mixes one-hot targets with a uniform distribution; temperature scaling changes logits and predictions, not targets. Q13 chose C; correct A. Fresh retake attempt2 completed3/3.
-
-- Phase03 Lesson03 (resolved in retake, keep for spaced recall): gradients at a shared value sum contributions from all paths; compute them at the forward-pass parameter values, then update parameters. Q7 chose B; correct A. Fresh retake attempt2 completed3/3.
-
-- Phase03 Lesson02 (resolved in retake, keep for spaced recall): composing affine layers with identity activations gives one affine map; nonlinear activations provide nonlinear expressive power. Q4 chose B; correct A. Fresh retake attempt2 completed3/3.
-
-- Phase02 Lesson15: walk-forward validation trains strictly before each evaluation period; including that period before predicting leaks future information. Fixed-length sliding windows limit outdated regimes. Q44 chose D; correct B.
-
-- Phase02 Lesson11: AdaBoost reweights examples; gradient boosting fits negative loss gradients; stacking trains a meta-learner on out-of-fold base predictions. Q31 chose C; correct D.
-
-- Phase02 Lesson10: variance is the spread of predictions across training datasets at fixed x; squared bias is the squared gap between their average and the true conditional mean. Q28 chose A; correct B.
-
-- Phase02 Lesson09: fit a scaler only on each fold’s training rows, then reuse those statistics on validation. Separately fitting validation scaling changes coordinates and adapts to held-out data. Q26 chose C; correct B.
-
-- Phase02 Lesson07: choose DBSCAN for density-connected curved clusters, unknown cluster count, and unassigned noise; K-Means requires K and assigns every point to a centroid. Q20 chose B; correct A.
-
-- Phase02 Lesson06: increasing K smooths unweighted KNN predictions, usually lowering variance and risking higher bias; it does not make the search approximate. Q16 chose D; correct B.
-
-- Phase02 Lesson04: random forests reduce variance by aggregating diverse, less correlated trees; bootstrap sampling and random feature subsets encourage diversity. Q10 chose A; correct C.
-
-- Phase01 / Lesson09 guided-review follow-up: Still selected base2 exponentiation for cross-entropy measured in nats. Perplexity must invert the loss logarithm: `math.log` pairs with `math.exp`; `math.log2` pairs with `2 ** H`. Use uniform-V-token examples to recover V before starting attempt3.
-
-- Phase 01 / Lesson 09 retake follow-up: Diagonal joint [.5,0;0,.5] describes identical fair binary variables and has MI1 bit (.5*log2(2) twice), not0. Contrast independent uniform joint [.25,.25;.25,.25], which has MI0. Work through this contrast and nats/bits before attempt3 after L10.
-
-- Phase 01 / Lesson 22 (quiz-based assessment, 2/3): With row-vector state probabilities use `distribution @ P`; starting in state 0 yields row 0 of P, not column 0. For P=[[.8,.2],[.3,.7]], [1,0] advances to [.8,.2].
-
-- Phase 01 / Lesson 21 (quiz-based assessment, 2/3): For an undirected unweighted graph, count zero Laplacian eigenvalues to get connected components; [0,0,0,2,2] means three components, not two.
-
-- Phase 01 / Lesson 19 (quiz-based assessment, 2/3): Multiplication by `exp(i*theta)` rotates by theta and preserves magnitude. Complex conjugation reflects across the real axis; these are different operations.
-
-- Phase 01 / Lesson 18 (quiz-based assessment, 2/3): Convexity guarantees local minima are global, not unique. For twice-differentiable convex functions the Hessian is positive semidefinite, allowing zero curvature; positive definiteness is stronger.
-
-- Phase 01 / Lesson 17 (quiz-based assessment, 2/3): Nonsingular does not imply symmetric positive definite. Cholesky requires SPD; use reusable pivoted LU for general dense nonsingular square A with multiple right-hand sides.
-
-- Phase 01 / Lesson 16 (quiz-based assessment, 2/3): Top-p retains the smallest descending-probability prefix reaching the threshold, then renormalizes. For [.50,.30,.15,.05] at p=.75, retain two tokens (mass .80), yielding [.625,.375].
-
-- Phase 01 / Lesson 13 (quiz-based assessment, 2/3): Stable log-sum-exp adds the removed maximum back: `c + log(sum(exp(v-c)))`. For two values -1000, result is -1000 + ln(2), approximately -999.307.
-
-- Phase 01 / Lesson 11 (quiz-based assessment, 2/3): Truncated-SVD Frobenius error is the square root of the sum of squared discarded singular values, not their sum. For discarded 4 and 3, error is 5; spectral norm error is 4.
-
-- Phase 01 / Lesson 10 (initial1/3; retake2/3, lesson minimum met): The first PCA component maximizes projected variance over unit directions. Sort covariance eigenvalues descending; minimum-variance directions come last. Retake again selected the smallest eigenvalue: with9 versus1, keep the9 direction, capturing90% of total variance. To transform a new sample, subtract the stored training mean, then project: ([13,24]-[10,20]) dot [.6,.8] = 5. Retake attempt 2 completed 2/3; orthogonality and matrix-vector tracing improved, projection still needs recall.
-
-- Phase 01 / Lesson 09 (initial1/3; attempt2=1/3; attempt3=3/3 after guided review, resolved; keep for spaced recall): Cross-entropy = source entropy + KL divergence: `H(P,Q)=H(P)+KL(P||Q)`. KL is nonnegative; for discrete distributions cross-entropy cannot be below source entropy. Retake missed perplexity units: bits -> 2^H, nats -> exp(H); ln4 nats gives perplexity4. MI=H(X)+H(Y)-H(X,Y); for a uniform independent 2x2 table this is 1+1-2=0, not joint entropy 2. Remediate and retake after the first pass.
-
-- Phase 01 / Lesson 07 (quiz-based assessment, 2/3): Naive Bayes assumes features are conditionally independent of one another given the class; it does not assume features are independent of the class. Keep class-dependent feature likelihoods in scoring.
-
-- Phase 01 / Lesson 06 (initial1/3; attempt2=0/3; attempt3=3/3 after guided review, resolved; keep for spaced recall): A discrete PMF sums to 1; a continuous PDF integrates to 1. Density at a point is not point probability and may exceed 1; e.g. Uniform(0,0.5) has density 2 and area 1. Compute variance as E[X²] - E[X]²; for X=0 (.75), X=2 (.25), the mean is .5, second moment 1, variance .75. Lesson retake required. Retake still confused a point with an interval: for Uniform[0,.25], P(X=.1)=0, while P(0<=X<=.1)=.4. Retake also confused mean squared with variance: for equally likely 1 and3, mean=2, E[X²]=5, mean²=4, variance=1. Deeper remediation needed before attempt3. Also review log-probability sign: log(.25) is -1.386, but negative log-likelihood is +1.386. Schedule worked examples and unscored checks after L09/L10 retakes.
-
-- Phase 01 / Lesson 04 (initial 1/3; retake 3/3, resolved in retake; keep for spaced recall): Gradient = vector of first partial derivatives (slope); Hessian = matrix of second partial derivatives (curvature). Gradient descent subtracts lr times the gradient and recomputes it after every update; for x², x=5 and lr=0.1 yields 5 -> 4 -> 3.2. Remediate and retake after the first pass.
-
-- Phase 01 / Lesson 03 (quiz-based assessment, 2/3): Transformation composition uses matrix multiplication, not element-wise multiplication. For column vectors, rotation R followed by fixed-axis scaling S is `S @ (R @ x) = (S @ R) @ x`; the rightmost transformation acts first.
-
-- Phase 01 / Lesson 01 (initial 0/3; retake 2/3, lesson minimum met): For nonzero real vectors, zero dot product means perpendicular (orthogonal); opposite directions give a negative dot product. Orthogonal vectors need not have unit length; orthonormal adds the unit-length requirement. For projection onto a non-unit b, divide a dot b by b dot b before multiplying b; [3,4] onto [2,0] gives [3,0], residual [0,4]. Projection retake also missed: [4,2] onto [2,2] uses coefficient 12/8=1.5, projection [3,3], residual [1,-1]; check residual dot b=0. Matrix-vector multiplication takes each matrix row dotted with the input: [[0,-1],[1,0]] times [3,1] yields [-1,3]. Remediate and retake after the first pass.
-
-- Phase 00 / Lesson 13 (initial 1/3; retake 2/3, lesson minimum met): Generators are single-use iterators; consumption exhausts them regardless of epoch number. `iter()` does not reset an exhausted generator. Recreate the generator from a reusable source for each epoch. Nested-list repetition shares inner list references; use a comprehension to create independent rows. Retake also missed plain assignment aliasing: `backup = weights` shares the list; `weights.copy()` copies only the outer list. Retake attempt 2 completed 2/3; generator reuse and mutable defaults answered correctly, while assignment aliasing still needs review.
-
-- Phase 00 / Lesson 12 (quiz-based assessment, 2/3): `cProfile` measures function execution time (including cumulative time); `tracemalloc` tracks Python memory allocations. Choose the profiler to match the observed problem.
-
-- Phase 00 / Lesson 10 (initial 1/3; retake 2/3, lesson minimum met): `nohup` can preserve a process after hangup, but does not provide terminal reattachment; `fg` cannot recover another shell's job from a new SSH session. Use a persistent tmux session for detach/reattach. Also review left-to-right redirection: `2>&1 > train.log` leaves stderr on the terminal; `> train.log 2>&1` sends both streams to the file. Retake attempt 2 completed 2/3; append-both-streams question was still missed. Trace each redirection left to right: `>> train.log` first, then `2>&1`.
-
-- Phase 00 / Lesson 09 (quiz-based assessment, 2/3): Calculate nested split fractions against the remaining subset: 20% of 1000 gives 200 test rows; 12.5% of remaining 800 gives 100 validation rows; 700 training rows remain. Trace final validation/test variable assignments.
-
-- Phase 00 / Lesson 07 (quiz-based assessment, 2/3): Inside a container, `localhost` addresses that same container. Reach a Compose peer using its service name and container port (`qdrant:6333`); host-published port `7333` serves host access.
-
-- Phase 00 / Lesson 04 (initial 2/3; fresh retake 3/3, resolved in retake; keep for spaced recall): Missing `os.environ["KEY"]` raises `KeyError` before any HTTP request; distinguish indexing from `.get()` defaults and local setup errors from server authentication errors.
 
 ## Resume checkpoint
 
-Phase04 — Computer Vision passed80/84 (95.24%) on2026-10-24; all28 lessons done and logged. Initial77/84 and both retakes preserved. Next: Phase05 — NLP — Foundations to Advanced, Lesson01 — Text Processing — Tokenization, Stemming, Lemmatization, question1/87, not yet presented. No pending answer. Phases00–04 remain done.
+Phase05 NLP — Foundations to Advanced passed83/87 (95.40%) on2026-10-25; all29 lessons done and logged by quiz-based mastery. All lesson minima met; no retakes. Phases00–05 Done. Next: Phase06 Speech & Audio, Lesson01 — Audio Fundamentals — Waveforms, Sampling, Fourier Transform, question1/51, not yet presented; no pending answer. All prior evidence retained in the phase quiz ledger.

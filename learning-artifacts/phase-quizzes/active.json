@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "updated": "2026-10-25",
+  "mode": "comprehensive-phase-quiz",
+  "question_language": "English",
+  "phase": "06-speech-and-audio",
+  "lesson": "01-audio-fundamentals",
+  "lesson_title": "Audio Fundamentals — Waveforms, Sampling, Fourier Transform",
+  "phase_question": 1,
+  "lesson_question": 1,
+  "attempt": 1,
+  "phase_questions": 51,
+  "phase_lessons": 17,
+  "initial_score": {
+    "correct": 0,
+    "answered": 0
+  },
+  "effective_score": {
+    "correct": 0,
+    "denominator": 51
+  },
+  "completed_phases": [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05"
+  ],
+  "status": "ready",
+  "pending_question": null,
+  "phase_progress": "phase-06/progress.md",
+  "phase_history": "phase-06/history.md",
+  "phase_review": "phase-06/review.md",
+  "lesson_cache": null,
+  "rules": {
+    "questions_per_lesson": 3,
+    "types": [
+      "concept",
+      "application",
+      "code"
+    ],
+    "phase_pass_minimum": 0.85,
+    "lesson_pass_minimum": 2,
+    "latest_complete_retake_replaces": true,
+    "incomplete_retake_changes_effective_score": false,
+    "mark_lessons_done_only_on_phase_pass": true,
+    "completion_basis": "quiz-based mastery; implementation lab not performed"
+  },
+  "phase01_override": "Historical Phase01 only: authorized targeted missed-item replacements; preserve66 denominator. No effect on future phases."
+}
