@@ -4,7 +4,7 @@ Scope: Phases **00–13**. Questions in **English**. Three scored questions per 
 
 ## Resume
 
-Phase07 Transformers Deep Dive passed41/48 (85.42%) on2026-10-26; initial30/48; cumulative49/78 including10 full retake sets. All16 lessons done and logged by quiz-based mastery; all lesson minima met. Phases00–07 Done. Next: Phase08 Generative AI, Lesson01 — Generative Models — Taxonomy & History, question1/45, not yet presented; no pending answer.
+Phase08 Generative AI passed 42/45 (93.33%) on 2026-10-26; initial 38/45; cumulative 43/51 including two full retake sets. All 15 lessons done and logged by quiz-based mastery; every lesson minimum met. Phases00–08 Done. Next: Phase09 Reinforcement Learning, Lesson01 — MDPs, States, Actions & Rewards, question1/36, not yet presented; no pending answer.
 
 Read [active.json](active.json) for the current cursor and pending question; read [README.md](README.md) once for the recording protocol. Detailed archives are loaded only on demand.
 
@@ -20,7 +20,7 @@ Read [active.json](active.json) for the current cursor and pending question; rea
 | 05-nlp-foundations-to-advanced | 29 | 87 | 87 | initial83/87 (95.40%); all lesson minima met; passed without retakes | done | [Progress](phase-05/progress.md) · [History](phase-05/history.md) · [Review](phase-05/review.md) |
 | 06-speech-and-audio | 17 | 51 + 12 retake | 63 | initial38/51; latest complete sets44/51 (86.27%); all lesson minima met; passed | done | [Progress](phase-06/progress.md) · [History](phase-06/history.md) · [Review](phase-06/review.md) |
 | 07-transformers-deep-dive | 16 | 48 + 30 retake questions | 78 | initial30/48; latest41/48 (85.42%); cumulative49/78; passed | done | [Progress](phase-07/progress.md) · [History](phase-07/history.md) · [Review](phase-07/review.md) |
-| 08-generative-ai | 15 | 45 | 0 | pending | todo | [Progress](phase-08/progress.md) · [History](phase-08/history.md) · [Review](phase-08/review.md) |
+| 08-generative-ai | 15 | 45 + 6 retake questions | 51 | initial 38/45; effective 42/45 (93.33%); cumulative 43/51; passed | done | [Progress](phase-08/progress.md) · [History](phase-08/history.md) · [Review](phase-08/review.md) |
 | 09-reinforcement-learning | 12 | 36 | 0 | pending | todo | [Progress](phase-09/progress.md) · [History](phase-09/history.md) · [Review](phase-09/review.md) |
 | 10-llms-from-scratch | 24 | 72 | 0 | pending | todo | [Progress](phase-10/progress.md) · [History](phase-10/history.md) · [Review](phase-10/review.md) |
 | 11-llm-engineering | 17 | 51 | 0 | pending | todo | [Progress](phase-11/progress.md) · [History](phase-11/history.md) · [Review](phase-11/review.md) |

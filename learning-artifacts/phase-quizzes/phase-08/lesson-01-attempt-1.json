@@ -1,0 +1,48 @@
+{
+  "lesson": "01-generative-models-taxonomy-history",
+  "attempt": 1,
+  "source": "phases/08-generative-ai/01-generative-models-taxonomy-history/docs/en.md",
+  "source_sha256": "3441b569a900f42086a922735075295fdace77d8306cf4ff46fc81413966d858",
+  "questions": [
+    {
+      "id": "p08-l01-a1-q1",
+      "type": "concept",
+      "text": "What distinguishes an implicit generative model from a model with a tractable explicit density?",
+      "options": {
+        "A": "It evaluates exact likelihoods but cannot generate new samples.",
+        "B": "It generates samples without providing a tractable density evaluator.",
+        "C": "It must generate each output component in sequential order.",
+        "D": "It learns only a compressed representation without generating samples."
+      },
+      "correct": "B",
+      "explanation": "An implicit model provides a sampling mechanism without a tractable evaluator for the probability density of a given input."
+    },
+    {
+      "id": "p08-l01-a1-q2",
+      "type": "application",
+      "text": "You need a generative model that supports exact log-likelihood evaluation and can accept an invertible architecture. Which approach fits?",
+      "options": {
+        "A": "A GAN trained with a discriminator.",
+        "B": "A VAE evaluated using its ELBO.",
+        "C": "A normalizing flow with a tractable Jacobian determinant.",
+        "D": "A sampler that adds noise to random training examples."
+      },
+      "correct": "C",
+      "explanation": "A normalizing flow uses an invertible transformation and the change-of-variables formula to evaluate exact density with a tractable Jacobian determinant. A VAE ELBO is a bound, while the two implicit samplers do not provide exact density evaluation."
+    },
+    {
+      "id": "p08-l01-a1-q3",
+      "type": "code",
+      "text": "What does this histogram density calculation return?",
+      "code": "def histogram_density(samples, x, bin_width=0.25):\n    n = len(samples)\n    lo, hi = x - bin_width / 2, x + bin_width / 2\n    count = sum(1 for s in samples if lo <= s < hi)\n    return count / (n * bin_width)\n\nprint(histogram_density([-0.5, 0.0, 0.5, 1.0], 0.0, bin_width=1.0))",
+      "options": {
+        "A": "0.25",
+        "B": "0.50",
+        "C": "0.75",
+        "D": "2.00"
+      },
+      "correct": "B",
+      "explanation": "The bin is [-0.5, 0.5): it includes -0.5 and 0.0 but excludes 0.5. The density is 2 / (4 * 1.0) = 0.5."
+    }
+  ]
+}

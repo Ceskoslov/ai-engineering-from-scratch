@@ -1,0 +1,48 @@
+{
+  "lesson": "03-gans-generator-discriminator",
+  "attempt": 1,
+  "source": "phases/08-generative-ai/03-gans-generator-discriminator/docs/en.md",
+  "source_sha256": "63258263bc9ce4e9312fb31bea20b813055cfea14aac20dcdf6a3c1c740ea9e9",
+  "questions": [
+    {
+      "id": "p08-l03-a1-q1",
+      "type": "concept",
+      "text": "Why is the non-saturating generator loss -log D(G(z)) commonly used instead of the original minimax generator loss?",
+      "options": {
+        "A": "It supplies a stronger learning signal when the discriminator confidently rejects generated samples.",
+        "B": "It allows the generator to evaluate the exact likelihood of every generated sample.",
+        "C": "It guarantees that the generator covers every mode in the training distribution.",
+        "D": "It eliminates the need to train a discriminator after the first update."
+      },
+      "correct": "A",
+      "explanation": "For a sigmoid discriminator confidently rejecting fakes, the original minimax generator objective gives weak gradients through the discriminator logit. The non-saturating objective provides a stronger signal; it does not guarantee coverage or give explicit likelihoods."
+    },
+    {
+      "id": "p08-l03-a1-q2",
+      "type": "application",
+      "text": "Your training data has two well-separated modes, but generated samples cluster around only one mode despite varied noise inputs. What is the most direct diagnosis?",
+      "options": {
+        "A": "Posterior collapse: the encoder distribution has matched its prior.",
+        "B": "Likelihood overfitting: exact density evaluation has become too costly.",
+        "C": "Mode collapse: the generator has lost coverage of the data distribution.",
+        "D": "Reconstruction failure: the decoder cannot recover its paired inputs."
+      },
+      "correct": "C",
+      "explanation": "Mode collapse means diverse noise inputs yield samples covering only a small part of the real distribution, such as one of its two modes. A standard GAN does not have a VAE posterior or paired reconstruction objective."
+    },
+    {
+      "id": "p08-l03-a1-q3",
+      "type": "code",
+      "text": "Using this lesson's mode-collapse diagnostic, what does the code print?",
+      "code": "samples = [-1.0] * 50 + [1.0] * 450\nmode_a = sum(1 for s in samples if s < 0)\nmode_b = 500 - mode_a\n\nif min(mode_a, mode_b) < 50:\n    print(\"warning\")\nelse:\n    print(\"no warning\")",
+      "options": {
+        "A": "warning, because 90% of samples belong to one mode.",
+        "B": "no warning, because the smaller count equals the threshold.",
+        "C": "warning, because the smaller count is at most the threshold.",
+        "D": "no warning, because the diagnostic requires equal mode counts."
+      },
+      "correct": "B",
+      "explanation": "The counts are 50 and 450. The condition is strictly less than 50, so 50 < 50 is false and the code prints no warning. This threshold result does not establish that the generated distribution matches the data."
+    }
+  ]
+}

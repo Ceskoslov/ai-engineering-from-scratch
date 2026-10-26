@@ -1,0 +1,48 @@
+{
+  "lesson": "04-conditional-gans-pix2pix",
+  "attempt": 2,
+  "source": "phases/08-generative-ai/04-conditional-gans-pix2pix/docs/en.md",
+  "source_sha256": "d367559893c31d907b08e7edc3204d27fad7df0271300f6e92a50d06b1ed51a4",
+  "questions": [
+    {
+      "id": "p08-l04-a2-q1",
+      "type": "concept",
+      "text": "What does a PatchGAN discriminator primarily assess in Pix2Pix?",
+      "options": {
+        "A": "Whether translating an image to another domain and back reproduces the input.",
+        "B": "Whether the generator assigns an exact normalized probability to the whole image.",
+        "C": "Whether local image patches look realistic, using a grid of discriminator scores.",
+        "D": "Whether every generated pixel exactly equals its paired target pixel."
+      },
+      "correct": "C",
+      "explanation": "PatchGAN produces scores for local receptive fields rather than only one whole-image score. In Pix2Pix it sees the condition/output pair; cycle consistency and exact pixel reconstruction are separate objectives, not its patch-realism test."
+    },
+    {
+      "id": "p08-l04-a2-q2",
+      "type": "application",
+      "text": "A paired sketch-to-photo model produces realistic photos that often ignore the input sketch. You discover its discriminator sees only the output photo. Which change directly lets the discriminator assess input-output consistency?",
+      "options": {
+        "A": "Feed the discriminator the sketch and candidate photo together.",
+        "B": "Remove the sketch from the generator input as well.",
+        "C": "Replace each paired target with a randomly chosen real photo.",
+        "D": "Evaluate only the realism of pooled generated photos."
+      },
+      "correct": "A",
+      "explanation": "A conditional discriminator D(x, y) sees both the input sketch and output photo, so it can assess their correspondence as well as realism. A discriminator seeing only y cannot directly inspect consistency with x."
+    },
+    {
+      "id": "p08-l04-a2-q3",
+      "type": "code",
+      "text": "This toy CycleGAN check computes round-trip error. What does it print?",
+      "code": "def G(x):\n    return x + 3\n\ndef F(y):\n    return y - 2\n\nx = 4\ny = G(x)\nx_reconstructed = F(y)\ncycle_error = abs(x_reconstructed - x)\nprint(y, x_reconstructed, cycle_error)",
+      "options": {
+        "A": "7 4 0",
+        "B": "7 5 1",
+        "C": "6 4 0",
+        "D": "7 5 5"
+      },
+      "correct": "B",
+      "explanation": "G(4) = 7, then F(7) = 5. The round-trip error is abs(5 - 4) = 1. Cycle consistency penalizes failure to reconstruct the source after translating in both directions."
+    }
+  ]
+}

@@ -3,21 +3,21 @@
   "updated": "2026-10-26",
   "mode": "comprehensive-phase-quiz",
   "question_language": "English",
-  "phase": "08-generative-ai",
-  "lesson": "01-generative-models-taxonomy-history",
-  "lesson_title": "Generative Models \u2014 Taxonomy & History",
+  "phase": "09-reinforcement-learning",
+  "lesson": "01-mdps-states-actions-rewards",
+  "lesson_title": "MDPs, States, Actions & Rewards",
   "phase_question": 1,
   "lesson_question": 1,
   "attempt": 1,
-  "phase_questions": 45,
-  "phase_lessons": 15,
+  "phase_questions": 36,
+  "phase_lessons": 12,
   "initial_score": {
     "correct": 0,
     "answered": 0
   },
   "effective_score": {
     "correct": 0,
-    "denominator": 45
+    "denominator": 36
   },
   "completed_phases": [
     "00",
@@ -27,13 +27,14 @@
     "04",
     "05",
     "06",
-    "07"
+    "07",
+    "08"
   ],
   "status": "ready",
   "pending_question": null,
-  "phase_progress": "phase-08/progress.md",
-  "phase_history": "phase-08/history.md",
-  "phase_review": "phase-08/review.md",
+  "phase_progress": "phase-09/progress.md",
+  "phase_history": "phase-09/history.md",
+  "phase_review": "phase-09/review.md",
   "lesson_cache": null,
   "rules": {
     "questions_per_lesson": 3,

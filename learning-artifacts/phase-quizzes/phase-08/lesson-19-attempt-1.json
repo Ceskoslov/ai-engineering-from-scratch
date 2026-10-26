@@ -1,0 +1,48 @@
+{
+  "lesson": "19-visual-autoregressive-var",
+  "attempt": 1,
+  "source": "phases/08-generative-ai/19-visual-autoregressive-var/docs/en.md",
+  "source_sha256": "2027fd1e8921fb2b90bc93eaf9468320416ba4c3b633e6da4a3fca2d505269e3",
+  "questions": [
+    {
+      "id": "p08-l19-a1-q1",
+      "type": "concept",
+      "text": "What makes VAR next-scale generation different from raster-order next-token image generation?",
+      "options": {
+        "A": "It generates all scales simultaneously without any conditioning between scales.",
+        "B": "It replaces the discrete tokenizer with a pixel-space diffusion noise schedule.",
+        "C": "It predicts each finer token grid conditioned on earlier scales, generating positions within that scale in parallel.",
+        "D": "It predicts each pixel sequentially while discarding previously generated coarse structure."
+      },
+      "correct": "C",
+      "explanation": "VAR generates a pyramid of discrete token grids from coarse to fine. Each scale conditions on earlier scales and predicts its positions in parallel, rather than sampling individual positions sequentially in raster order."
+    },
+    {
+      "id": "p08-l19-a1-q2",
+      "type": "application",
+      "text": "A VAR tokenizer reconstructs coarse layout well, but fine details remain inaccurate. What should the higher-resolution residual token grids learn to represent?",
+      "options": {
+        "A": "The remaining latent error after adding the upsampled contributions of coarser scales.",
+        "B": "Independent complete images that discard all previously generated scales.",
+        "C": "Only the scale indices, with no information about the image content.",
+        "D": "The same coarse token grid repeated unchanged at every resolution."
+      },
+      "correct": "A",
+      "explanation": "Multi-scale residual VQ uses each finer scale to encode what the coarser-scale reconstruction missed. Decoding sums embedded, upsampled scale contributions to reconstruct the image latent."
+    },
+    {
+      "id": "p08-l19-a1-q3",
+      "type": "code",
+      "text": "Assume predict_scale generates all tokens for one scale in a single transformer pass. What does this code print as (passes, total tokens)?",
+      "code": "scales = [1, 2, 4, 8]\npasses = 0\ntotal_tokens = 0\nfor side in scales:\n    passes += 1\n    total_tokens += side * side\nprint(passes, total_tokens)",
+      "options": {
+        "A": "85 85",
+        "B": "4 64",
+        "C": "15 85",
+        "D": "4 85"
+      },
+      "correct": "D",
+      "explanation": "There is one pass for each of four scales. Their token counts are 1, 4, 16, and 64, totaling 85. Parallel generation within each scale separates pass count from token count."
+    }
+  ]
+}

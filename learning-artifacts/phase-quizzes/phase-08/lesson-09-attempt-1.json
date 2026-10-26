@@ -1,0 +1,48 @@
+{
+  "lesson": "09-inpainting-outpainting-editing",
+  "attempt": 1,
+  "source": "phases/08-generative-ai/09-inpainting-outpainting-editing/docs/en.md",
+  "source_sha256": "a0a39b1a67b7b04440df938be761512cc0fc841d15d2ca492e7d7cdbad0cdbc2",
+  "questions": [
+    {
+      "id": "p08-l09-a1-q1",
+      "type": "concept",
+      "text": "In SDEdit, what generally happens when you add more noise to the source image before starting reverse denoising?",
+      "options": {
+        "A": "The source is preserved more exactly because the reverse chain is longer.",
+        "B": "The model gains more freedom to change the image, reducing source fidelity.",
+        "C": "Only masked pixels change, regardless of whether a mask is supplied.",
+        "D": "The model no longer needs a learned denoiser to produce an edited image."
+      },
+      "correct": "B",
+      "explanation": "A higher starting noise level destroys more source information. Reverse denoising then has greater creative freedom but typically preserves less of the original image; this does not inherently enforce a mask."
+    },
+    {
+      "id": "p08-l09-a1-q2",
+      "type": "application",
+      "text": "You need to remove a small sign from a product photo while keeping all pixels outside the edit region identical. Which workflow directly fits?",
+      "options": {
+        "A": "Generate a new image from a detailed text description of the photo.",
+        "B": "Run whole-image SDEdit from a near-pure-noise starting point.",
+        "C": "Extend the canvas and regenerate only the newly added border.",
+        "D": "Inpaint a mask covering the sign, then composite the edited region onto the original."
+      },
+      "correct": "D",
+      "explanation": "Masked inpainting targets the sign, and final compositing with the original explicitly preserves outside-mask pixels. Whole-image generation or high-noise SDEdit can change the product and background; outpainting targets added canvas."
+    },
+    {
+      "id": "p08-l09-a1-q3",
+      "type": "code",
+      "text": "Here True marks a region to regenerate. What does this final compositing step print?",
+      "code": "original = [10, 20, 30, 40]\ngenerated = [11, 22, 33, 44]\nmask = [False, True, False, True]\n\nresult = [g if m else o\n          for o, g, m in zip(original, generated, mask)]\nprint(result)",
+      "options": {
+        "A": "[10, 22, 30, 44]",
+        "B": "[11, 20, 33, 40]",
+        "C": "[11, 22, 33, 44]",
+        "D": "[10, 20, 30, 40]"
+      },
+      "correct": "A",
+      "explanation": "The expression selects generated values where the mask is True (positions 1 and 3) and original values where it is False (positions 0 and 2), yielding [10, 22, 30, 44]."
+    }
+  ]
+}
