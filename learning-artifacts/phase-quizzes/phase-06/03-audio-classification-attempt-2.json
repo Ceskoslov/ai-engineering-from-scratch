@@ -1,0 +1,47 @@
+{
+  "lesson": "03-audio-classification",
+  "attempt": 2,
+  "source": "phases/06-speech-and-audio/03-audio-classification/docs/en.md",
+  "source_sha256": "7d7e56fcd223b527e87ba1b7d12bd6bf4ff2d9e27bfd89c9c0a0a944293adeca",
+  "questions": [
+    {
+      "id": "p06-l03-a2-q1",
+      "type": "concept",
+      "text": "Why summarize MFCC frames using per-coefficient means and variances before k-NN classification?",
+      "options": {
+        "A": "To retain the exact temporal order of every phoneme.",
+        "B": "To obtain a fixed-size vector from clips with different frame counts.",
+        "C": "To turn each clip into a manually aligned text transcript.",
+        "D": "To guarantee perfect classification without labeled examples."
+      },
+      "correct": "B",
+      "explanation": "Pooling across time yields a fixed-size embedding (twice the coefficient count), regardless of the number of frames, while discarding temporal order."
+    },
+    {
+      "id": "p06-l03-a2-q2",
+      "type": "application",
+      "text": "A sound clip may contain both a siren and barking. Which output-and-loss pairing supports these simultaneous labels?",
+      "options": {
+        "A": "One softmax output with exactly one class selected.",
+        "B": "A scalar regression output trained on the alphabetic class index.",
+        "C": "Independent sigmoid outputs with binary cross-entropy.",
+        "D": "A forced blank label whenever two events overlap."
+      },
+      "correct": "C",
+      "explanation": "Multi-label classification needs independent per-class probabilities; binary cross-entropy supports more than one positive label per clip."
+    },
+    {
+      "id": "p06-l03-a2-q3",
+      "type": "code",
+      "text": "summarize returns per-coefficient means followed by population variances, dividing squared deviations by the number of frames. For frames [[2], [6]], what does it return?",
+      "options": {
+        "A": "[4, 4]",
+        "B": "[4, 8]",
+        "C": "[4, 2]",
+        "D": "[2, 6]"
+      },
+      "correct": "A",
+      "explanation": "The mean is4. Squared deviations are4 and4, and their population average is4, so the result is[4,4]."
+    }
+  ]
+}

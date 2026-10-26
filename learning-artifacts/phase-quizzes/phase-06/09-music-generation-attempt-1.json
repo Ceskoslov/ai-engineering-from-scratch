@@ -1,0 +1,48 @@
+{
+  "lesson": "09-music-generation",
+  "attempt": 1,
+  "source": "phases/06-speech-and-audio/09-music-generation/docs/en.md",
+  "source_sha256": "eca9c3e4de1e7d92a60cd7ad0ebcf3e15cfc67c1999e3a5e7ec154fee581331a",
+  "additional_source": "phases/06-speech-and-audio/09-music-generation/code/main.py",
+  "questions": [
+    {
+      "id": "p06-l09-a1-q1",
+      "type": "concept",
+      "text": "In a music generator that autoregressively predicts neural-codec tokens, what converts the generated token sequence into an audible waveform?",
+      "options": {
+        "A": "The text tokenizer.",
+        "B": "The neural audio codec decoder.",
+        "C": "The CLAP similarity scorer.",
+        "D": "The FAD evaluation routine."
+      },
+      "correct": "B",
+      "explanation": "The language model predicts discrete audio-codec tokens, and the codec decoder reconstructs waveform samples from those tokens."
+    },
+    {
+      "id": "p06-l09-a1-q2",
+      "type": "application",
+      "text": "Generated music has a low FAD relative to a reference set but often ignores the text prompt. Which additional evaluation directly targets prompt adherence?",
+      "options": {
+        "A": "Count the model\u2019s parameters.",
+        "B": "Compare generated and reference file sizes.",
+        "C": "Measure only average clip duration.",
+        "D": "Measure text-audio alignment with CLAP."
+      },
+      "correct": "D",
+      "explanation": "FAD compares audio embedding distributions; CLAP compares the text prompt with the generated audio to assess alignment."
+    },
+    {
+      "id": "p06-l09-a1-q3",
+      "type": "code",
+      "text": "The toy tempo parser starts with bpm = 120. For each whitespace-separated token ending in \"bpm\", it tries int(token[:-3]) and ignores ValueError. What bpm results from the prompt \"pop at 140 bpm\"?",
+      "options": {
+        "A": "120",
+        "B": "140",
+        "C": "0",
+        "D": "A ValueError escapes the parser."
+      },
+      "correct": "A",
+      "explanation": "The token \"140\" does not end in \"bpm\"; the token \"bpm\" yields int(\"\") and a caught ValueError. The initial 120 remains."
+    }
+  ]
+}

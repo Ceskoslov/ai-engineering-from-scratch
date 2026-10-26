@@ -1,0 +1,47 @@
+{
+  "lesson": "03-audio-classification",
+  "attempt": 3,
+  "source": "phases/06-speech-and-audio/03-audio-classification/docs/en.md",
+  "source_sha256": "7d7e56fcd223b527e87ba1b7d12bd6bf4ff2d9e27bfd89c9c0a0a944293adeca",
+  "questions": [
+    {
+      "id": "p06-l03-a3-q1",
+      "type": "concept",
+      "text": "What makes a sound-classification task multi-label rather than mutually exclusive multiclass?",
+      "options": {
+        "A": "Every recording must contain exactly one positive class.",
+        "B": "Every class must have the same number of training examples.",
+        "C": "Each recording must be converted into a text transcript first.",
+        "D": "One recording can have several positive sound labels at once."
+      },
+      "correct": "D",
+      "explanation": "Multi-label classification allows simultaneous positive labels, such as both speech and music in one clip."
+    },
+    {
+      "id": "p06-l03-a3-q2",
+      "type": "application",
+      "text": "A sound-tagging model must detect overlapping events. Which evaluation directly assesses ranking quality across its multiple labels?",
+      "options": {
+        "A": "Mean average precision across sound classes.",
+        "B": "Only top-1 accuracy after forcing one label per clip.",
+        "C": "Only the number of audio frames per recording.",
+        "D": "Word error rate on an unrelated speech transcript."
+      },
+      "correct": "A",
+      "explanation": "mAP evaluates class-wise label rankings and is appropriate for multi-label audio tagging; forcing one label would discard overlapping events."
+    },
+    {
+      "id": "p06-l03-a3-q3",
+      "type": "code",
+      "text": "The k-NN code selects the three highest cosine similarities, then returns the majority label. Neighbors in descending similarity are [(0.95, \"dog\"), (0.90, \"siren\"), (0.85, \"siren\"), (0.20, \"dog\")]. What does k=3 return?",
+      "options": {
+        "A": "\"dog\", because the closest neighbor always decides.",
+        "B": "\"siren\", because it has two of the three selected votes.",
+        "C": "Both labels, because k-NN always returns all labels.",
+        "D": "An error, because similarities must sum to one."
+      },
+      "correct": "B",
+      "explanation": "The top three labels are dog, siren, siren. The supplied classifier uses majority voting, so siren wins."
+    }
+  ]
+}

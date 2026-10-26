@@ -22,7 +22,7 @@ Build goal: As many as possible, everything
 | 3 | Deep Learning Core | Done | -- |
 | 4 | Computer Vision | Done | -- |
 | 5 | NLP — Foundations to Advanced | Done | -- |
-| 6 | Speech & Audio | Review | -- |
+| 6 | Speech & Audio | Done | -- |
 | 7 | Transformers Deep Dive | Review | -- |
 | 8 | Generative AI | Review | -- |
 | 9 | Reinforcement Learning | Review | -- |
@@ -49,7 +49,7 @@ Original forward-study estimate: 786 hours across Phases 14–19. Phase 00–13 
 - Before passing a phase, all its lessons remain todo in the assessment ledger, even if an individual lesson's questions are finished. Never mark an unanswered or unpassed phase Done.
 - On phase pass: mark its Path status Done and every lesson done; append one normal dated Progress log row per lesson in its phase progress.md (linked from this Progress log), with its score and a note identifying quiz-based mastery credit (not a completed implementation lab). Record phase totals, attempts, and any residual review topics. Keep all existing progress and review notes.
 - Minimal quiz resume: read [active.json](learning-artifacts/phase-quizzes/active.json) and follow the [recording protocol](learning-artifacts/phase-quizzes/README.md). Phase checklists, dated lesson logs, attempts, and review notes are linked from the [phase index](learning-artifacts/phase-quizzes/progress.md).
-- Current checkpoint: Phase05 NLP — Foundations to Advanced passed83/87 (95.40%) on2026-10-25; all29 lessons done and logged by quiz-based mastery. All lesson minima met; no retakes. Phases00–05 Done. Next: Phase06 Speech & Audio, Lesson01 — Audio Fundamentals — Waveforms, Sampling, Fourier Transform, question1/51, not yet presented; no pending answer.
+- Current checkpoint: Phase06 Speech & Audio passed44/51 (86.27%) on2026-10-26; initial38/51; cumulative49/63 including four full retake sets. All17 lessons done and logged by quiz-based mastery; all lesson minima met. Phases00–06 Done. Next: Phase07 Transformers Deep Dive, Lesson01 — Why Transformers — The Problems with RNNs, question1/48, not yet presented; no pending answer.
 
 ## Progress log
 
@@ -61,6 +61,8 @@ Mastery-assessment lesson records are organized by phase (original rows preserve
 - [Phase 03 progress log](learning-artifacts/phase-quizzes/phase-03/progress.md) — 13 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-03/review.md).
 - [Phase 04 progress log](learning-artifacts/phase-quizzes/phase-04/progress.md) — 28 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-04/review.md).
 - [Phase 05 progress log](learning-artifacts/phase-quizzes/phase-05/progress.md) — 29 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-05/review.md).
+
+- [Phase 06 progress log](learning-artifacts/phase-quizzes/phase-06/progress.md) — 17 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-06/review.md).
 
 Ordinary lesson records follow.
 
@@ -178,4 +180,4 @@ Phase00–13 assessment notes are stored in each phase’s review.md, linked abo
 
 ## Resume checkpoint
 
-Phase05 NLP — Foundations to Advanced passed83/87 (95.40%) on2026-10-25; all29 lessons done and logged by quiz-based mastery. All lesson minima met; no retakes. Phases00–05 Done. Next: Phase06 Speech & Audio, Lesson01 — Audio Fundamentals — Waveforms, Sampling, Fourier Transform, question1/51, not yet presented; no pending answer. All prior evidence retained in the phase quiz ledger.
+Phase06 Speech & Audio passed44/51 (86.27%) on2026-10-26; initial38/51; cumulative49/63 including four full retake sets. All17 lessons done and logged by quiz-based mastery; all lesson minima met. Phases00–06 Done. Next: Phase07 Transformers Deep Dive, Lesson01 — Why Transformers — The Problems with RNNs, question1/48, not yet presented; no pending answer. All prior evidence retained in the phase quiz ledger.

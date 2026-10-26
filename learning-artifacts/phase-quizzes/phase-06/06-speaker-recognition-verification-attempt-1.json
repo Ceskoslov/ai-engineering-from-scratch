@@ -1,0 +1,47 @@
+{
+  "lesson": "06-speaker-recognition-verification",
+  "attempt": 1,
+  "source": "phases/06-speech-and-audio/06-speaker-recognition-verification/docs/en.md",
+  "source_sha256": "63ddce2e943e59e1b2aa18bb698df67409fd0011f0d8421139ec7c46cba2f217",
+  "questions": [
+    {
+      "id": "p06-l06-a1-q1",
+      "type": "concept",
+      "text": "A caller claims to be Alice, and the system compares the caller\u2019s voice embedding with Alice\u2019s enrolled reference. Which task is this?",
+      "options": {
+        "A": "Speaker identification across the entire enrollment bank.",
+        "B": "Speaker verification against a claimed identity.",
+        "C": "Speaker diarization across the conversation timeline.",
+        "D": "Speech recognition of the caller\u2019s spoken words."
+      },
+      "correct": "B",
+      "explanation": "Verification checks a claimed identity using a 1:1 comparison; identification searches a bank, diarization finds who spoke when, and ASR finds the words."
+    },
+    {
+      "id": "p06-l06-a1-q2",
+      "type": "application",
+      "text": "A speaker verifier will serve telephone calls, but its published threshold was evaluated on web-video audio. How should you choose its operating threshold?",
+      "options": {
+        "A": "Keep the published threshold because cosine scores are domain-independent.",
+        "B": "Tune it on the final test calls, then report performance on those same calls.",
+        "C": "Use the average similarity among enrollment recordings as the threshold.",
+        "D": "Tune it on held-out target-domain development trials with genuine and impostor pairs."
+      },
+      "correct": "D",
+      "explanation": "Channel mismatch changes score distributions. Choose the operating threshold using representative held-out development trials, and keep the final test set separate."
+    },
+    {
+      "id": "p06-l06-a1-q3",
+      "type": "code",
+      "text": "The verifier returns cosine(enroll, test) >= threshold, and cosine returns 0.0 if either vector has zero norm. What does verify([0, 0], [1, 0], threshold=0.0) return?",
+      "options": {
+        "A": "True, because 0.0 >= 0.0.",
+        "B": "False, because zero vectors are explicitly rejected.",
+        "C": "It raises a division-by-zero error.",
+        "D": "None, because the embedding has no direction."
+      },
+      "correct": "A",
+      "explanation": "The cosine helper returns 0.0 for a zero-norm vector; the inclusive threshold comparison then returns True. The toy verifier has no separate invalid-embedding rejection."
+    }
+  ]
+}

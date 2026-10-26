@@ -1,0 +1,47 @@
+{
+  "lesson": "16-anti-spoofing-audio-watermarking",
+  "attempt": 1,
+  "source": "phases/06-speech-and-audio/16-anti-spoofing-audio-watermarking/docs/en.md",
+  "source_sha256": "312eab13609b920ae76f6c7e413cfc8abfdbf761b87328fcd7af4edd9a7b944a",
+  "questions": [
+    {
+      "id": "p06-l16-a1-q1",
+      "type": "concept",
+      "text": "Which statement correctly distinguishes audio watermarking from anti-spoofing detection?",
+      "options": {
+        "A": "Watermarking proves the spoken words are factually accurate.",
+        "B": "Anti-spoofing detection requires every generator to embed a payload.",
+        "C": "Both methods require the original reference waveform at detection time.",
+        "D": "Watermarking embeds a detectable signal; anti-spoofing estimates whether audio is synthetic."
+      },
+      "correct": "D",
+      "explanation": "Watermarking adds a signal during generation. Anti-spoofing classifies audio and can be applied to outputs from generators that do not cooperate."
+    },
+    {
+      "id": "p06-l16-a1-q2",
+      "type": "application",
+      "text": "Your watermark detector finds no watermark in an uploaded recording. What conclusion is justified?",
+      "options": {
+        "A": "The recording is certainly authentic human speech.",
+        "B": "No watermark was detected; this alone does not establish authenticity.",
+        "C": "The recording must be synthetic because metadata was removed.",
+        "D": "The speaker\u2019s identity has been cryptographically verified."
+      },
+      "correct": "B",
+      "explanation": "Synthetic audio may never have been watermarked, or the watermark may be damaged or missed. Absence of detection is not proof of authenticity."
+    },
+    {
+      "id": "p06-l16-a1-q3",
+      "type": "code",
+      "text": "spectral_rolloff sets threshold = 0.85 * sum(spec), accumulates from index 0, and returns the first index where cum >= threshold. For spec = [1, 1, 6, 2], which index is returned?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "3",
+        "D": "2"
+      },
+      "correct": "C",
+      "explanation": "The threshold is 8.5. Cumulative sums are 1, 2, 8, 10; index 3 is the first to reach it."
+    }
+  ]
+}

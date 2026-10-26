@@ -1,0 +1,47 @@
+{
+  "lesson": "17-audio-evaluation-metrics",
+  "attempt": 1,
+  "source": "phases/06-speech-and-audio/17-audio-evaluation-metrics/docs/en.md",
+  "source_sha256": "1384d50a713138f0b4459e40bf3c413b11a4e25171a2085daee16fd02be1ed5b",
+  "questions": [
+    {
+      "id": "p06-l17-a1-q1",
+      "type": "concept",
+      "text": "What does inverse real-time factor (RTFx) measure for an audio system?",
+      "options": {
+        "A": "The delay between the last user word and the first audible response.",
+        "B": "The fraction of generated words matching the reference transcript.",
+        "C": "The mean listener rating of the generated audio\u2019s naturalness.",
+        "D": "The number of audio seconds processed per wall-clock second."
+      },
+      "correct": "D",
+      "explanation": "RTFx is throughput: audio duration divided by processing time. It differs from first-token or first-audio latency."
+    },
+    {
+      "id": "p06-l17-a1-q2",
+      "type": "application",
+      "text": "A new ASR model improves overall WER, but users with certain accents report worse recognition. What should the evaluation report add?",
+      "options": {
+        "A": "Only the new model\u2019s total parameter count.",
+        "B": "WER by relevant accent slices on a representative held-out set.",
+        "C": "Only the fastest processing time observed.",
+        "D": "A smaller test set containing only the majority accent."
+      },
+      "correct": "B",
+      "explanation": "Aggregate WER can hide subgroup regressions. Slice-level evaluation reveals which users experience worse recognition."
+    },
+    {
+      "id": "p06-l17-a1-q3",
+      "type": "code",
+      "text": "The toy ttr_wer function returns sum(per_utterance_WERs) / number_of_utterances. Two utterances have 1 error in 2 reference words and 1 error in 10 reference words. What does it return?",
+      "options": {
+        "A": "2/12, about 0.167.",
+        "B": "0.6, the sum of the two rates.",
+        "C": "0.3, the mean of 0.5 and 0.1.",
+        "D": "0.2, the mean error count divided by 5."
+      },
+      "correct": "C",
+      "explanation": "The function averages utterance rates: (1/2 + 1/10)/2 = 0.3. It does not aggregate total errors over total reference words, which would give 2/12."
+    }
+  ]
+}

@@ -1,23 +1,23 @@
 {
   "version": 1,
-  "updated": "2026-10-25",
+  "updated": "2026-10-26",
   "mode": "comprehensive-phase-quiz",
   "question_language": "English",
-  "phase": "06-speech-and-audio",
-  "lesson": "01-audio-fundamentals",
-  "lesson_title": "Audio Fundamentals — Waveforms, Sampling, Fourier Transform",
+  "phase": "07-transformers-deep-dive",
+  "lesson": "01-why-transformers",
+  "lesson_title": "Why Transformers \u2014 The Problems with RNNs",
   "phase_question": 1,
   "lesson_question": 1,
   "attempt": 1,
-  "phase_questions": 51,
-  "phase_lessons": 17,
+  "phase_questions": 48,
+  "phase_lessons": 16,
   "initial_score": {
     "correct": 0,
     "answered": 0
   },
   "effective_score": {
     "correct": 0,
-    "denominator": 51
+    "denominator": 48
   },
   "completed_phases": [
     "00",
@@ -25,13 +25,14 @@
     "02",
     "03",
     "04",
-    "05"
+    "05",
+    "06"
   ],
   "status": "ready",
   "pending_question": null,
-  "phase_progress": "phase-06/progress.md",
-  "phase_history": "phase-06/history.md",
-  "phase_review": "phase-06/review.md",
+  "phase_progress": "phase-07/progress.md",
+  "phase_history": "phase-07/history.md",
+  "phase_review": "phase-07/review.md",
   "lesson_cache": null,
   "rules": {
     "questions_per_lesson": 3,

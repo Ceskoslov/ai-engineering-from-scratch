@@ -1,0 +1,47 @@
+{
+  "lesson": "13-neural-audio-codecs",
+  "attempt": 1,
+  "source": "phases/06-speech-and-audio/13-neural-audio-codecs/docs/en.md",
+  "source_sha256": "ee2c7416cb509f04adf908fe395ffd6ecb76200926d48b622a7be7e25d6fce93",
+  "questions": [
+    {
+      "id": "p06-l13-a1-q1",
+      "type": "concept",
+      "text": "In residual vector quantization, what does each codebook after the first quantize?",
+      "options": {
+        "A": "The original waveform independently of the earlier codebooks.",
+        "B": "The remaining error after the earlier quantized approximations.",
+        "C": "The text transcript corresponding to the audio frame.",
+        "D": "The decoder\u2019s final waveform after resampling."
+      },
+      "correct": "B",
+      "explanation": "Each successive codebook approximates the residual left by earlier stages; the selected code vectors are summed to reconstruct the encoder representation."
+    },
+    {
+      "id": "p06-l13-a1-q2",
+      "type": "application",
+      "text": "Two codecs reconstruct held-out audio equally well, but you need tokens for text-conditioned speech generation. Which additional property should you evaluate?",
+      "options": {
+        "A": "Whether the codec output filenames contain the transcript.",
+        "B": "Whether its decoder can run without any input tokens.",
+        "C": "Whether all codebooks have identical token sequences.",
+        "D": "Whether the tokens expose content structure that a language model can learn."
+      },
+      "correct": "D",
+      "explanation": "Reconstruction fidelity alone does not establish suitability for generation. Useful linguistic structure, including semantic-acoustic organization, can help the language model predict speech."
+    },
+    {
+      "id": "p06-l13-a1-q3",
+      "type": "code",
+      "text": "Given codes.shape == (1, 8, 125), the code sets semantic = codes[:, 0] and acoustic = codes[:, 1:]. What are their shapes?",
+      "options": {
+        "A": "semantic: (1, 125); acoustic: (1, 7, 125).",
+        "B": "semantic: (1, 1, 125); acoustic: (1, 8, 125).",
+        "C": "semantic: (8, 125); acoustic: (7, 125).",
+        "D": "semantic: (1, 8); acoustic: (1, 8, 124)."
+      },
+      "correct": "A",
+      "explanation": "Integer indexing selects and removes the codebook axis for semantic; slicing retains that axis with the remaining seven codebooks for acoustic."
+    }
+  ]
+}

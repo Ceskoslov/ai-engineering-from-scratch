@@ -4,7 +4,7 @@ Scope: Phases **00–13**. Questions in **English**. Three scored questions per 
 
 ## Resume
 
-**Next: Phase06 — Speech & Audio, Lesson01 — Audio Fundamentals.** Question1/51 has not been presented; no pending answer. Phases00–05 done.
+Phase06 Speech & Audio passed44/51 (86.27%) on2026-10-26; initial38/51; cumulative49/63 including four full retake sets. All17 lessons done and logged by quiz-based mastery; all lesson minima met. Phases00–06 Done. Next: Phase07 Transformers Deep Dive, Lesson01 — Why Transformers — The Problems with RNNs, question1/48, not yet presented; no pending answer.
 
 Read [active.json](active.json) for the current cursor and pending question; read [README.md](README.md) once for the recording protocol. Detailed archives are loaded only on demand.
 
@@ -18,7 +18,7 @@ Read [active.json](active.json) for the current cursor and pending question; rea
 | 03-deep-learning-core | 13 | 39 + 9 retake questions | 48 | initial31/39; latest complete sets34/39 (87.18%); passed | done | [Progress](phase-03/progress.md) · [History](phase-03/history.md) · [Review](phase-03/review.md) |
 | 04-computer-vision | 28 | 84 + 6 retake questions | 90 | initial77/84; latest complete sets80/84 (95.24%); all lesson minima met; passed | done | [Progress](phase-04/progress.md) · [History](phase-04/history.md) · [Review](phase-04/review.md) |
 | 05-nlp-foundations-to-advanced | 29 | 87 | 87 | initial83/87 (95.40%); all lesson minima met; passed without retakes | done | [Progress](phase-05/progress.md) · [History](phase-05/history.md) · [Review](phase-05/review.md) |
-| 06-speech-and-audio | 17 | 51 | 0 | pending | todo | [Progress](phase-06/progress.md) · [History](phase-06/history.md) · [Review](phase-06/review.md) |
+| 06-speech-and-audio | 17 | 51 + 12 retake | 63 | initial38/51; latest complete sets44/51 (86.27%); all lesson minima met; passed | done | [Progress](phase-06/progress.md) · [History](phase-06/history.md) · [Review](phase-06/review.md) |
 | 07-transformers-deep-dive | 16 | 48 | 0 | pending | todo | [Progress](phase-07/progress.md) · [History](phase-07/history.md) · [Review](phase-07/review.md) |
 | 08-generative-ai | 15 | 45 | 0 | pending | todo | [Progress](phase-08/progress.md) · [History](phase-08/history.md) · [Review](phase-08/review.md) |
 | 09-reinforcement-learning | 12 | 36 | 0 | pending | todo | [Progress](phase-09/progress.md) · [History](phase-09/history.md) · [Review](phase-09/review.md) |

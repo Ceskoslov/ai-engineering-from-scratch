@@ -1,0 +1,47 @@
+{
+  "lesson": "14-voice-activity-detection-turn-taking",
+  "attempt": 1,
+  "source": "phases/06-speech-and-audio/14-voice-activity-detection-turn-taking/docs/en.md",
+  "source_sha256": "ba520338d01743a41fd7f4343a64af318241ce7e72e752afe8a98773e5f876fb",
+  "questions": [
+    {
+      "id": "p06-l14-a1-q1",
+      "type": "concept",
+      "text": "Why add semantic endpointing to a voice activity detector when deciding whether a user has finished their turn?",
+      "options": {
+        "A": "To reconstruct a waveform from the transcript.",
+        "B": "To identify the user from a voice embedding.",
+        "C": "To eliminate the need to capture audio frames.",
+        "D": "To distinguish a pause within a thought from a completed turn."
+      },
+      "correct": "D",
+      "explanation": "VAD detects speech activity; semantic endpointing adds context to judge whether a silent pause means the user is finished."
+    },
+    {
+      "id": "p06-l14-a1-q2",
+      "type": "application",
+      "text": "Your streaming recognizer buffers look-ahead audio and explicitly supports flushing. Once turn end is detected, how can you request the remaining transcript promptly?",
+      "options": {
+        "A": "Discard buffered audio and transcribe only the next turn.",
+        "B": "Send the remaining audio, issue a flush, and receive the final transcript.",
+        "C": "Increase the silence hangover by the recognizer\u2019s full look-ahead delay.",
+        "D": "Replace the recognizer\u2019s sample rate metadata without resampling."
+      },
+      "correct": "B",
+      "explanation": "A supported flush asks the recognizer to process buffered audio and emit the remaining transcript rather than wait for more audio."
+    },
+    {
+      "id": "p06-l14-a1-q3",
+      "type": "code",
+      "text": "In the shown TurnDetector, speech adds 20 to speech_ms; idle silence does not reset speech_ms. Starting idle with min_speech_ms=60, what happens on speech, silence, speech, silence, speech?",
+      "options": {
+        "A": "END is emitted on the final chunk.",
+        "B": "No event occurs because speech was never consecutive.",
+        "C": "START is emitted on the final chunk.",
+        "D": "START is emitted on the first chunk."
+      },
+      "correct": "C",
+      "explanation": "The toy code accumulates speech_ms across idle gaps: 20, then 40, then 60. It emits START on the final speech chunk, despite the gaps."
+    }
+  ]
+}

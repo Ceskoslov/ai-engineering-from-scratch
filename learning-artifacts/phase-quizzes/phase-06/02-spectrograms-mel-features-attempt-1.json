@@ -1,0 +1,47 @@
+{
+  "lesson": "02-spectrograms-mel-features",
+  "attempt": 1,
+  "source": "phases/06-speech-and-audio/02-spectrograms-mel-features/docs/en.md",
+  "source_sha256": "97529a8844a0782b55a5056640ac0f4a29e89ff904b0d7ebca99c7d5892ae274",
+  "questions": [
+    {
+      "id": "p06-l02-a1-q1",
+      "type": "concept",
+      "text": "Why multiply each audio frame by a Hann window before computing its Fourier transform?",
+      "options": {
+        "A": "To map uniformly spaced frequency bins onto the mel scale.",
+        "B": "To compress large differences in spectral magnitude logarithmically.",
+        "C": "To reduce spectral leakage by tapering the frame boundaries.",
+        "D": "To decorrelate mel features into a smaller set of coefficients."
+      },
+      "correct": "C",
+      "explanation": "Tapering the frame boundaries reduces discontinuities at the edges, which reduces spectral leakage."
+    },
+    {
+      "id": "p06-l02-a1-q2",
+      "type": "application",
+      "text": "Training used 80 log-mel features with per-utterance normalization. Inference uses 128 features with global normalization. What should you do first?",
+      "options": {
+        "A": "Match the inference feature settings to the training pipeline.",
+        "B": "Pad the trained model output with 48 extra feature values.",
+        "C": "Increase the inference audio amplitude to compensate for the mismatch.",
+        "D": "Apply a DCT at inference without changing the training features."
+      },
+      "correct": "A",
+      "explanation": "Feature dimensions and normalization must match the trained frontend; different settings change the model input representation."
+    },
+    {
+      "id": "p06-l02-a1-q3",
+      "type": "code",
+      "text": "The framing code uses n = 1 + (len(signal) - frame_len) // hop and keeps only those full frames. For len(signal) = 1000, frame_len = 400, and hop = 160, how many frames does it return?",
+      "options": {
+        "A": "3",
+        "B": "5",
+        "C": "6",
+        "D": "4"
+      },
+      "correct": "D",
+      "explanation": "Integer division gives 600 // 160 = 3, so n = 4; starts are 0, 160, 320, and 480."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "lesson": "04-speech-recognition-asr",
+  "attempt": 1,
+  "source": "phases/06-speech-and-audio/04-speech-recognition-asr/docs/en.md",
+  "source_sha256": "f0bd1c7f17f3abfe039627b4f1a1a0b57c1c87ea18e1c7bdfef5971ad1c6452d",
+  "questions": [
+    {
+      "id": "p06-l04-a1-q1",
+      "type": "concept",
+      "text": "What does CTC training do when the transcript is known but the frame-to-token alignment is not?",
+      "options": {
+        "A": "Assign each transcript token to an equally sized audio segment.",
+        "B": "Sum the probabilities of alignments that collapse to the transcript.",
+        "C": "Train only on the single alignment chosen by framewise argmax.",
+        "D": "Require manually annotated token boundaries before computing loss."
+      },
+      "correct": "B",
+      "explanation": "CTC marginalizes over valid frame-level alignments, including blanks and repeats, whose collapse yields the target transcript."
+    },
+    {
+      "id": "p06-l04-a1-q2",
+      "type": "application",
+      "text": "An ASR system makes 2 substitutions, 1 deletion, and 3 insertions against a 20-word reference. What is its word error rate?",
+      "options": {
+        "A": "15%",
+        "B": "20%",
+        "C": "25%",
+        "D": "30%"
+      },
+      "correct": "D",
+      "explanation": "WER = (2 + 1 + 3) / 20 = 0.30, or 30%."
+    },
+    {
+      "id": "p06-l04-a1-q3",
+      "type": "code",
+      "text": "The greedy CTC decoder appends p when p != prev and p != blank, then always sets prev = p. With blank represented by _, what does a a _ a b b _ collapse to?",
+      "options": {
+        "A": "aab",
+        "B": "ab",
+        "C": "aaabb",
+        "D": "a_b_"
+      },
+      "correct": "A",
+      "explanation": "Adjacent repeated a values merge, but a blank resets prev and separates the second a; adjacent b values merge and blanks are omitted."
+    }
+  ]
+}

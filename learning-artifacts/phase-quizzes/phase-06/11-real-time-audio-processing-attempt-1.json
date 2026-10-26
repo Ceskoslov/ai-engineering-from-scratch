@@ -1,0 +1,47 @@
+{
+  "lesson": "11-real-time-audio-processing",
+  "attempt": 1,
+  "source": "phases/06-speech-and-audio/11-real-time-audio-processing/docs/en.md",
+  "source_sha256": "38770fe883e05dd7bc541c3d3dbca612686e46d48c7d9a2f4ab2b8b9bb9735db",
+  "questions": [
+    {
+      "id": "p06-l11-a1-q1",
+      "type": "concept",
+      "text": "What tradeoff does a network jitter buffer introduce in a real-time audio pipeline?",
+      "options": {
+        "A": "Higher sample precision at the cost of a lower Nyquist frequency.",
+        "B": "More tolerance for late or reordered packets at the cost of added latency.",
+        "C": "Better speaker recognition at the cost of fewer enrolled speakers.",
+        "D": "Faster model inference at the cost of lower text-token accuracy."
+      },
+      "correct": "B",
+      "explanation": "Buffering allows packets to be reordered and late arrivals to be absorbed, but waiting before playback adds delay."
+    },
+    {
+      "id": "p06-l11-a1-q2",
+      "type": "application",
+      "text": "A voice assistant\u2019s own synthesized speech re-enters its microphone and triggers recognition as if the user were speaking. Which component directly addresses this feedback path?",
+      "options": {
+        "A": "A larger network jitter buffer.",
+        "B": "A higher mel-filterbank bin count.",
+        "C": "A longer text generation context.",
+        "D": "Acoustic echo cancellation."
+      },
+      "correct": "D",
+      "explanation": "Acoustic echo cancellation suppresses the speaker-to-microphone echo path so the assistant\u2019s output is not treated as user input."
+    },
+    {
+      "id": "p06-l11-a1-q3",
+      "type": "code",
+      "text": "RingBuffer uses deque(maxlen=4); write extends it and read removes the oldest available items. After write([1,2,3]), write([4,5]), then read(2), what is returned and what remains?",
+      "options": {
+        "A": "Returns [2,3]; leaves [4,5].",
+        "B": "Returns [1,2]; leaves [3,4].",
+        "C": "Returns [4,5]; leaves [2,3].",
+        "D": "Returns [1,2]; leaves [3,4,5]."
+      },
+      "correct": "A",
+      "explanation": "Extending beyond capacity drops the oldest sample 1, leaving [2,3,4,5]; reading two removes 2 and 3, leaving [4,5]."
+    }
+  ]
+}
