@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/01-mdps-states-actions-rewards/docs/en.md",
+  "source_sha256": "060c1a900e196a73b44d791ed29b05687bbf3490f53e0e11eadc143ea90f3667",
+  "lesson": "01-mdps-states-actions-rewards",
+  "attempt": 3,
+  "questions": [
+    {
+      "id": "p09-l01-a3-q1",
+      "type": "concept",
+      "text": "What does the Bellman equation express about a state\u2019s value under a policy?",
+      "options": {
+        "A": "It equals only the reward received on entering that state.",
+        "B": "It equals the probability that the policy chooses its best action.",
+        "C": "It is expected immediate reward plus discounted successor-state value.",
+        "D": "It is the largest return observed in any rollout from that state."
+      },
+      "correct": "C",
+      "explanation": "The Bellman relation decomposes expected return into the current reward and the discounted expected value of the next state under the policy."
+    },
+    {
+      "id": "p09-l01-a3-q2",
+      "type": "application",
+      "text": "A continuing task pays reward +1 every step without a terminal state. If \u03b3=1, which formulation change avoids an unbounded discounted return?",
+      "options": {
+        "A": "Make the reward +2 so the policy sees a stronger learning signal.",
+        "B": "Add a finite horizon or use a discount factor below 1.",
+        "C": "Average the rewards over the last two steps without changing the horizon.",
+        "D": "Use a deterministic policy so every state has one possible action."
+      },
+      "correct": "B",
+      "explanation": "With reward +1 forever and \u03b3=1, the return sum diverges. A finite horizon or \u03b3<1 makes this discounted-return formulation finite."
+    },
+    {
+      "id": "p09-l01-a3-q3",
+      "type": "code",
+      "text": "In policy_evaluation, the terminal state is skipped, and V starts at 0 everywhere. If a nonterminal state has one action with probability 1 that gives reward -1 and moves directly to terminal, what value is assigned to that state on its first update?",
+      "options": {
+        "A": "0, because terminal V starts at zero.",
+        "B": "-\u03b3, because the immediate reward is discounted.",
+        "C": "-1, because the immediate reward is -1 and terminal V is zero.",
+        "D": "-1/(1\u2212\u03b3), because the reward repeats forever."
+      },
+      "correct": "C",
+      "explanation": "The update is -1 + \u03b3\u00d7V(terminal) = -1 + \u03b3\u00d70 = -1. The immediate reward is not discounted."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/09-reward-modeling-rlhf/docs/en.md",
+  "source_sha256": "f1ccc27870fa504fc71d7f8cf53854a1cb52141829fe3f0e44d165430526a0a9",
+  "lesson": "09-reward-modeling-rlhf",
+  "attempt": 1,
+  "questions": [
+    {
+      "id": "p09-l09-a1-q1",
+      "type": "concept",
+      "text": "What does the Bradley\u2013Terry reward-model loss encourage for a human-preferred response pair?",
+      "options": {
+        "A": "Equal scores for both responses to prevent preference overfitting.",
+        "B": "A higher scalar score for the preferred response than for the rejected one.",
+        "C": "A larger KL divergence between the policy and its SFT reference.",
+        "D": "A higher probability for every token in both responses under the policy."
+      },
+      "correct": "B",
+      "explanation": "The pairwise logistic loss uses the difference R(preferred)\u2212R(rejected), so minimizing it pushes the preferred response\u2019s score above the rejected response\u2019s score."
+    },
+    {
+      "id": "p09-l09-a1-q2",
+      "type": "application",
+      "text": "An RLHF policy\u2019s reward-model score keeps rising, but blind human evaluation says its responses are getting worse and KL from the SFT reference is growing. Which response best addresses the lesson\u2019s diagnosis?",
+      "options": {
+        "A": "Increase PPO epochs so the policy exploits the reward model more strongly.",
+        "B": "Discard the reference policy and optimize only the reward-model score.",
+        "C": "Keep training until reward and human evaluation eventually converge.",
+        "D": "Stop or slow optimization, strengthen the KL penalty, and inspect reward-model failures."
+      },
+      "correct": "D",
+      "explanation": "Rising RM reward alongside falling human quality is reward hacking. Stopping or slowing optimization, increasing the KL penalty, and examining reward-model errors address the drift."
+    },
+    {
+      "id": "p09-l09-a1-q3",
+      "type": "code",
+      "text": "In rm_train_step, r_pos=2 and r_neg=2, so p=sigmoid(r_pos\u2212r_neg)=0.5. For a token appearing once in y_pos and not in y_neg, with lr=0.1, how does its weight change?",
+      "options": {
+        "A": "It decreases by 0.05.",
+        "B": "It increases by 0.05.",
+        "C": "It decreases by 0.10.",
+        "D": "It increases by 0.10."
+      },
+      "correct": "B",
+      "explanation": "The positive-response loop adds lr\u00d7(1\u2212p)\u00d7count = 0.1\u00d70.5\u00d71 = 0.05 to that token\u2019s weight."
+    }
+  ]
+}

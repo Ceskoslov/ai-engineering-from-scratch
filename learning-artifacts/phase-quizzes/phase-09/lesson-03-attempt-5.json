@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/03-monte-carlo-methods/docs/en.md",
+  "source_sha256": "14e1a108c933380c1b5e73b21a13090357d44d6eabec56e4ba671ce9cf41becd",
+  "lesson": "03-monte-carlo-methods",
+  "attempt": 5,
+  "questions": [
+    {
+      "id": "p09-l03-a5-q1",
+      "type": "concept",
+      "text": "Why can Monte Carlo value estimates have high variance on long episodes compared with one-step TD estimates?",
+      "options": {
+        "A": "Monte Carlo uses exact transition probabilities for every future state.",
+        "B": "Monte Carlo uses the full sampled future return, including distant random outcomes.",
+        "C": "Monte Carlo averages only immediate rewards and ignores later outcomes.",
+        "D": "Monte Carlo updates from a bootstrapped next-state value each step."
+      },
+      "correct": "B",
+      "explanation": "Monte Carlo waits for the entire observed return, so distant random outcomes affect the estimate; one-step TD bootstraps from a next-state estimate instead."
+    },
+    {
+      "id": "p09-l03-a5-q2",
+      "type": "application",
+      "text": "A policy is evaluated from complete episodes, but one state was visited in only 8 of them. The lesson\u2019s shipped evaluator requires at least 100 episodes per state before reporting a tabular estimate. What should the evaluator do?",
+      "options": {
+        "A": "Report the estimate as reliable because 8 complete returns have no sampling variance.",
+        "B": "Increase sampling until that state has enough visits, or withhold its estimate.",
+        "C": "Fill in the missing visits with zero returns and report a 100-sample mean.",
+        "D": "Replace the state estimate with the maximum return seen elsewhere."
+      },
+      "correct": "B",
+      "explanation": "With only 8 episode visits, the stated reporting threshold is unmet. Collect more coverage or do not report that state estimate as ready."
+    },
+    {
+      "id": "p09-l03-a5-q3",
+      "type": "code",
+      "text": "A rollout records (s,a,r) before checking done. If env.step returns done=True on the second move, how many transition tuples are in the returned trajectory?",
+      "options": {
+        "A": "One, because the terminal move is excluded.",
+        "B": "Two, because the terminal move is appended before breaking.",
+        "C": "Three, because the loop adds an extra terminal transition.",
+        "D": "Zero, because the trajectory is cleared when done is true."
+      },
+      "correct": "B",
+      "explanation": "The code appends the current transition before the done check. It records both moves, then breaks after the second one."
+    }
+  ]
+}

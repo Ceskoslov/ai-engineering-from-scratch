@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/05-dqn/docs/en.md",
+  "source_sha256": "e59787787c2637b4fb7e3b1d967aba579a03728801c64959a219dbfdb197e3f1",
+  "lesson": "05-dqn",
+  "attempt": 2,
+  "questions": [
+    {
+      "id": "p09-l05-a2-q1",
+      "type": "concept",
+      "text": "What three elements form the \u201cdeadly triad\u201d that can destabilize naive deep Q-learning?",
+      "options": {
+        "A": "Function approximation, bootstrapping, and off-policy learning.",
+        "B": "Reward clipping, exploration, and a target network.",
+        "C": "A replay buffer, a target network, and stochastic gradients.",
+        "D": "Discrete actions, terminal rewards, and discounted returns."
+      },
+      "correct": "A",
+      "explanation": "The deadly triad is the combination of function approximation, bootstrapped targets, and off-policy updates; DQN\u2019s replay and target network mitigate instability."
+    },
+    {
+      "id": "p09-l05-a2-q2",
+      "type": "application",
+      "text": "A DQN learner keeps copying online weights into its target network after every gradient step, and its targets oscillate. Which adjustment directly restores the target network\u2019s intended role?",
+      "options": {
+        "A": "Remove the target network and reuse the online network for both sides.",
+        "B": "Freeze the online network and update only the target network.",
+        "C": "Copy online weights to the target only at spaced intervals.",
+        "D": "Clip all rewards to zero so targets cannot change."
+      },
+      "correct": "C",
+      "explanation": "The target network should hold weights fixed across many gradient steps, then periodically sync from the online network; copying every step removes that stabilizing lag."
+    },
+    {
+      "id": "p09-l05-a2-q3",
+      "type": "code",
+      "text": "DQN train_step sees a nonterminal sample with r=1, \u03b3=0.5, and target.forward(s_next)=[2, 6]. What bootstrap target y does the code compute?",
+      "options": {
+        "A": "2, from reward plus the smaller target Q value.",
+        "B": "3, from discounting the largest target Q value only.",
+        "C": "4, from reward plus discounted largest target Q value.",
+        "D": "7, from reward plus the undiscounted largest target Q value."
+      },
+      "correct": "C",
+      "explanation": "The nonterminal target is r + \u03b3\u00d7max(Q_target(next)) = 1 + 0.5\u00d76 = 4."
+    }
+  ]
+}

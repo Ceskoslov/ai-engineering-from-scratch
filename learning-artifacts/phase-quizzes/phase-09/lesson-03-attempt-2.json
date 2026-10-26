@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/03-monte-carlo-methods/docs/en.md",
+  "source_sha256": "14e1a108c933380c1b5e73b21a13090357d44d6eabec56e4ba671ce9cf41becd",
+  "lesson": "03-monte-carlo-methods",
+  "attempt": 2,
+  "questions": [
+    {
+      "id": "p09-l03-a2-q1",
+      "type": "concept",
+      "text": "Why can Monte Carlo policy evaluation work without knowing the environment\u2019s transition probabilities?",
+      "options": {
+        "A": "It solves the Bellman equation by enumerating every possible next state.",
+        "B": "It averages returns observed after visits to states in sampled episodes.",
+        "C": "It replaces environment transitions with a learned dynamics model.",
+        "D": "It chooses only greedy actions, so all transitions become predictable."
+      },
+      "correct": "B",
+      "explanation": "Monte Carlo estimates expected return by sampling whole episodes and averaging observed returns; it need not enumerate or know transition probabilities."
+    },
+    {
+      "id": "p09-l03-a2-q2",
+      "type": "application",
+      "text": "A Monte Carlo evaluator runs a policy in an environment where some episodes can loop indefinitely. What practical change lets it collect bounded rollouts while making the truncation explicit?",
+      "options": {
+        "A": "Use an unlimited rollout and wait for every trajectory to finish naturally.",
+        "B": "Stop after a maximum step count and report capped episodes separately.",
+        "C": "Replace observed returns with exact Bellman expectations from a model.",
+        "D": "Treat every incomplete trajectory as a successful terminal episode."
+      },
+      "correct": "B",
+      "explanation": "Monte Carlo needs bounded episodes for usable returns. A max-step cap prevents endless rollouts, and tracking capped episodes makes the resulting truncation visible."
+    },
+    {
+      "id": "p09-l03-a2-q3",
+      "type": "code",
+      "text": "A state starts with V=2 and has count=3. The next first-visit return is G=6. After counts[s] += 1 and V[s] += (G\u2212V[s])/counts[s], what is the new V?",
+      "options": {
+        "A": "2.5",
+        "B": "3.0",
+        "C": "4.0",
+        "D": "6.0"
+      },
+      "correct": "B",
+      "explanation": "The new count is 4, so the incremental update is 2 + (6\u22122)/4 = 3."
+    }
+  ]
+}

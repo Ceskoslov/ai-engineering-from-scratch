@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/03-monte-carlo-methods/docs/en.md",
+  "source_sha256": "14e1a108c933380c1b5e73b21a13090357d44d6eabec56e4ba671ce9cf41becd",
+  "lesson": "03-monte-carlo-methods",
+  "attempt": 4,
+  "questions": [
+    {
+      "id": "p09-l03-a4-q1",
+      "type": "concept",
+      "text": "In off-policy Monte Carlo evaluation, why are importance-sampling weights needed?",
+      "options": {
+        "A": "They convert a full episode return into an immediate reward.",
+        "B": "They correct for trajectories sampled under a behavior policy different from the target policy.",
+        "C": "They replace exploration with exact model-based expectations.",
+        "D": "They make the next-state value estimate stationary during training."
+      },
+      "correct": "B",
+      "explanation": "Off-policy data comes from behavior policy \u03bc, while the target is \u03c0. Importance weights use their action-probability ratios to account for that difference."
+    },
+    {
+      "id": "p09-l03-a4-q2",
+      "type": "application",
+      "text": "Off-policy Monte Carlo importance weights become extremely variable on long episodes because action-probability ratios multiply across steps. Which response does the lesson recommend?",
+      "options": {
+        "A": "Use a per-decision weighted importance-sampling variant or switch to TD.",
+        "B": "Increase the episode horizon so the ratio product averages out.",
+        "C": "Drop importance weights while still evaluating the target policy from behavior-policy data.",
+        "D": "Set every action probability under the target policy to one."
+      },
+      "correct": "A",
+      "explanation": "The lesson flags exploding trajectory-weight variance and recommends per-decision weighted importance sampling or a TD method."
+    },
+    {
+      "id": "p09-l03-a4-q3",
+      "type": "code",
+      "text": "In mc_control, seen stores (state, action) pairs. An episode visits (s,left), then (s,right), then (s,left), with following returns 5, 4, and 3. Which returns update Q in this episode?",
+      "options": {
+        "A": "Only 5, because s is counted once regardless of action.",
+        "B": "5 and 4, because the repeated (s,left) pair is skipped.",
+        "C": "5 and 3, because the first and last actions match.",
+        "D": "5, 4, and 3, because all visits are counted."
+      },
+      "correct": "B",
+      "explanation": "The first (s,left) and first (s,right) are distinct pairs and both update Q. The second (s,left) is already in seen, so its return 3 is skipped."
+    }
+  ]
+}

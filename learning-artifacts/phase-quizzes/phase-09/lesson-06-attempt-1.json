@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/06-policy-gradients-reinforce/docs/en.md",
+  "source_sha256": "c22a1ed1f3817055e5dc8152de4695a2c0be6742fbf25063f6d18c0498cf9715",
+  "lesson": "06-policy-gradients-reinforce",
+  "attempt": 1,
+  "questions": [
+    {
+      "id": "p09-l06-a1-q1",
+      "type": "concept",
+      "text": "In REINFORCE, why can a baseline that depends on the state but not the selected action be subtracted from the return?",
+      "options": {
+        "A": "It turns the policy update into an exact Bellman optimality backup.",
+        "B": "It removes the need to sample complete trajectories for the update.",
+        "C": "It changes the expected gradient so actions with low return are ignored.",
+        "D": "It can reduce gradient variance without changing the expected gradient."
+      },
+      "correct": "D",
+      "explanation": "An action-independent baseline has zero expected product with the score-function gradient, so subtracting it preserves the expected policy gradient while reducing variance."
+    },
+    {
+      "id": "p09-l06-a1-q2",
+      "type": "application",
+      "text": "A REINFORCE agent receives a positive reward early in an episode and a negative reward much later. You want each action update to depend only on rewards that follow that action. Which change should you make?",
+      "options": {
+        "A": "Use reward-to-go from each action\u2019s time step as its gradient weight.",
+        "B": "Use the full episode return as the weight for every action in the episode.",
+        "C": "Use only the immediate reward at each step and discard later rewards.",
+        "D": "Use the largest action probability as the weight for every action."
+      },
+      "correct": "A",
+      "explanation": "Reward-to-go weights each log-policy gradient by discounted rewards from that action onward, excluding earlier rewards that the action could not have caused."
+    },
+    {
+      "id": "p09-l06-a1-q3",
+      "type": "code",
+      "text": "In reinforce_step, a two-action policy assigns probabilities [0.25, 0.75] and selects action 0. What is grad_log_pi_a immediately after grad_log_pi_a = [-p for p in probs]; grad_log_pi_a[a] += 1.0?",
+      "options": {
+        "A": "[0.25, 0.75]",
+        "B": "[-0.25, -0.75]",
+        "C": "[0.75, -0.75]",
+        "D": "[1.25, -0.75]"
+      },
+      "correct": "C",
+      "explanation": "Negating probabilities gives [-0.25,-0.75]; adding 1 to the chosen action 0 yields [0.75,-0.75]."
+    }
+  ]
+}

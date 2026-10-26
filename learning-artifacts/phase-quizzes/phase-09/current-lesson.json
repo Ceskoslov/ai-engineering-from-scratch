@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/04-q-learning-sarsa/docs/en.md",
+  "source_sha256": "5bd5e50c91e850634907c085867e0b8623111b81c688ac0a0378a0d754f7e4e0",
+  "lesson": "04-q-learning-sarsa",
+  "attempt": 2,
+  "questions": [
+    {
+      "id": "p09-l04-a2-q1",
+      "type": "concept",
+      "text": "What makes a one-step temporal-difference update different from Monte Carlo evaluation?",
+      "options": {
+        "A": "TD waits for a full episode; MC updates after each transition.",
+        "B": "TD uses a model of all transitions; MC uses only a reward function.",
+        "C": "TD bootstraps from an estimated next-state value after one step.",
+        "D": "TD never discounts future rewards; MC always discounts them."
+      },
+      "correct": "C",
+      "explanation": "TD updates after a transition using r+\u03b3V(s\u2032), while Monte Carlo waits for the complete sampled return."
+    },
+    {
+      "id": "p09-l04-a2-q2",
+      "type": "application",
+      "text": "In a noisy tabular task, Q-learning repeatedly overestimates the best next action because it takes a maximum over noisy Q values. Which change addresses this specific bias?",
+      "options": {
+        "A": "Use Double Q-learning with separate value estimates for action selection and evaluation.",
+        "B": "Increase \u03b5 until every action is chosen with equal probability forever.",
+        "C": "Use \u03b3=1 so future rewards receive no discount.",
+        "D": "Replace the maximum with the minimum Q value in the same table."
+      },
+      "correct": "A",
+      "explanation": "Double Q-learning reduces maximization bias by decoupling selection from evaluation using two value estimates."
+    },
+    {
+      "id": "p09-l04-a2-q3",
+      "type": "code",
+      "text": "SARSA has Q(s,a)=2, reward r=1, \u03b3=0.5, \u03b1=0.5, and Q(s_next,a_next)=4 for the action actually chosen next. What is the updated Q(s,a)?",
+      "options": {
+        "A": "2.0",
+        "B": "2.5",
+        "C": "3.0",
+        "D": "4.0"
+      },
+      "correct": "B",
+      "explanation": "The SARSA target is 1 + 0.5\u00d74 = 3; the update is 2 + 0.5\u00d7(3\u22122)=2.5."
+    }
+  ]
+}

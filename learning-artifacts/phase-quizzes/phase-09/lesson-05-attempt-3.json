@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/05-dqn/docs/en.md",
+  "source_sha256": "e59787787c2637b4fb7e3b1d967aba579a03728801c64959a219dbfdb197e3f1",
+  "lesson": "05-dqn",
+  "attempt": 3,
+  "questions": [
+    {
+      "id": "p09-l05-a3-q1",
+      "type": "concept",
+      "text": "In Double DQN, which network selects the next action and which evaluates its value in the bootstrap target?",
+      "options": {
+        "A": "The target network selects; the online network evaluates.",
+        "B": "The online network selects; the target network evaluates.",
+        "C": "The online network both selects and evaluates.",
+        "D": "The target network both selects and evaluates."
+      },
+      "correct": "B",
+      "explanation": "Double DQN uses online Q values for argmax action selection and target-network Q values to evaluate that chosen action, reducing maximization bias."
+    },
+    {
+      "id": "p09-l05-a3-q2",
+      "type": "application",
+      "text": "A DQN run begins gradient updates when its replay buffer holds only 20 nearly identical transitions. What change best addresses the lesson\u2019s cold-start warning?",
+      "options": {
+        "A": "Wait until the buffer has many varied transitions before training.",
+        "B": "Increase the target sync frequency to every transition.",
+        "C": "Clip every reward to zero until the buffer is full.",
+        "D": "Turn off replay and train directly on each new transition."
+      },
+      "correct": "A",
+      "explanation": "DQN should collect a replay warmup before training so early updates are not fitted to a tiny, correlated sample."
+    },
+    {
+      "id": "p09-l05-a3-q3",
+      "type": "code",
+      "text": "In QNet.forward, suppose one hidden unit has weights [2, -1], input [1, 3], and bias 0. What hidden activation does ReLU produce?",
+      "options": {
+        "A": "-1, because the weighted sum is -1.",
+        "B": "0, because ReLU clips a negative weighted sum.",
+        "C": "1, because the input values are both positive.",
+        "D": "5, because ReLU adds the input magnitudes."
+      },
+      "correct": "B",
+      "explanation": "The weighted sum is 2\u00d71 + (\u22121)\u00d73 = \u22121. ReLU computes max(0,\u22121)=0."
+    }
+  ]
+}

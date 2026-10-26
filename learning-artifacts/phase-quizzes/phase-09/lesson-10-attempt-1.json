@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/10-multi-agent-rl/docs/en.md",
+  "source_sha256": "85ebe6302f573bd1a381fcdfc790854781dec795b16d9c9044ca50d5ddc76e53",
+  "lesson": "10-multi-agent-rl",
+  "attempt": 1,
+  "questions": [
+    {
+      "id": "p09-l10-a1-q1",
+      "type": "concept",
+      "text": "What defines centralized training with decentralized execution (CTDE) in multi-agent RL?",
+      "options": {
+        "A": "A joint critic can use global state and actions during training, while each deployed policy uses its local observation.",
+        "B": "Every agent shares one action at execution, while each critic trains only on its agent\u2019s local observation.",
+        "C": "Agents train and deploy with full global state, while their rewards remain private during execution.",
+        "D": "One central policy selects all agents\u2019 actions at execution, while each agent trains its own local critic."
+      },
+      "correct": "A",
+      "explanation": "CTDE gives the training critic joint information to handle coordination, but each agent\u2019s deployed policy acts from its own local observation."
+    },
+    {
+      "id": "p09-l10-a1-q2",
+      "type": "application",
+      "text": "In a competitive game, a single agent repeatedly trains against its latest copy and cycles among strategies that beat one another. Which training change best addresses this?",
+      "options": {
+        "A": "Use only the most recent opponent policy so updates remain on-policy.",
+        "B": "Remove opponent history and increase the discount factor instead.",
+        "C": "Train against a league containing past and varied opponent policies.",
+        "D": "Give every opponent the same action so the game becomes stationary."
+      },
+      "correct": "C",
+      "explanation": "League play samples from a population of past and varied opponents, which helps expose and reduce cyclic weaknesses that single-opponent self-play can miss."
+    },
+    {
+      "id": "p09-l10-a1-q3",
+      "type": "code",
+      "text": "In CoopGridWorld.step, done is true only when both new positions equal (5,5); reward is 10 if done, otherwise -1. If the two new positions are ((5,5),(5,4)), what does step report for reward and done?",
+      "options": {
+        "A": "reward=10, done=True",
+        "B": "reward=10, done=False",
+        "C": "reward=-1, done=True",
+        "D": "reward=-1, done=False"
+      },
+      "correct": "D",
+      "explanation": "Only one agent has reached the shared goal, so the conjunction is false; the environment returns the per-step penalty -1 and done=False."
+    }
+  ]
+}

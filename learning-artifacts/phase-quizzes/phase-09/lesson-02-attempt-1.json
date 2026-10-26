@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/02-dynamic-programming/docs/en.md",
+  "source_sha256": "500f1974a28e13298fff2b0160e17c198a18842d04f5bc915ddc0521152938ab",
+  "lesson": "02-dynamic-programming",
+  "attempt": 1,
+  "questions": [
+    {
+      "id": "p09-l02-a1-q1",
+      "type": "concept",
+      "text": "Which statement correctly distinguishes policy iteration from value iteration?",
+      "options": {
+        "A": "Policy iteration evaluates a policy then improves it; value iteration repeatedly applies a Bellman optimality backup.",
+        "B": "Policy iteration requires a known model; value iteration learns only from sampled episodes without a model.",
+        "C": "Policy iteration maximizes only immediate rewards; value iteration also considers discounted future rewards.",
+        "D": "Policy iteration updates values once per policy; value iteration fully evaluates each policy before changing it."
+      },
+      "correct": "A",
+      "explanation": "Policy iteration alternates policy evaluation and greedy improvement. Value iteration combines these through repeated max-over-actions Bellman backups without fully evaluating a policy each time."
+    },
+    {
+      "id": "p09-l02-a1-q2",
+      "type": "application",
+      "text": "In a discounted tabular MDP, two actions have equal expected return in one state. Policy iteration keeps switching between them despite unchanged values. Which change directly addresses this instability?",
+      "options": {
+        "A": "Increase the discount factor until one action becomes strictly better.",
+        "B": "Stop evaluation when the average value change is small instead of the maximum.",
+        "C": "Choose randomly between tied actions at every improvement step.",
+        "D": "Use a fixed action ordering to break ties consistently at every improvement step."
+      },
+      "correct": "D",
+      "explanation": "A stable tie-break prevents equally good actions from alternating across improvement steps, allowing the policy-stability check to succeed without changing the objective."
+    },
+    {
+      "id": "p09-l02-a1-q3",
+      "type": "code",
+      "text": "A value-iteration loop starts with V(s)=0. One nonterminal state has two actions: action left gives reward -1 then enters a terminal with V=0; action right gives reward -1 then returns to the same state. With \u03b3=0.9, what is V(s) after one Bellman optimality backup?",
+      "options": {
+        "A": "0, because both successor values start at zero.",
+        "B": "-0.9, because the reward is discounted on the first step.",
+        "C": "-1, because each action gives -1 and its successor currently has value zero.",
+        "D": "-1.9, because the backup adds the rewards from both available actions."
+      },
+      "correct": "C",
+      "explanation": "The backup computes max_a [r + \u03b3 V(next)]. Both actions yield -1 + 0.9\u00d70 = -1 on the first sweep."
+    }
+  ]
+}

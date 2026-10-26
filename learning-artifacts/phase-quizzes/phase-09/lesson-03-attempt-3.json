@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/03-monte-carlo-methods/docs/en.md",
+  "source_sha256": "14e1a108c933380c1b5e73b21a13090357d44d6eabec56e4ba671ce9cf41becd",
+  "lesson": "03-monte-carlo-methods",
+  "attempt": 3,
+  "questions": [
+    {
+      "id": "p09-l03-a3-q1",
+      "type": "concept",
+      "text": "When an episode visits the same state twice, how do first-visit and every-visit Monte Carlo evaluation differ?",
+      "options": {
+        "A": "First-visit uses only the first visit\u2019s return; every-visit uses returns from both visits.",
+        "B": "First-visit uses only immediate rewards; every-visit uses discounted returns.",
+        "C": "First-visit uses the model\u2019s transitions; every-visit uses sampled episodes.",
+        "D": "First-visit updates after each step; every-visit waits until the episode ends."
+      },
+      "correct": "A",
+      "explanation": "First-visit counts a state once per episode at its first occurrence; every-visit counts every occurrence and its following return."
+    },
+    {
+      "id": "p09-l03-a3-q2",
+      "type": "application",
+      "text": "A policy changes during Monte Carlo control, but its state-value estimate is an average over every return since training began. Which update choice helps the estimate track the newer policy more quickly?",
+      "options": {
+        "A": "Use a constant step size \u03b1 so recent returns retain substantial weight.",
+        "B": "Keep the 1/n step size so older returns dominate as n grows.",
+        "C": "Stop sampling new episodes after each policy improvement.",
+        "D": "Replace every observed return with a fixed terminal reward."
+      },
+      "correct": "A",
+      "explanation": "A constant step size keeps reacting to new returns, whereas the sample-average step size 1/n becomes very small as the count grows."
+    },
+    {
+      "id": "p09-l03-a3-q3",
+      "type": "code",
+      "text": "A first-visit evaluator sees trajectory states [s, t, s] with returns [5, 3, 1]. Its seen set starts empty and it skips a state already seen in this episode. Which return updates V(s)?",
+      "options": {
+        "A": "Only 1, because the last visit is closest to episode end.",
+        "B": "Both 5 and 1, because both visits appear in the trajectory.",
+        "C": "The average 3, because the two visits are merged before update.",
+        "D": "Only 5, because the later visit is skipped after s is marked seen."
+      },
+      "correct": "D",
+      "explanation": "The first s is processed with return 5 and added to seen. When s appears again, the code continues without updating it."
+    }
+  ]
+}

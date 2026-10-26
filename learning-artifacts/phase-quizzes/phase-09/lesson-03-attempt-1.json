@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/03-monte-carlo-methods/docs/en.md",
+  "source_sha256": "14e1a108c933380c1b5e73b21a13090357d44d6eabec56e4ba671ce9cf41becd",
+  "lesson": "03-monte-carlo-methods",
+  "attempt": 1,
+  "questions": [
+    {
+      "id": "p09-l03-a1-q1",
+      "type": "concept",
+      "text": "What does first-visit Monte Carlo evaluation use to update the value of a state?",
+      "options": {
+        "A": "The one-step reward plus a bootstrapped estimate of the next state\u2019s value.",
+        "B": "The model\u2019s expected reward and transition probabilities for every action.",
+        "C": "The full observed return following the state\u2019s first visit in each episode.",
+        "D": "The full observed return following every visit to the state in each episode."
+      },
+      "correct": "C",
+      "explanation": "First-visit MC averages complete observed returns following only the first occurrence of a state in each episode. It does not use a model or bootstrap from an estimated next-state value."
+    },
+    {
+      "id": "p09-l03-a1-q2",
+      "type": "application",
+      "text": "A deterministic policy never visits some state-action pairs, leaving their Monte Carlo Q estimates untouched. Which change best addresses this coverage problem during control?",
+      "options": {
+        "A": "Use \u03b5-greedy action selection so non-greedy actions are sampled.",
+        "B": "Use a smaller discount factor so unseen actions have lower value.",
+        "C": "Average only the first return from each state in every episode.",
+        "D": "Replace sampled returns with the Bellman expectation over a known model."
+      },
+      "correct": "A",
+      "explanation": "\u03b5-greedy exploration sometimes selects a random action, giving otherwise unvisited state-action pairs a chance to be sampled."
+    },
+    {
+      "id": "p09-l03-a1-q3",
+      "type": "code",
+      "text": "The lesson\u2019s returns_from loop sweeps rewards backward with G = r + \u03b3G. For an episode with rewards [1, 2, 3] and \u03b3 = 0.5, which return list does it produce in chronological order?",
+      "options": {
+        "A": "[1.0, 2.0, 3.0]",
+        "B": "[3.0, 3.5, 2.75]",
+        "C": "[2.75, 3.5, 3.0]",
+        "D": "[4.5, 3.5, 3.0]"
+      },
+      "correct": "C",
+      "explanation": "Working backward: final return is 3; previous is 2 + 0.5\u00d73 = 3.5; first is 1 + 0.5\u00d73.5 = 2.75."
+    }
+  ]
+}

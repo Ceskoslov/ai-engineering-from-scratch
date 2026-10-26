@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/11-sim-to-real-transfer/docs/en.md",
+  "source_sha256": "6ee8bd7caa2f724eb4f1f64df5e2fc2d168326ef7ba8dddbaa96e2a0e9aa293d",
+  "lesson": "11-sim-to-real-transfer",
+  "attempt": 1,
+  "questions": [
+    {
+      "id": "p09-l11-a1-q1",
+      "type": "concept",
+      "text": "What is the purpose of domain randomization for sim-to-real transfer?",
+      "options": {
+        "A": "Measure one exact real-world parameter set and train only on that setting.",
+        "B": "Replace real sensor observations with simulator-only privileged state at deployment.",
+        "C": "Vary plausible simulator parameters during training so the policy tolerates real-world variation.",
+        "D": "Increase the number of policy updates on one unchanged simulator until it memorizes the dynamics."
+      },
+      "correct": "C",
+      "explanation": "Domain randomization exposes the policy to a range of plausible physics and sensing parameters during simulation training, aiming for robustness when the real system lies within that range."
+    },
+    {
+      "id": "p09-l11-a1-q2",
+      "type": "application",
+      "text": "A robot fails after sim training because its real motors respond with a delay that the simulator omits. Which first change best targets the identified reality gap?",
+      "options": {
+        "A": "Randomize camera hue more widely while leaving motor dynamics unchanged.",
+        "B": "Measure motor delay, represent it in the simulator, and train across a plausible delay range.",
+        "C": "Remove the safety controller so the policy can adapt faster on hardware.",
+        "D": "Train longer with the same zero-delay simulator and the same observations."
+      },
+      "correct": "B",
+      "explanation": "The observed mismatch is motor delay. Measuring and modeling it, then randomizing over a plausible range, directly targets the gap rather than unrelated visual changes."
+    },
+    {
+      "id": "p09-l11-a1-q3",
+      "type": "code",
+      "text": "In the lesson\u2019s step function, slip happens when rng.random() < slip. If slip=0.4 and the sampled number is exactly 0.4, what happens to the requested action?",
+      "options": {
+        "A": "It slips, because equality satisfies the threshold check.",
+        "B": "It slips with a separate 0.4 probability after the sampled check.",
+        "C": "It stays requested, because 0.4 < 0.4 is false.",
+        "D": "It becomes a random action, because the sample is in training support."
+      },
+      "correct": "C",
+      "explanation": "The comparison is strict: 0.4 < 0.4 is false, so the branch that substitutes a perpendicular action does not run."
+    }
+  ]
+}

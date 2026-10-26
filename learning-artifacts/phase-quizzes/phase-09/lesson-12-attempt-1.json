@@ -1,0 +1,47 @@
+{
+  "source": "phases/09-reinforcement-learning/12-rl-for-games/docs/en.md",
+  "source_sha256": "1c60c872a9f5d77e1fff0166c3f2454a9ec2380e8b10ed9e2fb783c2139f4184",
+  "lesson": "12-rl-for-games",
+  "attempt": 1,
+  "questions": [
+    {
+      "id": "p09-l12-a1-q1",
+      "type": "concept",
+      "text": "What distinguishes MuZero from AlphaZero in the lesson\u2019s comparison?",
+      "options": {
+        "A": "MuZero trains a value network but never searches; AlphaZero searches with MCTS.",
+        "B": "MuZero learns latent dynamics for search; AlphaZero searches using known game rules.",
+        "C": "MuZero uses group-relative rewards; AlphaZero uses a learned reward model.",
+        "D": "MuZero requires human move labels; AlphaZero trains only from game outcomes."
+      },
+      "correct": "B",
+      "explanation": "AlphaZero searches using known game rules, while MuZero learns a latent dynamics and reward model and runs search in that learned space."
+    },
+    {
+      "id": "p09-l12-a1-q2",
+      "type": "application",
+      "text": "You want to train a reasoning policy with GRPO on coding tasks. What must supply a dependable reward for sampled solutions?",
+      "options": {
+        "A": "A diverse set of past opponent policies for league play.",
+        "B": "A learned simulator of latent code execution dynamics.",
+        "C": "A trusted verifier that tests whether each solution is correct.",
+        "D": "A value critic that predicts every token\u2019s expected return."
+      },
+      "correct": "C",
+      "explanation": "The lesson\u2019s GRPO setup scores sampled completions with a verifier, such as tests for code or an exact answer checker, then forms group-relative advantages."
+    },
+    {
+      "id": "p09-l12-a1-q3",
+      "type": "code",
+      "text": "In the lesson\u2019s grpo_step, one group has rewards [1, 1, 1, 1]. The code computes each advantage as (r \u2212 mean_r)/(std_r + 1e\u22128). What is every advantage?",
+      "options": {
+        "A": "1, because every sampled answer passed the verifier.",
+        "B": "0, because each reward equals the group mean.",
+        "C": "0.25, because each reward is one quarter of the total.",
+        "D": "Undefined, because the code divides by an exact zero."
+      },
+      "correct": "B",
+      "explanation": "The group mean is 1, so each numerator r\u2212mean is 0. The small denominator offset prevents division by zero; every advantage is 0."
+    }
+  ]
+}

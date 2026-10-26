@@ -3,21 +3,21 @@
   "updated": "2026-10-26",
   "mode": "comprehensive-phase-quiz",
   "question_language": "English",
-  "phase": "09-reinforcement-learning",
-  "lesson": "01-mdps-states-actions-rewards",
-  "lesson_title": "MDPs, States, Actions & Rewards",
+  "phase": "10-llms-from-scratch",
+  "lesson": "01-tokenizers",
+  "lesson_title": "Tokenizers: BPE, WordPiece, SentencePiece",
   "phase_question": 1,
   "lesson_question": 1,
   "attempt": 1,
-  "phase_questions": 36,
-  "phase_lessons": 12,
+  "phase_questions": 72,
+  "phase_lessons": 24,
   "initial_score": {
     "correct": 0,
     "answered": 0
   },
   "effective_score": {
     "correct": 0,
-    "denominator": 36
+    "denominator": 72
   },
   "completed_phases": [
     "00",
@@ -28,13 +28,14 @@
     "05",
     "06",
     "07",
-    "08"
+    "08",
+    "09"
   ],
   "status": "ready",
   "pending_question": null,
-  "phase_progress": "phase-09/progress.md",
-  "phase_history": "phase-09/history.md",
-  "phase_review": "phase-09/review.md",
+  "phase_progress": "phase-10/progress.md",
+  "phase_history": "phase-10/history.md",
+  "phase_review": "phase-10/review.md",
   "lesson_cache": null,
   "rules": {
     "questions_per_lesson": 3,
