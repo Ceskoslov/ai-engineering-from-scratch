@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/01-why-transformers/docs/en.md",
+  "source_sha256": "31ac7781c84fcc566c2832c518ac0a19c157dff563546a3617392c7f0bd168cd",
+  "questions": [
+    {
+      "id": "p07-l01-a2-q1",
+      "type": "concept",
+      "text": "For an RNN with h_t = f(h_(t-1), x_t), why do additional GPU cores alone not eliminate the sequential dependency across tokens?",
+      "options": {
+        "A": "The next hidden state requires the preceding hidden state to be computed.",
+        "B": "Every token requires its own separately trained copy of the model.",
+        "C": "The hidden-state vector must grow in width after every token.",
+        "D": "The recurrence must first construct a dense attention matrix."
+      },
+      "correct": "A",
+      "explanation": "The hidden-state recurrence imposes an ordered dependency chain even if individual operations within each step can run in parallel."
+    },
+    {
+      "id": "p07-l01-a2-q2",
+      "type": "application",
+      "text": "A dense attention score matrix contains one entry per ordered token pair. If context length triples, how many times as many score entries are required?",
+      "options": {
+        "A": "Three times",
+        "B": "Six times",
+        "C": "Nine times",
+        "D": "Twenty-seven times"
+      },
+      "correct": "C",
+      "explanation": "The matrix has N squared entries. Tripling length gives (3N) squared = 9N squared."
+    },
+    {
+      "id": "p07-l01-a2-q3",
+      "type": "code",
+      "text": "What does this recurrence return?\n\n```python\nh = 0.0\nfor x in [10.0, 0.0, 0.0]:\n    h = 0.9 * h + x\nprint(h)\n```",
+      "options": {
+        "A": "10.0",
+        "B": "8.1",
+        "C": "9.0",
+        "D": "3.3333333333333335"
+      },
+      "correct": "B",
+      "explanation": "The successive hidden states are 10.0, 9.0, and 8.1."
+    }
+  ]
+}

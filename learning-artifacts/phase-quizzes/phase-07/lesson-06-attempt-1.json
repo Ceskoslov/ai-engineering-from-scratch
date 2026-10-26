@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/06-bert-masked-language-modeling/docs/en.md",
+  "source_sha256": "10d1685c0fc344868e948575ae3bf51cb0058e6b0f07a247c20eafcc858f7b70",
+  "questions": [
+    {
+      "id": "p07-l06-a1-q1",
+      "type": "concept",
+      "text": "What distinguishes BERT\u2019s masked language modeling objective from standard causal next-token prediction?",
+      "options": {
+        "A": "It predicts selected original tokens using context from both sides.",
+        "B": "It predicts every next token using only the preceding token context.",
+        "C": "It reconstructs sentence order without predicting any token identities.",
+        "D": "It predicts selected original tokens using only the following tokens."
+      },
+      "correct": "A",
+      "explanation": "BERT predicts original tokens at selected positions with bidirectional context, whereas causal next-token prediction conditions on preceding tokens."
+    },
+    {
+      "id": "p07-l06-a1-q2",
+      "type": "application",
+      "text": "Under original BERT\u2019s 15% selection rate and 80/10/10 corruption rule, approximately how many of 1,000 eligible tokens are replaced with [MASK]?",
+      "options": {
+        "A": "15",
+        "B": "80",
+        "C": "150",
+        "D": "120"
+      },
+      "correct": "D",
+      "explanation": "About 150 tokens are selected, and 80% of those (120) are replaced with [MASK]."
+    },
+    {
+      "id": "p07-l06-a1-q3",
+      "type": "code",
+      "text": "A token with original ID 7 is selected for MLM prediction. The corruption draw r is 0.95. What are input_ids[i] and labels[i] after this code?\n\n```python\nlabels[i] = t\nr = 0.95\nif r < 0.8:\n    input_ids[i] = MASK_ID\nelif r < 0.9:\n    input_ids[i] = rng.randrange(vocab_size)\n# input_ids initially contains the original tokens\n```",
+      "options": {
+        "A": "input_ids[i] = MASK_ID; labels[i] = 7",
+        "B": "input_ids[i] = 7; labels[i] = -100",
+        "C": "input_ids[i] = 7; labels[i] = 7",
+        "D": "input_ids[i] = a random token; labels[i] = 7"
+      },
+      "correct": "C",
+      "explanation": "The selected token retains its original label. Neither replacement branch runs at r=0.95, so the input remains 7 and still contributes to the prediction loss."
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/13-scaling-laws/docs/en.md",
+  "source_sha256": "69f57bfb6a990b363a67d2dce4b9607660d2f2c321d8caf0dcc65d052bd0f696",
+  "questions": [
+    {
+      "id": "p07-l13-a3-q1",
+      "type": "concept",
+      "text": "Under the approximate dense-training compute relation C=6ND, what happens to C if both parameter count N and training-token count D double?",
+      "options": {
+        "A": "C is unchanged.",
+        "B": "C doubles.",
+        "C": "C quadruples.",
+        "D": "C increases eightfold."
+      },
+      "correct": "C",
+      "explanation": "Multiplying both N and D by2 multiplies their product, and hence C, by4."
+    },
+    {
+      "id": "p07-l13-a3-q2",
+      "type": "application",
+      "text": "Two training plans have parameter/token counts (N,D) and (N/4,4D). Under C\u22486ND, how do their training-compute estimates compare?",
+      "options": {
+        "A": "The second needs one quarter as much compute.",
+        "B": "The second needs four times as much compute.",
+        "C": "The second needs sixteen times as much compute.",
+        "D": "They have the same estimated training compute."
+      },
+      "correct": "D",
+      "explanation": "(N/4)*(4D)=ND, so the compute estimate is unchanged."
+    },
+    {
+      "id": "p07-l13-a3-q3",
+      "type": "code",
+      "text": "What is tokens_per_parameter?\n\n```python\nparameters = 5\ntraining_tokens = 100\ntokens_per_parameter = training_tokens / parameters\n```",
+      "options": {
+        "A": "20.0",
+        "B": "5.0",
+        "C": "100.0",
+        "D": "500.0"
+      },
+      "correct": "A",
+      "explanation": "Tokens per parameter is100/5=20."
+    }
+  ]
+}

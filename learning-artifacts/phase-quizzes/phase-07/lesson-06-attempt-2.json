@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/06-bert-masked-language-modeling/docs/en.md",
+  "source_sha256": "10d1685c0fc344868e948575ae3bf51cb0058e6b0f07a247c20eafcc858f7b70",
+  "questions": [
+    {
+      "id": "p07-l06-a2-q1",
+      "type": "concept",
+      "text": "In the input \u201cthe [MASK] chased the mouse,\u201d which visible words can a standard bidirectional BERT encoder use to predict the masked token?",
+      "options": {
+        "A": "Only \u201cthe\u201d before the mask.",
+        "B": "Only \u201cchased the mouse\u201d after the mask.",
+        "C": "No visible words; only the mask token itself.",
+        "D": "Visible words both before and after the mask."
+      },
+      "correct": "D",
+      "explanation": "Bidirectional attention allows the masked position to use visible context on both sides."
+    },
+    {
+      "id": "p07-l06-a2-q2",
+      "type": "application",
+      "text": "An MLM-selected token is left unchanged under BERT\u2019s 80/10/10 rule. Should its original token ID still be used as a prediction target?",
+      "options": {
+        "A": "Yes; selection determines the target even when the input is unchanged.",
+        "B": "No; every unchanged input token must use the ignore-index label.",
+        "C": "No; its label must be replaced with the [MASK] token ID.",
+        "D": "Yes; but only after replacing its input with a random token."
+      },
+      "correct": "A",
+      "explanation": "Selected positions contribute original-token targets regardless of whether they are masked, randomized, or left unchanged."
+    },
+    {
+      "id": "p07-l06-a2-q3",
+      "type": "code",
+      "text": "What are input_ids and labels after this code?\n\n```python\ntokens = [5, 8]\ninput_ids = list(tokens)\nlabels = [-100] * len(tokens)\ni = 1\nlabels[i] = tokens[i]\nr = 0.85\nif r < 0.8:\n    input_ids[i] = 99\nelif r < 0.9:\n    input_ids[i] = 3  # supplied random replacement\n```",
+      "options": {
+        "A": "input_ids=[5, 99]; labels=[-100, 8]",
+        "B": "input_ids=[5, 3]; labels=[-100, 3]",
+        "C": "input_ids=[5, 3]; labels=[-100, 8]",
+        "D": "input_ids=[5, 8]; labels=[-100, -100]"
+      },
+      "correct": "C",
+      "explanation": "r=0.85 enters the random-replacement branch, changing input ID8 to3; the target remains the original8 and the unselected position remains ignored."
+    }
+  ]
+}

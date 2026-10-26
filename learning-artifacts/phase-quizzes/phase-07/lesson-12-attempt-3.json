@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/12-kv-cache-flash-attention/docs/en.md",
+  "source_sha256": "3a6e3e4bba6a0dccd6e1eed4a8e38d784f47d2b3e45b407e3d745b073a3edcce",
+  "questions": [
+    {
+      "id": "p07-l12-a3-q1",
+      "type": "concept",
+      "text": "Why can a causal decoder reuse an earlier token\u2019s cached keys and values after a new token is appended, with fixed weights and deterministic inference?",
+      "options": {
+        "A": "Every token in the growing sequence has identical keys and values.",
+        "B": "Its causal hidden states cannot depend on tokens appended later.",
+        "C": "Appending a token freezes the next-token probability distribution.",
+        "D": "The cache replaces every earlier token with the newest token."
+      },
+      "correct": "B",
+      "explanation": "Causal attention prevents an earlier position from depending on later positions, so appending a token does not invalidate earlier per-layer keys and values."
+    },
+    {
+      "id": "p07-l12-a3-q2",
+      "type": "application",
+      "text": "A cache stores100 scalar elements for K and100 for V. Each scalar uses2 bytes. What is their combined storage, excluding overhead?",
+      "options": {
+        "A": "100 bytes",
+        "B": "200 bytes",
+        "C": "400 bytes",
+        "D": "800 bytes"
+      },
+      "correct": "C",
+      "explanation": "There are200 total scalar elements across K and V;200*2=400 bytes."
+    },
+    {
+      "id": "p07-l12-a3-q3",
+      "type": "code",
+      "text": "What is len(K) after this code?\n\n```python\nK = [[1, 2], [3, 4]]\nK.append([5, 6])\n```",
+      "options": {
+        "A": "2",
+        "B": "5",
+        "C": "6",
+        "D": "3"
+      },
+      "correct": "D",
+      "explanation": "The outer list starts with two vectors; append adds one vector, yielding three outer-list entries."
+    }
+  ]
+}

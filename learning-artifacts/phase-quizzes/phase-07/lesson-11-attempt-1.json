@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/11-mixture-of-experts/docs/en.md",
+  "source_sha256": "7801fdf5b6d89d5c46e12b92b63627af823b9fd38117a001e8f6fb79bb6b2ca4",
+  "questions": [
+    {
+      "id": "p07-l11-a1-q1",
+      "type": "concept",
+      "text": "How does a sparsely routed Mixture-of-Experts layer increase model capacity without running every expert for every token?",
+      "options": {
+        "A": "It removes unused experts permanently after processing the first token.",
+        "B": "It stores only one expert\u2019s weights and recreates all others from the input.",
+        "C": "It replaces all attention and feed-forward computation with a lookup table.",
+        "D": "It stores multiple experts but routes each token through a selected subset."
+      },
+      "correct": "D",
+      "explanation": "MoE stores many experts while activating only a subset for each token, separating total expert capacity from per-token expert computation."
+    },
+    {
+      "id": "p07-l11-a1-q2",
+      "type": "application",
+      "text": "A toy MoE has 8 equal-sized routed experts and selects 2 per token, with no shared experts. Ignoring the router and all other layers, what fraction of expert parameters is active per token?",
+      "options": {
+        "A": "One eighth",
+        "B": "One quarter",
+        "C": "One half",
+        "D": "All of them"
+      },
+      "correct": "B",
+      "explanation": "Two of eight equal-sized experts are active, giving 2/8 = 1/4 of the expert parameters."
+    },
+    {
+      "id": "p07-l11-a1-q3",
+      "type": "code",
+      "text": "Which experts are selected, and what scores are used to compute their gate weights?\n\n```python\nscores = [3.0, 2.0, 1.0]\nbias = [-3.0, 0.0, 2.0]\nbiased = [s + b for s, b in zip(scores, bias)]\ntop_idx = sorted(range(3), key=lambda i: -biased[i])[:2]\nchosen = [scores[i] for i in top_idx]\n# gates = softmax(chosen)\n```",
+      "options": {
+        "A": "top_idx = [2, 1]; chosen = [1.0, 2.0]",
+        "B": "top_idx = [2, 1]; chosen = [3.0, 2.0]",
+        "C": "top_idx = [0, 1]; chosen = [3.0, 2.0]",
+        "D": "top_idx = [1, 2]; chosen = [2.0, 3.0]"
+      },
+      "correct": "A",
+      "explanation": "Biased scores [0,2,3] select experts 2 then 1. Gating uses their original scores [1,2], not their biased selection scores."
+    }
+  ]
+}

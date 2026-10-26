@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/15-attention-variants/docs/en.md",
+  "source_sha256": "6e8bba5b133d832d03a51da7f5aaf4c1ea33a76ab797d411bc479746719b7acb",
+  "questions": [
+    {
+      "id": "p07-l15-a1-q1",
+      "type": "concept",
+      "text": "What distinguishes sliding-window attention from FlashAttention applied to full dense attention?",
+      "options": {
+        "A": "Both remove all long-range query\u2013key pairs from the model.",
+        "B": "Sliding-window attention changes allowed token pairs; FlashAttention changes how dense attention is computed.",
+        "C": "FlashAttention changes allowed token pairs; sliding-window attention only changes memory layout.",
+        "D": "Both replace attention weights with a uniform distribution over the prefix."
+      },
+      "correct": "B",
+      "explanation": "Sliding-window attention restricts the attention pattern. FlashAttention tiles and reorganizes dense attention computation without removing allowed pairs."
+    },
+    {
+      "id": "p07-l15-a1-q2",
+      "type": "application",
+      "text": "A model using only narrow sliding windows struggles to retrieve distant information. Which architectural change directly restores some global attention paths?",
+      "options": {
+        "A": "Remove positional signals from every attention layer.",
+        "B": "Use the same narrow window in every layer and remove residuals.",
+        "C": "Interleave sliding-window layers with full-attention layers.",
+        "D": "Replace every attention output with the current token embedding."
+      },
+      "correct": "C",
+      "explanation": "Interleaving global layers lets positions access distant tokens directly while retaining local attention in other layers."
+    },
+    {
+      "id": "p07-l15-a1-q3",
+      "type": "code",
+      "text": "For swa_mask(6, 3), which column indices in row i=4 have value 0.0?\n\n```python\ndef swa_mask(n, window):\n    M = [[float(\"-inf\")] * n for _ in range(n)]\n    for i in range(n):\n        lo = max(0, i - window + 1)\n        for j in range(lo, i + 1):\n            M[i][j] = 0.0\n    return M\n```",
+      "options": {
+        "A": "[1, 2, 3, 4]",
+        "B": "[3, 4, 5]",
+        "C": "[0, 1, 2, 3, 4]",
+        "D": "[2, 3, 4]"
+      },
+      "correct": "D",
+      "explanation": "At i=4 with window=3, lo=max(0,4-3+1)=2 and range(2,5) permits indices 2,3,4."
+    }
+  ]
+}

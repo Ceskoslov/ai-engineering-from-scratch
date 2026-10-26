@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/09-vision-transformers/docs/en.md",
+  "source_sha256": "6ac276b0bbfd15180e9e8850a8a7577f0ff18fa090f4ab545b8a3ad6906b2288",
+  "questions": [
+    {
+      "id": "p07-l09-a2-q1",
+      "type": "concept",
+      "text": "In a standard ViT classifier with a prepended [CLS] token, what is passed to the final classification head?",
+      "options": {
+        "A": "The raw pixel values of the first image patch.",
+        "B": "The list of integer patch-position indices.",
+        "C": "The final hidden state of the [CLS] token.",
+        "D": "The unnormalized attention scores from the first layer."
+      },
+      "correct": "C",
+      "explanation": "The final [CLS] representation aggregates information through the encoder and is used as input to the image classification head."
+    },
+    {
+      "id": "p07-l09-a2-q2",
+      "type": "application",
+      "text": "A 32 \u00d7 32 RGB image is split into non-overlapping 8 \u00d7 8 patches, then one [CLS] token is added. How many tokens enter the encoder?",
+      "options": {
+        "A": "17",
+        "B": "16",
+        "C": "65",
+        "D": "193"
+      },
+      "correct": "A",
+      "explanation": "There are (32/8)*(32/8)=16 patches, plus one [CLS] token, giving17 tokens."
+    },
+    {
+      "id": "p07-l09-a2-q3",
+      "type": "code",
+      "text": "What are n_patches and flat_width?\n\n```python\nH, W, C, P = 12, 8, 3, 4\nn_patches = (H // P) * (W // P)\nflat_width = P * P * C\n```",
+      "options": {
+        "A": "n_patches=6; flat_width=16",
+        "B": "n_patches=24; flat_width=48",
+        "C": "n_patches=6; flat_width=12",
+        "D": "n_patches=6; flat_width=48"
+      },
+      "correct": "D",
+      "explanation": "The patch grid is3 by2, giving6 patches; each patch has4*4*3=48 channel values."
+    }
+  ]
+}

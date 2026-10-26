@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/13-scaling-laws/docs/en.md",
+  "source_sha256": "69f57bfb6a990b363a67d2dce4b9607660d2f2c321d8caf0dcc65d052bd0f696",
+  "questions": [
+    {
+      "id": "p07-l13-a1-q1",
+      "type": "concept",
+      "text": "At a fixed pretraining compute budget, what trade-off do compute-optimal scaling laws help choose?",
+      "options": {
+        "A": "The split between attention heads and output vocabulary, regardless of data.",
+        "B": "The split between training loss and test labels, regardless of model size.",
+        "C": "The balance between parameter count and number of training tokens.",
+        "D": "The balance between prompt length and output temperature during sampling."
+      },
+      "correct": "C",
+      "explanation": "Training compute is approximately 6ND, so allocating a fixed budget requires balancing model parameters N and training tokens D."
+    },
+    {
+      "id": "p07-l13-a1-q2",
+      "type": "application",
+      "text": "Why might a model intended to serve a very large volume of inference tokens be trained smaller and for more tokens than a pretraining-compute-only optimum suggests?",
+      "options": {
+        "A": "A smaller model always reaches zero loss if it sees enough tokens.",
+        "B": "Extra training can improve a smaller model while reducing recurring inference cost.",
+        "C": "More training tokens eliminate the need to store model weights at inference.",
+        "D": "A smaller model makes training compute independent of the number of tokens."
+      },
+      "correct": "B",
+      "explanation": "Accounting for repeated serving costs can favor more training of a smaller model, trading additional training expense for lower inference cost."
+    },
+    {
+      "id": "p07-l13-a1-q3",
+      "type": "code",
+      "text": "With the same compute budget C, how does D change if N is halved in this estimate?\n\n```python\ndef training_tokens(C, N):\n    return C / (6 * N)\n```",
+      "options": {
+        "A": "D is halved.",
+        "B": "D stays unchanged.",
+        "C": "D becomes four times larger.",
+        "D": "D doubles."
+      },
+      "correct": "D",
+      "explanation": "D=C/(6N), so halving N doubles D at fixed C."
+    }
+  ]
+}

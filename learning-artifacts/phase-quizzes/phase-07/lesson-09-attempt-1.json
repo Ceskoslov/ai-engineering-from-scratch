@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/09-vision-transformers/docs/en.md",
+  "source_sha256": "6ac276b0bbfd15180e9e8850a8a7577f0ff18fa090f4ab545b8a3ad6906b2288",
+  "questions": [
+    {
+      "id": "p07-l09-a1-q1",
+      "type": "concept",
+      "text": "How does a standard Vision Transformer convert an image into inputs for its transformer encoder?",
+      "options": {
+        "A": "It treats each color channel as a single token and discards spatial position.",
+        "B": "It flattens image patches, projects them into embeddings, and adds positional signals.",
+        "C": "It converts pixels into word IDs using a pretrained language tokenizer.",
+        "D": "It replaces each attention head with a convolution over the original image."
+      },
+      "correct": "B",
+      "explanation": "ViT turns non-overlapping flattened patches into learned embedding vectors and supplies positional information before processing the sequence."
+    },
+    {
+      "id": "p07-l09-a1-q2",
+      "type": "application",
+      "text": "A 224 \u00d7 224 image uses non-overlapping 16 \u00d7 16 patches and one prepended [CLS] token. How many tokens enter the encoder?",
+      "options": {
+        "A": "14",
+        "B": "196",
+        "C": "197",
+        "D": "225"
+      },
+      "correct": "C",
+      "explanation": "There are (224/16) squared = 196 patches, plus one [CLS] token, giving 197 tokens."
+    },
+    {
+      "id": "p07-l09-a1-q3",
+      "type": "code",
+      "text": "For a 24 \u00d7 24 RGB image, what are len(patches) and len(patches[0]) after patchify(image, 6)?\n\n```python\ndef patchify(image, P):\n    H, W = len(image), len(image[0])\n    patches = []\n    for i in range(0, H, P):\n        for j in range(0, W, P):\n            patch = []\n            for di in range(P):\n                for dj in range(P):\n                    patch.extend(image[i + di][j + dj])\n            patches.append(patch)\n    return patches\n```",
+      "options": {
+        "A": "16 patches, each with 108 values",
+        "B": "16 patches, each with 36 values",
+        "C": "36 patches, each with 48 values",
+        "D": "4 patches, each with 108 values"
+      },
+      "correct": "A",
+      "explanation": "The grid has (24/6)*(24/6)=16 patches; each contains 6*6*3=108 channel values."
+    }
+  ]
+}

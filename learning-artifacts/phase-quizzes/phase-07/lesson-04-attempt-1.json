@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/04-positional-encoding/docs/en.md",
+  "source_sha256": "07d2e8f497721bec0650eb2ef2d995c71648a1f20c56667bdca9a31d764d1302",
+  "questions": [
+    {
+      "id": "p07-l04-a1-q1",
+      "type": "concept",
+      "text": "Without positional signals or masks, what happens when the input token rows of a self-attention layer are permuted?",
+      "options": {
+        "A": "The output rows stay in their original order regardless of the input.",
+        "B": "The layer reconstructs the original order from query\u2013key similarities.",
+        "C": "The output rows follow the same permutation as the input rows.",
+        "D": "The layer assigns each token a new absolute position automatically."
+      },
+      "correct": "C",
+      "explanation": "Unmasked self-attention without positional information is permutation equivariant: permuting inputs permutes outputs in the same way. It does not encode sequence order by itself."
+    },
+    {
+      "id": "p07-l04-a1-q2",
+      "type": "application",
+      "text": "You hold query and key vectors fixed, apply standard RoPE at positions 3 and 8, then repeat at positions 13 and 18. How do the resulting query\u2013key dot products compare?",
+      "options": {
+        "A": "They match within floating-point error because the relative gap is unchanged.",
+        "B": "The second is twice as large because both positions increased by ten.",
+        "C": "The second becomes zero because the two rotation angles are different.",
+        "D": "They must differ because RoPE uses absolute positions for its rotations."
+      },
+      "correct": "A",
+      "explanation": "For fixed vectors and frequencies, a common position shift cancels in the relative rotation, preserving the dot product."
+    },
+    {
+      "id": "p07-l04-a1-q3",
+      "type": "code",
+      "text": "What does this ALiBi-style bias row contain?\n\n```python\nm = 0.5\ni = 2\nrow = [-m * abs(i - j) for j in range(4)]\n```",
+      "options": {
+        "A": "[0.0, -0.5, -1.0, -1.5]",
+        "B": "[1.0, 0.5, 0.0, 0.5]",
+        "C": "[-1.0, -0.5, 0.0, 0.5]",
+        "D": "[-1.0, -0.5, 0.0, -0.5]"
+      },
+      "correct": "D",
+      "explanation": "Distances from i=2 are [2,1,0,1]; multiplying each by -0.5 gives [-1,-0.5,0,-0.5]."
+    }
+  ]
+}

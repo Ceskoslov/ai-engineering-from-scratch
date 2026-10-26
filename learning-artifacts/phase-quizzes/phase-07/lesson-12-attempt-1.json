@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/12-kv-cache-flash-attention/docs/en.md",
+  "source_sha256": "3a6e3e4bba6a0dccd6e1eed4a8e38d784f47d2b3e45b407e3d745b073a3edcce",
+  "questions": [
+    {
+      "id": "p07-l12-a1-q1",
+      "type": "concept",
+      "text": "How does FlashAttention reduce the memory overhead of standard dense attention?",
+      "options": {
+        "A": "It discards all but the nearest key for each query.",
+        "B": "It tiles computation and uses online softmax to avoid storing the full attention matrix in GPU main memory.",
+        "C": "It removes softmax and replaces attention with an unweighted mean.",
+        "D": "It caches generated text instead of computing query\u2013key dot products."
+      },
+      "correct": "B",
+      "explanation": "FlashAttention uses tiling and online softmax to compute dense attention without materializing the full N-by-N score/probability matrices in GPU main memory. It preserves the attention computation up to numerical differences."
+    },
+    {
+      "id": "p07-l12-a1-q2",
+      "type": "application",
+      "text": "A KV cache has batch size 1, 2 layers, 4 KV heads, head dimension 8, and 10 cached tokens. At 2 bytes per element, how many bytes store the keys and values, excluding allocation overhead?",
+      "options": {
+        "A": "640 bytes",
+        "B": "1,280 bytes",
+        "C": "2,560 bytes",
+        "D": "5,120 bytes"
+      },
+      "correct": "C",
+      "explanation": "K and V require 2 * layers * KV heads * head dimension * tokens * bytes = 2*2*4*8*10*2 = 2560 bytes."
+    },
+    {
+      "id": "p07-l12-a1-q3",
+      "type": "code",
+      "text": "After this code runs, what is len(cache.K[0][1])?\n\n```python\nclass KVCache:\n    def __init__(self, n_layers, n_heads):\n        self.K = [[[] for _ in range(n_heads)] for _ in range(n_layers)]\n        self.V = [[[] for _ in range(n_heads)] for _ in range(n_layers)]\n    def append(self, layer, head, k, v):\n        self.K[layer][head].append(k)\n        self.V[layer][head].append(v)\n\ncache = KVCache(1, 2)\ncache.append(0, 1, [1, 2], [3, 4])\ncache.append(0, 1, [5, 6], [7, 8])\n```",
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "1",
+        "D": "8"
+      },
+      "correct": "A",
+      "explanation": "Each append adds one key vector to that head\u2019s token list. Two appended vectors give a list length of two, regardless of vector width."
+    }
+  ]
+}

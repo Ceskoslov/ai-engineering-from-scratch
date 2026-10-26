@@ -3,21 +3,21 @@
   "updated": "2026-10-26",
   "mode": "comprehensive-phase-quiz",
   "question_language": "English",
-  "phase": "07-transformers-deep-dive",
-  "lesson": "01-why-transformers",
-  "lesson_title": "Why Transformers \u2014 The Problems with RNNs",
+  "phase": "08-generative-ai",
+  "lesson": "01-generative-models-taxonomy-history",
+  "lesson_title": "Generative Models \u2014 Taxonomy & History",
   "phase_question": 1,
   "lesson_question": 1,
   "attempt": 1,
-  "phase_questions": 48,
-  "phase_lessons": 16,
+  "phase_questions": 45,
+  "phase_lessons": 15,
   "initial_score": {
     "correct": 0,
     "answered": 0
   },
   "effective_score": {
     "correct": 0,
-    "denominator": 48
+    "denominator": 45
   },
   "completed_phases": [
     "00",
@@ -26,13 +26,14 @@
     "03",
     "04",
     "05",
-    "06"
+    "06",
+    "07"
   ],
   "status": "ready",
   "pending_question": null,
-  "phase_progress": "phase-07/progress.md",
-  "phase_history": "phase-07/history.md",
-  "phase_review": "phase-07/review.md",
+  "phase_progress": "phase-08/progress.md",
+  "phase_history": "phase-08/history.md",
+  "phase_review": "phase-08/review.md",
   "lesson_cache": null,
   "rules": {
     "questions_per_lesson": 3,

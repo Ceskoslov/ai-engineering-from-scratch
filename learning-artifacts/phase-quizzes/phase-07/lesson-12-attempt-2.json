@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/12-kv-cache-flash-attention/docs/en.md",
+  "source_sha256": "3a6e3e4bba6a0dccd6e1eed4a8e38d784f47d2b3e45b407e3d745b073a3edcce",
+  "questions": [
+    {
+      "id": "p07-l12-a2-q1",
+      "type": "concept",
+      "text": "During causal autoregressive decoding with fixed model weights, what does the KV cache let the model reuse?",
+      "options": {
+        "A": "The final next-token probabilities, unchanged for all subsequent tokens.",
+        "B": "Previously computed key and value vectors for the prefix at each layer.",
+        "C": "The new token\u2019s query vector before the new token is known.",
+        "D": "Future token embeddings before those tokens have been generated."
+      },
+      "correct": "B",
+      "explanation": "Prefix keys and values remain valid under causal attention and can be reused instead of recomputing them for each new token."
+    },
+    {
+      "id": "p07-l12-a2-q2",
+      "type": "application",
+      "text": "At batch size1, a cache stores2 layers,2 KV heads,4 dimensions per head, and5 tokens. Each scalar uses2 bytes. Including both K and V, how much storage is needed, excluding overhead?",
+      "options": {
+        "A": "80 bytes",
+        "B": "160 bytes",
+        "C": "640 bytes",
+        "D": "320 bytes"
+      },
+      "correct": "D",
+      "explanation": "Storage is2(K,V)*2(layers)*2(heads)*4(dimensions)*5(tokens)*2(bytes)=320 bytes."
+    },
+    {
+      "id": "p07-l12-a2-q3",
+      "type": "code",
+      "text": "After these appends, what are len(K) and len(K[0])?\n\n```python\nK = []\nK.append([1, 2, 3])\nK.append([4, 5, 6])\nK.append([7, 8, 9])\n```",
+      "options": {
+        "A": "len(K)=3; len(K[0])=3",
+        "B": "len(K)=9; len(K[0])=1",
+        "C": "len(K)=1; len(K[0])=9",
+        "D": "len(K)=3; len(K[0])=9"
+      },
+      "correct": "A",
+      "explanation": "K contains three vectors, each containing three scalar elements. Appending a vector adds one outer-list entry."
+    }
+  ]
+}

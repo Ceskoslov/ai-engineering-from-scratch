@@ -1,0 +1,45 @@
+{
+  "source": "phases/07-transformers-deep-dive/14-build-a-transformer-capstone/docs/en.md",
+  "source_sha256": "1f8468652dd27eb7b8005038ce04c75fd536e18d887f7a8bc507d2c8fd42ced9",
+  "questions": [
+    {
+      "id": "p07-l14-a1-q1",
+      "type": "concept",
+      "text": "What does tying the token embedding and language-model output-head weights accomplish in the capstone?",
+      "options": {
+        "A": "It forces every token to have the same embedding vector.",
+        "B": "It shares parameters between token lookup and vocabulary-logit projection.",
+        "C": "It removes the need for a vocabulary-sized output distribution.",
+        "D": "It makes the causal attention mask unnecessary during training."
+      },
+      "correct": "B",
+      "explanation": "Weight tying reuses token embedding parameters for the output vocabulary projection rather than learning an independent output matrix."
+    },
+    {
+      "id": "p07-l14-a1-q2",
+      "type": "application",
+      "text": "Training loss keeps decreasing while held-out validation loss starts increasing. What does this pattern most directly suggest?",
+      "options": {
+        "A": "The validation data must have become part of the training batches.",
+        "B": "The causal mask has necessarily been removed from every layer.",
+        "C": "The model is generalizing better because training loss is lower.",
+        "D": "The model may be overfitting the training data."
+      },
+      "correct": "D",
+      "explanation": "Improving training loss alongside worsening held-out loss is evidence of overfitting and should guide stopping or regularization decisions."
+    },
+    {
+      "id": "p07-l14-a1-q3",
+      "type": "code",
+      "text": "Why does this training loop call opt.zero_grad() after opt.step()?\n\n```python\nloss.backward()\ntorch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)\nopt.step()\nopt.zero_grad()\n```",
+      "options": {
+        "A": "To clear accumulated gradients before the next batch\u2019s backward pass.",
+        "B": "To reset all learned model weights to zero after each update.",
+        "C": "To undo gradient clipping before applying the optimizer update.",
+        "D": "To remove the loss computation from the previous forward pass."
+      },
+      "correct": "A",
+      "explanation": "Backward accumulates gradients into parameter gradient buffers. Clearing them prevents unintended accumulation across batches."
+    }
+  ]
+}
