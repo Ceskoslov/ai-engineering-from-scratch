@@ -1,23 +1,23 @@
 {
   "version": 1,
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "mode": "comprehensive-phase-quiz",
   "question_language": "English",
-  "phase": "10-llms-from-scratch",
-  "lesson": "01-tokenizers",
-  "lesson_title": "Tokenizers: BPE, WordPiece, SentencePiece",
+  "phase": "11-llm-engineering",
+  "lesson": "01-prompt-engineering",
+  "lesson_title": "Prompt Engineering: Techniques & Patterns",
   "phase_question": 1,
   "lesson_question": 1,
   "attempt": 1,
-  "phase_questions": 72,
-  "phase_lessons": 24,
+  "phase_questions": 51,
+  "phase_lessons": 17,
   "initial_score": {
     "correct": 0,
     "answered": 0
   },
   "effective_score": {
     "correct": 0,
-    "denominator": 72
+    "denominator": 51
   },
   "completed_phases": [
     "00",
@@ -29,13 +29,14 @@
     "06",
     "07",
     "08",
-    "09"
+    "09",
+    "10"
   ],
   "status": "ready",
   "pending_question": null,
-  "phase_progress": "phase-10/progress.md",
-  "phase_history": "phase-10/history.md",
-  "phase_review": "phase-10/review.md",
+  "phase_progress": "phase-11/progress.md",
+  "phase_history": "phase-11/history.md",
+  "phase_review": "phase-11/review.md",
   "lesson_cache": null,
   "rules": {
     "questions_per_lesson": 3,
