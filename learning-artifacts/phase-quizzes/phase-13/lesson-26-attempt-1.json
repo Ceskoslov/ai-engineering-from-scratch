@@ -1,0 +1,47 @@
+{
+  "lesson": "26-skill-permissions-sandboxes-and-trust",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/26-skill-permissions-sandboxes-and-trust/docs/en.md",
+  "source_sha256": "6acf4d2930900f2c820ee96d445365a21e5bf62fead6006e6fd1638d2339d4f1",
+  "questions": [
+    {
+      "id": "p13-l26-a1-q1",
+      "type": "concept",
+      "text": "Which statement correctly separates approval from sandboxing in this lesson?",
+      "options": {
+        "A": "Approval creates operating-system isolation for the approved command.",
+        "B": "A sandbox proves the requested action is desirable and needs no approval.",
+        "C": "Approval authorizes a consequence; sandboxing restricts what executing code can reach.",
+        "D": "A skill\u2019s allowed-tools field automatically provides both controls."
+      },
+      "correct": "C",
+      "explanation": "Approval is an authority decision; isolation limits reachable resources. Neither replaces the other or independently proves correctness."
+    },
+    {
+      "id": "p13-l26-a1-q2",
+      "type": "application",
+      "text": "A trusted review skill must run tests from an unfamiliar repository. Which design best bounds repository-controlled code?",
+      "options": {
+        "A": "Give it the full parent environment and ask the skill not to read secrets.",
+        "B": "Run it in a scoped disposable executor with restricted egress, no production secrets, and resource limits.",
+        "C": "Approve the test command once and remove filesystem restrictions.",
+        "D": "Rely only on shell=False, since tests cannot launch other code."
+      },
+      "correct": "B",
+      "explanation": "Repository tests can execute arbitrary project code. Isolation, minimal credentials, restricted networking, and bounded resources limit its reach."
+    },
+    {
+      "id": "p13-l26-a1-q3",
+      "type": "code",
+      "text": "review_action first checks request.kind==\"policy-change\" and immediately returns DENY. A policy-change request has approved=True. What happens?",
+      "options": {
+        "A": "It is allowed because prior approval overrides the first check.",
+        "B": "It is executed, then the policy is restored afterward.",
+        "C": "It becomes an approval prompt because policy changes are consequential.",
+        "D": "It is denied at the authority-boundary check despite approved=True."
+      },
+      "correct": "D",
+      "explanation": "The unconditional policy-change branch returns DENY before later approval handling. Approval does not bypass this hard boundary."
+    }
+  ]
+}

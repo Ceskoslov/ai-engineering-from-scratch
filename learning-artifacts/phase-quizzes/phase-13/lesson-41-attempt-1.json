@@ -1,0 +1,47 @@
+{
+  "lesson": "41-recovering-data-and-types",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/41-recovering-data-and-types/docs/en.md",
+  "source_sha256": "f0f18a349d043439fda3162109319c8dc9ad40b2139809ae388d794001775797",
+  "questions": [
+    {
+      "id": "p13-l41-a1-q1",
+      "type": "concept",
+      "text": "An instruction loads an 8-byte field, and a later instruction uses that loaded value as a memory base. What additional evidence does the later instruction provide?",
+      "options": {
+        "A": "The field is used as a pointer, beyond merely having an 8-byte width.",
+        "B": "The field’s original source name must be label.",
+        "C": "The field must be a const char pointer with a known string length.",
+        "D": "The entire containing object must be exactly 8 bytes long."
+      },
+      "correct": "A",
+      "explanation": "The dereference supplies pointer-use evidence. Width alone does not distinguish an integer from a pointer, and names or const qualifiers do not follow from this access."
+    },
+    {
+      "id": "p13-l41-a1-q2",
+      "type": "application",
+      "text": "An optimized loop loads eight 4-byte values at offsets 4, 36, 68, 100, 132, 164, 196, and 228, then advances the base by 256. Which interpretation should the recovery pass check?",
+      "options": {
+        "A": "Eight unrelated fields in one structure whose size is exactly 232 bytes.",
+        "B": "One 256-byte field, because the loop step always equals the field width.",
+        "C": "Eight pointers, because all offsets came from a 64-bit base register.",
+        "D": "One field at offset 4 across eight elements with a 32-byte stride."
+      },
+      "correct": "D",
+      "explanation": "The offsets differ by 32 and the loop advances 8*32 bytes. Folding the unrolled accesses recovers one repeated field rather than eight separate fields."
+    },
+    {
+      "id": "p13-l41-a1-q3",
+      "type": "code",
+      "text": "The layout code uses padding = (-offset) % member_align before placing each member. After a 1-byte char at offset 0, where does a 4-byte int with alignment 4 begin?",
+      "options": {
+        "A": "Offset 1, with no padding.",
+        "B": "Offset 4, after 3 bytes of padding.",
+        "C": "Offset 3, after 2 bytes of padding.",
+        "D": "Offset 8, after 7 bytes of padding."
+      },
+      "correct": "B",
+      "explanation": "After char, offset is 1. (-1) % 4 is 3, so the int starts at aligned offset 4."
+    }
+  ]
+}

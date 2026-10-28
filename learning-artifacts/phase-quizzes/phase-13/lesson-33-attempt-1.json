@@ -1,0 +1,47 @@
+{
+  "lesson": "33-disassembly-and-control-flow",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/docs/en.md",
+  "source_sha256": "b8b7a529b3047ed1e98dbe5fac83a0015a47ad12883fc55973bddcfc3c109c51",
+  "questions": [
+    {
+      "id": "p13-l33-a1-q1",
+      "type": "concept",
+      "text": "Why can a linear-sweep listing agree with llvm-objdump yet still misrepresent the instructions that execute?",
+      "options": {
+        "A": "Both methods follow only direct branches and omit fallthrough paths.",
+        "B": "Both methods require symbol sizes before decoding any instruction.",
+        "C": "Both methods reject data bytes before attempting instruction decoding.",
+        "D": "Both methods can decode embedded data as plausible instructions."
+      },
+      "correct": "D",
+      "explanation": "Agreement checks the decoder against the same sweep strategy. Embedded data can decode successfully and shift instruction boundaries, so execution reachability needs separate analysis."
+    },
+    {
+      "id": "p13-l33-a1-q2",
+      "type": "application",
+      "text": "Recursive descent stops at an unresolved indirect jump in grade at -O0. What evidence should you use to recover its case targets?",
+      "options": {
+        "A": "The table-base relocation, bounds check, and table-entry relocations.",
+        "B": "The symbol names alone, assigning every function as a possible case.",
+        "C": "The zero placeholder bytes alone, assigning every entry to address zero.",
+        "D": "The linear listing order, connecting the jump to the next instruction."
+      },
+      "correct": "A",
+      "explanation": "The base reference locates the table, the bounds check constrains its count, and the entry relocations yield targets while the object still contains placeholders."
+    },
+    {
+      "id": "p13-l33-a1-q3",
+      "type": "code",
+      "text": "In recursive_descent, a branch appends instruction.target to worklist and sets address = instruction.end before continuing. Which path is decoded immediately?",
+      "options": {
+        "A": "The taken branch target, while fallthrough is discarded.",
+        "B": "Neither path, because a branch terminates the whole traversal.",
+        "C": "The fallthrough path, while the target remains queued.",
+        "D": "Both paths in parallel, using one worker for each successor."
+      },
+      "correct": "C",
+      "explanation": "The current inner loop continues from instruction.end. The target stays on the worklist for a later traversal, subject to visited-address checks."
+    }
+  ]
+}

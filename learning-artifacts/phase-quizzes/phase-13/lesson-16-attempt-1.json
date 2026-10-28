@@ -1,0 +1,47 @@
+{
+  "lesson": "16-mcp-security-oauth-2-1",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/docs/en.md",
+  "source_sha256": "74e8633388346ce360cc53b8aca33dcf3be056362c1111c54c367c257a32dde0",
+  "questions": [
+    {
+      "id": "p13-l16-a1-q1",
+      "type": "concept",
+      "text": "Why does this lesson store access tokens under both issuer and resource rather than resource alone?",
+      "options": {
+        "A": "To let all resources share a token whenever the user is the same.",
+        "B": "To replace server-side audience validation with a client cache key.",
+        "C": "To allow an issuer\u2019s refresh token to enroll clients at another issuer.",
+        "D": "To keep tokens tied to the authorization server and intended protected service."
+      },
+      "correct": "D",
+      "explanation": "Issuer and resource identify who issued the token and where it is intended to be used. Their binding prevents cross-issuer or cross-resource token confusion."
+    },
+    {
+      "id": "p13-l16-a1-q2",
+      "type": "application",
+      "text": "The client holds a token for the MCP notes service, which must call a downstream API. How should it authenticate to that downstream API?",
+      "options": {
+        "A": "Forward the notes-service token because the user already consented.",
+        "B": "Obtain a separate token for the downstream audience or use explicit token exchange.",
+        "C": "Put the notes-service token in the downstream URL for routing.",
+        "D": "Change the token\u2019s audience field locally before forwarding it."
+      },
+      "correct": "B",
+      "explanation": "A token intended for the MCP resource must not be passed through to a different audience. Use an appropriately issued downstream credential."
+    },
+    {
+      "id": "p13-l16-a1-q3",
+      "type": "code",
+      "text": "In Client.authorize, the expected issuer is \"https://auth.example.com\", but response[\"iss\"] is \"https://auth.example.com/\". What happens before auth.exchange is called?",
+      "options": {
+        "A": "The client strips the trailing slash and exchanges the code.",
+        "B": "The client stores the token under both issuer spellings.",
+        "C": "The exact comparison fails and raises ValueError.",
+        "D": "The client ignores iss because the response contains a code."
+      },
+      "correct": "C",
+      "explanation": "The code compares the issuer strings exactly and raises on mismatch before exchanging the authorization code."
+    }
+  ]
+}

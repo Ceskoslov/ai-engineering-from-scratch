@@ -4,19 +4,19 @@
   "mode": "comprehensive-phase-quiz",
   "question_language": "English",
   "phase": "13-tools-and-protocols",
-  "lesson": "01-the-tool-interface",
-  "lesson_title": "The Tool Interface \u2014 Why Agents Need Structured I/O",
-  "phase_question": 1,
-  "lesson_question": 1,
-  "attempt": 1,
+  "lesson": "33-disassembly-and-control-flow",
+  "lesson_title": "Disassembly and Control Flow: From Bytes to a Graph You Can Check",
+  "phase_question": 141,
+  "lesson_question": 3,
+  "attempt": 2,
   "phase_questions": 135,
   "phase_lessons": 45,
   "initial_score": {
-    "correct": 0,
-    "answered": 0
+    "correct": 119,
+    "answered": 135
   },
   "effective_score": {
-    "correct": 0,
+    "correct": 121,
     "denominator": 135
   },
   "completed_phases": [
@@ -32,14 +32,15 @@
     "09",
     "10",
     "11",
-    "12"
+    "12",
+    "13"
   ],
-  "status": "ready",
+  "status": "complete",
   "pending_question": null,
   "phase_progress": "phase-13/progress.md",
   "phase_history": "phase-13/history.md",
   "phase_review": "phase-13/review.md",
-  "lesson_cache": null,
+  "lesson_cache": "phase-13/current-lesson.json",
   "rules": {
     "questions_per_lesson": 3,
     "types": [
@@ -54,5 +55,21 @@
     "mark_lessons_done_only_on_phase_pass": true,
     "completion_basis": "quiz-based mastery; implementation lab not performed"
   },
-  "phase01_override": "Historical Phase01 only: authorized targeted missed-item replacements; preserve66 denominator. No effect on future phases."
+  "phase01_override": "Historical Phase01 only: authorized targeted missed-item replacements; preserve66 denominator. No effect on future phases.",
+  "cumulative_score": {
+    "correct": 123,
+    "answered": 141
+  },
+  "retake_queue": [],
+  "retake_score": {
+    "correct": 2,
+    "answered": 3
+  },
+  "assessment_complete": true,
+  "next_activity": {
+    "mode": "ordinary-lesson",
+    "phase": "15-autonomous-systems",
+    "lesson": "01-long-horizon-agents",
+    "pending_question": null
+  }
 }

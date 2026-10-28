@@ -1,0 +1,47 @@
+{
+  "lesson": "34-lifting-to-pseudocode",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/34-lifting-to-pseudocode/docs/en.md",
+  "source_sha256": "47e548c6de9b0f2138486cd0c4b7a81e36a9b73d2b5d68b31d2a87d5ea8d312c",
+  "questions": [
+    {
+      "id": "p13-l34-a1-q1",
+      "type": "concept",
+      "text": "What does a phi function represent at a control-flow join in SSA?",
+      "options": {
+        "A": "A runtime test that executes every incoming path before the join.",
+        "B": "A value selected from incoming definitions according to the predecessor taken.",
+        "C": "A memory load that restores the original source variable name.",
+        "D": "A branch that discards all but the most recently decoded predecessor."
+      },
+      "correct": "B",
+      "explanation": "SSA gives each definition a unique name. A phi merges the definitions reaching a join, selecting the value associated with the actual incoming control-flow edge."
+    },
+    {
+      "id": "p13-l34-a1-q2",
+      "type": "application",
+      "text": "A temporary holds load32(p), then a store to p occurs before its only use in the same block. Should the simplifier replace that use with a fresh load32(p)?",
+      "options": {
+        "A": "Yes, because one use makes any substitution safe.",
+        "B": "Yes, because SSA names guarantee memory never changes.",
+        "C": "No, because loads can never appear inside expressions.",
+        "D": "No, because the intervening store can change the loaded value."
+      },
+      "correct": "D",
+      "explanation": "Moving a load past a store can observe a different value. The lesson blocks load substitution across intervening stores or calls."
+    },
+    {
+      "id": "p13-l34-a1-q3",
+      "type": "code",
+      "text": "collect_params computes count = max(argument-register indexes read at entry, default=-1) + 1, then takes that prefix of [rdi, rsi, rdx, rcx, r8, r9]. If only rsi is read at entry, which parameters does it produce?",
+      "options": {
+        "A": "[rdi, rsi]",
+        "B": "[rsi]",
+        "C": "[rdi]",
+        "D": "[]"
+      },
+      "correct": "A",
+      "explanation": "rsi has index 1, so count is 2 and slicing the register order takes both rdi and rsi."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "lesson": "38-calling-conventions-and-stack-frames",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/38-calling-conventions-and-stack-frames/docs/en.md",
+  "source_sha256": "7de7231f86063ee8f2a9ecbd7bab20ae18a28863d5555437777a0de547983deb",
+  "questions": [
+    {
+      "id": "p13-l38-a1-q1",
+      "type": "concept",
+      "text": "Why should this lesson’s analyzer inspect the object header before interpreting parameter registers?",
+      "options": {
+        "A": "Every x86-64 object uses the same argument registers regardless of platform.",
+        "B": "The format and machine select the ABI that gives register usage its meaning.",
+        "C": "The header contains the complete original C signature of every function.",
+        "D": "The optimization level alone determines all argument and return locations."
+      },
+      "correct": "B",
+      "explanation": "For the fixtures, ELF x86-64 selects System V, COFF AMD64 selects Microsoft x64, and the Arm formats select their respective AAPCS64 variants. The ISA alone does not distinguish platform conventions."
+    },
+    {
+      "id": "p13-l38-a1-q2",
+      "type": "application",
+      "text": "Under Microsoft x64, where do the four arguments of mixed(int i, double d, long long l, float f) arrive?",
+      "options": {
+        "A": "EDI, XMM0, RSI, XMM1, using independent integer and float lists.",
+        "B": "RCX, XMM0, RDX, XMM1, using independent integer and float lists.",
+        "C": "RCX, XMM1, R8, XMM3, using the argument positions as slots.",
+        "D": "X0, D0, X1, S1, using the AAPCS64 integer and float counters."
+      },
+      "correct": "C",
+      "explanation": "Microsoft x64 assigns the first four argument slots by position. Integer and floating-point registers share the positional index, unlike the independent System V lists."
+    },
+    {
+      "id": "p13-l38-a1-q3",
+      "type": "code",
+      "text": "The analyzer computes an rsp-relative operand’s entry offset as displacement - depth. After three 8-byte pushes and sub rsp, 0x20, what entry offset does a load at [rsp + 0x60] have?",
+      "options": {
+        "A": "0x60",
+        "B": "-0x28",
+        "C": "0x98",
+        "D": "0x28"
+      },
+      "correct": "D",
+      "explanation": "The depth is 3*8 + 0x20 = 56 (0x38). Subtracting it from 0x60 gives entry offset 0x28 (40)."
+    }
+  ]
+}

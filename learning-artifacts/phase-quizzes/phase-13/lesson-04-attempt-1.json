@@ -1,0 +1,47 @@
+{
+  "lesson": "04-structured-output",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/04-structured-output/docs/en.md",
+  "source_sha256": "bd468ed5c79526e09282f88722e4603d5f80e9a3087e8de0e151dd94d48f73cc",
+  "questions": [
+    {
+      "id": "p13-l04-a1-q1",
+      "type": "concept",
+      "text": "What distinguishes constrained decoding from validating an output after generation?",
+      "options": {
+        "A": "It checks the completed output and repairs any invalid fields.",
+        "B": "It masks disallowed next tokens while the output is generated.",
+        "C": "It adds instructions asking the model to avoid invalid JSON.",
+        "D": "It retries generation until a completed output passes validation."
+      },
+      "correct": "B",
+      "explanation": "Constrained decoding restricts token selection during generation. Post-generation validation checks output only after it has been produced."
+    },
+    {
+      "id": "p13-l04-a1-q2",
+      "type": "application",
+      "text": "An extraction output is valid JSON, but total_usd is -5 while its schema requires minimum: 0. How should the lesson\u2019s handler classify it?",
+      "options": {
+        "A": "parse_error, because negative numbers are not valid JSON.",
+        "B": "refusal, because the model supplied an unacceptable value.",
+        "C": "violation, because parsed data fails a schema constraint.",
+        "D": "ok, because successful JSON parsing establishes validity."
+      },
+      "correct": "C",
+      "explanation": "The JSON parses successfully, but the negative value fails the minimum constraint, making it a schema violation."
+    },
+    {
+      "id": "p13-l04-a1-q3",
+      "type": "code",
+      "text": "In process_model_output, raw is \"__REFUSAL__ Not an invoice.\" What kind, payload, and errors does it return?",
+      "options": {
+        "A": "kind=\"refusal\", payload=\"Not an invoice.\", errors=[].",
+        "B": "kind=\"parse_error\", payload=None, with a JSON parsing error.",
+        "C": "kind=\"violation\", payload=\"Not an invoice.\", with missing-field errors.",
+        "D": "kind=\"ok\", payload=\"__REFUSAL__ Not an invoice.\", errors=[]."
+      },
+      "correct": "A",
+      "explanation": "The refusal-prefix branch returns before json.loads or schema validation and strips the prefix and surrounding whitespace."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "lesson": "13-mcp-async-tasks",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/13-mcp-async-tasks/docs/en.md",
+  "source_sha256": "6987b0cabf06d9f37c5f42b31a76889ad26b36b3571aeaae6629ceb2cd0f7314",
+  "questions": [
+    {
+      "id": "p13-l13-a1-q1",
+      "type": "concept",
+      "text": "In this lesson, tasks/get returns resultType=\"complete\" with status=\"working\". What does that mean?",
+      "options": {
+        "A": "The polling RPC finished, while the represented job is still running.",
+        "B": "The job finished, but its final result has not been downloaded.",
+        "C": "The response is invalid because complete requires status completed.",
+        "D": "The task has become a persistent protocol session."
+      },
+      "correct": "A",
+      "explanation": "The outer resultType describes completion of the tasks/get RPC; status describes the durable job\u2019s separate lifecycle."
+    },
+    {
+      "id": "p13-l13-a1-q2",
+      "type": "application",
+      "text": "An already-created task pauses with status=\"input_required\" and an approve_outline input request. How does the client submit the answer in this lesson\u2019s task flow?",
+      "options": {
+        "A": "Retry the original tools/call without its taskId.",
+        "B": "Send a server-initiated elicitation request back to the worker.",
+        "C": "Call tasks/result with the approval embedded in headers.",
+        "D": "Call tasks/update with the taskId and keyed inputResponses."
+      },
+      "correct": "D",
+      "explanation": "Input after task creation is submitted through tasks/update for that durable task. Retrying the original tool call is the pre-task core MRTR pattern."
+    },
+    {
+      "id": "p13-l13-a1-q3",
+      "type": "code",
+      "text": "A task has status=\"completed\". The supplied tasks_cancel method changes status only when it is outside TERMINAL_STATUSES={\"completed\",\"cancelled\",\"failed\"}. What happens when it is called for this task with valid ownership and capabilities?",
+      "options": {
+        "A": "It changes the status to cancelled and deletes the completed result.",
+        "B": "It preserves completed and returns an empty complete acknowledgement.",
+        "C": "It raises -32602 because completed tasks cannot be looked up.",
+        "D": "It restarts the worker so cancellation can be applied."
+      },
+      "correct": "B",
+      "explanation": "Completed is terminal, so the mutation block is skipped and tasks_cancel returns complete() without changing the result."
+    }
+  ]
+}

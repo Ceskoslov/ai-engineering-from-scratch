@@ -1,0 +1,47 @@
+{
+  "lesson": "03-parallel-and-streaming-tool-calls",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/03-parallel-and-streaming-tool-calls/docs/en.md",
+  "source_sha256": "b848b9e12e391ea6442042d0108f5c9cc9a5527a5f31a8acabed0083e8da9306",
+  "questions": [
+    {
+      "id": "p13-l03-a1-q1",
+      "type": "concept",
+      "text": "Why should a host keep separate argument buffers for interleaved streamed tool calls and wait for each call\u2019s completion signal before parsing?",
+      "options": {
+        "A": "To sort all calls alphabetically before any executor can run.",
+        "B": "To combine all argument fragments into one shared JSON object.",
+        "C": "To avoid mixing different calls or parsing incomplete JSON.",
+        "D": "To ensure every call finishes execution in its request order."
+      },
+      "correct": "C",
+      "explanation": "Separate buffers preserve call identity, and completion signals prevent attempts to decode incomplete argument JSON."
+    },
+    {
+      "id": "p13-l03-a1-q2",
+      "type": "application",
+      "text": "A create_record call returns the ID needed by update_record. How should the host schedule these two calls?",
+      "options": {
+        "A": "Run both concurrently and match their results by call ID.",
+        "B": "Finish create_record, then supply its ID to update_record.",
+        "C": "Start update_record first so it can wait for any new record.",
+        "D": "Run both concurrently using the tool name as a shared key."
+      },
+      "correct": "B",
+      "explanation": "The second call depends on the first call\u2019s output. Correlation IDs do not remove this data dependency."
+    },
+    {
+      "id": "p13-l03-a1-q3",
+      "type": "code",
+      "text": "A CallBuffer contains args_buf='{\"city\":\"Tokyo\"}' but done=False. What does its try_parse() method return?",
+      "options": {
+        "A": "The dictionary {\"city\": \"Tokyo\"}, because the JSON is complete.",
+        "B": "A JSONDecodeError, because no call_stop event has arrived.",
+        "C": "The unchanged string, because parsing has not been enabled.",
+        "D": "None, because the done check occurs before json.loads."
+      },
+      "correct": "D",
+      "explanation": "try_parse returns None immediately while done is False, even if args_buf happens to contain valid JSON."
+    }
+  ]
+}

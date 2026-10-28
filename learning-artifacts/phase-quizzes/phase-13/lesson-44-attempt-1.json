@@ -1,0 +1,47 @@
+{
+  "lesson": "44-binary-diffing-and-symbolic-execution",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/44-binary-diffing-and-symbolic-execution/docs/en.md",
+  "source_sha256": "43f7d2f24296423d771d3ea04c052277bbce603115b759886207713b619714f6",
+  "questions": [
+    {
+      "id": "p13-l44-a1-q1",
+      "type": "concept",
+      "text": "A bounded solver finds no satisfying input in its declared domain. What conclusion does that support?",
+      "options": {
+        "A": "No satisfying input exists for any possible machine input.",
+        "B": "The function must contain an unreachable return instruction.",
+        "C": "No satisfying input exists within the searched domain under the model.",
+        "D": "The model proves the function is equivalent to every rebuild."
+      },
+      "correct": "C",
+      "explanation": "Bounded search excludes solutions only inside the enumerated domain and under its semantics. Inputs outside the domain remain untested."
+    },
+    {
+      "id": "p13-l44-a1-q2",
+      "type": "application",
+      "text": "Two loaded versions of grade differ only in a RIP-relative displacement because rodata moved. How should the differ investigate before calling this a behavioral change?",
+      "options": {
+        "A": "Mask the relocation field, compare its meaning, and inspect referenced data.",
+        "B": "Ignore every changed byte anywhere in either function.",
+        "C": "Compare only function sizes and declare equal sizes equivalent.",
+        "D": "Assume any raw-byte difference proves a source-code change."
+      },
+      "correct": "A",
+      "explanation": "Relocation-aware comparison explains layout changes; referenced constants must still be checked because equal masked code can load different values."
+    },
+    {
+      "id": "p13-l44-a1-q3",
+      "type": "code",
+      "text": "radare2_ratio uses 1 - distance / max(len_a, len_b) for nonempty inputs. If both lengths are 10 and the Levenshtein distance is 2, what ratio does it return?",
+      "options": {
+        "A": "0.2",
+        "B": "1.0",
+        "C": "0.5",
+        "D": "0.8"
+      },
+      "correct": "D",
+      "explanation": "The longest length is 10, so the ratio is 1 - 2/10 = 0.8. It is a byte similarity measure, not a behavioral equivalence proof."
+    }
+  ]
+}

@@ -4,7 +4,7 @@ Scope: Phases **00–13**. Questions in **English**. Three scored questions per 
 
 ## Resume
 
-Phase12 Multimodal AI passed on 2026-10-28: initial62/75; effective65/75 (86.67%); cumulative67/81. All25 lessons meet2/3 minimum, with quiz-based mastery credit; implementation labs not performed. Phases00–12 Done. Next: Phase13 Tools & Protocols, Lesson01 — The Tool Interface — Why Agents Need Structured I/O, question1/135 not yet presented; no pending answer.
+Phase13 Tools & Protocols passed: initial119/135 (88.15%); effective121/135 (89.63%); cumulative123/141 across135 initial and6 retake responses. All45 lessons done with latest complete scores at least2/3; Lessons15 and33 retakes each2/3. Phase00–13 comprehensive assessment complete. Review notes preserved. Quiz-based mastery; implementation labs not performed in this assessment. Next ordinary lesson: Phase15, Lesson01 — Long-Horizon Agents (Phase14 already Done). No quiz question pending.
 
 Read [active.json](active.json) for the current cursor and pending question; read [README.md](README.md) once for the recording protocol. Detailed archives are loaded only on demand.
 
@@ -25,4 +25,4 @@ Read [active.json](active.json) for the current cursor and pending question; rea
 | 10-llms-from-scratch | 24 | 72 + 6 retake questions | 78 | initial 59/72; effective 63/72 (87.50%); cumulative 65/78; passed | done | [Progress](phase-10/progress.md) · [History](phase-10/history.md) · [Review](phase-10/review.md) |
 | 11-llm-engineering | 17 | 51 + 3 retake questions | 54 | initial 42/51; effective 44/51 (86.27%); cumulative 45/54; passed | done | [Progress](phase-11/progress.md) · [History](phase-11/history.md) · [Review](phase-11/review.md) |
 | 12-multimodal-ai | 25 | 75 + 6 retake questions | 81 | initial62/75; effective65/75 (86.67%); cumulative67/81; passed | done | [Progress](phase-12/progress.md) · [History](phase-12/history.md) · [Review](phase-12/review.md) |
-| 13-tools-and-protocols | 45 | 135 | 0 | pending | todo | [Progress](phase-13/progress.md) · [History](phase-13/history.md) · [Review](phase-13/review.md) |
+| 13-tools-and-protocols | 45 | 135 + 6 retake questions | 141 | initial 119/135 (88.15%); effective 121/135 (89.63%); cumulative 123/141; all lesson minima met; passed | done | [Progress](phase-13/progress.md) · [History](phase-13/history.md) · [Review](phase-13/review.md) |

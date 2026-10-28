@@ -1,0 +1,47 @@
+{
+  "lesson": "33-disassembly-and-control-flow",
+  "attempt": 2,
+  "source": "phases/13-tools-and-protocols/33-disassembly-and-control-flow/docs/en.md",
+  "source_sha256": "b8b7a529b3047ed1e98dbe5fac83a0015a47ad12883fc55973bddcfc3c109c51",
+  "questions": [
+    {
+      "id": "p13-l33-a2-q1",
+      "type": "concept",
+      "text": "In a control-flow graph, what does it mean for block d to dominate block b?",
+      "options": {
+        "A": "Every path from the function entry to b passes through d.",
+        "B": "Block d has a numerically lower address than block b.",
+        "C": "Block d has more outgoing edges than block b.",
+        "D": "At least one path from the entry to d passes through b."
+      },
+      "correct": "A",
+      "explanation": "Dominance is an all-paths property from the entry. Address order and edge count do not establish it."
+    },
+    {
+      "id": "p13-l33-a2-q2",
+      "type": "application",
+      "text": "An unconditional jump skips four table bytes, but linear sweep decodes those bytes and starts an instruction one byte before the jump target. What should you do?",
+      "options": {
+        "A": "Accept the sweep because every byte produced a valid mnemonic.",
+        "B": "Remove the jump target because it conflicts with the sweep listing.",
+        "C": "Follow the jump from the known entry and decode at its actual target.",
+        "D": "Mark the function unreachable because it contains an embedded table."
+      },
+      "correct": "C",
+      "explanation": "A sweep can absorb data bytes into plausible instructions. Recursive descent follows the control-flow target and avoids the skipped data on this path."
+    },
+    {
+      "id": "p13-l33-a2-q3",
+      "type": "code",
+      "text": "For a conditional branch, recursive_descent appends target to worklist, then sets address = instruction.end. With target=0x80, instruction.end=0x24, and an initially empty worklist, what is the resulting state?",
+      "options": {
+        "A": "address=0x80; worklist=[0x24]",
+        "B": "address=0x24; worklist=[0x80]",
+        "C": "address=0x80; worklist=[]",
+        "D": "address=0x24; worklist=[]"
+      },
+      "correct": "B",
+      "explanation": "append queues 0x80 for later. Assigning instruction.end makes the current traversal continue at fallthrough 0x24."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "lesson": "28-mcp-tool-contracts-and-content",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/28-mcp-tool-contracts-and-content/docs/en.md",
+  "source_sha256": "713a0c2c7a28774c61b59756221528c57dbae1361521967d95ac7647a98f7864",
+  "questions": [
+    {
+      "id": "p13-l28-a1-q1",
+      "type": "concept",
+      "text": "A tool publishes an outputSchema of type array. What should the client validate when consuming its complete result?",
+      "options": {
+        "A": "Only that the text summary sounds consistent with an array.",
+        "B": "The structuredContent against that schema, including when isError is true.",
+        "C": "Only object-valued results, because arrays must first be wrapped in a dict.",
+        "D": "Only successful results, because isError waives the output contract."
+      },
+      "correct": "B",
+      "explanation": "The published output schema commits every complete result to conforming structuredContent, including error outcomes. Structured content can be any JSON value."
+    },
+    {
+      "id": "p13-l28-a1-q2",
+      "type": "application",
+      "text": "A descriptor proposes mirroring an api_key argument into an HTTP parameter header. What does this lesson\u2019s admission policy require?",
+      "options": {
+        "A": "Accept it if the header uses Base64 encoding.",
+        "B": "Accept it if the tool claims readOnlyHint=true.",
+        "C": "Accept it but log the key so routing can be audited.",
+        "D": "Reject the descriptor because sensitive parameters must not be mirrored."
+      },
+      "correct": "D",
+      "explanation": "Encoding is not secrecy. The lesson rejects sensitive routing fields during admission to keep credentials out of intermediary-visible metadata."
+    },
+    {
+      "id": "p13-l28-a1-q3",
+      "type": "code",
+      "text": "A pagination loop stops only when result.get(\"nextCursor\") is None; otherwise it assigns cursor=result[\"nextCursor\"]. The current page has nextCursor=\"\". What happens?",
+      "options": {
+        "A": "The loop continues and sends the empty string unchanged as the next cursor.",
+        "B": "The loop stops because an empty string is falsey.",
+        "C": "The client increments the empty string into page number 1.",
+        "D": "The client decodes the cursor and chooses a page size."
+      },
+      "correct": "A",
+      "explanation": "The empty string is not None, so this explicit null check follows the opaque cursor unchanged instead of stopping on truthiness."
+    }
+  ]
+}

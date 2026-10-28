@@ -1,0 +1,47 @@
+{
+  "lesson": "06-mcp-fundamentals",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/06-mcp-fundamentals/docs/en.md",
+  "source_sha256": "9724abed6bec27050404bf895aa78579fb8b4d7ae70bb99a6a2edccf46eca7d6",
+  "questions": [
+    {
+      "id": "p13-l06-a1-q1",
+      "type": "concept",
+      "text": "In this lesson\u2019s stateless request model, why must each request carry its own protocol version and client capabilities?",
+      "options": {
+        "A": "So the server can interpret the request without inheriting another request\u2019s context.",
+        "B": "So the client can use its capability declaration as proof of authorization.",
+        "C": "So the server can create a persistent protocol session for each request ID.",
+        "D": "So later requests can omit metadata after the first successful operation."
+      },
+      "correct": "A",
+      "explanation": "Per-request metadata makes each request independently interpretable and prevents context from leaking between clients or requests."
+    },
+    {
+      "id": "p13-l06-a1-q2",
+      "type": "application",
+      "text": "In this lesson\u2019s model, a clientInfo object claims name=\"trusted-admin\". How should the server treat that name when authorizing a sensitive operation?",
+      "options": {
+        "A": "Grant admin access because clientInfo is carried in request metadata.",
+        "B": "Reuse permissions from the last request with the same displayed name.",
+        "C": "Treat it as display/debugging data and verify authorization separately.",
+        "D": "Accept the name as a credential if its version field is also a string."
+      },
+      "correct": "C",
+      "explanation": "Client identity metadata is self-reported display/debugging data. It is not a security credential."
+    },
+    {
+      "id": "p13-l06-a1-q3",
+      "type": "code",
+      "text": "In the supplied dispatcher, a valid tools/list request is followed by another supported-version request with clientCapabilities removed from params._meta. What does the second dispatch return?",
+      "options": {
+        "A": "A successful list using capabilities remembered from the first request.",
+        "B": "A JSON-RPC error with code -32602 for the missing capability object.",
+        "C": "A JSON-RPC error with code -32022 for an unsupported version.",
+        "D": "No response, because missing capabilities makes it a notification."
+      },
+      "correct": "B",
+      "explanation": "validate_request requires clientCapabilities to be a dict on each request and returns -32602 when it is absent. The dispatcher does not reuse previous metadata."
+    }
+  ]
+}

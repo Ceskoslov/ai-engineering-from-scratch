@@ -1,0 +1,47 @@
+{
+  "lesson": "19-a2a-protocol",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/19-a2a-protocol/docs/en.md",
+  "source_sha256": "6ffa81e756cabc661d58601f42a44a276d7c920c397e854a395d3187b97d9c9f",
+  "questions": [
+    {
+      "id": "p13-l19-a1-q1",
+      "type": "concept",
+      "text": "Which scenario best fits A2A\u2019s delegation model as taught in this lesson?",
+      "options": {
+        "A": "Calling a specific arithmetic function with two numeric arguments.",
+        "B": "Reading a known document from a resource URI.",
+        "C": "Delegating report writing to another agent while observing task state and artifacts.",
+        "D": "Sharing both agents\u2019 internal reasoning and tool traces as a required protocol step."
+      },
+      "correct": "C",
+      "explanation": "A2A supports task delegation between agents whose internal implementations remain opaque, with task lifecycle and artifacts as the visible contract."
+    },
+    {
+      "id": "p13-l19-a1-q2",
+      "type": "application",
+      "text": "The writer task pauses with TASK_STATE_INPUT_REQUIRED to ask for targetLength. How does the lesson\u2019s caller resume that same task?",
+      "options": {
+        "A": "Send a new message carrying the existing taskId and a data part with targetLength.",
+        "B": "Create a new task without taskId and assume the writer merges it automatically.",
+        "C": "Change the Agent Card\u2019s defaultOutputModes to the desired length.",
+        "D": "Mark the task completed locally and read its empty artifact list."
+      },
+      "correct": "A",
+      "explanation": "The follow-up supplies the missing value in a data part and carries the existing taskId, allowing the writer to retrieve and continue that task."
+    },
+    {
+      "id": "p13-l19-a1-q3",
+      "type": "code",
+      "text": "What does part_content({\"text\":\"hello\", \"data\":{\"targetLength\":\"short\"}}) do in the supplied harness?",
+      "options": {
+        "A": "It returns text because text is first in PART_CONTENT_FIELDS.",
+        "B": "It returns data because structured input takes precedence.",
+        "C": "It merges both values into one valid message part.",
+        "D": "It raises ValueError because two content fields are present."
+      },
+      "correct": "D",
+      "explanation": "part_content collects every present content field and requires exactly one; two fields trigger ValueError."
+    }
+  ]
+}

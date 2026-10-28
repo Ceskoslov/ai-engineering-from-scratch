@@ -1,0 +1,47 @@
+{
+  "lesson": "35-evidence-confidence-and-unknowns",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/35-evidence-confidence-and-unknowns/docs/en.md",
+  "source_sha256": "16f3f007c9eb483fb9a3029b550acf1e36b9b6426572624038bfc79396cb9fe3",
+  "questions": [
+    {
+      "id": "p13-l35-a1-q1",
+      "type": "concept",
+      "text": "A record containing Ghidra pseudocode has confidence observed. What does that observation establish?",
+      "options": {
+        "A": "The function executed and produced every result suggested by the text.",
+        "B": "The recovered signature exactly matches the original source signature.",
+        "C": "The provider emitted that text; its behavioral meaning still needs analysis.",
+        "D": "The function has no unresolved behavior because the record is observed."
+      },
+      "correct": "C",
+      "explanation": "The observation is of the provider output. Interpreting its meaning is a derivation, and predicting execution is an inference until supported by appropriate runs."
+    },
+    {
+      "id": "p13-l35-a1-q2",
+      "type": "application",
+      "text": "A claim covers grade(score) for all eleven scores from 90 through 100. Agreeing observed runs exist only for 95 and 100. How should the lesson’s ledger classify the claim?",
+      "options": {
+        "A": "pass, because both tested inputs agree with the prediction.",
+        "B": "unknown, because nine claimed inputs have no observed run.",
+        "C": "fail, because every untested input counts as a disagreement.",
+        "D": "unsupported, because no input has an observed run."
+      },
+      "correct": "B",
+      "explanation": "Partial coverage with no disagreement is unknown: 2 of 11 inputs are covered. No observations would be unsupported; any disagreement would be fail."
+    },
+    {
+      "id": "p13-l35-a1-q3",
+      "type": "code",
+      "text": "c_div computes quotient = abs(a) // abs(b), then returns quotient for matching signs and -quotient otherwise. What is c_div(1000, -7)?",
+      "options": {
+        "A": "-143",
+        "B": "143",
+        "C": "142",
+        "D": "-142"
+      },
+      "correct": "D",
+      "explanation": "The absolute quotient is 142. Opposite signs negate it to -142, implementing truncation toward zero rather than Python’s floor division."
+    }
+  ]
+}

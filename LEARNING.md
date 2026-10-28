@@ -29,7 +29,7 @@ Build goal: As many as possible, everything
 | 10 | LLMs from Scratch | Done | -- |
 | 11 | LLM Engineering | Done | -- |
 | 12 | Multimodal AI | Done | -- |
-| 13 | Tools & Protocols | Review | -- |
+| 13 | Tools & Protocols | Done | -- |
 | 14 | Agent Engineering | Done | 55 |
 | 15 | Autonomous Systems | Do | 20 |
 | 16 | Multi-Agent & Swarms | Do | 28 |
@@ -42,14 +42,14 @@ Original forward-study estimate: 786 hours across Phases 14–19. Phase 00–13 
 ## Skipped-phase mastery assessment
 
 - Requested: 2026-10-23. Scope: Phases 00–13 inclusive (14 phases, 297 lessons).
-- Active mode: comprehensive phase quizzes with questions and answer options in English, starting with Phase 00. Resume this assessment before choosing the next ordinary lesson unless the learner requests otherwise.
+- Assessment complete on 2026-10-28: comprehensive English phase quizzes for Phases00–13. Resume ordinary study at Phase15 Lesson01; Phase14 was already completed.
 - Phase01 override (learner instruction): after the existing completed sets, ask scored questions on remaining missed items only; no further unscored review or whole-lesson retake sets for this phase. A correct targeted replacement changes its corresponding missed item to correct once; preserve earlier evidence and the66-item denominator. Other phases retain the default procedure.
 - Each lesson has three scored questions: concept, application, and code tracing/debugging. Ground each question in that lesson's docs; read the full lesson before asking its questions. Ask one question at a time and reveal its answer only after the learner responds.
 - Pass a phase with at least 85% overall and at least 2/3 for every lesson. Remediate weaker lessons with fresh three-question sets; preserve initial results and record retake results separately. Re-evaluate both conditions using the latest complete set per lesson.
 - Before passing a phase, all its lessons remain todo in the assessment ledger, even if an individual lesson's questions are finished. Never mark an unanswered or unpassed phase Done.
 - On phase pass: mark its Path status Done and every lesson done; append one normal dated Progress log row per lesson in its phase progress.md (linked from this Progress log), with its score and a note identifying quiz-based mastery credit (not a completed implementation lab). Record phase totals, attempts, and any residual review topics. Keep all existing progress and review notes.
 - Minimal quiz resume: read [active.json](learning-artifacts/phase-quizzes/active.json) and follow the [recording protocol](learning-artifacts/phase-quizzes/README.md). Phase checklists, dated lesson logs, attempts, and review notes are linked from the [phase index](learning-artifacts/phase-quizzes/progress.md).
-- Current checkpoint: Phase12 Multimodal AI passed on 2026-10-28: initial62/75; effective65/75 (86.67%); cumulative67/81. All25 lessons meet2/3 minimum, with quiz-based mastery credit; implementation labs not performed. Phases00–12 Done. Next: Phase13 Tools & Protocols, Lesson01 — The Tool Interface — Why Agents Need Structured I/O, question1/135 not yet presented; no pending answer.
+- Current checkpoint: Phase13 Tools & Protocols passed: initial119/135 (88.15%); effective121/135 (89.63%); cumulative123/141 across135 initial and6 retake responses. All45 lessons done with latest complete scores at least2/3; Lessons15 and33 retakes each2/3. Phase00–13 comprehensive assessment complete. Review notes preserved. Quiz-based mastery; implementation labs not performed in this assessment. Next ordinary lesson: Phase15, Lesson01 — Long-Horizon Agents (Phase14 already Done). No quiz question pending.
 
 ## Progress log
 
@@ -75,6 +75,8 @@ Mastery-assessment lesson records are organized by phase (original rows preserve
 - [Phase 11 progress log](learning-artifacts/phase-quizzes/phase-11/progress.md) — 17 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-11/review.md).
 
 - [Phase 12 progress log](learning-artifacts/phase-quizzes/phase-12/progress.md) — 25 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-12/review.md).
+
+- [Phase 13 progress log](learning-artifacts/phase-quizzes/phase-13/progress.md) — 45 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-13/review.md).
 
 Ordinary lesson records follow.
 
@@ -192,4 +194,4 @@ Phase00–13 assessment notes are stored in each phase’s review.md, linked abo
 
 ## Resume checkpoint
 
-Phase12 Multimodal AI passed on 2026-10-28: initial62/75; effective65/75 (86.67%); cumulative67/81. All25 lessons meet2/3 minimum, with quiz-based mastery credit; implementation labs not performed. Phases00–12 Done. Next: Phase13 Tools & Protocols, Lesson01 — The Tool Interface — Why Agents Need Structured I/O, question1/135 not yet presented; no pending answer.
+Phase13 Tools & Protocols passed: initial119/135 (88.15%); effective121/135 (89.63%); cumulative123/141 across135 initial and6 retake responses. All45 lessons done with latest complete scores at least2/3; Lessons15 and33 retakes each2/3. Phase00–13 comprehensive assessment complete. Review notes preserved. Quiz-based mastery; implementation labs not performed in this assessment. Next ordinary lesson: Phase15, Lesson01 — Long-Horizon Agents (Phase14 already Done). No quiz question pending.

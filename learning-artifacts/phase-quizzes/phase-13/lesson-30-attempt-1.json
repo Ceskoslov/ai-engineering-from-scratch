@@ -1,0 +1,47 @@
+{
+  "lesson": "30-mcp-registry-supply-chain-and-drift",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/30-mcp-registry-supply-chain-and-drift/docs/en.md",
+  "source_sha256": "734698d661d450db141c54509144cf914443f3b335e4b18a14d175bad520d60b",
+  "questions": [
+    {
+      "id": "p13-l30-a1-q1",
+      "type": "concept",
+      "text": "Why does Registry publication not by itself approve a server for production use?",
+      "options": {
+        "A": "Registry records cannot name versions or execution sources.",
+        "B": "A live server\u2019s display name is the only valid deployment authority.",
+        "C": "Publication proves that the live toolset can never change.",
+        "D": "Publication and local admission answer different questions; exact source and runtime evidence still need policy approval."
+      },
+      "correct": "D",
+      "explanation": "Registry publication concerns declared metadata and naming authority. Local admission joins exact artifact/provenance and live descriptor evidence with deployment policy."
+    },
+    {
+      "id": "p13-l30-a1-q2",
+      "type": "application",
+      "text": "An admitted version adds an unexpected destructive tool without changing its publication record. What does the lesson\u2019s controller do?",
+      "options": {
+        "A": "Accept it because the Registry version and package identity are unchanged.",
+        "B": "Update the descriptor pin automatically to preserve availability.",
+        "C": "Quarantine and deactivate the pin, retaining evidence and blocking it as a rollback target.",
+        "D": "Erase the admission history because the original observation is obsolete."
+      },
+      "correct": "C",
+      "explanation": "The changed live toolset is runtime drift. The controller quarantines the pin, removes its active route, and preserves history rather than silently approving it."
+    },
+    {
+      "id": "p13-l30-a1-q3",
+      "type": "code",
+      "text": "namespace_matches splits server_name at the first slash and requires a non-empty slug plus exact equality with verified_namespace. What does namespace_matches(\"com.exampleevil/inventory\", \"com.example\") return?",
+      "options": {
+        "A": "True, because the server name starts with com.example.",
+        "B": "False, because com.exampleevil does not exactly equal com.example.",
+        "C": "True, because inventory is a non-empty slug.",
+        "D": "It raises ValueError because the namespace has more than two components."
+      },
+      "correct": "B",
+      "explanation": "The namespace prefix is compared for exact equality, preventing lookalike string-prefix acceptance."
+    }
+  ]
+}

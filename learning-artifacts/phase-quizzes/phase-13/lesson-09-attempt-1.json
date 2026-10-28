@@ -1,0 +1,47 @@
+{
+  "lesson": "09-mcp-transports",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/09-mcp-transports/docs/en.md",
+  "source_sha256": "8b35336a155283e509f16008a3acd65caedd87c443bde2c86c7836d615f6bb4e",
+  "questions": [
+    {
+      "id": "p13-l09-a1-q1",
+      "type": "concept",
+      "text": "Why does the lesson\u2019s HTTP server compare mirrored method and name headers with the JSON-RPC body before executing a request?",
+      "options": {
+        "A": "To let routing headers override any conflicting body fields.",
+        "B": "To ensure routing or policy checks and execution refer to the same operation.",
+        "C": "To authenticate the client using its chosen tool name.",
+        "D": "To recover missing arguments from an earlier connection."
+      },
+      "correct": "B",
+      "explanation": "Header-body equality prevents a gateway from checking one operation while the server executes another."
+    },
+    {
+      "id": "p13-l09-a1-q2",
+      "type": "application",
+      "text": "A draft created on replica 1 must remain available when the next request reaches replica 2. Which design fits the lesson\u2019s stateless transport model?",
+      "options": {
+        "A": "Keep the draft only in replica 1 and depend on sticky routing.",
+        "B": "Use the next JSON-RPC request ID as the draft\u2019s persistent identity.",
+        "C": "Store the draft only in the current HTTP response stream.",
+        "D": "Return an explicit draft handle backed by shared storage and authorize each use."
+      },
+      "correct": "D",
+      "explanation": "Durable application state needs explicit identity and shared persistence so any replica can load it; each use must still be authorized."
+    },
+    {
+      "id": "p13-l09-a1-q3",
+      "type": "code",
+      "text": "In do_POST, the body\u2019s version is unsupported and differs from MCP-Protocol-Version. Other structure and headers are valid. Which check fails first?",
+      "options": {
+        "A": "validate_http_headers raises -32020 before supported-version validation.",
+        "B": "validate_supported_version raises -32022 before header comparison.",
+        "C": "dispatch returns -32601 because the method is never inspected.",
+        "D": "The server accepts the header version and overwrites the body version."
+      },
+      "correct": "A",
+      "explanation": "do_POST validates structure, compares headers, then checks whether the matched version is supported. A version mismatch therefore raises -32020 first."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "lesson": "42-dynamic-analysis-of-your-own-program",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/42-dynamic-analysis-of-your-own-program/docs/en.md",
+  "source_sha256": "d769b2a28273558b3d1116c4f0ff0acb4017f0563a7cf80aa2a2c1c09f47298e",
+  "questions": [
+    {
+      "id": "p13-l42-a1-q1",
+      "type": "concept",
+      "text": "A debugger breakpoint resolves to an address but has zero hits. What does resolution alone establish?",
+      "options": {
+        "A": "The function executed successfully for the current input.",
+        "B": "The function is unreachable for every possible input.",
+        "C": "The breakpoint has a location; execution at that location has not been observed.",
+        "D": "The compiler removed every instruction from the function."
+      },
+      "correct": "C",
+      "explanation": "Resolution associates a breakpoint with code. It does not prove a hit, a completed run, or global unreachability; hit counts and run context are separate evidence."
+    },
+    {
+      "id": "p13-l42-a1-q2",
+      "type": "application",
+      "text": "A stack-style core preserves a label pointer, but the pointed-to string lives in an executable segment omitted from the core. How should you report the string?",
+      "options": {
+        "A": "Unavailable in this capture; the displayed empty string does not establish its value.",
+        "B": "Confirmed empty, because the debugger displayed quotation marks with no text.",
+        "C": "Corrupted, because a valid pointer must refer to bytes inside the stack core.",
+        "D": "Confirmed unchanged, because pointer equality proves all pointed-to bytes."
+      },
+      "correct": "A",
+      "explanation": "The pointer is captured but the pointee bytes are absent. Core coverage limits what can be observed, so the display cannot establish an empty or unchanged string."
+    },
+    {
+      "id": "p13-l42-a1-q3",
+      "type": "code",
+      "text": "rollup checks refuted count first, then confirmed count, otherwise not-observed. A claim has four confirmed records and one refuted record. Which verdict does it receive?",
+      "options": {
+        "A": "confirmed, because four records outvote one.",
+        "B": "not-observed, because the records disagree.",
+        "C": "An exception, because mixed verdicts are forbidden.",
+        "D": "refuted, because any refutation takes precedence."
+      },
+      "correct": "D",
+      "explanation": "The first branch tests whether the refuted count is nonzero, so one refutation determines the verdict regardless of the confirmed count."
+    }
+  ]
+}

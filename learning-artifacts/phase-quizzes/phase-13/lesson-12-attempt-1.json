@@ -1,0 +1,47 @@
+{
+  "lesson": "12-mcp-roots-and-elicitation",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/docs/en.md",
+  "source_sha256": "5b061e2bec0962f9a1bcf881f7886fbe16426236f428311f30199f398c1af6bd",
+  "questions": [
+    {
+      "id": "p13-l12-a1-q1",
+      "type": "concept",
+      "text": "A client supplies workspaceUri for a file operation. What does that argument establish by itself?",
+      "options": {
+        "A": "The caller is authorized to access every path under that URI.",
+        "B": "The operating system prevents the server from leaving that workspace.",
+        "C": "The server can skip path normalization because the scope is explicit.",
+        "D": "The requested scope is visible, but authorization and containment still need enforcement."
+      },
+      "correct": "D",
+      "explanation": "Explicit scope identifies what the caller wants to target. It is not permission or a sandbox; the server must authorize the workspace and enforce containment."
+    },
+    {
+      "id": "p13-l12-a1-q2",
+      "type": "application",
+      "text": "Two server instances may receive the same valid signed deletion confirmation before it expires. What prevents both from executing it?",
+      "options": {
+        "A": "Use a shared replay store to atomically consume a nonce with the mutation.",
+        "B": "Issue a different JSON-RPC ID for each retry and trust the HMAC.",
+        "C": "Encode the candidate list with Base64 instead of JSON.",
+        "D": "Keep a separate consumed-nonce set in each server instance."
+      },
+      "correct": "A",
+      "explanation": "A signature does not stop replay of an unchanged token. Shared atomic nonce consumption coupled to the mutation prevents both instances from accepting the same confirmation."
+    },
+    {
+      "id": "p13-l12-a1-q3",
+      "type": "code",
+      "text": "In NotesServer.tools_call, a valid confirmation state receives action=\"cancel\". What happens to the note and the replay nonce?",
+      "options": {
+        "A": "The note is deleted and the nonce is consumed.",
+        "B": "The note is preserved but the nonce is consumed as a terminal refusal.",
+        "C": "The note is preserved and the nonce remains unconsumed until expiry.",
+        "D": "The server raises -32602 because cancel is not a valid action."
+      },
+      "correct": "C",
+      "explanation": "The cancel branch returns deleted=False before calling the replay store. Decline consumes the nonce without deletion; cancel does not."
+    }
+  ]
+}

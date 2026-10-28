@@ -1,0 +1,47 @@
+{
+  "lesson": "23-capstone-tool-ecosystem",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/23-capstone-tool-ecosystem/docs/en.md",
+  "source_sha256": "8502c8512390067ef4d8bad0dcafcf1cfe9f3a40d6f24e71b9d54939f13ab4c4",
+  "questions": [
+    {
+      "id": "p13-l23-a1-q1",
+      "type": "concept",
+      "text": "What does a successful local run of this capstone\u2019s in-process simulation establish?",
+      "options": {
+        "A": "Its OAuth exchange and remote A2A service are interoperable.",
+        "B": "Its local control flow works; real transport, authorization, rendering, and export need separate evidence.",
+        "C": "Its App was rendered in a sandbox with enforced network restrictions.",
+        "D": "Its span dictionaries were received and validated by a telemetry collector."
+      },
+      "correct": "B",
+      "explanation": "The harness uses local functions and fixtures. A green run verifies that simulation, not integration boundaries it does not implement."
+    },
+    {
+      "id": "p13-l23-a1-q2",
+      "type": "application",
+      "text": "You replace the capstone\u2019s in-memory span list with a real telemetry exporter. Which evidence best verifies the new integration boundary?",
+      "options": {
+        "A": "The model states that export succeeded in its final answer.",
+        "B": "The local list contains a common trace ID for every span.",
+        "C": "The exporter configuration file names the intended collector.",
+        "D": "The test collector receives the spans and assertions confirm trace IDs, parentage, and error status."
+      },
+      "correct": "D",
+      "explanation": "Receiver-side evidence verifies that export crossed the real boundary and preserved the required trace structure."
+    },
+    {
+      "id": "p13-l23-a1-q3",
+      "type": "code",
+      "text": "With valid Tasks-capable metadata, gateway_call uses tok_bob to invoke generate_report. Bob has only research:read and the tool requires research:write. What happens?",
+      "options": {
+        "A": "It records a 403 audit decision and returns insufficient_scope before report execution.",
+        "B": "It creates the report task because valid metadata grants write authority.",
+        "C": "It silently routes to arxiv_search because Bob can read.",
+        "D": "It executes the report and removes its UI resource from the result."
+      },
+      "correct": "A",
+      "explanation": "The static scope check runs before tool lookup, span creation, and execution. Missing research:write yields an audited insufficient_scope result."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "lesson": "43-bytecode-and-managed-formats",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/43-bytecode-and-managed-formats/docs/en.md",
+  "source_sha256": "243b7ceaa5937a57f2394c2d782665f269fea71ee77136a8d502eef38618b999",
+  "questions": [
+    {
+      "id": "p13-l43-a1-q1",
+      "type": "concept",
+      "text": "Why can a decompiler recover a stored parameter name while inventing a local name from the same .NET assembly?",
+      "options": {
+        "A": "Every name is stored directly in the CIL instruction bytes.",
+        "B": "Param metadata can retain parameter names, while local names may require an absent PDB.",
+        "C": "The runtime renames every local variable to match its parameter.",
+        "D": "A decompiler can always reconstruct all original names from their types."
+      },
+      "correct": "B",
+      "explanation": "The Param table carries parameter names. Local signatures carry local types, while original local names require debug information such as a PDB."
+    },
+    {
+      "id": "p13-l43-a1-q2",
+      "type": "application",
+      "text": "A Python decompiler reports Unsupported opcode on a pyc you compiled yourself. What should you check before concluding the file is obfuscated?",
+      "options": {
+        "A": "Whether renaming the file changes its bytecode instructions.",
+        "B": "Whether the source filename is an absolute filesystem path.",
+        "C": "Whether the file contains more constants than local variables.",
+        "D": "The pyc magic word and the decompiler’s supported bytecode versions."
+      },
+      "correct": "D",
+      "explanation": "The header identifies the producer version. An older opcode table can reject valid newer bytecode, so a version mismatch must be checked first."
+    },
+    {
+      "id": "p13-l43-a1-q3",
+      "type": "code",
+      "text": "The JVM reader computes a branch target as start + signed_displacement, where start is the branch opcode’s address. For start=30 and displacement=-20, what target does it produce?",
+      "options": {
+        "A": "10",
+        "B": "13",
+        "C": "50",
+        "D": "-20"
+      },
+      "correct": "A",
+      "explanation": "JVM branch offsets are relative to the opcode address: 30 + (-20) = 10, without adding the instruction length."
+    }
+  ]
+}

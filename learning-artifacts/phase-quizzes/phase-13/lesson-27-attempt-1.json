@@ -1,0 +1,47 @@
+{
+  "lesson": "27-skill-evals-packaging-and-portability",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability/docs/en.md",
+  "source_sha256": "2a3dc19f7c6348bb63d9cf326bcc93e26e833a89fec35d1b49e5a55a427dfb74",
+  "questions": [
+    {
+      "id": "p13-l27-a1-q1",
+      "type": "concept",
+      "text": "Why does this lesson keep fixturePassed separate from productionReady?",
+      "options": {
+        "A": "A fixture pass proves all hosts will discover and execute the skill correctly.",
+        "B": "Production readiness depends only on whether the package has a version number.",
+        "C": "Locally recomputed hashes authenticate the evaluator\u2019s capture claims automatically.",
+        "D": "Fixture success proves gate mechanics, while production claims need captured evidence and an external trust anchor."
+      },
+      "correct": "D",
+      "explanation": "Deterministic fixtures test the gate. Local integrity can be recomputed by the package editor, so production readiness additionally requires externally trusted evidence attestation."
+    },
+    {
+      "id": "p13-l27-a1-q2",
+      "type": "application",
+      "text": "You compare task quality with and without a skill. Which experiment best attributes a difference to the skill?",
+      "options": {
+        "A": "Use a stronger model only for the skill condition.",
+        "B": "Hold model, tools, fixtures, sampling policy, and budgets constant across repeated paired runs.",
+        "C": "Give the skill condition extra tool access and compare only token counts.",
+        "D": "Compare one curated skill demo against unrelated historical tasks."
+      },
+      "correct": "B",
+      "explanation": "Paired runs with controlled conditions isolate the skill\u2019s contribution. Repetition exposes variability and per-task regressions."
+    },
+    {
+      "id": "p13-l27-a1-q3",
+      "type": "code",
+      "text": "classification_metrics receives expected=[True, True, False, False] and predicted=[True, False, True, False]. What precision and recall does it return?",
+      "options": {
+        "A": "precision=1.0 and recall=1.0.",
+        "B": "precision=0.5 and recall=1.0.",
+        "C": "precision=0.5 and recall=0.5.",
+        "D": "precision=1.0 and recall=0.5."
+      },
+      "correct": "C",
+      "explanation": "There is one true positive, one false positive, and one false negative. Precision=1/(1+1)=0.5 and recall=1/(1+1)=0.5."
+    }
+  ]
+}

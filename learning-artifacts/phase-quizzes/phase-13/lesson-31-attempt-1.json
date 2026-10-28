@@ -1,0 +1,47 @@
+{
+  "lesson": "31-mcp-conformance-versioning-and-operations",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/31-mcp-conformance-versioning-and-operations/docs/en.md",
+  "source_sha256": "fa7b16e90177a54f5ee0adb5c8a0d471a454074dda0ba277dc93b0e6abe28d57",
+  "questions": [
+    {
+      "id": "p13-l31-a1-q1",
+      "type": "concept",
+      "text": "Why distinguish an additive unknown field from an unknown resultType in this lesson’s modern response validation?",
+      "options": {
+        "A": "Both must always be discarded before the client sees the response.",
+        "B": "An unknown resultType can always be inferred as complete.",
+        "C": "Additive fields may be preserved or ignored, but an unknown discriminator implies a lifecycle the client cannot safely interpret.",
+        "D": "Additive fields authorize extensions without any capability declaration."
+      },
+      "correct": "C",
+      "explanation": "Forward-compatible fields do not necessarily change lifecycle semantics. An unknown or unadvertised resultType does, so the validator rejects it."
+    },
+    {
+      "id": "p13-l31-a1-q2",
+      "type": "application",
+      "text": "A header-mismatch test triggers the local validator, but the actual origin response is HTTP500 with no JSON-RPC body. Has it proved the required server behavior?",
+      "options": {
+        "A": "Yes, because any failure proves the mismatch was rejected correctly.",
+        "B": "No; it must capture and validate HTTP400 with the matching ID and JSON-RPC -32020.",
+        "C": "Yes, if the SDK turns the response into a generic exception.",
+        "D": "No; the server should silently choose the header value and continue."
+      },
+      "correct": "B",
+      "explanation": "A local rejection alone tests the harness. Conformance requires the actual server wire response, including the expected HTTP status and correlated protocol error."
+    },
+    {
+      "id": "p13-l31-a1-q3",
+      "type": "code",
+      "text": "validate_result({\"tools\": []}, era) infers complete only in its legacy branch and raises when a modern result lacks resultType. What happens with era=\"modern\"?",
+      "options": {
+        "A": "It returns semanticType=\"complete\" with inferred=True.",
+        "B": "It inserts resultType=\"complete\" into the supplied dictionary.",
+        "C": "It switches to the legacy branch because tools is an array.",
+        "D": "It raises ProtocolViolation for missing resultType."
+      },
+      "correct": "D",
+      "explanation": "The modern branch explicitly rejects a missing discriminator. Only a previously selected legacy era permits inference."
+    }
+  ]
+}

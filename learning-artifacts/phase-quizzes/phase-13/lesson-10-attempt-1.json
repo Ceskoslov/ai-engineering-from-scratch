@@ -1,0 +1,47 @@
+{
+  "lesson": "10-mcp-resources-and-prompts",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/10-mcp-resources-and-prompts/docs/en.md",
+  "source_sha256": "fc4d77f598eca44d493dd1cb765d2355a739577a65387a4a1a7e0e1d55946579",
+  "questions": [
+    {
+      "id": "p13-l10-a1-q1",
+      "type": "concept",
+      "text": "Which mapping best matches MCP primitives to consumer intent in this lesson?",
+      "options": {
+        "A": "Tool: read a URI; resource: start a template; prompt: mutate state.",
+        "B": "Tool: start a template; resource: mutate state; prompt: read a URI.",
+        "C": "Tool: perform an operation; resource: read URI-addressed content; prompt: start a user-selected message workflow.",
+        "D": "Tool: store policy; resource: override host instructions; prompt: authorize operations."
+      },
+      "correct": "C",
+      "explanation": "Tools expose operations, resources expose addressable content, and prompts package reusable message workflows chosen by users."
+    },
+    {
+      "id": "p13-l10-a1-q2",
+      "type": "application",
+      "text": "A client receives a resource-updated notification for notes://note-1. What should it do to obtain the current content?",
+      "options": {
+        "A": "Read the URI again through resources/read under current authorization.",
+        "B": "Treat the notification as the complete replacement document.",
+        "C": "Reuse the subscription ID as proof of permission to read the note.",
+        "D": "Assume all cached note bodies now contain the updated text."
+      },
+      "correct": "A",
+      "explanation": "An update notification identifies changed content; the client must read it again and remain subject to current authorization."
+    },
+    {
+      "id": "p13-l10-a1-q3",
+      "type": "code",
+      "text": "A SubscriptionStream has notifications={\"resourcesListChanged\": True} and no resourceSubscriptions entry. What does resource_updated(\"notes://note-1\") return?",
+      "options": {
+        "A": "An update event because any resource-related subscription allows it.",
+        "B": "A complete result that includes the note body.",
+        "C": "A JSON-RPC error with code -32602 for the absent URI filter.",
+        "D": "None because that URI is not in resourceSubscriptions."
+      },
+      "correct": "D",
+      "explanation": "resource_updated checks membership in resourceSubscriptions, defaulting to an empty list. resourcesListChanged enables a separate notification category."
+    }
+  ]
+}

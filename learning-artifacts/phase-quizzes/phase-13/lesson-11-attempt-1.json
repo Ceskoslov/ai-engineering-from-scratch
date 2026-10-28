@@ -1,0 +1,47 @@
+{
+  "lesson": "11-mcp-sampling",
+  "attempt": 1,
+  "source": "phases/13-tools-and-protocols/11-mcp-sampling/docs/en.md",
+  "source_sha256": "a205ee1e92a30eb61080e980620eaf0c5dbd1772db8b35da65a453273ed4fd71",
+  "questions": [
+    {
+      "id": "p13-l11-a1-q1",
+      "type": "concept",
+      "text": "In this lesson\u2019s MRTR workflow, how does a server obtain required client input without sending an independent request to the client?",
+      "options": {
+        "A": "It stores a callback in the HTTP connection and invokes it later.",
+        "B": "It returns input_required with embedded input requests; the client fulfills them and retries the original operation.",
+        "C": "It changes the original request ID into a persistent protocol session ID.",
+        "D": "It treats the client\u2019s capability declaration as the completed input response."
+      },
+      "correct": "B",
+      "explanation": "MRTR expresses missing input as a result. The client obtains the requested input and makes a new independent request repeating the original operation with inputResponses and requestState."
+    },
+    {
+      "id": "p13-l11-a1-q2",
+      "type": "application",
+      "text": "The lesson seals requestState with HMAC. A valid token was issued for one principal and one set of arguments. Why must the server still check those bindings on retry?",
+      "options": {
+        "A": "Because HMAC automatically expires all tokens at the next request.",
+        "B": "Because the client must be allowed to replace the token\u2019s principal.",
+        "C": "Because a valid signature alone does not prevent reuse in the wrong request context.",
+        "D": "Because HMAC encrypts arguments but leaves principal names unsigned."
+      },
+      "correct": "C",
+      "explanation": "Integrity proves the state was not altered, but principal, method, argument digest, and expiry checks restrict where and when an unchanged token may be accepted."
+    },
+    {
+      "id": "p13-l11-a1-q3",
+      "type": "code",
+      "text": "In run_mrtr(), the loop continues while resultType is input_required, increments request_id each round, and has no round counter. What happens if a modified server always returns a fulfillable input_required result?",
+      "options": {
+        "A": "It stops after three rounds because request_id enforces a budget.",
+        "B": "It rejects the fourth response because all tokens expire after three requests.",
+        "C": "It exits after the first input response because the request ID changes.",
+        "D": "It keeps retrying because the loop has no explicit round limit."
+      },
+      "correct": "D",
+      "explanation": "The demo\u2019s normal state machine finishes, but run_mrtr itself has no enforced round budget. Incrementing IDs provides correlation, not a stopping condition."
+    }
+  ]
+}
