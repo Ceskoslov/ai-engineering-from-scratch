@@ -1,0 +1,47 @@
+{
+  "lesson": "24-multimodal-rag-cross-modal",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/24-multimodal-rag-cross-modal/docs/en.md",
+  "source_sha256": "fc9d6c0c73229255a26820e81839b3837a2f7827b49af959bd2db224f1f22272",
+  "questions": [
+    {
+      "id": "p12-l24-a1-q1",
+      "type": "concept",
+      "text": "What makes retrieval cross-modal?",
+      "options": {
+        "A": "A query in one modality retrieves relevant evidence in another modality.",
+        "B": "A text query retrieves only text passages using two identical indexes.",
+        "C": "A generator produces longer answers without retrieving evidence.",
+        "D": "A system ranks documents only by their file size."
+      },
+      "correct": "A",
+      "explanation": "Cross-modal retrieval connects query and evidence across modalities, such as text-to-image or image-to-text, using compatible representations or mappings."
+    },
+    {
+      "id": "p12-l24-a1-q2",
+      "type": "application",
+      "text": "Text and image retrievers return scores on very different numeric scales. What should you address before interpreting their weighted sum as balanced evidence?",
+      "options": {
+        "A": "Make all retrieved items have identical filenames.",
+        "B": "Discard all source identities so the generator sees only scores.",
+        "C": "Normalize or calibrate scores and evaluate the fusion weights on the task.",
+        "D": "Assume the retriever with larger raw numbers is more reliable."
+      },
+      "correct": "C",
+      "explanation": "Uncalibrated score scales can dominate fusion regardless of evidence quality. Normalization or calibration and task evaluation make the weighting meaningful."
+    },
+    {
+      "id": "p12-l24-a1-q3",
+      "type": "code",
+      "text": "The toy sets confidence=top[0][1], where the value is a weighted retrieval score, then compares it with confidence_floor. What does this confidence actually represent?",
+      "options": {
+        "A": "A calibrated probability that every answer claim is correct.",
+        "B": "The top fused retrieval score used as a heuristic threshold.",
+        "C": "A verified measure of agreement between independent human graders.",
+        "D": "The fraction of generated claims proven by their cited sources."
+      },
+      "correct": "B",
+      "explanation": "The code reuses the fused ranking score as confidence. It does not calibrate a probability or verify answer claims."
+    }
+  ]
+}

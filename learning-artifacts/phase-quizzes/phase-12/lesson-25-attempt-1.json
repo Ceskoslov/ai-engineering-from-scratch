@@ -1,0 +1,47 @@
+{
+  "lesson": "25-multimodal-agents-computer-use",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/25-multimodal-agents-computer-use/docs/en.md",
+  "source_sha256": "388c376120b81d1302dfc355f2f1ef031c32a38b86c476410a050a32af72cb51",
+  "questions": [
+    {
+      "id": "p12-l25-a1-q1",
+      "type": "concept",
+      "text": "Why observe the browser again after executing a GUI action?",
+      "options": {
+        "A": "To assume the requested state change succeeded without checking it.",
+        "B": "To replace every future action with the original fixed plan.",
+        "C": "To avoid passing action outcomes back into the planning loop.",
+        "D": "To check the resulting state and adjust the next action if needed."
+      },
+      "correct": "D",
+      "explanation": "An observation closes the feedback loop: actions can fail or produce unexpected state, so the next decision should use the updated evidence."
+    },
+    {
+      "id": "p12-l25-a1-q2",
+      "type": "application",
+      "text": "A button moved after a page update, so an old click coordinate is stale. What is the best next step?",
+      "options": {
+        "A": "Repeat the same coordinate until the step budget expires.",
+        "B": "Use the current screenshot or accessibility tree to locate the target again.",
+        "C": "Mark the task complete because the earlier plan named the right button.",
+        "D": "Drop all observations and continue the remaining actions unchanged."
+      },
+      "correct": "B",
+      "explanation": "Grounding must use the current UI state. A semantic target description plus fresh screenshot or accessibility evidence allows the target to be located again."
+    },
+    {
+      "id": "p12-l25-a1-q3",
+      "type": "code",
+      "text": "run_task applies every planned action and then checks state.page==expected_page. apply_action treats done as a no-op. If page is confirmation, expected_page is reset_sent, and done says success=True, what is the reported success?",
+      "options": {
+        "A": "False, because the final page does not match expected_page.",
+        "B": "True, because the done action explicitly claims success.",
+        "C": "True, because any terminal action changes the page to expected_page.",
+        "D": "An exception, because a done action must overwrite the page."
+      },
+      "correct": "A",
+      "explanation": "Success comes from the final state comparison, not the supplied done.success flag. A done action leaves page unchanged, so confirmation != reset_sent yieldsFalse."
+    }
+  ]
+}

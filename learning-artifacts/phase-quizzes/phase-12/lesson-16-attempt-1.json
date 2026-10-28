@@ -1,0 +1,47 @@
+{
+  "lesson": "16-mio-any-to-any-streaming",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/16-mio-any-to-any-streaming/docs/en.md",
+  "source_sha256": "270e372c9f66f05cf04faa197dffbe86349573b17163c396e2a5550aa277fdb3",
+  "questions": [
+    {
+      "id": "p12-l16-a1-q1",
+      "type": "concept",
+      "text": "Why assign disjoint token-ID ranges to text, image, speech, and music codebooks in a shared vocabulary?",
+      "options": {
+        "A": "To let the same integer identify unrelated codes without modality information.",
+        "B": "To ensure every modality produces exactly the same number of tokens.",
+        "C": "To prevent collisions between modality codes in the shared ID space.",
+        "D": "To make every modality tokenizer lossless without changing its codebook."
+      },
+      "correct": "C",
+      "explanation": "Disjoint ranges give distinct IDs to codes from different modalities so the shared embedding and output layers can distinguish them."
+    },
+    {
+      "id": "p12-l16-a1-q2",
+      "type": "application",
+      "text": "A speech system streams text tokens quickly but waits for the entire response before decoding any audio. What change directly reduces time to first audio?",
+      "options": {
+        "A": "Decode playable audio chunks as sufficient speech tokens arrive.",
+        "B": "Increase the final output audio duration before starting playback.",
+        "C": "Wait for every residual codebook token of the full response.",
+        "D": "Measure only text-token latency and omit the audio decoder."
+      },
+      "correct": "A",
+      "explanation": "Incremental audio decoding and playback allow the user to hear the first chunk before the complete response finishes."
+    },
+    {
+      "id": "p12-l16-a1-q3",
+      "type": "code",
+      "text": "VocabSlot.end returns start + size, and build_vocab sets the next start to that end. For start=32000 and size=4096, what is the allocated ID range?",
+      "options": {
+        "A": "32000 through 36096 inclusive; next start=36097.",
+        "B": "32001 through 36096 inclusive; next start=36096.",
+        "C": "0 through 4095 inclusive; next start=4096.",
+        "D": "32000 through 36095 inclusive; next start=36096."
+      },
+      "correct": "D",
+      "explanation": "The end is exclusive: [32000,36096) contains 4096 IDs, so the last valid ID is 36095 and the next slot starts at 36096."
+    }
+  ]
+}

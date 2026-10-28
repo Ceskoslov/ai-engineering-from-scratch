@@ -1,0 +1,47 @@
+{
+  "lesson": "09-qwen-vl-family-dynamic-fps",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/09-qwen-vl-family-dynamic-fps/docs/en.md",
+  "source_sha256": "cc35b7c50ac6789d3b47b99aec1aca6d6596df2d682f1524dc02c0ff4e86d854",
+  "questions": [
+    {
+      "id": "p12-l09-a1-q1",
+      "type": "concept",
+      "text": "Why preserve actual frame timestamps when a video may be sampled at different frame rates?",
+      "options": {
+        "A": "Frame indices alone always specify elapsed seconds regardless of FPS.",
+        "B": "Timestamps remove the need to encode spatial positions within frames.",
+        "C": "Timestamps preserve elapsed-time information that frame indices alone omit.",
+        "D": "Timestamps guarantee that every brief event appears in the sampled frames."
+      },
+      "correct": "C",
+      "explanation": "The same frame-index gap can represent different elapsed times at different sampling rates. Actual timestamps retain that temporal information but cannot recover events omitted by sampling."
+    },
+    {
+      "id": "p12-l09-a1-q2",
+      "type": "application",
+      "text": "Ignoring timestamp and text overhead, a 60-second video has a budget of 9720 visual tokens and costs 81 tokens per frame. What is the highest affordable FPS?",
+      "options": {
+        "A": "1 FPS.",
+        "B": "2 FPS.",
+        "C": "4 FPS.",
+        "D": "8 FPS."
+      },
+      "correct": "B",
+      "explanation": "fps_max = 9720 / (60 \u00d7 81) = 2 FPS, giving 120 frames and 9720 visual tokens."
+    },
+    {
+      "id": "p12-l09-a1-q3",
+      "type": "code",
+      "text": "parse_tool_call first returns json.loads(raw) if parsing succeeds, without schema validation. What happens for raw=' {\"tool\": \"mouse_click\", \"coords\": \"somewhere\"} '?",
+      "options": {
+        "A": "It returns the dictionary even though coords is a string.",
+        "B": "It returns PARSE_ERROR because coords must be a numeric pair.",
+        "C": "It converts the string into validated screen coordinates.",
+        "D": "It executes a mouse click using the supplied coordinate value."
+      },
+      "correct": "A",
+      "explanation": "The JSON is syntactically valid, so json.loads returns a dictionary. This helper neither validates the tool schema or coordinates nor executes actions."
+    }
+  ]
+}

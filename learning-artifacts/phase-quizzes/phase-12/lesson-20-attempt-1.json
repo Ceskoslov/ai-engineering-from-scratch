@@ -1,0 +1,47 @@
+{
+  "lesson": "20-omni-models-thinker-talker",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/20-omni-models-thinker-talker/docs/en.md",
+  "source_sha256": "c7a7970bac12cc04c3f159157f1bbf66312c5ca59d56e21d49cdee55604d93df",
+  "questions": [
+    {
+      "id": "p12-l20-a1-q1",
+      "type": "concept",
+      "text": "Why stream partial Thinker output into a Talker instead of waiting for the complete text response?",
+      "options": {
+        "A": "So speech synthesis can start while the Thinker continues composing the response.",
+        "B": "So the Talker can avoid producing any speech tokens until the turn ends.",
+        "C": "So all input audio can be discarded before the Thinker processes it.",
+        "D": "So the waveform decoder can be removed from the speech pipeline."
+      },
+      "correct": "A",
+      "explanation": "Incremental handoff overlaps response composition and speech synthesis, reducing the wait for first audio compared with completing all text first."
+    },
+    {
+      "id": "p12-l20-a1-q2",
+      "type": "application",
+      "text": "An audio codec requires 50 base speech tokens for each second of playback. What sustained production rate must the Talker meet to avoid falling behind?",
+      "options": {
+        "A": "At most 25 base tokens per second.",
+        "B": "Any positive rate, provided the first token arrives quickly.",
+        "C": "At least 50 base tokens per second.",
+        "D": "Exactly one base token for the entire response."
+      },
+      "correct": "C",
+      "explanation": "Real-time playback consumes 50 base tokens each second, so sustained generation must meet or exceed that rate; low first-token latency alone does not prevent later underruns."
+    },
+    {
+      "id": "p12-l20-a1-q3",
+      "type": "code",
+      "text": "The VAD simulator sets user stop=3800 ms and first audio=3800+silence_threshold_ms+400. With a 200 ms silence threshold, what is the lag from user stop to first audio?",
+      "options": {
+        "A": "200 ms",
+        "B": "400 ms",
+        "C": "4400 ms",
+        "D": "600 ms"
+      },
+      "correct": "D",
+      "explanation": "First audio is at 4400 ms; subtract the 3800 ms stop time to get 600 ms. The silence threshold adds to the later 400 ms delay."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "lesson": "22-document-diagram-understanding",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/22-document-diagram-understanding/docs/en.md",
+  "source_sha256": "063ffd18e02c1add40116a7a4c3aa86eccae7b93d9e936e7cafa94ae76c13749",
+  "questions": [
+    {
+      "id": "p12-l22-a1-q1",
+      "type": "concept",
+      "text": "Why include word bounding boxes alongside recognized text in document understanding?",
+      "options": {
+        "A": "They prove that every recognized word is spelled correctly.",
+        "B": "They replace the need to identify text content in the document.",
+        "C": "They preserve spatial relationships such as columns and label-value positions.",
+        "D": "They guarantee that every table can be converted into exact JSON."
+      },
+      "correct": "C",
+      "explanation": "Bounding boxes retain where text occurs, helping distinguish layout-dependent relationships that plain text extraction can lose."
+    },
+    {
+      "id": "p12-l22-a1-q2",
+      "type": "application",
+      "text": "Two document extractors disagree about a field. Which evidence best supports resolving the disagreement?",
+      "options": {
+        "A": "Choose whichever extractor emits more verbose JSON.",
+        "B": "Inspect the source page region and retained extraction provenance.",
+        "C": "Accept whichever answer appears first in the combined output.",
+        "D": "Average the two values without checking the document."
+      },
+      "correct": "B",
+      "explanation": "The original page region and extraction provenance allow the disputed value and its context to be checked against source evidence."
+    },
+    {
+      "id": "p12-l22-a1-q3",
+      "type": "code",
+      "text": "The toy layoutlm_input uses text_ids=[hash(t.text)%10000 for t in tokens]. What limitation matters if these IDs are saved for later Python processes?",
+      "options": {
+        "A": "They are guaranteed stable vocabulary IDs across all Python processes.",
+        "B": "Every distinct string is guaranteed to produce a distinct ID.",
+        "C": "The IDs encode the pixel content of each image patch.",
+        "D": "String hashes may vary across processes, and modulo reduction allows collisions."
+      },
+      "correct": "D",
+      "explanation": "Python string hashes are randomized by default across processes; modulo10000 also allows distinct strings to share IDs. This is a toy stand-in for a tokenizer."
+    }
+  ]
+}

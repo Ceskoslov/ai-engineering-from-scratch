@@ -1,0 +1,47 @@
+{
+  "lesson": "23-colpali-vision-native-rag",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/23-colpali-vision-native-rag/docs/en.md",
+  "source_sha256": "338f436cee994225bb436383248340ccb2ca366a8f90a1713b3c964db96fb98a",
+  "questions": [
+    {
+      "id": "p12-l23-a1-q1",
+      "type": "concept",
+      "text": "How does ColPali-style late interaction score a query against a page?",
+      "options": {
+        "A": "It averages every query-to-patch similarity into a single mean.",
+        "B": "It selects one page patch and ignores all remaining query tokens.",
+        "C": "It sums each query token\u2019s highest similarity to any page patch.",
+        "D": "It counts the number of characters shared by query and document IDs."
+      },
+      "correct": "C",
+      "explanation": "MaxSim takes the maximum similarity over page patches separately for each query token, then sums those maxima."
+    },
+    {
+      "id": "p12-l23-a1-q2",
+      "type": "application",
+      "text": "You replace one embedding per page with 729 patch embeddings per page, keeping dimension and numeric precision fixed. What happens to raw vector storage?",
+      "options": {
+        "A": "It remains unchanged because the page count is the same.",
+        "B": "It increases by a factor of729, before compression and metadata.",
+        "C": "It decreases because each query uses only the best-matching patch.",
+        "D": "It becomes independent of page count because vectors are cached."
+      },
+      "correct": "B",
+      "explanation": "Raw vector bytes scale with pages\u00d7vectors per page\u00d7dimensions\u00d7bytes per value. Replacing one vector with729 multiplies the vector storage by729."
+    },
+    {
+      "id": "p12-l23-a1-q3",
+      "type": "code",
+      "text": "MaxSim receives a precomputed similarity matrix with query-token rows [[0.9, 0.2], [0.8, 0.1]]. What score does summing the row maxima produce?",
+      "options": {
+        "A": "1.0",
+        "B": "0.5",
+        "C": "0.9",
+        "D": "1.7"
+      },
+      "correct": "D",
+      "explanation": "The maxima are0.9 and0.8, giving1.7. The same page patch may be selected by more than one query token; no one-to-one assignment is enforced."
+    }
+  ]
+}

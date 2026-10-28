@@ -1,0 +1,47 @@
+{
+  "lesson": "12-emu3-next-token-for-generation",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/12-emu3-next-token-for-generation/docs/en.md",
+  "source_sha256": "4ab06008e32cc50c306f7bcd81af826b9fa4431534ea2ef7a653d5bddf614d05",
+  "questions": [
+    {
+      "id": "p12-l12-a1-q1",
+      "type": "concept",
+      "text": "How can next-token prediction support image generation in an Emu3-style model?",
+      "options": {
+        "A": "It predicts continuous pixels directly from a text-only output vocabulary.",
+        "B": "It removes the visual tokenizer and uses a diffusion loss for image tokens.",
+        "C": "It predicts discrete visual codes that an image decoder can render.",
+        "D": "It treats all image tokens as fixed placeholders excluded from the loss."
+      },
+      "correct": "C",
+      "explanation": "A visual tokenizer represents image content as discrete codes; autoregressive next-token prediction can model their sequence, and a visual decoder converts generated codes to pixels."
+    },
+    {
+      "id": "p12-l12-a1-q2",
+      "type": "application",
+      "text": "Assume an image tokenizer reduces each spatial dimension by 8. How many tokens represent a 1024\u00d71024 image, excluding separators?",
+      "options": {
+        "A": "4096",
+        "B": "8192",
+        "C": "65536",
+        "D": "16384"
+      },
+      "correct": "D",
+      "explanation": "The latent grid is (1024/8)\u00d7(1024/8)=128\u00d7128=16384 tokens."
+    },
+    {
+      "id": "p12-l12-a1-q3",
+      "type": "code",
+      "text": "cfg_mix uses u + gamma * (c - u) per logit. For cond=[4, 1], uncond=[2, 3], and gamma=2, what does it return?",
+      "options": {
+        "A": "[6, -1]",
+        "B": "[4, 1]",
+        "C": "[8, 2]",
+        "D": "[2, 3]"
+      },
+      "correct": "A",
+      "explanation": "The first logit is 2+2\u00d7(4\u22122)=6; the second is 3+2\u00d7(1\u22123)=\u22121."
+    }
+  ]
+}

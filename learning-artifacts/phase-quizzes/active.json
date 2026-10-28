@@ -3,21 +3,21 @@
   "updated": "2026-10-28",
   "mode": "comprehensive-phase-quiz",
   "question_language": "English",
-  "phase": "12-multimodal-ai",
-  "lesson": "01-vision-transformer-patch-tokens",
-  "lesson_title": "Vision Transformers and the Patch-Token Primitive",
+  "phase": "13-tools-and-protocols",
+  "lesson": "01-the-tool-interface",
+  "lesson_title": "The Tool Interface \u2014 Why Agents Need Structured I/O",
   "phase_question": 1,
   "lesson_question": 1,
   "attempt": 1,
-  "phase_questions": 75,
-  "phase_lessons": 25,
+  "phase_questions": 135,
+  "phase_lessons": 45,
   "initial_score": {
     "correct": 0,
     "answered": 0
   },
   "effective_score": {
     "correct": 0,
-    "denominator": 75
+    "denominator": 135
   },
   "completed_phases": [
     "00",
@@ -31,13 +31,14 @@
     "08",
     "09",
     "10",
-    "11"
+    "11",
+    "12"
   ],
   "status": "ready",
   "pending_question": null,
-  "phase_progress": "phase-12/progress.md",
-  "phase_history": "phase-12/history.md",
-  "phase_review": "phase-12/review.md",
+  "phase_progress": "phase-13/progress.md",
+  "phase_history": "phase-13/history.md",
+  "phase_review": "phase-13/review.md",
   "lesson_cache": null,
   "rules": {
     "questions_per_lesson": 3,

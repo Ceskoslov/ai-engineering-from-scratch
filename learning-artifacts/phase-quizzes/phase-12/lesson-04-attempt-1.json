@@ -1,0 +1,47 @@
+{
+  "lesson": "04-flamingo-gated-cross-attention",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/04-flamingo-gated-cross-attention/docs/en.md",
+  "source_sha256": "5917fe42a98c809241907ec4926f26805d6a70aaa85566c0b6965745674d8461",
+  "questions": [
+    {
+      "id": "p12-l04-a1-q1",
+      "type": "concept",
+      "text": "Why initialize alpha to zero in the residual y = x + tanh(alpha) * cross_attention(x, visual)?",
+      "options": {
+        "A": "To make every visual token receive an equal attention weight.",
+        "B": "To make the new visual branch contribute zero at initialization.",
+        "C": "To prevent the visual branch from ever learning during training.",
+        "D": "To replace the text representation with the visual representation."
+      },
+      "correct": "B",
+      "explanation": "Because tanh(0)=0, the added visual contribution is zero and the residual output equals x at initialization."
+    },
+    {
+      "id": "p12-l04-a1-q2",
+      "type": "application",
+      "text": "An image produces 196 patches and another produces 900. A Perceiver resampler uses K=64 latents per image. How many output tokens does each image produce?",
+      "options": {
+        "A": "196 for the first image and 900 for the second.",
+        "B": "64 for the first image and 900 for the second.",
+        "C": "196 for the first image and 64 for the second.",
+        "D": "64 for each image, independent of its patch count."
+      },
+      "correct": "D",
+      "explanation": "The learned latent count K sets the output token count per image regardless of how many patches attend as keys and values."
+    },
+    {
+      "id": "p12-l04-a1-q3",
+      "type": "code",
+      "text": "What does interleaved_mask([\"intro\", \"IMG0\", \"a\", \"IMG1\", \"b\"]) return, with columns ordered IMG0, IMG1?",
+      "options": {
+        "A": "[[False, False], [True, False], [False, True]]",
+        "B": "[[True, False], [True, False], [True, True]]",
+        "C": "[[False, False], [True, False], [True, True]]",
+        "D": "[[False, False], [False, True], [False, True]]"
+      },
+      "correct": "A",
+      "explanation": "Intro has no preceding image; a sees IMG0; b sees only its most recent preceding image, IMG1."
+    }
+  ]
+}

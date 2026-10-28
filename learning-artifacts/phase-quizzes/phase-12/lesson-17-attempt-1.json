@@ -1,0 +1,47 @@
+{
+  "lesson": "17-video-language-temporal-grounding",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/17-video-language-temporal-grounding/docs/en.md",
+  "source_sha256": "9e17f6c9311d0df49f261e4435e4420793dd9780d5ae031beccc3249580751f1",
+  "questions": [
+    {
+      "id": "p12-l17-a1-q1",
+      "type": "concept",
+      "text": "What distinguishes temporal grounding from simply recognizing that an event occurs in a video?",
+      "options": {
+        "A": "It identifies the event without needing any time information.",
+        "B": "It localizes when the event occurs using timestamps or an interval.",
+        "C": "It replaces video frames with one image-level semantic vector.",
+        "D": "It predicts only the overall topic of the video."
+      },
+      "correct": "B",
+      "explanation": "Temporal grounding associates an event with its time location, such as start and end timestamps, rather than only detecting its presence."
+    },
+    {
+      "id": "p12-l17-a1-q2",
+      "type": "application",
+      "text": "To fit a video token budget, you can reduce sampled frames or pool each frame more. Which tradeoff is correct?",
+      "options": {
+        "A": "Fewer frames lose spatial detail; stronger spatial pooling loses temporal coverage.",
+        "B": "Both changes preserve all event timing and all fine spatial detail.",
+        "C": "Fewer frames increase temporal coverage; stronger pooling increases spatial detail.",
+        "D": "Fewer frames risk missing brief events; stronger pooling risks losing fine spatial detail."
+      },
+      "correct": "D",
+      "explanation": "Temporal subsampling can miss events between sampled frames. Spatial pooling compresses each frame and can obscure small objects or text."
+    },
+    {
+      "id": "p12-l17-a1-q3",
+      "type": "code",
+      "text": "For a matching event name, predicted interval [2, 6] and ground-truth interval [4, 8] have what IoU, and do they pass tol_iou=0.3?",
+      "options": {
+        "A": "IoU=1/3; hit.",
+        "B": "IoU=1/2; hit.",
+        "C": "IoU=1/4; miss.",
+        "D": "IoU=0; miss."
+      },
+      "correct": "A",
+      "explanation": "Intersection length is 6\u22124=2; union spans 8\u22122=6. IoU=2/6=1/3, which is at least 0.3."
+    }
+  ]
+}

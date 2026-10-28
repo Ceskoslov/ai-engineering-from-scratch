@@ -1,0 +1,47 @@
+{
+  "lesson": "07-open-weight-vlm-recipes",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/07-open-weight-vlm-recipes/docs/en.md",
+  "source_sha256": "a4fd19938cd04d5e5b3bf9edb2284d4ce7cbf3efb499f58f72e20d7f25442d48",
+  "questions": [
+    {
+      "id": "p12-l07-a1-q1",
+      "type": "concept",
+      "text": "What makes a comparison a controlled ablation of connector architecture in a VLM?",
+      "options": {
+        "A": "Changing the connector and training data while retaining the model name.",
+        "B": "Comparing two published checkpoints using their best reported scores.",
+        "C": "Changing the connector while holding the other experimental settings fixed.",
+        "D": "Changing the encoder and resolution while retaining the connector."
+      },
+      "correct": "C",
+      "explanation": "A controlled ablation varies the axis being tested and holds other settings fixed, including data, backbone, token budget, and evaluation."
+    },
+    {
+      "id": "p12-l07-a1-q2",
+      "type": "application",
+      "text": "You want to test whether denser captions improve your VLM. Which experiment best isolates caption quality?",
+      "options": {
+        "A": "Keep images, backbone, connector, resolution, and training budget fixed; vary captions.",
+        "B": "Replace both captions and the vision encoder, then compare final scores.",
+        "C": "Compare a small short-caption model with a much larger dense-caption model.",
+        "D": "Increase image resolution only for the dense-caption training run."
+      },
+      "correct": "A",
+      "explanation": "Holding the other axes and training budget fixed makes caption quality the experimental variable instead of confounding it with model or compute changes."
+    },
+    {
+      "id": "p12-l07-a1-q3",
+      "type": "code",
+      "text": "The picker filters candidates with r.llm_b <= budget_b. A recipe has llm_b=7, but its vision encoder and connector bring the total above 8B. With budget_b=8, what happens?",
+      "options": {
+        "A": "It is rejected because the filter sums all component parameter counts.",
+        "B": "It remains eligible because the filter checks only the LLM parameter count.",
+        "C": "Its encoder and connector are removed to fit the total parameter budget.",
+        "D": "It raises ValueError because the total parameter count exceeds the budget."
+      },
+      "correct": "B",
+      "explanation": "The filter reads only llm_b. It does not calculate total model size, memory requirements, or latency."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "lesson": "11-chameleon-early-fusion-tokens",
+  "attempt": 1,
+  "source": "phases/12-multimodal-ai/11-chameleon-early-fusion-tokens/docs/en.md",
+  "source_sha256": "c5409ecf20aa61fcbb8e9e7203299b4585b047cb2eeaffeb3029e90d1d3eaf31",
+  "questions": [
+    {
+      "id": "p12-l11-a1-q1",
+      "type": "concept",
+      "text": "What enables a Chameleon-style autoregressive decoder to predict both text and image content?",
+      "options": {
+        "A": "A shared token-ID vocabulary containing text tokens, discrete image codes, and separators.",
+        "B": "A text-only output vocabulary with image patches used only as continuous input features.",
+        "C": "A frozen vision encoder that converts every output word into an image caption.",
+        "D": "A separate diffusion model that replaces next-token prediction for every modality."
+      },
+      "correct": "A",
+      "explanation": "Discrete image codes and text IDs occupy one vocabulary, allowing a single autoregressive output distribution to predict either modality. An image decoder renders the generated image codes."
+    },
+    {
+      "id": "p12-l11-a1-q2",
+      "type": "application",
+      "text": "Your image tokenizer loses fine text detail even when decoding the correct image codes. What follows for generation through that tokenizer?",
+      "options": {
+        "A": "A larger text vocabulary automatically restores the missing pixel detail.",
+        "B": "Longer captions guarantee exact reconstruction of the original image.",
+        "C": "Better next-token prediction alone cannot remove that reconstruction bottleneck.",
+        "D": "Removing image separators makes the quantizer lossless."
+      },
+      "correct": "C",
+      "explanation": "A lossy tokenizer constrains the information available to its decoder. Improving code prediction alone cannot recover detail that the representation discards."
+    },
+    {
+      "id": "p12-l11-a1-q3",
+      "type": "code",
+      "text": "quantize_patch returns best + IMG_OFFSET, where IMG_OFFSET=32. If nearest-codebook lookup selects index 5, which shared-vocabulary ID is returned?",
+      "options": {
+        "A": "5",
+        "B": "32",
+        "C": "48",
+        "D": "37"
+      },
+      "correct": "D",
+      "explanation": "Image code indices are offset past the 32 text IDs: 5+32=37."
+    }
+  ]
+}
