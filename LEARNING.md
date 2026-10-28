@@ -7,6 +7,8 @@ For career growth and personal work to follow the new knowledge
 
 Build goal: As many as possible, everything
 
+Language preference: write summaries, review notes, and learning records in English.
+
 ## Placement
 - Date: 2026-09-17
 - Score: 10/10 (Math & Statistics: 2/2; Classical ML: 2/2; Deep Learning: 2/2; NLP & Transformers: 2/2; Applied AI: 2/2)
@@ -37,46 +39,18 @@ Build goal: As many as possible, everything
 | 18 | Ethics, Safety & Alignment | Do | 31 |
 | 19 | Capstone Projects | Do | 620 |
 
-Original forward-study estimate: 786 hours across Phases 14–19. Phase 00–13 mastery assessments are additional; their time is not yet estimated.
+Original forward-study estimate: 786 hours across Phases 14–19; Phase 14 is now complete.
 
-## Skipped-phase mastery assessment
+## Completed phase review
 
-- Requested: 2026-10-23. Scope: Phases 00–13 inclusive (14 phases, 297 lessons).
-- Assessment complete on 2026-10-28: comprehensive English phase quizzes for Phases00–13. Resume ordinary study at Phase15 Lesson01; Phase14 was already completed.
-- Phase01 override (learner instruction): after the existing completed sets, ask scored questions on remaining missed items only; no further unscored review or whole-lesson retake sets for this phase. A correct targeted replacement changes its corresponding missed item to correct once; preserve earlier evidence and the66-item denominator. Other phases retain the default procedure.
-- Each lesson has three scored questions: concept, application, and code tracing/debugging. Ground each question in that lesson's docs; read the full lesson before asking its questions. Ask one question at a time and reveal its answer only after the learner responds.
-- Pass a phase with at least 85% overall and at least 2/3 for every lesson. Remediate weaker lessons with fresh three-question sets; preserve initial results and record retake results separately. Re-evaluate both conditions using the latest complete set per lesson.
-- Before passing a phase, all its lessons remain todo in the assessment ledger, even if an individual lesson's questions are finished. Never mark an unanswered or unpassed phase Done.
-- On phase pass: mark its Path status Done and every lesson done; append one normal dated Progress log row per lesson in its phase progress.md (linked from this Progress log), with its score and a note identifying quiz-based mastery credit (not a completed implementation lab). Record phase totals, attempts, and any residual review topics. Keep all existing progress and review notes.
-- Minimal quiz resume: read [active.json](learning-artifacts/phase-quizzes/active.json) and follow the [recording protocol](learning-artifacts/phase-quizzes/README.md). Phase checklists, dated lesson logs, attempts, and review notes are linked from the [phase index](learning-artifacts/phase-quizzes/progress.md).
-- Current checkpoint: Phase13 Tools & Protocols passed: initial119/135 (88.15%); effective121/135 (89.63%); cumulative123/141 across135 initial and6 retake responses. All45 lessons done with latest complete scores at least2/3; Lessons15 and33 retakes each2/3. Phase00–13 comprehensive assessment complete. Review notes preserved. Quiz-based mastery; implementation labs not performed in this assessment. Next ordinary lesson: Phase15, Lesson01 — Long-Horizon Agents (Phase14 already Done). No quiz question pending.
+- Phases 00–13: all 14 phases / 297 lessons passed comprehensive review on 2026-10-28. Credit is quiz-based mastery; implementation labs were not performed in this assessment.
+- Full quiz records were condensed on 2026-10-28 at the learner's request. Scores, all recorded initial/retake mistakes, corrections, and residual weak points are retained in the [phase summary index](learning-artifacts/phase-quizzes/progress.md), with one review.md per phase. Read only the relevant summary when needed.
+- This assessment is closed. Historical retake instructions and Phase 01's targeted-correction exception do not apply to future study.
+- Continue the ordinary lesson workflow at **Phase 15 / Lesson 01 — Long-Horizon Agents**. Phase 14 is already Done; no quiz question is pending. Record future lesson progress below.
 
 ## Progress log
 
-Mastery-assessment lesson records are organized by phase (original rows preserved):
-
-- [Phase 00 progress log](learning-artifacts/phase-quizzes/phase-00/progress.md) — 13 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-00/review.md).
-- [Phase 01 progress log](learning-artifacts/phase-quizzes/phase-01/progress.md) — 22 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-01/review.md).
-- [Phase 02 progress log](learning-artifacts/phase-quizzes/phase-02/progress.md) — 21 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-02/review.md).
-- [Phase 03 progress log](learning-artifacts/phase-quizzes/phase-03/progress.md) — 13 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-03/review.md).
-- [Phase 04 progress log](learning-artifacts/phase-quizzes/phase-04/progress.md) — 28 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-04/review.md).
-- [Phase 05 progress log](learning-artifacts/phase-quizzes/phase-05/progress.md) — 29 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-05/review.md).
-
-- [Phase 06 progress log](learning-artifacts/phase-quizzes/phase-06/progress.md) — 17 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-06/review.md).
-
-- [Phase 07 progress log](learning-artifacts/phase-quizzes/phase-07/progress.md) — 16 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-07/review.md).
-
-- [Phase 08 progress log](learning-artifacts/phase-quizzes/phase-08/progress.md) — 15 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-08/review.md).
-
-- [Phase 09 progress log](learning-artifacts/phase-quizzes/phase-09/progress.md) — 12 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-09/review.md).
-
-- [Phase 10 progress log](learning-artifacts/phase-quizzes/phase-10/progress.md) — 24 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-10/review.md).
-
-- [Phase 11 progress log](learning-artifacts/phase-quizzes/phase-11/progress.md) — 17 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-11/review.md).
-
-- [Phase 12 progress log](learning-artifacts/phase-quizzes/phase-12/progress.md) — 25 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-12/review.md).
-
-- [Phase 13 progress log](learning-artifacts/phase-quizzes/phase-13/progress.md) — 45 dated lesson records; [review notes](learning-artifacts/phase-quizzes/phase-13/review.md).
+Phase 00–13 review results: [14 phase summaries](learning-artifacts/phase-quizzes/progress.md).
 
 Ordinary lesson records follow.
 
@@ -194,4 +168,4 @@ Phase00–13 assessment notes are stored in each phase’s review.md, linked abo
 
 ## Resume checkpoint
 
-Phase13 Tools & Protocols passed: initial119/135 (88.15%); effective121/135 (89.63%); cumulative123/141 across135 initial and6 retake responses. All45 lessons done with latest complete scores at least2/3; Lessons15 and33 retakes each2/3. Phase00–13 comprehensive assessment complete. Review notes preserved. Quiz-based mastery; implementation labs not performed in this assessment. Next ordinary lesson: Phase15, Lesson01 — Long-Horizon Agents (Phase14 already Done). No quiz question pending.
+Phase 00–13 comprehensive review complete; Phase 14 ordinary study complete. Resume **ordinary study at Phase 15, Lesson 01 — Long-Horizon Agents**, using the normal lesson workflow. No pending quiz or required retake. Historical mistakes and weak points are in the [phase summary index](learning-artifacts/phase-quizzes/progress.md).

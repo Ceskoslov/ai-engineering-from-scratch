@@ -1,28 +1,28 @@
-# Phase mastery quiz progress
+# Phase 00–13 Review Index
 
-Scope: Phases **00–13**. Questions in **English**. Three scored questions per lesson: concept, application, code trace/debugging. Pass: **≥85% overall and ≥2/3 per lesson** on latest complete sets. All lessons remain todo until the phase passes.
+All 14 phases and 297 lessons passed the comprehensive review assessment by 2026-10-28. Records were condensed at the learner's request on that date. All phases are **Done**. Completion basis: quiz-based mastery; implementation labs were not performed in this assessment.
 
-## Resume
+**Next: resume ordinary study at [Phase 15 / Lesson 01 — Long-Horizon Agents](../../phases/15-autonomous-systems/01-long-horizon-agents/docs/en.md). Phase 14 is complete; no review question is pending.**
 
-Phase13 Tools & Protocols passed: initial119/135 (88.15%); effective121/135 (89.63%); cumulative123/141 across135 initial and6 retake responses. All45 lessons done with latest complete scores at least2/3; Lessons15 and33 retakes each2/3. Phase00–13 comprehensive assessment complete. Review notes preserved. Quiz-based mastery; implementation labs not performed in this assessment. Next ordinary lesson: Phase15, Lesson01 — Long-Horizon Agents (Phase14 already Done). No quiz question pending.
+Each phase has one review.md summary to read on demand. Prioritize Phase 07 KV-cache memory accounting, Phase 09 MC/TD and state/return formulation, and the remaining Phase 01 mathematics weak points. Other priorities appear in the individual summaries.
 
-Read [active.json](active.json) for the current cursor and pending question; read [README.md](README.md) once for the recording protocol. Detailed archives are loaded only on demand.
-
-## Phase totals
-
-| Phase | Lessons | Planned questions | Answered | Score | Status | Records |
+| Phase | Topic | Lessons | Initial score | Final effective score | Historical mistakes | Records |
 |---|---|---|---|---|---|---|
-| 00-setup-and-tooling | 13 | 39 + 9 retake questions | 48 | initial 31/39; latest complete sets 34/39 (87.18%); passed | done | [Progress](phase-00/progress.md) · [History](phase-00/history.md) · [Review](phase-00/review.md) |
-| 01-math-foundations | 22 | 66 baseline + targeted corrections | 90 | initial45/66; latest sets plus corrections57/66 (86.36%); passed | done | [Progress](phase-01/progress.md) · [History](phase-01/history.md) · [Review](phase-01/review.md) |
-| 02-ml-fundamentals | 21 | 63 | 63 | initial 56/63 (88.89%); all lesson minima met; passed | done | [Progress](phase-02/progress.md) · [History](phase-02/history.md) · [Review](phase-02/review.md) |
-| 03-deep-learning-core | 13 | 39 + 9 retake questions | 48 | initial31/39; latest complete sets34/39 (87.18%); passed | done | [Progress](phase-03/progress.md) · [History](phase-03/history.md) · [Review](phase-03/review.md) |
-| 04-computer-vision | 28 | 84 + 6 retake questions | 90 | initial77/84; latest complete sets80/84 (95.24%); all lesson minima met; passed | done | [Progress](phase-04/progress.md) · [History](phase-04/history.md) · [Review](phase-04/review.md) |
-| 05-nlp-foundations-to-advanced | 29 | 87 | 87 | initial83/87 (95.40%); all lesson minima met; passed without retakes | done | [Progress](phase-05/progress.md) · [History](phase-05/history.md) · [Review](phase-05/review.md) |
-| 06-speech-and-audio | 17 | 51 + 12 retake | 63 | initial38/51; latest complete sets44/51 (86.27%); all lesson minima met; passed | done | [Progress](phase-06/progress.md) · [History](phase-06/history.md) · [Review](phase-06/review.md) |
-| 07-transformers-deep-dive | 16 | 48 + 30 retake questions | 78 | initial30/48; latest41/48 (85.42%); cumulative49/78; passed | done | [Progress](phase-07/progress.md) · [History](phase-07/history.md) · [Review](phase-07/review.md) |
-| 08-generative-ai | 15 | 45 + 6 retake questions | 51 | initial 38/45; effective 42/45 (93.33%); cumulative 43/51; passed | done | [Progress](phase-08/progress.md) · [History](phase-08/history.md) · [Review](phase-08/review.md) |
-| 09-reinforcement-learning | 12 | 36 + 33 retake questions | 69 | initial 24/36; cumulative 41/69; effective 31/36 (86.11%); passed | done | [Progress](phase-09/progress.md) · [History](phase-09/history.md) · [Review](phase-09/review.md) |
-| 10-llms-from-scratch | 24 | 72 + 6 retake questions | 78 | initial 59/72; effective 63/72 (87.50%); cumulative 65/78; passed | done | [Progress](phase-10/progress.md) · [History](phase-10/history.md) · [Review](phase-10/review.md) |
-| 11-llm-engineering | 17 | 51 + 3 retake questions | 54 | initial 42/51; effective 44/51 (86.27%); cumulative 45/54; passed | done | [Progress](phase-11/progress.md) · [History](phase-11/history.md) · [Review](phase-11/review.md) |
-| 12-multimodal-ai | 25 | 75 + 6 retake questions | 81 | initial62/75; effective65/75 (86.67%); cumulative67/81; passed | done | [Progress](phase-12/progress.md) · [History](phase-12/history.md) · [Review](phase-12/review.md) |
-| 13-tools-and-protocols | 45 | 135 + 6 retake questions | 141 | initial 119/135 (88.15%); effective 121/135 (89.63%); cumulative 123/141; all lesson minima met; passed | done | [Progress](phase-13/progress.md) · [History](phase-13/history.md) · [Review](phase-13/review.md) |
+| 00 | setup-and-tooling | 13 | 31/39 | 34/39 (87.18%) | 10 | [Summary](phase-00/review.md) |
+| 01 | math-foundations | 22 | 45/66 | 57/66 (86.36%) | 28 | [Summary](phase-01/review.md) |
+| 02 | ml-fundamentals | 21 | 56/63 | 56/63 (88.89%) | 7 | [Summary](phase-02/review.md) |
+| 03 | deep-learning-core | 13 | 31/39 | 34/39 (87.18%) | 8 | [Summary](phase-03/review.md) |
+| 04 | computer-vision | 28 | 77/84 | 80/84 (95.24%) | 8 | [Summary](phase-04/review.md) |
+| 05 | nlp-foundations-to-advanced | 29 | 83/87 | 83/87 (95.40%) | 4 | [Summary](phase-05/review.md) |
+| 06 | speech-and-audio | 17 | 38/51 | 44/51 (86.27%) | 14 | [Summary](phase-06/review.md) |
+| 07 | transformers-deep-dive | 16 | 30/48 | 41/48 (85.42%) | 29 | [Summary](phase-07/review.md) |
+| 08 | generative-ai | 15 | 38/45 | 42/45 (93.33%) | 8 | [Summary](phase-08/review.md) |
+| 09 | reinforcement-learning | 12 | 24/36 | 31/36 (86.11%) | 28 | [Summary](phase-09/review.md) |
+| 10 | llms-from-scratch | 24 | 59/72 | 63/72 (87.50%) | 13 | [Summary](phase-10/review.md) |
+| 11 | llm-engineering | 17 | 42/51 | 44/51 (86.27%) | 9 | [Summary](phase-11/review.md) |
+| 12 | multimodal-ai | 25 | 62/75 | 65/75 (86.67%) | 14 | [Summary](phase-12/review.md) |
+| 13 | tools-and-protocols | 45 | 119/135 | 121/135 (89.63%) | 18 | [Summary](phase-13/review.md) |
+
+All **198 initial/retake mistakes** are retained with question IDs, prompts, wrong answers, correct answers, and explanations. The mastery-score denominator stays at three questions per lesson; complete retakes replace the corresponding lesson's effective score. See Phase 01's summary for its three targeted-correction exceptions.
+
+Correct-only questions, duplicate lesson checklists and completion logs, old question caches, and per-response logs were removed. Historical instructions to retake lessons are no longer active. Use the ordinary learning workflow for Phases 15–19 and record lesson progress in LEARNING.md; this completed assessment's three-question-per-lesson protocol does not apply.

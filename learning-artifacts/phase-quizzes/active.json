@@ -1,24 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-10-28",
-  "mode": "comprehensive-phase-quiz",
-  "question_language": "English",
-  "phase": "13-tools-and-protocols",
-  "lesson": "33-disassembly-and-control-flow",
-  "lesson_title": "Disassembly and Control Flow: From Bytes to a Graph You Can Check",
-  "phase_question": 141,
-  "lesson_question": 3,
-  "attempt": 2,
-  "phase_questions": 135,
-  "phase_lessons": 45,
-  "initial_score": {
-    "correct": 119,
-    "answered": 135
-  },
-  "effective_score": {
-    "correct": 121,
-    "denominator": 135
-  },
+  "mode": "ordinary-lesson",
+  "status": "complete",
+  "assessment_complete": true,
   "completed_phases": [
     "00",
     "01",
@@ -35,41 +20,14 @@
     "12",
     "13"
   ],
-  "status": "complete",
+  "summary_index": "progress.md",
   "pending_question": null,
-  "phase_progress": "phase-13/progress.md",
-  "phase_history": "phase-13/history.md",
-  "phase_review": "phase-13/review.md",
-  "lesson_cache": "phase-13/current-lesson.json",
-  "rules": {
-    "questions_per_lesson": 3,
-    "types": [
-      "concept",
-      "application",
-      "code"
-    ],
-    "phase_pass_minimum": 0.85,
-    "lesson_pass_minimum": 2,
-    "latest_complete_retake_replaces": true,
-    "incomplete_retake_changes_effective_score": false,
-    "mark_lessons_done_only_on_phase_pass": true,
-    "completion_basis": "quiz-based mastery; implementation lab not performed"
-  },
-  "phase01_override": "Historical Phase01 only: authorized targeted missed-item replacements; preserve66 denominator. No effect on future phases.",
-  "cumulative_score": {
-    "correct": 123,
-    "answered": 141
-  },
-  "retake_queue": [],
-  "retake_score": {
-    "correct": 2,
-    "answered": 3
-  },
-  "assessment_complete": true,
+  "completion_basis": "quiz-based mastery; implementation labs not performed in this assessment",
   "next_activity": {
     "mode": "ordinary-lesson",
     "phase": "15-autonomous-systems",
     "lesson": "01-long-horizon-agents",
     "pending_question": null
-  }
+  },
+  "learning_progress": "../../LEARNING.md"
 }
