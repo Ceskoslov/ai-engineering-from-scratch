@@ -1,0 +1,47 @@
+{
+  "lesson": "08-fine-tuning-lora",
+  "attempt": 1,
+  "source": "phases/11-llm-engineering/08-fine-tuning-lora/docs/en.md",
+  "source_sha256": "cc811f59307d63654a917759f262a65d3d45d4ef416693362c59e096cdb94a8f",
+  "questions": [
+    {
+      "id": "p11-l08-a1-q1",
+      "type": "concept",
+      "text": "Which description captures the core difference between LoRA and full fine-tuning?",
+      "options": {
+        "A": "LoRA freezes the base weights and trains low-rank adapter matrices.",
+        "B": "LoRA changes only the prompt while leaving all parameters untrained.",
+        "C": "LoRA trains every base weight but discards optimizer states after each step.",
+        "D": "LoRA replaces the base model with a database of training examples."
+      },
+      "correct": "A",
+      "explanation": "LoRA learns a low-rank update through smaller trainable matrices while keeping the original weights frozen."
+    },
+    {
+      "id": "p11-l08-a1-q2",
+      "type": "application",
+      "text": "A square 1024-by-1024 projection receives a rank-8 LoRA adapter. Ignoring biases, how many trainable adapter parameters does this add?",
+      "options": {
+        "A": "8,192, because only one 1024-by-8 matrix is trained.",
+        "B": "1,048,576, because the entire projection must be updated.",
+        "C": "16,384, from two matrices with 1024 times 8 parameters each.",
+        "D": "1,064,960, because both base and adapter weights are trained."
+      },
+      "correct": "C",
+      "explanation": "The two adapter matrices have 1024\u00d78 and 8\u00d71024 entries, totaling 16,384 trainable parameters; the base remains frozen."
+    },
+    {
+      "id": "p11-l08-a1-q3",
+      "type": "code",
+      "text": "LoRALayer computes (x @ A @ B) * (alpha / rank). A is random and B is all zeros at initialization. What does LinearWithLoRA return before training?",
+      "options": {
+        "A": "A random perturbation of the base output because A is random.",
+        "B": "The base linear output, because the adapter contribution is zero.",
+        "C": "An all-zero output, because B also zeros the frozen base path.",
+        "D": "The base output multiplied by alpha / rank on both paths."
+      },
+      "correct": "B",
+      "explanation": "The adapter product is zero because B is zero, so adding it preserves the frozen linear layer\u2019s original output."
+    }
+  ]
+}

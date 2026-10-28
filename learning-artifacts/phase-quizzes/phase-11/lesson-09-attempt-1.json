@@ -1,0 +1,47 @@
+{
+  "lesson": "09-function-calling",
+  "attempt": 1,
+  "source": "phases/11-llm-engineering/09-function-calling/docs/en.md",
+  "source_sha256": "30695ec65c0ada92bac742cb5a287603a340c26ed7b1674767d886f54f591b29",
+  "questions": [
+    {
+      "id": "p11-l09-a1-q1",
+      "type": "concept",
+      "text": "In a function-calling interaction, who executes the requested function?",
+      "options": {
+        "A": "The model executes it internally while generating the tool-call JSON.",
+        "B": "The JSON Schema executes it after checking parameter descriptions.",
+        "C": "The application dispatches the model\u2019s request to a tool implementation.",
+        "D": "The tool result executes it when appended to the conversation."
+      },
+      "correct": "C",
+      "explanation": "The model emits a structured request; application code validates and dispatches it, then returns the tool result."
+    },
+    {
+      "id": "p11-l09-a1-q2",
+      "type": "application",
+      "text": "A weather tool reports CITY_NOT_FOUND for a misspelled city. Which handling best supports a bounded correction loop?",
+      "options": {
+        "A": "Return a structured error to the model and permit correction within a retry limit.",
+        "B": "Replace the error with invented weather so the conversation can continue.",
+        "C": "Return an empty response and allow unlimited retries until a call succeeds.",
+        "D": "Hide the error and repeat the identical call without updating the conversation."
+      },
+      "correct": "A",
+      "explanation": "A structured error gives the next decision useful feedback, while a retry limit bounds execution."
+    },
+    {
+      "id": "p11-l09-a1-q3",
+      "type": "code",
+      "text": "The toy loop executes requested tools, appends their results, then reaches an unconditional break. With max_iterations=5 and a request requiring a second tool decision based on the first result, what happens?",
+      "options": {
+        "A": "It automatically completes all five decision rounds before returning.",
+        "B": "It raises an error because max_iterations must equal one.",
+        "C": "It recursively invokes the decision function from each tool result.",
+        "D": "It exits after the first tool batch without making the dependent second decision."
+      },
+      "correct": "D",
+      "explanation": "The unconditional break stops the loop after one batch. A larger iteration limit does not override that control flow."
+    }
+  ]
+}

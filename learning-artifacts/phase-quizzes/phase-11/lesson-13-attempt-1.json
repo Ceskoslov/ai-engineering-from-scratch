@@ -1,0 +1,47 @@
+{
+  "lesson": "13-production-app",
+  "attempt": 1,
+  "source": "phases/11-llm-engineering/13-production-app/docs/en.md",
+  "source_sha256": "b0a346e45927205a67e1db24f0d67e16adde62736840bd2ac923a5fc03cd6101",
+  "questions": [
+    {
+      "id": "p11-l13-a1-q1",
+      "type": "concept",
+      "text": "What is the primary user-experience benefit of streaming an LLM response as it is generated?",
+      "options": {
+        "A": "It guarantees that the complete answer requires fewer generated tokens.",
+        "B": "It lets the user see initial content before the complete response is ready.",
+        "C": "It removes the need to handle provider failures or output validation.",
+        "D": "It guarantees that every model call finishes in less than one second."
+      },
+      "correct": "B",
+      "explanation": "True incremental streaming reduces time until the user sees content, even when total generation time is unchanged."
+    },
+    {
+      "id": "p11-l13-a1-q2",
+      "type": "application",
+      "text": "A provider outage causes many clients to retry simultaneously. Which recovery design reduces synchronized retries while bounding work?",
+      "options": {
+        "A": "Retry immediately forever and disable timeouts until the provider recovers.",
+        "B": "Send all retries at fixed identical intervals with no attempt limit.",
+        "C": "Use bounded exponential backoff with jitter, then an appropriate fallback.",
+        "D": "Suppress failure logs and repeatedly resubmit the same request in a tight loop."
+      },
+      "correct": "C",
+      "explanation": "Exponential backoff spreads retries over time, jitter reduces synchronization, and retry limits plus fallback bound recovery work."
+    },
+    {
+      "id": "p11-l13-a1-q3",
+      "type": "code",
+      "text": "handle_streaming_request first awaits handle_request, which returns the complete response. It then collects every item from stream_response into a list before returning a dictionary. What does its caller receive?",
+      "options": {
+        "A": "Individual generated tokens immediately as the provider produces them.",
+        "B": "An async generator that the caller can consume during the model call.",
+        "C": "A response before generation finishes, followed by automatic SSE updates.",
+        "D": "A final dictionary after generation and local word-by-word iteration finish."
+      },
+      "correct": "D",
+      "explanation": "This method buffers the full response and consumes the local stream internally. It does not yield tokens to its caller or provide live provider streaming."
+    }
+  ]
+}

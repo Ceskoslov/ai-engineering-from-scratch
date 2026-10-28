@@ -1,0 +1,47 @@
+{
+  "lesson": "16-langgraph-state-machines",
+  "attempt": 1,
+  "source": "phases/11-llm-engineering/16-langgraph-state-machines/docs/en.md",
+  "source_sha256": "cd449175f7292a9821644d0b829cd0576a68f0da3aedbbc9e3547b45fd7b05cb",
+  "questions": [
+    {
+      "id": "p11-l16-a1-q1",
+      "type": "concept",
+      "text": "What role does a reducer play in an explicit agent state graph?",
+      "options": {
+        "A": "It decides the model\u2019s next generated token from vocabulary logits.",
+        "B": "It automatically grants approval for every side-effecting tool call.",
+        "C": "It specifies how an incoming field update combines with that field\u2019s existing state.",
+        "D": "It deletes all checkpoints after every successful node execution."
+      },
+      "correct": "C",
+      "explanation": "A reducer defines how updates merge into existing state, such as appending a list or replacing a value."
+    },
+    {
+      "id": "p11-l16-a1-q2",
+      "type": "application",
+      "text": "A graph proposes a refund that requires human authorization. Where should an approval interrupt occur?",
+      "options": {
+        "A": "After the refund tool executes, so the reviewer can inspect the payment receipt.",
+        "B": "Before the side-effecting refund tool runs, with the proposal preserved for review.",
+        "C": "Only after the final answer is sent, so the user sees no delay.",
+        "D": "At an unrelated logging node, while refund execution continues independently."
+      },
+      "correct": "B",
+      "explanation": "Approval must gate the side effect before execution; persisting the proposal allows review and a controlled resume."
+    },
+    {
+      "id": "p11-l16-a1-q3",
+      "type": "code",
+      "text": "The lesson router returns \"tools\" if getattr(last, \"tool_calls\", None) is truthy, otherwise END. If the last message has tool_calls=[], where does it route?",
+      "options": {
+        "A": "END, because an empty list is falsey.",
+        "B": "\"tools\", because the tool_calls attribute exists.",
+        "C": "Both branches, because an empty list means parallel dispatch.",
+        "D": "It raises AttributeError because getattr cannot return lists."
+      },
+      "correct": "A",
+      "explanation": "The condition tests truthiness, not attribute existence. An empty list is falsey, so the router returns END."
+    }
+  ]
+}

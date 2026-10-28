@@ -1,0 +1,48 @@
+{
+  "lesson": "15-prompt-caching",
+  "attempt": 1,
+  "source": "phases/11-llm-engineering/15-prompt-caching/docs/en.md",
+  "source_sha256": "abe8cd085fc41015985f4f324a89e8193593b341855dc82bdf697e68430cc350",
+  "code_source": "phases/11-llm-engineering/15-prompt-caching/code/main.py",
+  "questions": [
+    {
+      "id": "p11-l15-a1-q1",
+      "type": "concept",
+      "text": "What computation does provider-side prompt caching primarily reuse?",
+      "options": {
+        "A": "The complete final answer, so every later request receives identical text.",
+        "B": "The model\u2019s training gradients from an earlier fine-tuning run.",
+        "C": "A permanent update to model weights containing the conversation.",
+        "D": "Previously computed prefix state, while the model still generates a response."
+      },
+      "correct": "D",
+      "explanation": "Prompt caching reuses computation for a matching input prefix; it is distinct from application response caching and does not store knowledge in model weights."
+    },
+    {
+      "id": "p11-l15-a1-q2",
+      "type": "application",
+      "text": "A changing timestamp precedes a long stable rubric in a prefix-cached prompt. Which layout change best preserves reuse of the rubric?",
+      "options": {
+        "A": "Place the stable rubric first and the changing timestamp after the cacheable prefix.",
+        "B": "Randomize the rubric\u2019s wording on every request to improve diversity.",
+        "C": "Place a unique request ID before the rubric along with the timestamp.",
+        "D": "Move the user\u2019s changing question before every stable instruction."
+      },
+      "correct": "A",
+      "explanation": "Stable content should precede changing fields so an early difference does not invalidate reuse of the long shared prefix."
+    },
+    {
+      "id": "p11-l15-a1-q3",
+      "type": "code",
+      "text": "In the lesson simulator, an entry expires when now - written_at >= ttl. Reads do not update written_at. Three requests with one prefix arrive at t=0, 200, and 400 seconds with ttl=300. What are the counts?",
+      "options": {
+        "A": "One write and two reads, because every read refreshes written_at.",
+        "B": "Three writes and zero reads, because timestamps always change.",
+        "C": "Two writes and one read, because the last request is 400 seconds after the initial write.",
+        "D": "Zero writes and three reads, because a repeated prefix never expires."
+      },
+      "correct": "C",
+      "explanation": "The first request writes, the second reads at age 200, and the third rewrites at age 400. The simulator does not refresh written_at on reads; this describes its code, not a universal provider TTL policy."
+    }
+  ]
+}

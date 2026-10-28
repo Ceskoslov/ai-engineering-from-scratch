@@ -1,0 +1,47 @@
+{
+  "lesson": "12-guardrails",
+  "attempt": 1,
+  "source": "phases/11-llm-engineering/12-guardrails/docs/en.md",
+  "source_sha256": "7bca84f499c6a75c2f97253f3fa4cf85befb0fbcf66e4c882e125279686ad73f",
+  "questions": [
+    {
+      "id": "p11-l12-a1-q1",
+      "type": "concept",
+      "text": "Which scenario is an indirect prompt injection?",
+      "options": {
+        "A": "A user asks an ordinary question outside the assistant\u2019s supported topic.",
+        "B": "An attacker places instructions in a retrieved document to redirect the assistant.",
+        "C": "The model returns malformed JSON despite a formatting instruction.",
+        "D": "A rate limiter rejects a user who exceeds the request quota."
+      },
+      "correct": "B",
+      "explanation": "Indirect injection delivers attacker instructions through external content processed as data, such as retrieved documents or emails."
+    },
+    {
+      "id": "p11-l12-a1-q2",
+      "type": "application",
+      "text": "An input filter passes a normal account question, but the generated response includes an email address the user is not allowed to receive. Which design directly addresses both access and delivery?",
+      "options": {
+        "A": "Trust the output because the input filter already passed the question.",
+        "B": "Add a system instruction and remove all output validation checks.",
+        "C": "Increase the input length limit so the model has more room to explain.",
+        "D": "Enforce authorization when retrieving data and check/redact sensitive output before delivery."
+      },
+      "correct": "D",
+      "explanation": "Authorization limits what data can be accessed, while output checks provide another layer before delivery; input filtering alone cannot enforce either."
+    },
+    {
+      "id": "p11-l12-a1-q3",
+      "type": "code",
+      "text": "detect_injection assigns encoding_evasion confidence=0.70 and returns passed=max_confidence < 0.75. If encoding_evasion is the only detection, what result follows?",
+      "options": {
+        "A": "passed=True with confidence=0.70, because the detection remains below the blocking threshold.",
+        "B": "passed=False with confidence=0.70, because any detection automatically blocks.",
+        "C": "passed=True with confidence=0.0, because passing clears the detection score.",
+        "D": "passed=False with confidence=1.0, because encoding detections are always certain."
+      },
+      "correct": "A",
+      "explanation": "The comparison 0.70 < 0.75 is True. The detection remains in the report but does not block at this threshold."
+    }
+  ]
+}

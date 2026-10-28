@@ -1,0 +1,48 @@
+{
+  "lesson": "17-agent-framework-tradeoffs",
+  "attempt": 1,
+  "source": "phases/11-llm-engineering/17-agent-framework-tradeoffs/docs/en.md",
+  "source_sha256": "4c0c6119addcb3cf05f3a9e1884ae3bf75e4428a6196c90982653559c94c83b7",
+  "code_source": "phases/11-llm-engineering/17-agent-framework-tradeoffs/code/main.py",
+  "questions": [
+    {
+      "id": "p11-l17-a1-q1",
+      "type": "concept",
+      "text": "What should primarily guide the choice of an agent orchestration abstraction?",
+      "options": {
+        "A": "The number of stars on the framework\u2019s repository alone.",
+        "B": "Whether its state, branching, and persistence model match the workflow\u2019s requirements.",
+        "C": "Whether it adds the most autonomous agents to every task.",
+        "D": "Whether its demo uses the same model provider as your application."
+      },
+      "correct": "B",
+      "explanation": "The lesson emphasizes matching the workflow shape and its state, branching, durability, and cost needs to the abstraction."
+    },
+    {
+      "id": "p11-l17-a1-q2",
+      "type": "application",
+      "text": "A workflow uses two fixed model calls and one tool, with no roles, dialogue, durable state, fanout, or approval interruptions. Which starting point follows the lesson\u2019s overhead guidance?",
+      "options": {
+        "A": "A manager agent that repeatedly assigns work to several specialist crews.",
+        "B": "A multi-agent group chat with model-selected speakers at every step.",
+        "C": "A durable graph runtime with custom reducers for every intermediate value.",
+        "D": "A small explicit Python pipeline, adding orchestration machinery when requirements justify it."
+      },
+      "correct": "D",
+      "explanation": "For a small fixed workflow without orchestration requirements, plain Python avoids unnecessary framework overhead."
+    },
+    {
+      "id": "p11-l17-a1-q3",
+      "type": "code",
+      "text": "The recommender first returns plain python for <=2 calls if roles, dialogue, resume, fanout, and human interrupts are all false. That first check omits has_typed_state; a later branch checks it. With total_llm_calls=2, has_typed_state=True, and all other flags false, what is returned?",
+      "options": {
+        "A": "plain python, because the first matching branch returns before the typed-state branch.",
+        "B": "langgraph, because the later typed-state branch overrides earlier returns.",
+        "C": "crewai, because any typed state implies specialist roles.",
+        "D": "agno, because two model calls automatically imply session memory."
+      },
+      "correct": "A",
+      "explanation": "The first condition does not inspect has_typed_state, so it succeeds and returns plain python. Later branches never execute; this reveals a limitation in the toy rule ordering."
+    }
+  ]
+}

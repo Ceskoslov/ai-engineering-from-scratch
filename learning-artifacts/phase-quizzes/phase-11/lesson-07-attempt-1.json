@@ -1,0 +1,47 @@
+{
+  "lesson": "07-advanced-rag",
+  "attempt": 1,
+  "source": "phases/11-llm-engineering/07-advanced-rag/docs/en.md",
+  "source_sha256": "9c84b80f89524792b94fcd7c076ce213249d66ecffaf43e7d78d2fb6ce33c867",
+  "questions": [
+    {
+      "id": "p11-l07-a1-q1",
+      "type": "concept",
+      "text": "Why does Reciprocal Rank Fusion use ranking positions rather than adding raw BM25 and vector similarity scores?",
+      "options": {
+        "A": "To guarantee that every relevant document appears in the fused results.",
+        "B": "To combine results without requiring the two score scales to be comparable.",
+        "C": "To discard documents that appear in only one retrieval method.",
+        "D": "To remove the need to rank documents within either retrieval method."
+      },
+      "correct": "B",
+      "explanation": "RRF sums reciprocal-rank contributions, allowing fusion across retrieval methods whose raw scores have different scales."
+    },
+    {
+      "id": "p11-l07-a1-q2",
+      "type": "application",
+      "text": "A short passage matches a query precisely but lacks surrounding conditions needed to answer it. Which strategy directly addresses this retrieval-versus-context tradeoff?",
+      "options": {
+        "A": "Search child chunks, then include their larger parent chunks in the prompt.",
+        "B": "Search child chunks, then remove all surrounding text before generation.",
+        "C": "Increase sampling temperature while keeping the same incomplete passage.",
+        "D": "Use a hypothetical answer as verified evidence without retrieving documents."
+      },
+      "correct": "A",
+      "explanation": "Parent-child retrieval matches smaller passages while supplying their larger parent sections as generation context."
+    },
+    {
+      "id": "p11-l07-a1-q3",
+      "type": "code",
+      "text": "The toy evaluate_faithfulness function keeps only sentences whose stripped length is greater than 10. If none remain, it returns (1.0, []). What does it return for answer=\"No.\" with no retrieved chunks?",
+      "options": {
+        "A": "(0.0, [\"No\"]), because the answer has no supporting source.",
+        "B": "(0.0, []), because an empty context always scores zero.",
+        "C": "(1.0, []), because the short sentence is excluded before checking support.",
+        "D": "It raises ValueError because the retrieved context is empty."
+      },
+      "correct": "C",
+      "explanation": "\"No\" has length 2 after splitting on periods, so it is filtered out. The early return gives 1.0 without checking any claim; this does not establish actual faithfulness."
+    }
+  ]
+}

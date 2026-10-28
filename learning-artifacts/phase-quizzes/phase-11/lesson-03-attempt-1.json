@@ -1,0 +1,47 @@
+{
+  "lesson": "03-structured-outputs",
+  "attempt": 1,
+  "source": "phases/11-llm-engineering/03-structured-outputs/docs/en.md",
+  "source_sha256": "6d310ae5ce8f771c5668d8742f1d1b1c922e738c087225d7c4b31eed492e43d7",
+  "questions": [
+    {
+      "id": "p11-l03-a1-q1",
+      "type": "concept",
+      "text": "What does constrained decoding do while generating a structured response?",
+      "options": {
+        "A": "It repairs invalid fields after the full response has been generated.",
+        "B": "It masks tokens that would violate the supported output grammar or schema.",
+        "C": "It verifies every extracted value against the original source document.",
+        "D": "It repeats the prompt until several generated responses agree."
+      },
+      "correct": "B",
+      "explanation": "Constrained decoding restricts allowed next tokens during generation. It does not establish factual accuracy."
+    },
+    {
+      "id": "p11-l03-a1-q2",
+      "type": "application",
+      "text": "An extracted product price is a non-negative number and passes schema validation, but differs from the price in the source text. What additional check addresses this failure?",
+      "options": {
+        "A": "Check that the response parses as JSON before accepting the price.",
+        "B": "Require the price field and forbid additional output properties.",
+        "C": "Check the extracted price against the evidence in the source text.",
+        "D": "Retry only when the extracted price has the wrong numeric type."
+      },
+      "correct": "C",
+      "explanation": "Schema compliance checks shape, types, and declared constraints; source-grounded checking is needed to detect an invented but correctly typed price."
+    },
+    {
+      "id": "p11-l03-a1-q3",
+      "type": "code",
+      "text": "The toy validator checks a number with isinstance(data, (int, float)), then checks minimum=0. Its integer branch explicitly rejects bool. What happens for True under these two schemas?",
+      "options": {
+        "A": "True passes the number schema but fails the integer schema.",
+        "B": "True fails both schemas because booleans are never numeric in Python.",
+        "C": "True passes both schemas because bool subclasses int in Python.",
+        "D": "True fails the number schema but passes the integer schema."
+      },
+      "correct": "A",
+      "explanation": "In Python bool subclasses int, so the number branch accepts True and it meets minimum=0. The integer branch explicitly rejects bool; this is a toy validator limitation."
+    }
+  ]
+}

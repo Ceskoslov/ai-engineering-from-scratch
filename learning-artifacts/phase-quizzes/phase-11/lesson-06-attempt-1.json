@@ -1,0 +1,47 @@
+{
+  "lesson": "06-rag",
+  "attempt": 1,
+  "source": "phases/11-llm-engineering/06-rag/docs/en.md",
+  "source_sha256": "a0d5b356c1ce021f6a9ca0ccfd2693a7cae56802c6b17927fb72f116bd7b2752",
+  "questions": [
+    {
+      "id": "p11-l06-a1-q1",
+      "type": "concept",
+      "text": "How does RAG provide a model with application-specific knowledge at query time?",
+      "options": {
+        "A": "It updates the model weights separately for each incoming question.",
+        "B": "It stores all source documents permanently inside the system prompt.",
+        "C": "It retrieves relevant passages and includes them in the generation context.",
+        "D": "It replaces generation with a vote over document embedding coordinates."
+      },
+      "correct": "C",
+      "explanation": "RAG retrieves relevant evidence and augments the model input with it; this does not require changing model weights."
+    },
+    {
+      "id": "p11-l06-a1-q2",
+      "type": "application",
+      "text": "A company refund policy changes frequently. What keeps a RAG assistant\u2019s evidence current without retraining its language model?",
+      "options": {
+        "A": "Increase output temperature whenever an old policy is retrieved.",
+        "B": "Update and re-index changed policy documents, replacing stale chunks.",
+        "C": "Retain old indexed chunks and ask for longer answers about refunds.",
+        "D": "Add more few-shot examples while leaving the document index untouched."
+      },
+      "correct": "B",
+      "explanation": "Updating the retrieval corpus and its indexed chunks makes current evidence available at query time without retraining the generator."
+    },
+    {
+      "id": "p11-l06-a1-q3",
+      "type": "code",
+      "text": "In chunk_text, start begins at 0 and advances by chunk_size - overlap on each loop iteration. For nonempty text, chunk_size=200, and overlap=200, what happens?",
+      "options": {
+        "A": "It produces one 200-word chunk and exits normally.",
+        "B": "It moves backward through the text until start becomes negative.",
+        "C": "It skips the first chunk and immediately returns an empty list.",
+        "D": "It keeps appending the same first chunk because start never advances."
+      },
+      "correct": "D",
+      "explanation": "The step is zero, so start remains 0 and the loop condition stays true for nonempty text. The implementation needs validation that 0 <= overlap < chunk_size."
+    }
+  ]
+}

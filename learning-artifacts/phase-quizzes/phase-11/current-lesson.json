@@ -1,0 +1,47 @@
+{
+  "lesson": "13-production-app",
+  "attempt": 2,
+  "source": "phases/11-llm-engineering/13-production-app/docs/en.md",
+  "source_sha256": "b0a346e45927205a67e1db24f0d67e16adde62736840bd2ac923a5fc03cd6101",
+  "questions": [
+    {
+      "id": "p11-l13-a2-q1",
+      "type": "concept",
+      "text": "What does random jitter add to an exponential-backoff retry schedule?",
+      "options": {
+        "A": "It guarantees that the provider will accept the next request.",
+        "B": "It removes the need to limit the number of retries.",
+        "C": "It varies retry timing across clients to reduce synchronized retry bursts.",
+        "D": "It makes every client retry at exactly the same increasing intervals."
+      },
+      "correct": "C",
+      "explanation": "Jitter adds variation to delay timing so clients that failed together are less likely to retry together."
+    },
+    {
+      "id": "p11-l13-a2-q2",
+      "type": "application",
+      "text": "A chat endpoint waits for the full provider response, then sends its words as SSE events. Users still wait several seconds for the first word. Which change addresses that initial wait?",
+      "options": {
+        "A": "Collect the SSE events into a larger list before returning them.",
+        "B": "Consume the provider\u2019s incremental stream and forward permitted chunks as they arrive.",
+        "C": "Add random delays between words after the full answer has been buffered.",
+        "D": "Rename the final response dictionary to streaming_result without changing its control flow."
+      },
+      "correct": "B",
+      "explanation": "Reducing initial wait requires receiving and forwarding incremental provider output, with an appropriate output-checking policy. Replaying an already completed answer does not shorten generation wait."
+    },
+    {
+      "id": "p11-l13-a2-q3",
+      "type": "code",
+      "text": "The retry function loops over range(max_retries + 1). Each attempt raises ConnectionError; it retries while attempt < max_retries and otherwise re-raises. With max_retries=3, how many attempts occur before the error escapes?",
+      "options": {
+        "A": "Three attempts, because range excludes its upper bound of three.",
+        "B": "Two attempts, because the first failure consumes two retry slots.",
+        "C": "An unlimited number, because every exception restarts the loop.",
+        "D": "Four attempts, with attempt values 0, 1, 2, and 3."
+      },
+      "correct": "D",
+      "explanation": "range(3 + 1) yields four attempt values. There is one initial attempt followed by up to three retries; the final failure is re-raised."
+    }
+  ]
+}
